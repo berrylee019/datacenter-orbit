@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <!-- 2~3열: 지도 영역 -->
+        <!-- 2~3열: 지도 영역 (높이 오류 해결 포함) -->
         <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl h-full flex flex-col">
             <div id="map" class="w-full flex-1 bg-gray-950" style="min-height: 500px; height: 100%;"></div>
         </div>
@@ -151,11 +151,12 @@
         const map = L.map('map', { zoomControl: false }).setView([38.0, -40.0], 3);
         L.control.zoom({ position: 'bottomright' }).addTo(map);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; CartoDB' }).addTo(map);
-    
-        // 💡 지도가 안 깨지고 정상 크기로 나오도록 강제 새로고침하는 핵심 코드
+
+        // 지도가 깨지지 않고 완전히 꽉 차서 렌더링되도록 보정하는 타이밍 스크립트
         setTimeout(() => {
             map.invalidateSize();
         }, 200);
+
         let selectedNode = null;
 
         // 1. 깃허브 저장소에 업로드한 실제 data.json 파일 로드 파이프라인
@@ -199,12 +200,34 @@
                 });
             }).catch(err => console.error("데이터 로드 실패:", err));
 
-        // 시뮬레이터 연동
+        // 💡 3. SMR 가상 연계 버튼 클릭 시 -> 형님의 세일즈 훅 + Fake Door 모달 연동 코드로 전면 고도화
         document.getElementById('btn-smr').addEventListener('click', () => {
             if (!selectedNode) return;
-            document.getElementById('selected-dc-power').innerText = "결합 수립 완료: 홀텍 제4세대 SMR 원전 그리드";
-            document.getElementById('selected-dc-power').className = "font-mono text-emerald-400 font-bold animate-pulse";
-            alert(`[그리드 시뮬레이션 성공] ${selectedNode.name}에 전용 SMR 인프라 전력선이 원격 융합되었습니다. 화석연료 유입 차단으로 실시간 탄소 비용 절감 효과가 적용됩니다.`);
+            
+            // 1단계: 기존 국가 전력망 승인 대기 없는 독립형 SMR 결합 가치 제안 안내
+            alert(
+                `[그리드 시뮬레이션 엔진 가동]\n\n` +
+                `기존 국가 전력망(그리드) 승인을 기다릴 필요 없이, 독립형 SMR 전력선을 [${selectedNode.name}] 인프라에 직접 물리적으로 '결합'했을 때의 경제적 효과와 탄소 제로 달성 가능성을 시뮬레이션해 드립니다.`
+            );
+            
+            // 2단계: 화면 뒤의 실제 전력원 상태를 시각적으로 은은하게 변경 연출
+            document.getElementById('selected-dc-power').innerText = "가상 연계: 4세대 독립형 SMR망";
+            document.getElementById('selected-dc-power').className = "font-mono text-amber-400 font-bold animate-pulse";
+            
+            // 3단계: 핵심 킬러 콘텐츠 제안 및 프리미엄 구독(Fake Door) 모달 강제 팝업
+            setTimeout(() => {
+                // 상단 Pro 구독 모달의 텍스트를 버튼 문맥에 맞게 실시간 변경
+                const modalTitle = document.querySelector('#fake-door-modal h3');
+                const modalDesc = document.querySelector('#fake-door-modal p');
+                
+                if (modalTitle && modalDesc) {
+                    modalTitle.innerText = `📊 ${selectedNode.name} 상세 인프라 보고서 제한`;
+                    modalDesc.innerHTML = `SMR 전력망 결합에 따른 <strong>'정확한 20년 치 비용 절감액 수치 보고서'</strong>와 <strong>'인근 가용 SMR 부지 추천 가이드'</strong>는 Pro 플랜에서만 제공됩니다.<br><br>지금 얼리버드 대기 명단에 등록하시면 출시 즉시 50% 할인 혜택을 드립니다.`;
+                }
+                
+                // 모달창 열기
+                openFakeDoorModal();
+            }, 800); // 0.8초 뒤 자연스럽게 구독 팝업이 스르륵 뜨도록 세팅
         });
 
         // 4. Fake Door 모달 제어 함수
