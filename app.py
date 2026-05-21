@@ -95,20 +95,21 @@ if os.path.exists(html_path):
     # 5. 컴포넌트 실행 및 응답 수신
     response_data = components.html(html_code, height=950, scrolling=True)
 
-    # 6. 유저 리드 신호 처리 핸들러
+    # 6. 유저 리드 신호 처리 핸들러 (수신부 구조 정렬 완료)
     if isinstance(response_data, dict) and response_data.get("type") == "INFRA_PULSE_LEAD":
         lead_email = response_data.get("email")
         lead_target = response_data.get("target", "일반 메인 대기")
         
-        # 테스트 편의성을 위해 '동일 이메일 연속 전송 제한' 로직을 잠시 풀고 싶다면 
-        # 아래의 if 중복체크 라인을 주석 처리하셔도 됩니다.
+        # 중복 체크 세션 검증
         if "last_collected_lead" not in st.session_state or st.session_state.get("last_collected_lead") != lead_email:
             st.session_state["last_collected_lead"] = lead_email
             
-            with st.spinner("GitHub 가동 중..."):
+            with st.spinner("🚀 GitHub Issues 인프라로 리드 송출 중..."):
                 success = create_github_issue(lead_email, lead_target)
                 if success:
                     st.toast(f"🎉 {lead_email} 리드 수집 성공! (GitHub 연동 완료)", icon="✅")
+                    # 💡 백엔드를 즉시 리로드하여 다음 입력을 받을 수 있도록 뷰포트를 리셋합니다.
+                    st.rerun()
         else:
             st.toast("⚠️ 중복된 이메일 주소입니다. 다른 이메일로 테스트해 보세요.", icon="ℹ️")
 
