@@ -12,6 +12,27 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# 🚨 [신규 추가] 자바스크립트 postMessage를 수신해서 부모 창 주소(Query Parameter)를 직접 갱신하는 보이지 않는 리스너
+message_listener = """
+<script>
+window.addEventListener("message", function(event) {
+    if (event.data && event.data.type === "SUBMIT_LEAD") {
+        // 부모 창(Streamlit 메인 앱)의 URL을 안전하게 가져와서 파라미터 세팅
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set("submit_lead", "true");
+        currentUrl.searchParams.set("email", event.data.email);
+        currentUrl.searchParams.set("target", event.data.target);
+        
+        // 크로스 오리진 차단 없이 부모 창 자체를 새로고침하며 데이터 주입
+        window.location.href = currentUrl.toString();
+    }
+});
+</script>
+"""
+# 0픽셀 크기로 메인 화면 최상단에 안전하게 배치합니다.
+components.html(message_listener, height=0, width=0)
+
+
 # 2. 🚨 디버깅 정보 출력을 강화한 GitHub Issue 생성 함수
 def create_github_issue(email, dc_name="미지정"):
     if "GITHUB_TOKEN" not in st.secrets or "GITHUB_REPO" not in st.secrets:
@@ -89,22 +110,23 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 🛠️ [긴급 수정] index.html의 새 Form ID인 'proWaitlistForm'에 이벤트를 바인딩하는 로직 추가
+    # 🛠️ [수정 완료] 직접적인 window.parent 변조 대신 안전하게 postMessage로 부모 창에 데이터를 전달하는 브릿지 스크립트
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
         e.preventDefault();
         const emailInput = e.target.querySelector('input[type="email"]').value;
-        const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
+        const dcName = typeof selectedNode !== 'undefined' && selectedNode ? selectedNode.name : "일반 메인 대기";
 
-        const parentOrigin = window.parent.location.origin;
-        const parentPath = window.parent.location.pathname;
-        
-        const targetUrl = `${parentOrigin}${parentPath}?submit_lead=true&email=${encodeURIComponent(emailInput)}&target=${encodeURIComponent(dcName)}`;
-        
+        // 1. 사용자에게 완료 알림창 먼저 출력
         alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
         
-        window.parent.location.href = targetUrl;
+        // 2. iframe의 오리진 장벽을 넘어 부모(Streamlit) 리스너로 데이터 송출
+        window.parent.postMessage({
+            type: "SUBMIT_LEAD",
+            email: emailInput,
+            target: dcName
+        }, "*");
     }
 
     // 💡 HTML 렌더링 후 폼 제출 이벤트를 가로채도록 리스너 수동 정렬
