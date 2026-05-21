@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Leaflet.js (지도 라이브러리) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .custom-popup .leaflet-popup-content-wrapper {
+            background: #1f2937;
+            color: #f3f4f6;
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+        }
+        .custom-popup .leaflet-popup-tip {
+            background: #1f2937;
+        }
+        /* 실시간 깜빡임 효과 */
+        .ping-fast {
+            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen flex flex-col">
+
+    <!-- 상단 내비게이션 바 -->
+    <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-[1000]">
+        <div class="flex items-center gap-3">
+            <div class="bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/30">
+                <i data-lucide="globe" class="text-emerald-400 w-6 h-6"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">InfraPulse</h1>
+                <p class="text-xs text-gray-400">Global AIDC & Power Infrastructure Intelligence</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-400">
+            <span class="flex items-center gap-2 bg-gray-800 px-3 py-1.5 rounded-full border border-gray-700">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                시뮬레이션 엔진 가동 중
+            </span>
+            <span class="text-xs bg-gray-800/50 px-2.5 py-1 rounded border border-gray-700/50">v1.0.0-Beta</span>
+        </div>
+    </header>
+
+    <!-- 메인 대시보드 레이아웃 -->
+    <main class="flex-1 grid grid-cols-1 xl:grid-cols-4 p-6 gap-6 h-[calc(100vh-73px)] overflow-hidden">
+        
+        <!-- 좌측 관제 패널 (1열) -->
+        <div class="xl:col-span-1 flex flex-col gap-6 overflow-y-auto pr-2">
+            <!-- 핵심 텔레메트리 스코어보드 -->
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl">
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
+                    글로벌 통합 인프라 텔레메트리
+                    <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="text-xs text-gray-400 mb-1">추적 데이터센터 개수</div>
+                        <div class="text-2xl font-bold font-mono text-gray-100 flex items-baseline gap-2">
+                            11,324 <span class="text-xs font-normal text-emerald-400 flex items-center gap-0.5"><i data-lucide="trending-up" class="w-3 h-3"></i>+2 Today</span>
+                        </div>
+                    </div>
+                    <hr class="border-gray-800">
+                    <div>
+                        <div class="text-xs text-gray-400 mb-1">인프라 총 전력 수요 (추정)</div>
+                        <div class="text-2xl font-bold font-mono text-cyan-400" id="total-power">14,245.82 MW</div>
+                    </div>
+                    <hr class="border-gray-800">
+                    <div>
+                        <div class="text-xs text-gray-400 mb-1">가상 탄소 배출량 (탄소 그리드 지표)</div>
+                        <div class="text-2xl font-bold font-mono text-orange-400" id="total-carbon">8,412.35 kg/s</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 인터랙티브 컨트롤 패널 (SMR 시뮬레이터) -->
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
+                <h3 class="text-sm font-semibold text-gray-200 mb-3 flex items-center gap-2">
+                    <i data-lucide="zap" class="w-4 h-4 text-yellow-400"></i>
+                    SMR 인프라 결합 시뮬레이터
+                </h3>
+                <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                    지도의 데이터센터 마커를 선택한 후, 아래 버튼을 눌러 소형 모듈 원전(SMR) 기반의 독립 전력망 결합 효율을 시뮬레이션하십시오.
+                </p>
+                
+                <div class="bg-gray-950 border border-gray-800 rounded-lg p-4 mb-4 flex-1 flex flex-col justify-center">
+                    <div class="text-xs text-gray-500 mb-1">선택된 타깃 시설</div>
+                    <div id="selected-dc-name" class="text-sm font-bold text-emerald-400">지도의 마커를 클릭해 주세요</div>
+                    
+                    <div class="mt-4 grid grid-cols-2 gap-2 text-xs">
+                        <div class="bg-gray-900/50 p-2 rounded border border-gray-800/50">
+                            <div class="text-gray-500 mb-0.5">현재 전력원</div>
+                            <div id="selected-dc-power" class="font-mono text-gray-300">-</div>
+                        </div>
+                        <div class="bg-gray-900/50 p-2 rounded border border-gray-800/50">
+                            <div class="text-gray-500 mb-0.5">전력 요구량</div>
+                            <div id="selected-dc-load" class="font-mono text-gray-300">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-smr" disabled class="w-full bg-gray-800 text-gray-500 border border-gray-700 py-3 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-not-allowed">
+                    <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                    타깃을 선택해 주세요
+                </button>
+            </div>
+        </div>
+
+        <!-- 중앙 지도 영역 (2~3열) -->
+        <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl h-full flex flex-col">
+            <div class="absolute top-4 right-4 z-[1000] bg-gray-900/90 border border-gray-800 p-3 rounded-lg text-xs space-y-2 backdrop-blur shadow-2xl">
+                <div class="font-semibold text-gray-300 mb-1">범례 (Infrastructure Status)</div>
+                <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span> AI 대형 데이터센터 (AIDC)</div>
+                <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span> 전력 포화 / 병목 구간</div>
+                <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> SMR 상업 연계 계획지</div>
+            </div>
+            <!-- 지도 컨테이너 -->
+            <div id="map" class="w-full flex-1 bg-gray-950"></div>
+        </div>
+
+        <!-- 우측 인텔리전스 패널 (4열) -->
+        <div class="xl:col-span-1 flex flex-col gap-6 overflow-y-auto pl-2">
+            <!-- 실시간 전력 로드 밸런싱 차트 -->
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl">
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
+                    24H 전력 그리드 부하 매칭
+                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-cyan-400"></i>
+                </h3>
+                <div class="h-44 w-full">
+                    <canvas id="loadChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 글로벌 인프라 핵심 정보 피드 -->
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 flex items-center justify-between">
+                    실시간 인프라 인텔리전스 브리핑
+                    <i data-lucide="rss" class="w-4 h-4 text-orange-400"></i>
+                </h3>
+                <div class="space-y-3 overflow-y-auto flex-1 text-xs">
+                    <div class="bg-gray-950 p-3 rounded border border-gray-800/80 hover:border-gray-700 transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-orange-400 font-semibold bg-orange-400/10 px-1.5 py-0.5 rounded text-[10px]">인프라 임대</span>
+                            <span class="text-gray-500 text-[10px]">방금 전</span>
+                        </div>
+                        <p class="text-gray-300 font-medium leading-snug">앤트로픽, 스페이스X 멤피스 '콜로서스 1' 데이터센터 전력 출력 300MW 전체 임대 계약 체결.</p>
+                    </div>
+                    <div class="bg-gray-950 p-3 rounded border border-gray-800/80 hover:border-gray-700 transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-emerald-400 font-semibold bg-emerald-400/10 px-1.5 py-0.5 rounded text-[10px]">SMR 상용화</span>
+                            <span class="text-gray-500 text-[10px]">1시간 전</span>
+                        </div>
+                        <p class="text-gray-300 font-medium leading-snug">미국 홀텍(Holtec), 미시간주 팰리세이드 SMR 연내 첫 상용 착공 가시화. 한국 현대건설 핵심 파트너 참여.</p>
+                    </div>
+                    <div class="bg-gray-950 p-3 rounded border border-gray-800/80 hover:border-gray-700 transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-cyan-400 font-semibold bg-cyan-400/10 px-1.5 py-0.5 rounded text-[10px]">국내 동향</span>
+                            <span class="text-gray-500 text-[10px]">3시간 전</span>
+                        </div>
+                        <p class="text-gray-300 font-medium leading-snug">네이버 '각 세종' 가동률 상승으로 세종 특별시 인근 전력 그리드 부하 분산 분석 진행 중.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-900 bg-gray-950 px-6 py-3 text-center text-xs text-gray-500 flex items-center justify-between">
+        <div>&copy; 2026 InfraPulse Intelligence. All rights reserved.</div>
+        <div class="flex items-center gap-1"><i data-lucide="terminal" class="w-3 h-3"></i> Powered by Lean Startup Agent Framework</div>
+    </footer>
+
+    <script>
+        // Lucide 아이콘 초기화
+        lucide.createIcons();
+
+        // 실시간 가상 계기판 텔레메트리 스크립트
+        let currentPower = 14245.82;
+        let currentCarbon = 8412.35;
+        setInterval(() => {
+            currentPower += (Math.random() - 0.5) * 0.4;
+            currentCarbon += (Math.random() - 0.5) * 0.2;
+            document.getElementById('total-power').innerText = currentPower.toFixed(2) + " MW";
+            document.getElementById('total-carbon').innerText = currentCarbon.toFixed(2) + " kg/s";
+        }, 2000);
+
+        // 하크 테마 지도 렌더링 세팅
+        const map = L.map('map', { zoomControl: false }).setView([35.0, -40.0], 3);
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; CartoDB'
+        }).addTo(map);
+
+        // 시뮬레이션용 데이터셋 정의
+        const datacenters = [
+            { id: 1, name: "xAI 멤피스 콜로서스 1", lat: 35.06, lng: -90.13, type: "AIDC", load: "300 MW", source: "그리드 화석연료 화력발전 유입", status: "saturated", carbon: "high" },
+            { id: 2, name: "네이버 각 세종", lat: 36.48, lng: 127.29, type: "AIDC", load: "270 MW", source: "기존 원자력+일반 그리드 변전", status: "active", carbon: "mid" },
+            { id: 3, name: "미시간 팰리세이드 SMR 부지", lat: 42.32, lng: -86.31, type: "SMR", load: "0 MW (대기)", source: "홀텍 SMR 1·2호기 (건설 준비)", status: "smr", carbon: "zero" }
+        ];
+
+        let selectedNode = null;
+
+        // 마커 생성 및 클릭 이벤트 리스너 바인딩
+        datacenters.forEach(dc => {
+            let color = "#06b6d4"; // active (cyan)
+            if (dc.status === 'saturated') color = "#f97316"; // orange
+            if (dc.status === 'smr') color = "#34d399"; // emerald
+
+            const marker = L.circleMarker([dc.lat, dc.lng], {
+                radius: dc.status === 'saturated' ? 10 : 8,
+                fillColor: color,
+                color: "#111827",
+                weight: 2,
+                fillOpacity: 0.8
+            }).addTo(map);
+
+            marker.bindPopup(`<div class="custom-popup-content"><strong class="text-emerald-400">${dc.name}</strong><br><span class="text-xs text-gray-300">부하량: ${dc.load}</span></div>`, { className: 'custom-popup' });
+
+            marker.on('click', () => {
+                selectedNode = dc;
+                document.getElementById('selected-dc-name').innerText = dc.name;
+                document.getElementById('selected-dc-power').innerText = dc.source;
+                document.getElementById('selected-dc-load').innerText = dc.load;
+
+                const btn = document.getElementById('btn-smr');
+                if (dc.type === 'AIDC') {
+                    btn.disabled = false;
+                    btn.className = "w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/20";
+                    btn.innerHTML = `<i data-lucide="zap"></i> SMR 가상 연계 시뮬레이션`;
+                } else {
+                    btn.disabled = true;
+                    btn.className = "w-full bg-gray-800 text-gray-500 border border-gray-700 py-3 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-not-allowed";
+                    btn.innerHTML = `<i data-lucide="shield-check"></i> 이미 탄소 제로 인프라입니다`;
+                }
+                lucide.createIcons();
+            });
+        });
+
+        // SMR 가상 연계 버튼 이벤트 액션 인터랙션
+        document.getElementById('btn-smr').addEventListener('click', () => {
+            if (!selectedNode) return;
+            
+            // 시뮬레이션 전환 연출 효과
+            document.getElementById('selected-dc-power').innerText = "결합 완료: K-원전 SMR 베이스로드";
+            document.getElementById('selected-dc-power').className = "font-mono text-emerald-400 font-bold animate-pulse";
+            
+            alert(`[시뮬레이션 완료] ${selectedNode.name} 시설에 소형 모듈 원전(SMR) 전력이 독립 연계되었습니다. 해당 인프라 구역의 탄소 배출 지표가 즉시 'ZERO(0)'로 갱신됩니다.`);
+            
+            // 글로벌 스코어 가치 차감 퍼포먼스
+            currentCarbon -= 120.45;
+            document.getElementById('total-carbon').innerText = currentCarbon.toFixed(2) + " kg/s";
+        });
+
+        // Chart.js 24시간 부하 변동선 그래프 설정
+        const ctx = document.getElementById('loadChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['02시', '06시', '10시', '14시', '18시', '22시'],
+                datasets: [{
+                    label: '그리드 총부하 (MW)',
+                    data: [11200, 10800, 13900, 14245, 12100, 13000],
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.05)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: '원전 베이스로드',
+                    data: [5000, 5000, 5000, 5000, 5000, 5000],
+                    borderColor: '#34d399',
+                    borderDash: [5, 5],
+                    borderWidth: 1.5,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: '#1f2937' }, ticks: { color: '#9ca3af', font: { size: 10 } } },
+                    y: { grid: { color: '#1f2937' }, ticks: { color: '#9ca3af', font: { size: 10 } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
