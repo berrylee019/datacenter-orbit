@@ -1,255 +1,82 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .custom-popup .leaflet-popup-content-wrapper { background: #1f2937; color: #f3f4f6; border: 1px solid #374151; border-radius: 0.5rem; }
-        .custom-popup .leaflet-popup-tip { background: #1f2937; }
-    </style>
-</head>
-<body class="bg-gray-950 text-gray-100 font-sans min-h-screen flex flex-col">
+import streamlit as st
+import streamlit.components.v1 as components
+import os
+import requests
 
-    <!-- 상단 바 -->
-    <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-[1000]">
-        <div class="flex items-center gap-3">
-            <div class="bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/30">
-                <i data-lucide="globe" class="text-emerald-400 w-6 h-6"></i>
-            </div>
-            <div>
-                <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">InfraPulse</h1>
-                <p class="text-xs text-gray-400 font-mono">Live AIDC & Power Grid Telemetry Ecosystem</p>
-            </div>
-        </div>
-        <!-- 4. Fake Door: 프리미엄 결제 유도 버튼 -->
-        <button onclick="openFakeDoorModal()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-gray-950 px-4 py-2 rounded-lg font-bold text-xs shadow-lg shadow-orange-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
-            <i data-lucide="crown" class="w-4 h-4"></i> Pro 버전 업그레이드 (구독)
-        </button>
-    </header>
+# 1. Streamlit 페이지 기본 설정
+st.set_page_config(
+    page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
+    page_icon="🌐",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-    <!-- 레이아웃 -->
-    <main class="flex-1 grid grid-cols-1 xl:grid-cols-4 p-6 gap-6 h-[calc(100vh-73px)] overflow-hidden">
+# 2. GitHub Issue 생성 함수 (성공/실패 여부를 정확히 반환)
+def create_github_issue(email, dc_name="미지정"):
+    if "GITHUB_TOKEN" not in st.secrets or "GITHUB_REPO" not in st.secrets:
+        st.error("❌ Streamlit Secrets에 GITHUB_TOKEN 또는 GITHUB_REPO가 설정되지 않았습니다.")
+        return False
         
-        <!-- 1열: 관제 계기판 -->
-        <div class="xl:col-span-1 flex flex-col gap-6 overflow-y-auto pr-2">
-            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl">
-                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
-                    글로벌 실제 인프라 지표
-                    <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
-                </h3>
-                <div class="space-y-4">
-                    <div>
-                        <div class="text-xs text-gray-400 mb-1">글로벌 고부하 AIDC</div>
-                        <div class="text-2xl font-bold font-mono text-gray-100 flex items-baseline gap-2">11,324개</div>
-                    </div>
-                    <hr class="border-gray-800">
-                    <div>
-                        <div class="text-xs text-gray-400 mb-1">총 전력 로드량 (실시간 추정)</div>
-                        <div class="text-2xl font-bold font-mono text-cyan-400" id="total-power">14,245.82 MW</div>
-                    </div>
-                </div>
-            </div>
+    token = st.secrets["GITHUB_TOKEN"]
+    repo = st.secrets["GITHUB_REPO"]
+    
+    url = f"https://api.github.com/repos/{repo}/issues"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    data = {
+        "title": f"🚨 [New Lead] {email} 구독 신청",
+        "body": f"### 📬 새로운 프로 버전 대기 신청 리드\n\n"
+                f"- **신청 이메일:** `{email}`\n"
+                f"- **관심 인프라 타깃:** {dc_name}\n\n"
+                f"--- \n*본 이슈는 InfraPulse 네이티브 브릿지에 의해 안전하게 생성되었습니다.*",
+        "labels": ["lead", "pro-waitlist"]
+    }
+    
+    try:
+        response = requests.post(url, json=data, headers=headers)
+        if response.status_code == 201:
+            return True
+        else:
+            st.error(f"❌ GitHub API 오류 (Status Code: {response.status_code})")
+            st.code(response.text, language="json")
+            return False
+    except Exception as e:
+        st.error(f"❌ GitHub 통신 예외 발생: {str(e)}")
+        return False
 
-            <!-- 3. 핵심 킬러 콘텐츠: SMR 결합 그리드 시뮬레이터 -->
-            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
-                <h3 class="text-sm font-semibold text-gray-200 mb-3 flex items-center gap-2">
-                    <i data-lucide="zap" class="w-4 h-4 text-yellow-400"></i>
-                    SMR-그리드 매핑 시뮬레이터
-                </h3>
-                <p class="text-xs text-gray-400 mb-4 leading-relaxed">
-                    지도의 실제 AI 데이터센터를 선택하고 SMR 원전 전선 결합 시뮬레이션을 실행하여 탄소 배출량 감소 폭을 예측하십시오.
-                </p>
-                
-                <div class="bg-gray-950 border border-gray-800 rounded-lg p-4 mb-4 flex-1 flex flex-col justify-center">
-                    <div id="selected-dc-name" class="text-sm font-bold text-emerald-400 mb-2">지도의 마커를 클릭해 주세요</div>
-                    <p id="selected-dc-desc" class="text-xs text-gray-400 mb-3">-</p>
-                    <div class="grid grid-cols-2 gap-2 text-[11px]">
-                        <div class="bg-gray-900 p-2 rounded border border-gray-800"><span class="text-gray-500">인프라 전력원:</span> <div id="selected-dc-power" class="font-mono text-gray-300">-</div></div>
-                        <div class="bg-gray-900 p-2 rounded border border-gray-800"><span class="text-gray-500">전력 요구치:</span> <div id="selected-dc-load" class="font-mono text-gray-300">-</div></div>
-                    </div>
-                </div>
+# 3. 💡 [네이티브 쿼리 파라미터 리스너]
+query_params = st.query_params
 
-                <button id="btn-smr" disabled class="w-full bg-gray-800 text-gray-500 border border-gray-700 py-3 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-not-allowed">
-                    타깃 시설을 선택해 주세요
-                </button>
-            </div>
-        </div>
-
-        <!-- 2~3열: 지도 영역 -->
-        <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl h-full flex flex-col">
-            <div id="map" class="w-full flex-1 bg-gray-950" style="min-height: 500px; height: 100%;"></div>
-        </div>
-
-        <!-- 4열: 실시간 인텔리전스 및 피드 -->
-        <div class="xl:col-span-1 flex flex-col gap-6 overflow-y-auto pl-2">
-            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl">
-                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
-                    24H 전력 그리드 로드 추이
-                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-cyan-400"></i>
-                </h3>
-                <div class="h-40 w-full"><canvas id="loadChart"></canvas></div>
-            </div>
-
-            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
-                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 flex items-center justify-between">
-                    AI 에이전트 인프라 브리핑
-                    <i data-lucide="rss" class="w-4 h-4 text-orange-400"></i>
-                </h3>
-                <div class="space-y-3 overflow-y-auto flex-1 text-xs">
-                    <div class="bg-gray-950 p-3 rounded border border-gray-800/80">
-                        <div class="flex items-center justify-between mb-1"><span class="text-orange-400 font-semibold bg-orange-400/10 px-1.5 py-0.5 rounded text-[10px]">인프라 빅딜</span></div>
-                        <p class="text-gray-300 leading-snug">앤트로픽, 머스크 xAI의 멤피스 '콜로서스 1' 데이터센터 300MW 전체 출력 확보 완료.</p>
-                    </div>
-                    <div class="bg-gray-950 p-3 rounded border border-gray-800/80">
-                        <div class="flex items-center justify-between mb-1"><span class="text-emerald-400 font-semibold bg-emerald-400/10 px-1.5 py-0.5 rounded text-[10px]">SMR 상용화</span></div>
-                        <p class="text-gray-300 leading-snug">미국 홀텍(Holtec), 미시간주 SMR 연내 상용 착공 추진. 현대건설 EPC 시공 파트너십 부각.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- 4. Fake Door Test 모달 -->
-    <div id="fake-door-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
-        <div class="bg-gray-900 border border-gray-800 max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
-            <button onclick="closeFakeDoorModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-300 cursor-pointer"><i data-lucide="x"></i></button>
-            <div class="text-center">
-                <div class="bg-amber-500/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 border border-amber-500/20">
-                    <i data-lucide="crown" class="text-amber-400 w-6 h-6"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-100 mb-2">InfraPulse Pro 멤버십 출시 임박</h3>
-                <p class="text-xs text-gray-400 mb-6 leading-relaxed">
-                    Pro 버전에서는 **전 세계 전력선 공급 한계도 지표**, **SMR 미공개 부지 정보**, 그리고 **AI 에이전트 실시간 기업 공시 분석 알림**을 독점 제공합니다. 얼리버드 대기자 명단에 등록하세요.
-                </p>
-                <form onsubmit="handleFakeDoorSubmit(event)" class="space-y-3">
-                    <input type="email" required placeholder="이메일 주소를 입력해 주세요" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-gray-100 font-mono">
-                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-950 font-bold py-3 rounded-lg text-sm hover:from-emerald-600 hover:to-cyan-600 transition-all cursor-pointer">
-                        얼리버드 혜택 받고 대기 명단 등록
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        lucide.createIcons();
-
-        // 실시간 계기판 변동 시뮬레이션
-        let currentPower = 14245.82;
-        setInterval(() => {
-            currentPower += (Math.random() - 0.5) * 0.3;
-            document.getElementById('total-power').innerText = currentPower.toFixed(2) + " MW";
-        }, 2000);
-
-        // 다크테마 지도 설정
-        const map = L.map('map', { zoomControl: false }).setView([38.0, -40.0], 3);
-        L.control.zoom({ position: 'bottomright' }).addTo(map);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; CartoDB' }).addTo(map);
-
-        // 지도가 깨지지 않고 완전히 꽉 차서 렌더링되도록 보정하는 타이밍 스크립트
-        setTimeout(() => {
-            map.invalidateSize();
-        }, 200);
-
-        let selectedNode = null;
-
-        // 1. 깃허브 저장소에 업로드한 실제 data.json 파일 로드 파이프라인
-        fetch('https://raw.githubusercontent.com/berrylee019/datacenter-orbit/refs/heads/main/data.json')
-            .then(res => res.json())
-            .then(data => {
-                data.forEach(dc => {
-                    let color = "#06b6d4";
-                    if (dc.status === 'saturated') color = "#f97316";
-                    if (dc.status === 'smr') color = "#34d399";
-
-                    const marker = L.circleMarker([dc.lat, dc.lng], {
-                        radius: dc.status === 'saturated' ? 10 : 8,
-                        fillColor: color,
-                        color: "#111827",
-                        weight: 2,
-                        fillOpacity: 0.8
-                    }).addTo(map);
-
-                    marker.bindPopup(`<div class="custom-popup-content"><strong class="text-emerald-400">${dc.name}</strong><br><span class="text-xs text-gray-400">부하: ${dc.load}</span></div>`, { className: 'custom-popup' });
-
-                    marker.on('click', () => {
-                        selectedNode = dc;
-                        document.getElementById('selected-dc-name').innerText = dc.name;
-                        document.getElementById('selected-dc-desc').innerText = dc.desc;
-                        document.getElementById('selected-dc-power').innerText = dc.source;
-                        document.getElementById('selected-dc-load').innerText = dc.load;
-
-                        const btn = document.getElementById('btn-smr');
-                        if (dc.type === 'AIDC') {
-                            btn.disabled = false;
-                            btn.className = "w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/20";
-                            btn.innerHTML = `<i data-lucide="zap"></i> SMR 그리드 선 가상 결합`;
-                        } else {
-                            btn.disabled = true;
-                            btn.className = "w-full bg-gray-800 text-gray-500 border border-gray-700 py-3 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-not-allowed";
-                            btn.innerHTML = `차세대 탄소 제로 인프라입니다`;
-                        }
-                        lucide.createIcons();
-                    });
-                });
-            }).catch(err => console.error("데이터 로드 실패:", err));
-
-        // 💡 3. SMR 가상 연계 버튼 클릭 시 -> 형님의 세일즈 훅 + Fake Door 모달 연동 코드로 전면 고도화
-        document.getElementById('btn-smr').addEventListener('click', () => {
-            if (!selectedNode) return;
+if query_params.get("submit_lead") == "true":
+    lead_email = query_params.get("email")
+    lead_target = query_params.get("target", "일반 메인 대기")
+    
+    # 즉시 GitHub 이슈 생성 실행
+    with st.spinner("🚀 리드를 GitHub Issues 인프라로 안전하게 송출 중..."):
+        success = create_github_issue(lead_email, lead_target)
+        if success:
+            st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
+            st.balloons()
             
-            alert(
-                `[그리드 시뮬레이션 엔진 가동]\n\n` +
-                `기존 국가 전력망(그리드) 승인을 기다릴 필요 없이, 독립형 SMR 전력선을 [${selectedNode.name}] 인프라에 직접 물리적으로 '결합'했을 때의 경제적 효과와 탄소 제로 달성 가능성을 시뮬레이션해 드립니다.`
-            );
-            
-            document.getElementById('selected-dc-power').innerText = "가상 연계: 4세대 독립형 SMR망";
-            document.getElementById('selected-dc-power').className = "font-mono text-amber-400 font-bold animate-pulse";
-            
-            setTimeout(() => {
-                const modalTitle = document.querySelector('#fake-door-modal h3');
-                const modalDesc = document.querySelector('#fake-door-modal p');
-                
-                if (modalTitle && modalDesc) {
-                    modalTitle.innerText = `📊 ${selectedNode.name} 상세 인프라 보고서 제한`;
-                    modalDesc.innerHTML = `SMR 전력망 결합에 따른 <strong>'정확한 20년 치 비용 절감액 수치 보고서'</strong>와 <strong>'인근 가용 SMR 부지 추천 가이드'</strong>는 Pro 플랜에서만 제공됩니다.<br><br>지금 얼리버드 대기 명단에 등록하시면 출시 즉시 50% 할인 혜택을 드립니다.`;
-                }
-                
-                openFakeDoorModal();
-            }, 800);
-        });
+            # 주소창 청소 및 초기화 리로드
+            st.query_params.clear()
+            st.button("관제탑 화면으로 돌아가기", on_click=st.rerun)
+            st.stop()
 
-        // 4. Fake Door 모달 제어 함수
-        function openFakeDoorModal() { document.getElementById('fake-door-modal').classList.remove('hidden'); }
-        function closeFakeDoorModal() { document.getElementById('fake-door-modal').classList.add('hidden'); }
-        
-        // 🛠️ [교체 완료] 부모 창(Streamlit)의 쿼리 매개변수를 직접 변조하여 완벽한 백엔드 신호 동기화 보장
-        function handleFakeDoorSubmit(e) {
-            e.preventDefault();
-            const emailInput = e.target.querySelector('input[type="email"]').value;
-            const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
+# 4. Streamlit UI 뷰포트 최적화 스타일 (파싱 에러 방지를 위해 원라인 처리)
+hide_menu_style = "<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;} .block-container {padding: 0rem; margin: 0rem;} iframe {display: block; width: 100vw; height: 100vh; border: none;}</style>"
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-            // 💡 부모 window 창 주소에 매개변수를 붙여 백엔드 if 리스너를 강제로 호출합니다.
-            const cleanUrl = window.parent.location.origin + window.parent.location.pathname;
-            window.parent.location.href = `${cleanUrl}?submit_lead=true&email=${encodeURIComponent(emailInput)}&target=${encodeURIComponent(dcName)}`;
-        }
+# 5. 지도 및 인터페이스를 담은 HTML 로드 및 렌더링
+html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
-        // Chart 설정
-        const ctx = document.getElementById('loadChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['02시', '06시', '10시', '14시', '18시', '22시'],
-                datasets: [{ label: '부하량', data: [11200, 10800, 13900, 14245, 12100, 13000], borderColor: '#06b6d4', tension: 0.4, fill: false }]
-            },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-    </script>
-</body>
-</html>
+if os.path.exists(html_path):
+    with open(html_path, "r", encoding="utf-8") as f:
+        html_code = f.read()
+    
+    # 메인 관제 화면 컴포넌트 출력
+    components.html(html_code, height=950, scrolling=True)
+else:
+    st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
