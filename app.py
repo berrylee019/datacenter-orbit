@@ -31,7 +31,7 @@ def create_github_issue(email, dc_name="미지정"):
         "body": f"### 📬 새로운 프로 버전 대기 신청 리드\n\n"
                 f"- **신청 이메일:** `{email}`\n"
                 f"- **관심 인프라 타깃:** {dc_name}\n\n"
-                f"--- \n*본 이슈는 InfraPulse 자체 수신 핸들러에 의해 자동 생성되었습니다.*",
+                f"--- \n*본 이슈는 InfraPulse 고안정성 주소창 리스너에 의해 자동 생성되었습니다.*",
         "labels": ["lead", "pro-waitlist"]
     }
     
@@ -51,7 +51,27 @@ def create_github_issue(email, dc_name="미지정"):
         st.error(f"❌ GitHub 통신 중 예외 에러 발생: {str(e)}")
         return False
 
-# 3. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
+# 3. 🛡️ [고안정성 네이티브 주소창 리스너] 
+# iframe의 postMessage 유실 문제를 완벽하게 우회합니다.
+query_params = st.query_params
+
+if query_params.get("submit_lead") == "true":
+    lead_email = query_params.get("email")
+    lead_target = query_params.get("target", "일반 메인 대기")
+    
+    if lead_email:
+        with st.spinner("🚀 GitHub Issues 인프라로 리드를 즉시 송출 중..."):
+            success = create_github_issue(lead_email, lead_target)
+            if success:
+                st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
+                st.balloons()
+                
+                # 전송 완료 후 주소창을 깨끗하게 비우고 세션 리셋
+                st.query_params.clear()
+                st.button("관제탑 화면으로 돌아가기", on_click=st.rerun)
+                st.stop()
+
+# 4. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -63,13 +83,14 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 4. HTML 파일 로드 및 스크립트 주입
+# 5. HTML 파일 로드 및 주소창 변조형 스크립트 주입
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
+    # postMessage 대신 부모 창의 주소를 직접 바꿔 브릿지를 태우는 안전 설계 스크립트
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
@@ -77,41 +98,24 @@ if os.path.exists(html_path):
         const emailInput = e.target.querySelector('input[type="email"]').value;
         const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
 
-        const payload = {
-            type: "INFRA_PULSE_LEAD",
-            email: emailInput,
-            target: dcName
-        };
-        window.parent.postMessage({isStreamlitMessage: true, type: "streamlit:setComponentValue", value: payload}, "*");
-
+        // 부모 창(Streamlit)의 오리진 주소 획득
+        const parentOrigin = window.parent.location.origin;
+        const parentPath = window.parent.location.pathname;
+        
+        // 쿼리 스트링 매개변수 빌드
+        const targetUrl = `${parentOrigin}${parentPath}?submit_lead=true&email=${encodeURIComponent(emailInput)}&target=${encodeURIComponent(dcName)}`;
+        
         alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
-        e.target.reset();
-        closeFakeDoorModal();
+        
+        // 부모 창의 주소를 강제로 변경하여 Streamlit 백엔드를 깨웁니다.
+        window.parent.location.href = targetUrl;
     }
     </script>
     """
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
-    # 5. 컴포넌트 실행 및 응답 수신
-    response_data = components.html(html_code, height=950, scrolling=True)
-
-    # 6. 유저 리드 신호 처리 핸들러 (수신부 구조 정렬 완료)
-    if isinstance(response_data, dict) and response_data.get("type") == "INFRA_PULSE_LEAD":
-        lead_email = response_data.get("email")
-        lead_target = response_data.get("target", "일반 메인 대기")
-        
-        # 중복 체크 세션 검증
-        if "last_collected_lead" not in st.session_state or st.session_state.get("last_collected_lead") != lead_email:
-            st.session_state["last_collected_lead"] = lead_email
-            
-            with st.spinner("🚀 GitHub Issues 인프라로 리드 송출 중..."):
-                success = create_github_issue(lead_email, lead_target)
-                if success:
-                    st.toast(f"🎉 {lead_email} 리드 수집 성공! (GitHub 연동 완료)", icon="✅")
-                    # 💡 백엔드를 즉시 리로드하여 다음 입력을 받을 수 있도록 뷰포트를 리셋합니다.
-                    st.rerun()
-        else:
-            st.toast("⚠️ 중복된 이메일 주소입니다. 다른 이메일로 테스트해 보세요.", icon="ℹ️")
+    # 6. 컴포넌트 실행 (수신처리는 상단의 3번 리스너가 전담하므로 반환값은 렌더링용으로만 사용)
+    components.html(html_code, height=950, scrolling=True)
 
 else:
     st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
