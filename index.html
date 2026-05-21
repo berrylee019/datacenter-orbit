@@ -83,7 +83,7 @@
 
         <!-- 2~3열: 지도 영역 -->
         <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl h-full flex flex-col">
-            <div id="map" class="w-full flex-1 bg-gray-950"></div>
+            <div id="map" class="w-full flex-1 bg-gray-950" style="min-height: 500px; height: 100%;"></div>
         </div>
 
         <!-- 4열: 실시간 인텔리전스 및 피드 -->
@@ -151,7 +151,11 @@
         const map = L.map('map', { zoomControl: false }).setView([38.0, -40.0], 3);
         L.control.zoom({ position: 'bottomright' }).addTo(map);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; CartoDB' }).addTo(map);
-
+    
+        // 💡 지도가 안 깨지고 정상 크기로 나오도록 강제 새로고침하는 핵심 코드
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 200);
         let selectedNode = null;
 
         // 1. 깃허브 저장소에 업로드한 실제 data.json 파일 로드 파이프라인
