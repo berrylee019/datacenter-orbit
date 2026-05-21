@@ -51,8 +51,7 @@ def create_github_issue(email, dc_name="미지정"):
         st.error(f"❌ GitHub 통신 중 예외 에러 발생: {str(e)}")
         return False
 
-# 3. 🛡️ [고안정성 네이티브 주소창 리스너] 
-# iframe의 postMessage 유실 문제를 완벽하게 우회합니다.
+# 3. 🛡️ [고안정성 네이티브 주소창 리스너]
 query_params = st.query_params
 
 if query_params.get("submit_lead") == "true":
@@ -90,7 +89,7 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # postMessage 대신 부모 창의 주소를 직접 바꿔 브릿지를 태우는 안전 설계 스크립트
+    # 🛠️ [긴급 수정] index.html의 새 Form ID인 'proWaitlistForm'에 이벤트를 바인딩하는 로직 추가
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
@@ -98,23 +97,23 @@ if os.path.exists(html_path):
         const emailInput = e.target.querySelector('input[type="email"]').value;
         const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
 
-        // 부모 창(Streamlit)의 오리진 주소 획득
         const parentOrigin = window.parent.location.origin;
         const parentPath = window.parent.location.pathname;
         
-        // 쿼리 스트링 매개변수 빌드
         const targetUrl = `${parentOrigin}${parentPath}?submit_lead=true&email=${encodeURIComponent(emailInput)}&target=${encodeURIComponent(dcName)}`;
         
         alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
         
-        // 부모 창의 주소를 강제로 변경하여 Streamlit 백엔드를 깨웁니다.
         window.parent.location.href = targetUrl;
     }
+
+    // 💡 HTML 렌더링 후 폼 제출 이벤트를 가로채도록 리스너 수동 정렬
+    document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
     </script>
     """
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
-    # 6. 컴포넌트 실행 (수신처리는 상단의 3번 리스너가 전담하므로 반환값은 렌더링용으로만 사용)
+    # 6. 컴포넌트 실행
     components.html(html_code, height=950, scrolling=True)
 
 else:
