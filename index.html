@@ -235,7 +235,29 @@
         function closeFakeDoorModal() { document.getElementById('fake-door-modal').classList.add('hidden'); }
         function handleFakeDoorSubmit(e) {
             e.preventDefault();
-            alert("얼리버드 대기자 명단에 정상 등록되었습니다! 정식 에이전트 연동 버전 출시 시 가장 먼저 알림을 보내드리겠습니다. (전환율 측정 성공)");
+            const emailInput = e.target.querySelector('input[type="email"]').value;
+            const dcName = selectedNode ? selectedNode.name : "일반 신청";
+
+            // 깃허브 이슈 생성 URL 구조 만들기 (내 저장소 주소에 맞게 자동으로 채워짐)
+            // 형님의 저장소 이름이 datacenter-orbit 라고 가정했을 때의 예시입니다.
+            const repoOwner = "본인_깃허브_아이디"; // 💡 실제 깃허브 ID로 변경하세요
+            const repoName = "datacenter-orbit";    // 💡 실제 저장소 이름으로 변경하세요
+            
+            const issueTitle = encodeURIComponent(`[Pro 대기명단] ${dcName} - ${emailInput}`);
+            const issueBody = encodeURIComponent(
+                `### 📊 프리미엄 구독 리드 수집\n\n` +
+                `- **신청자 이메일:** ${emailInput}\n` +
+                `- **관심 데이터센터:** ${dcName}\n` +
+                `- **유입 경로:** SMR 그리드 선 가상 결합 시뮬레이터 팝업\n\n` +
+                `*본 이슈는 InfraPulse 가상 시뮬레이션을 통해 생성된 리드 데이터입니다.*`
+            );
+
+            // 깃허브 이슈 작성 페이지로 새 창을 띄우며 데이터를 넘김
+            const githubIssueUrl = `https://github.com/` + repoOwner + `/` + repoName + `/issues/new?title=${issueTitle}&body=${issueBody}`;
+            
+            // 새 창으로 이동시켜 유저가 'Submit new issue'만 누르면 끝나게 하거나, 
+            // 팝업을 띄워 자연스럽게 접수를 유도합니다.
+            window.open(githubIssueUrl, '_blank');
             closeFakeDoorModal();
         }
 
