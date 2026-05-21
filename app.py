@@ -1,6 +1,40 @@
 import streamlit as st
 import requests
 import json
+import os
+import streamlit.components.v1 as components
+
+# 1. Streamlit 페이지 기본 설정 (전체 화면 확장을 위해 와이드 모드 활성화)
+st.set_page_config(
+    page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
+    page_icon="🌐",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
+# 상단 Streamlit 기본 메뉴 및 하단 워터마크 숨기기 (깔끔한 UI용)
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .block-container {padding: 0rem;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+# 2. index.html 파일 읽기
+html_path = os.path.join(os.path.dirname(__file__), "index.html")
+
+if os.path.exists(html_path):
+    with open(html_path, "r", encoding="utf-8") as f:
+        html_code = f.read()
+    
+    # 3. HTML 컴포넌트를 전체 화면 크기로 렌더링 (높이는 브라우저 환경에 맞게 조절)
+    components.html(html_code, height=900, scroller=True)
+else:
+    st.error("index.html 파일을 찾을 수 없습니다. 저장소 루트 경로를 확인해 주세요.")
+
 
 # --- Streamlit Secrets에서 보안 환경변수 안전하게 로드 ---
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
