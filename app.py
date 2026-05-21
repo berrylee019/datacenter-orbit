@@ -31,7 +31,7 @@ if os.path.exists(html_path):
         html_code = f.read()
     
     # 3. HTML 컴포넌트를 전체 화면 크기로 렌더링 (높이는 브라우저 환경에 맞게 조절)
-    components.html(html_code, height=900, scroller=True)
+    components.html(html_code, height=900, scrolling=True)
 else:
     st.error("index.html 파일을 찾을 수 없습니다. 저장소 루트 경로를 확인해 주세요.")
 
