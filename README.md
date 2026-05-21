@@ -6,7 +6,7 @@
 InfraPulse is an interactive prototype telemetry platform designed to track global AI data center workloads, grid saturation, and Small Modular Reactor (SMR) integration simulations.
 
 ## 🚀 Live Demo
-Check out the live dashboard here: **[Your GitHub Pages URL Generation]**
+Check out the live dashboard here: **[https://berrylee019.github.io/datacenter-orbit/]**
 
 ## ✨ Key Features
 - **Global Infrastructure Map:** Interactive Leaflet.js map tracking high-density facilities (e.g., xAI Memphis Colossus, NAVER GAK Sejong).
