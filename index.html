@@ -229,19 +229,29 @@
         function openFakeDoorModal() { document.getElementById('fake-door-modal').classList.remove('hidden'); }
         function closeFakeDoorModal() { document.getElementById('fake-door-modal').classList.add('hidden'); }
         
-        // 프론트엔드 전용 알림 및 전환 유도 처리 함수로 교체 완료
+        // ⚡ [Streamlit 양방향 데이터 핸들러 인터페이스로 전면 체인지]
         function handleFakeDoorSubmit(e) {
             e.preventDefault();
             const emailInput = e.target.querySelector('input[type="email"]').value;
-            const dcName = selectedNode ? selectedNode.name : "일반 신청";
+            const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
 
-            // 콘솔 로그를 남겨 브라우저 상에서 리드 수집 시도가 일어났음을 확인할 수 있게 백업
-            console.log(`[Fake Door Lead] 이메일: ${emailInput} | 타깃: ${dcName}`);
+            // 1. Streamlit 백엔드로 안전하게 Payload 패싱 (새로고침 현상 완전 제거)
+            const payload = {
+                type: "INFRA_PULSE_LEAD",
+                email: emailInput,
+                target: dcName
+            };
+            window.parent.postMessage({
+                isStreamlitMessage: true, 
+                type: "streamlit:setComponentValue", 
+                value: payload
+            }, "*");
 
-            // 사용자 경험(UX)을 해치지 않는 깔끔한 성공 알림
-            alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\n\n입력하신 이메일(${emailInput})로 출시 즉시 할인 혜택 및 Pro 버전 안내서를 보내드리겠습니다.`);
+            // 2. 브라우저 콘솔 리드 로그 백업 및 알림 UX
+            console.log(`[Streamlit Bridge Sent] 이메일: ${emailInput} | 타깃: ${dcName}`);
+            alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\n\n출시 즉시 입력하신 이메일(${emailInput})로 50% 할인 혜택과 관제 보고서를 발송해 드리겠습니다.`);
             
-            // 입력 폼 초기화 및 모달 닫기
+            // 3. 입력 폼 리셋 및 모달 자동 종료
             e.target.reset();
             closeFakeDoorModal();
         }
