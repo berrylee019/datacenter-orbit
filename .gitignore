@@ -1,0 +1,9 @@
+# OS 컴포넌트
+.DS_Store
+Thumbs.db
+
+# 로그 및 개발 가비지
+*.log
+.env
+.venv/
+node_modules/
