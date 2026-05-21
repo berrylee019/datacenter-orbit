@@ -57,7 +57,6 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # 4. 가장 에러가 없고 깔끔한 'Streamlit 전용 수신 핸들러' 인터페이스 구축
-# HTML 내부에서 window.parent.postMessage() 형태로 쏜 데이터를 감지하는 표준 가교 레이어입니다.
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
@@ -65,16 +64,13 @@ if os.path.exists(html_path):
         html_code = f.read()
     
     # [자체 핸들러 연동 스크립트 수술]: HTML 소스코드 로드 후, 자바스크립트 브릿지 주입
-    # 이 스크립트 주입 덕분에 index.html 내부의 handleFakeDoorSubmit가 실행될 때 파이썬 백엔드가 곧바로 감지합니다.
     bridge_script = """
     <script>
-    // 기존의 handleFakeDoorSubmit 함수를 Streamlit 통신 규격에 맞게 오버라이딩(덮어쓰기) 합니다.
     function handleFakeDoorSubmit(e) {
         e.preventDefault();
         const emailInput = e.target.querySelector('input[type="email"]').value;
         const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
 
-        // 부모 Streamlit 창에 데이터 바인딩 전송
         const payload = {
             type: "INFRA_PULSE_LEAD",
             email: emailInput,
@@ -82,27 +78,25 @@ if os.path.exists(html_path):
         };
         window.parent.postMessage({isStreamlitMessage: true, type: "streamlit:setComponentValue", value: payload}, "*");
 
-        // 유저 UX용 가벼운 알림 후 모달 숨김 처리
         alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
         e.target.reset();
         closeFakeDoorModal();
     }
     </script>
     """
-    # 닫는 body 태그 바로 앞에 브릿지 스크립트를 삽입하여 결합력을 강화합니다.
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
     # 5. components.html을 커스텀 상태 저장소로 활용하여 값의 변화를 비동기로 리스닝
-    # scrolling=True 옵션을 주어 오타 오류 원천 차단 및 안정성 확보
     response_data = components.html(html_code, height=950, scrolling=True)
 
     # 6. 컴포넌트로부터 유저 리드 수집 신호가 넘어왔을 때 실행되는 백엔드 트리거
-    if response_data font_type := type(response_data) is dict and response_data.get("type") == "INFRA_PULSE_LEAD":
+    # 💡 [정정 완료] 오타 구문을 지우고, 딕셔너리 타입 검증 및 키 체크를 표준 조건문으로 간결하게 구성했습니다.
+    if isinstance(response_data, dict) and response_data.get("type") == "INFRA_PULSE_LEAD":
         lead_email = response_data.get("email")
         lead_target = response_data.get("target", "일반 메인 대기")
         
         # 중복 전송 방지를 위해 세션 상태(Session State) 고유 키 검사 적용
-        if "last_collected_lead" not in st.secrets or st.session_state.get("last_collected_lead") != lead_email:
+        if "last_collected_lead" not in st.session_state or st.session_state.get("last_collected_lead") != lead_email:
             st.session_state["last_collected_lead"] = lead_email
             
             # 깃허브 이슈 생성 파이프라인 구동
