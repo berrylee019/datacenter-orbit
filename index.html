@@ -160,7 +160,7 @@
         let selectedNode = null;
 
         // 1. 깃허브 저장소에 업로드한 실제 data.json 파일 로드 파이프라인
-        fetch('./data.json')
+        fetch('https://raw.githubusercontent.com/berrylee019/datacenter-orbit')
             .then(res => res.json())
             .then(data => {
                 data.forEach(dc => {
