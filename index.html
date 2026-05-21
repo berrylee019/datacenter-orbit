@@ -229,31 +229,15 @@
         function openFakeDoorModal() { document.getElementById('fake-door-modal').classList.remove('hidden'); }
         function closeFakeDoorModal() { document.getElementById('fake-door-modal').classList.add('hidden'); }
         
-        // ⚡ [Streamlit 양방향 데이터 핸들러 인터페이스로 전면 체인지]
+        // 🛠️ [교체 완료] 부모 창(Streamlit)의 쿼리 매개변수를 직접 변조하여 완벽한 백엔드 신호 동기화 보장
         function handleFakeDoorSubmit(e) {
             e.preventDefault();
             const emailInput = e.target.querySelector('input[type="email"]').value;
             const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
 
-            // 1. Streamlit 백엔드로 안전하게 Payload 패싱 (새로고침 현상 완전 제거)
-            const payload = {
-                type: "INFRA_PULSE_LEAD",
-                email: emailInput,
-                target: dcName
-            };
-            window.parent.postMessage({
-                isStreamlitMessage: true, 
-                type: "streamlit:setComponentValue", 
-                value: payload
-            }, "*");
-
-            // 2. 브라우저 콘솔 리드 로그 백업 및 알림 UX
-            console.log(`[Streamlit Bridge Sent] 이메일: ${emailInput} | 타깃: ${dcName}`);
-            alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\n\n출시 즉시 입력하신 이메일(${emailInput})로 50% 할인 혜택과 관제 보고서를 발송해 드리겠습니다.`);
-            
-            // 3. 입력 폼 리셋 및 모달 자동 종료
-            e.target.reset();
-            closeFakeDoorModal();
+            // 💡 부모 window 창 주소에 매개변수를 붙여 백엔드 if 리스너를 강제로 호출합니다.
+            const cleanUrl = window.parent.location.origin + window.parent.location.pathname;
+            window.parent.location.href = `${cleanUrl}?submit_lead=true&email=${encodeURIComponent(emailInput)}&target=${encodeURIComponent(dcName)}`;
         }
 
         // Chart 설정
