@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <!-- 2~3열: 지도 영역 (높이 오류 해결 포함) -->
+        <!-- 2~3열: 지도 영역 -->
         <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl h-full flex flex-col">
             <div id="map" class="w-full flex-1 bg-gray-950" style="min-height: 500px; height: 100%;"></div>
         </div>
@@ -115,7 +115,7 @@
         </div>
     </main>
 
-    <!-- 4. Fake Door Test 모달 (전환율 검증용) -->
+    <!-- 4. Fake Door Test 모달 -->
     <div id="fake-door-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
             <button onclick="closeFakeDoorModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-300 cursor-pointer"><i data-lucide="x"></i></button>
@@ -204,19 +204,15 @@
         document.getElementById('btn-smr').addEventListener('click', () => {
             if (!selectedNode) return;
             
-            // 1단계: 기존 국가 전력망 승인 대기 없는 독립형 SMR 결합 가치 제안 안내
             alert(
                 `[그리드 시뮬레이션 엔진 가동]\n\n` +
                 `기존 국가 전력망(그리드) 승인을 기다릴 필요 없이, 독립형 SMR 전력선을 [${selectedNode.name}] 인프라에 직접 물리적으로 '결합'했을 때의 경제적 효과와 탄소 제로 달성 가능성을 시뮬레이션해 드립니다.`
             );
             
-            // 2단계: 화면 뒤의 실제 전력원 상태를 시각적으로 은은하게 변경 연출
             document.getElementById('selected-dc-power').innerText = "가상 연계: 4세대 독립형 SMR망";
             document.getElementById('selected-dc-power').className = "font-mono text-amber-400 font-bold animate-pulse";
             
-            // 3단계: 핵심 킬러 콘텐츠 제안 및 프리미엄 구독(Fake Door) 모달 강제 팝업
             setTimeout(() => {
-                // 상단 Pro 구독 모달의 텍스트를 버튼 문맥에 맞게 실시간 변경
                 const modalTitle = document.querySelector('#fake-door-modal h3');
                 const modalDesc = document.querySelector('#fake-door-modal p');
                 
@@ -225,39 +221,28 @@
                     modalDesc.innerHTML = `SMR 전력망 결합에 따른 <strong>'정확한 20년 치 비용 절감액 수치 보고서'</strong>와 <strong>'인근 가용 SMR 부지 추천 가이드'</strong>는 Pro 플랜에서만 제공됩니다.<br><br>지금 얼리버드 대기 명단에 등록하시면 출시 즉시 50% 할인 혜택을 드립니다.`;
                 }
                 
-                // 모달창 열기
                 openFakeDoorModal();
-            }, 800); // 0.8초 뒤 자연스럽게 구독 팝업이 스르륵 뜨도록 세팅
+            }, 800);
         });
 
         // 4. Fake Door 모달 제어 함수
         function openFakeDoorModal() { document.getElementById('fake-door-modal').classList.remove('hidden'); }
         function closeFakeDoorModal() { document.getElementById('fake-door-modal').classList.add('hidden'); }
+        
+        // 프론트엔드 전용 알림 및 전환 유도 처리 함수로 교체 완료
         function handleFakeDoorSubmit(e) {
             e.preventDefault();
             const emailInput = e.target.querySelector('input[type="email"]').value;
             const dcName = selectedNode ? selectedNode.name : "일반 신청";
 
-            // 깃허브 이슈 생성 URL 구조 만들기 (내 저장소 주소에 맞게 자동으로 채워짐)
-            // 형님의 저장소 이름이 datacenter-orbit 라고 가정했을 때의 예시입니다.
-            const repoOwner = "berrylee019"; // 💡 실제 깃허브 ID로 변경하세요
-            const repoName = "datacenter-orbit";    // 💡 실제 저장소 이름으로 변경하세요
-            
-            const issueTitle = encodeURIComponent(`[Pro 대기명단] ${dcName} - ${emailInput}`);
-            const issueBody = encodeURIComponent(
-                `### 📊 프리미엄 구독 리드 수집\n\n` +
-                `- **신청자 이메일:** ${emailInput}\n` +
-                `- **관심 데이터센터:** ${dcName}\n` +
-                `- **유입 경로:** SMR 그리드 선 가상 결합 시뮬레이터 팝업\n\n` +
-                `*본 이슈는 InfraPulse 가상 시뮬레이션을 통해 생성된 리드 데이터입니다.*`
-            );
+            // 콘솔 로그를 남겨 브라우저 상에서 리드 수집 시도가 일어났음을 확인할 수 있게 백업
+            console.log(`[Fake Door Lead] 이메일: ${emailInput} | 타깃: ${dcName}`);
 
-            // 깃허브 이슈 작성 페이지로 새 창을 띄우며 데이터를 넘김
-            const githubIssueUrl = `https://github.com/` + repoOwner + `/` + repoName + `/issues/new?title=${issueTitle}&body=${issueBody}`;
+            // 사용자 경험(UX)을 해치지 않는 깔끔한 성공 알림
+            alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\n\n입력하신 이메일(${emailInput})로 출시 즉시 할인 혜택 및 Pro 버전 안내서를 보내드리겠습니다.`);
             
-            // 새 창으로 이동시켜 유저가 'Submit new issue'만 누르면 끝나게 하거나, 
-            // 팝업을 띄워 자연스럽게 접수를 유도합니다.
-            window.open(githubIssueUrl, '_blank');
+            // 입력 폼 초기화 및 모달 닫기
+            e.target.reset();
             closeFakeDoorModal();
         }
 
