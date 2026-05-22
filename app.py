@@ -121,79 +121,56 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 🌟 [고도화 반영] 2) 고안정성 팝업 추적 및 아키텍처 강제 주입 시스템
-    # DOM 생성 지연 현상을 극복하기 위해 MutationObserver를 장착, 팝업 레이어가 그려지는 타이밍을 감지하여 
-    # Primary Architecture가 누락 없이 무조건 박히도록 보장합니다.
+    # 🌟 [완전 개조] 2) 지도 팝업 컨텐츠 직접 가로채기 및 사양 강제 인젝션 시스템
+    # 특정 Form ID에 의존하지 않고, 지도 위에 생성되는 모든 팝업 컨테이너 및 사이드바 내의 
+    # '효율성:' 텍스트 영역을 직접 추적하여 그 바로 아래에 Primary Architecture 레이어를 강제로 끼워 넣습니다.
     tooltip_extension_script = """
     <script>
-    function injectComputeMetricsToPopup() {
-        const proWaitlistForm = document.getElementById('proWaitlistForm');
-        if (proWaitlistForm) {
-            let computeLayer = document.getElementById('st-compute-metrics-layer');
-            if (!computeLayer) {
-                computeLayer = document.createElement('div');
-                computeLayer.id = 'st-compute-metrics-layer';
-                computeLayer.style.margin = '12px 0';
-                computeLayer.style.padding = '10px';
-                computeLayer.style.background = 'rgba(255, 255, 255, 0.07)';
-                computeLayer.style.borderRadius = '6px';
-                computeLayer.style.borderLeft = '4px solid #00f2fe';
-                computeLayer.style.fontSize = '13px';
-                computeLayer.style.color = '#e0e0e0';
-                computeLayer.style.lineHeight = '1.5';
+    function injectArchitectureSpec() {
+        // 1. Leaflet 기본 팝업 및 index.html 내 정보 표시 가능성이 높은 클래스/요소 동시 타겟팅
+        const popupTargets = document.querySelectorAll('.leaflet-popup-content, .popup-content, #sidebar, .info-panel, document');
+        
+        popupTargets.forEach(container => {
+            if (!container) return;
+            
+            // 효율성 텍스트가 존재하는지 확인하고, 이미 아키텍처 정보가 주입되었는지 체크 (중복 주입 방지)
+            if (container.innerHTML.includes('효율성:') && !container.innerHTML.includes('Primary Architecture:')) {
                 
-                proWaitlistForm.parentNode.insertBefore(computeLayer, proWaitlistForm);
+                // 기존 HTML 구조를 유지하면서 '효율성:' 문장이 끝나는 줄 아래에 사양 텍스트 강제 결합
+                // 텍스트 형태와 HTML 형태 둘 다 대응할 수 있도록 처리합니다.
+                let currentHtml = container.innerHTML;
+                
+                // 효율성 표시 부분 뒤에 자연스럽게 삽입하기 위한 치환 로직
+                const targetPattern = /(효율성:\\s*\\d+(?:\\.\\d+)?\\s*PFLOPS\\/MW)/i;
+                if (targetPattern.test(currentHtml)) {
+                    container.innerHTML = currentHtml.replace(targetPattern, `$1<br>• <b>Primary Architecture:</b> NVIDIA H100 / Blackwell Mixed`);
+                } else {
+                    // 대체 가이드 패턴 (PFLOPS/MW단어 뒤에 매핑이 안 되었을 경우 하단에 박음)
+                    container.innerHTML += `<div style="margin-top: 2px;">• <b>Primary Architecture:</b> NVIDIA H100 / Blackwell Mixed</div>`;
+                }
             }
-            
-            let rawPowerText = "30"; 
-            if (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.value) {
-                rawPowerText = selectedNode.value;
-            } else {
-                const mwMatch = document.body.innerText.match(/(\d+(?:\.\d+)?)\s*MW/i);
-                if (mwMatch) rawPowerText = mwMatch[1];
-            }
-            
-            const mw = parseFloat(rawPowerText) || 30;
-            const estComputePflops = (mw * 18).toFixed(1);
-            const estComputeEflops = (estComputePflops / 1000).toFixed(2);
-            
-            // 기존 고정 연산 효율 패턴 또는 유동 패턴 스캔 후 파싱 (없으면 기본 효율성 가이드 반영)
-            let finalEfficiency = "18.3";
-            const effMatch = document.body.innerText.match(/효율성:\s*(\d+(?:\.\d+)?)\s*PFLOPS\/MW/i);
-            if (effMatch) {
-                finalEfficiency = effMatch[1];
-            } else {
-                finalEfficiency = (18.4 - (Math.random() * 0.5)).toFixed(1);
-            }
-            
-            computeLayer.innerHTML = `
-                <div style="font-weight: bold; color: #00f2fe; margin-bottom: 4px;">🤖 AI Compute Intelligence</div>
-                • <b>Est. AI Compute:</b> ${estComputePflops} PFLOPS (${estComputeEflops} EFLOPS)<br>
-                • <b>Compute Efficiency:</b> ${finalEfficiency} PFLOPS/MW<br>
-                • <b>Primary Architecture:</b> NVIDIA H100 / Blackwell Mixed
-            `;
-        }
+        });
     }
 
-    // 데이터 레이어 미스 방지를 위한 상시 관찰 시스템(MutationObserver) 가동
-    const observer = new MutationObserver((mutations) => {
+    // DOM 변화를 상시 감시하여 팝업이 뜨는 순간 즉시 낚아챔
+    const popupObserver = new MutationObserver((mutations) => {
         for (let mutation of mutations) {
             if (mutation.addedNodes.length) {
-                injectComputeMetricsToPopup();
+                injectArchitectureSpec();
             }
         }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    popupObserver.observe(document.body, { childList: true, subtree: true });
 
-    // 백업 트리거 (클릭 및 마우스 오버 핸들러 유지)
+    // 백업 인터랙션 트리거 (클릭/마우스 오버 시 동시 재검증 수행)
     window.addEventListener('click', function() {
-        setTimeout(injectComputeMetricsToPopup, 50);
-        setTimeout(injectComputeMetricsToPopup, 200);
+        setTimeout(injectArchitectureSpec, 30);
+        setTimeout(injectArchitectureSpec, 150);
     });
     window.addEventListener('mouseover', function(e) {
         if(e.target.tagName === 'path' || e.target.classList.contains('leaflet-marker-icon') || e.target.closest('.leaflet-popup')) {
-            injectComputeMetricsToPopup();
+            setTimeout(injectArchitectureSpec, 30);
         }
     });
     </script>
@@ -216,14 +193,19 @@ if os.path.exists(html_path):
         }, "*");
     }
 
-    // 폼 제출 리스너 수동 결합
-    if(document.getElementById('proWaitlistForm')) {
-        document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
-    } else {
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
-        });
+    // 폼 제출 리스너 안정적 바인딩 시스템
+    function bindFormSubmit() {
+        const form = document.getElementById('proWaitlistForm');
+        if (form) {
+            form.removeEventListener('submit', handleFakeDoorSubmit); // 중복 방지
+            form.addEventListener('submit', handleFakeDoorSubmit);
+        }
     }
+
+    // 팝업이 새로 뜰 때마다 폼 핸들러도 같이 결합되도록 감시망 연동
+    window.addEventListener('click', function() {
+        setTimeout(bindFormSubmit, 100);
+    });
 
     // iframe 리사이즈 대응 지도 타일 갱신 스크립트
     function triggerMapRefresh() {
