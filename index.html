@@ -69,14 +69,22 @@
                 <div class="bg-gray-950 border border-gray-800 rounded-lg p-4 mb-4 flex-1 flex flex-col justify-center">
                     <div id="selected-dc-name" class="text-sm font-bold text-emerald-400 mb-2">지도의 마커를 클릭해 주세요</div>
                     <p id="selected-dc-desc" class="text-xs text-gray-400 mb-3">-</p>
-                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                    <div class="grid grid-cols-2 gap-2 text-[11px] mb-3">
                         <div class="bg-gray-900 p-2 rounded border border-gray-800"><span class="text-gray-500">인프라 전력원:</span> <div id="selected-dc-power" class="font-mono text-gray-300">-</div></div>
                         <div class="bg-gray-900 p-2 rounded border border-gray-800"><span class="text-gray-500">전력 요구치:</span> <div id="selected-dc-load" class="font-mono text-gray-300">-</div></div>
+                    </div>
+                    <!-- 🌟 2) 선택된 데이터센터의 컴퓨팅 지표 추가 레이어 부모 구역 -->
+                    <div id="selected-dc-compute-box" class="hidden bg-gray-900/60 p-3 rounded.lg border border-cyan-500/20 text-[11px] space-y-1">
+                        <div class="font-bold text-cyan-400 flex items-center gap-1 mb-1">
+                            <i data-lucide="cpu" class="w-3.5 h-3.5"></i> AI 연산력 인텔리전스
+                        </div>
+                        <div class="flex justify-between"><span class="text-gray-400">Est. AI Compute:</span> <span id="selected-dc-pflops" class="font-mono text-gray-200 font-bold">-</span></div>
+                        <div class="flex justify-between"><span class="text-gray-400">Compute Efficiency:</span> <span id="selected-dc-efficiency" class="font-mono text-gray-200">-</span></div>
                     </div>
                 </div>
 
                 <button id="btn-smr" disabled class="w-full bg-gray-800 text-gray-500 border border-gray-700 py-3 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-not-allowed">
-                    타깃 시설을 선택해 주세요
+                    <img src="" style="display:none;" />타깃 시설을 선택해 주세요
                 </button>
             </div>
         </div>
@@ -176,14 +184,38 @@
                         fillOpacity: 0.8
                     }).addTo(map);
 
-                    marker.bindPopup(`<div class="custom-popup-content"><strong class="text-emerald-400">${dc.name}</strong><br><span class="text-xs text-gray-400">부하: ${dc.load}</span></div>`, { className: 'custom-popup' });
+                    // 🌟 [수정 부분 2-1] 지도 마커 마우스 오버/클릭 시 노출되는 Leaflet 기본 팝업(툴팁)에 컴퓨팅 수치 직접 연산 주입
+                    const rawLoad = parseFloat(dc.load) || 30; 
+                    const estPflops = (rawLoad * 18.4).toFixed(1);
+                    const efficiency = (18.4 - (Math.random() * 0.6)).toFixed(1);
 
+                    const popupContent = `
+                        <div class="custom-popup-content p-1">
+                            <strong class="text-emerald-400 text-sm block mb-1">${dc.name}</strong>
+                            <div class="text-xs text-gray-300 space-y-0.5">
+                                <div>• 부하량: <span class="font-mono text-cyan-400 font-bold">${dc.load}</span></div>
+                                <div class="border-t border-gray-700 my-1.5"></div>
+                                <div class="text-[11px] text-amber-400 font-bold">🤖 Est. AI Compute</div>
+                                <div>• 연산력: <span class="font-mono text-gray-100">${estPflops} PFLOPS</span></div>
+                                <div>• 효율성: <span class="font-mono text-gray-100">${efficiency} PFLOPS/MW</span></div>
+                            </div>
+                        </div>
+                    `;
+
+                    marker.bindPopup(popupContent, { className: 'custom-popup' });
+
+                    // 마커 클릭 이벤트 핸들러 확장
                     marker.on('click', () => {
                         selectedNode = dc;
                         document.getElementById('selected-dc-name').innerText = dc.name;
                         document.getElementById('selected-dc-desc').innerText = dc.desc;
                         document.getElementById('selected-dc-power').innerText = dc.source;
                         document.getElementById('selected-dc-load').innerText = dc.load;
+
+                        // 🌟 [수정 부분 2-2] 사이드바 시뮬레이터 인프라 대시보드 영역에도 컴퓨팅 지표 실시간 노출 보정
+                        document.getElementById('selected-dc-pflops').innerText = `${estPflops} PFLOPS`;
+                        document.getElementById('selected-dc-efficiency').innerText = `${efficiency} PFLOPS/MW`;
+                        document.getElementById('selected-dc-compute-box').classList.remove('hidden');
 
                         const btn = document.getElementById('btn-smr');
                         if (dc.type === 'AIDC') {
