@@ -12,28 +12,23 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 🚨 [신규 추가] 자바스크립트 postMessage를 수신해서 부모 창 주소(Query Parameter)를 직접 갱신하는 보이지 않는 리스너
+# 🚨 자바스크립트 postMessage를 수신해서 부모 창 주소를 갱신하는 리스너
 message_listener = """
 <script>
 window.addEventListener("message", function(event) {
     if (event.data && event.data.type === "SUBMIT_LEAD") {
-        // 부모 창(Streamlit 메인 앱)의 URL을 안전하게 가져와서 파라미터 세팅
         const currentUrl = new URL(window.location.href);
         currentUrl.searchParams.set("submit_lead", "true");
         currentUrl.searchParams.set("email", event.data.email);
         currentUrl.searchParams.set("target", event.data.target);
-        
-        // 크로스 오리진 차단 없이 부모 창 자체를 새로고침하며 데이터 주입
         window.location.href = currentUrl.toString();
     }
 });
 </script>
 """
-# 0픽셀 크기로 메인 화면 최상단에 안전하게 배치합니다.
 components.html(message_listener, height=0, width=0)
 
-
-# 2. 🚨 디버깅 정보 출력을 강화한 GitHub Issue 생성 함수
+# 2. GitHub Issue 생성 함수
 def create_github_issue(email, dc_name="미지정"):
     if "GITHUB_TOKEN" not in st.secrets or "GITHUB_REPO" not in st.secrets:
         st.error("❌ Streamlit Secrets에 GITHUB_TOKEN 또는 GITHUB_REPO가 설정되지 않았습니다.")
@@ -58,23 +53,18 @@ def create_github_issue(email, dc_name="미지정"):
     
     try:
         response = requests.post(url, json=data, headers=headers)
-        
-        # 💡 성공 시 (201 Created)
         if response.status_code == 201:
             return True
         else:
-            # 💡 실패 시 GitHub이 반환한 상세 에러를 Streamlit 화면에 직접 경고창으로 출력
             st.error(f"❌ GitHub API 오류 발생 (Status Code: {response.status_code})")
             st.code(response.text, language="json")
             return False
-            
     except Exception as e:
         st.error(f"❌ GitHub 통신 중 예외 에러 발생: {str(e)}")
         return False
 
-# 3. 🛡️ [고안정성 네이티브 주소창 리스너]
+# 3. 주소창 쿼리 리스너 수신부
 query_params = st.query_params
-
 if query_params.get("submit_lead") == "true":
     lead_email = query_params.get("email")
     lead_target = query_params.get("target", "일반 메인 대기")
@@ -85,8 +75,6 @@ if query_params.get("submit_lead") == "true":
             if success:
                 st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
                 st.balloons()
-                
-                # 전송 완료 후 주소창을 깨끗하게 비우고 세션 리셋
                 st.query_params.clear()
                 st.button("관제탑 화면으로 돌아가기", on_click=st.rerun)
                 st.stop()
@@ -103,14 +91,16 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 5. HTML 파일 로드 및 주소창 변조형 스크립트 주입
+# 5. HTML 파일 로드 및 고안정성 주입 스크립트 빌드
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 🛠️ [수정 완료] 직접적인 window.parent 변조 대신 안전하게 postMessage로 부모 창에 데이터를 전달하는 브릿지 스크립트
+    # 🛠️ [흰 화면 버그 원천 차단] 
+    # Form 제출 리스너 등록 뿐만 아니라, 지도가 깨지거나 하얗게 멈추는 현상을 방지하기 위해
+    # 로드 직후 / 300ms 뒤 / 1초 뒤 연속으로 map.invalidateSize()를 강제 수행하여 타일을 무조건 깨웁니다.
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
@@ -118,10 +108,8 @@ if os.path.exists(html_path):
         const emailInput = e.target.querySelector('input[type="email"]').value;
         const dcName = typeof selectedNode !== 'undefined' && selectedNode ? selectedNode.name : "일반 메인 대기";
 
-        // 1. 사용자에게 완료 알림창 먼저 출력
         alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
         
-        // 2. iframe의 오리진 장벽을 넘어 부모(Streamlit) 리스너로 데이터 송출
         window.parent.postMessage({
             type: "SUBMIT_LEAD",
             email: emailInput,
@@ -129,13 +117,26 @@ if os.path.exists(html_path):
         }, "*");
     }
 
-    // 💡 HTML 렌더링 후 폼 제출 이벤트를 가로채도록 리스너 수동 정렬
+    // 폼 제출 이벤트 결합
     document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
+
+    // ⚡ [핵심 패치] iframe 로딩 지연으로 인한 지도 뭉개짐/흰 화면 현상 강제 해결 파이프라인
+    function triggerMapRefresh() {
+        if (typeof map !== 'undefined' && map !== null) {
+            map.invalidateSize({ animate: true });
+        }
+    }
+
+    // 브라우저가 화면을 그리는 마이크로 타이밍마다 연속으로 리프레시 신호를 보내어 하얀 스크린을 강제로 부숩니다.
+    window.addEventListener('load', triggerMapRefresh);
+    setTimeout(triggerMapRefresh, 300);
+    setTimeout(triggerMapRefresh, 1000);
+    setTimeout(triggerMapRefresh, 2500); 
     </script>
     """
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
-    # 6. 컴포넌트 실행
+    # 6. 컴포넌트 실행 (height는 화면 풀사이즈에 맞춰 950~100vh 수준 유지)
     components.html(html_code, height=950, scrolling=True)
 
 else:
