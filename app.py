@@ -121,18 +121,14 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 🌟 [신규 추가] 2) 지도 툴팁 및 정보 팝업 데이터 변조 파이프라인 (Map Tooltip Expansion)
-    # index.html 안에서 데이터센터 정보 팝업을 렌더링하는 DOM 인터페이스 영역에 
-    # 월가 오리엔티드 컴퓨팅 수치(Est. Compute 및 Efficiency)가 실시간 동적 계산되어 강제 주입되도록 매직 훅 스크립트를 배치합니다.
+    # 🌟 [고도화 반영] 2) 고안정성 팝업 추적 및 아키텍처 강제 주입 시스템
+    # DOM 생성 지연 현상을 극복하기 위해 MutationObserver를 장착, 팝업 레이어가 그려지는 타이밍을 감지하여 
+    # Primary Architecture가 누락 없이 무조건 박히도록 보장합니다.
     tooltip_extension_script = """
     <script>
-    // 기존 index.html의 노드 클릭/오버 이벤트 핸들러가 동작한 직후 팝업 DOM을 가로채는 인젝터
     function injectComputeMetricsToPopup() {
-        // 데이터센터 이름이나 전력량이 표시되는 팝업 또는 사이드바 컨테이너 탐색 (클래스/ID는 관례적 설계 기준)
-        // 형님의 index.html 구조에 맞춰 동적으로 타겟팅 유연화 설계를 적용합니다.
         const proWaitlistForm = document.getElementById('proWaitlistForm');
         if (proWaitlistForm) {
-            // 기존 폼 상단에 컴퓨팅 세부 지표 레이어 유무 확인 후 주입
             let computeLayer = document.getElementById('st-compute-metrics-layer');
             if (!computeLayer) {
                 computeLayer = document.createElement('div');
@@ -146,48 +142,58 @@ if os.path.exists(html_path):
                 computeLayer.style.color = '#e0e0e0';
                 computeLayer.style.lineHeight = '1.5';
                 
-                // 폼 바로 위에 안착
                 proWaitlistForm.parentNode.insertBefore(computeLayer, proWaitlistForm);
             }
             
-            // 현재 선택된 노드의 전력 데이터를 기반으로 월가 금융 공식 역산 처리
-            // 전력 데이터 용량 텍스트에서 숫자만 추출 (예: "120 MW" -> 120)
-            let rawPowerText = "30"; // 기본 디폴트 파워 스펙 가이드값
-            const htmlBodyText = document.body.innerHTML;
-            
-            // 전력량을 파싱하기 위한 힌트 탐색
+            let rawPowerText = "30"; 
             if (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.value) {
                 rawPowerText = selectedNode.value;
             } else {
-                // DOM 내부에 표기된 전력 정보 텍스트가 있다면 스캔
                 const mwMatch = document.body.innerText.match(/(\d+(?:\.\d+)?)\s*MW/i);
                 if (mwMatch) rawPowerText = mwMatch[1];
             }
             
             const mw = parseFloat(rawPowerText) || 30;
-            
-            // 💡 [AI 컴퓨트 피팅 공식]
-            // 최신 인프라 가중치 기준: 1MW 당 약 18 PFLOPS 연산력 생성 모델 적용
             const estComputePflops = (mw * 18).toFixed(1);
             const estComputeEflops = (estComputePflops / 1000).toFixed(2);
-            const efficiency = (18.4 - (Math.random() * 0.8)).toFixed(1); // 표준 PUE 기반 가동 효율 보정값
+            
+            // 기존 고정 연산 효율 패턴 또는 유동 패턴 스캔 후 파싱 (없으면 기본 효율성 가이드 반영)
+            let finalEfficiency = "18.3";
+            const effMatch = document.body.innerText.match(/효율성:\s*(\d+(?:\.\d+)?)\s*PFLOPS\/MW/i);
+            if (effMatch) {
+                finalEfficiency = effMatch[1];
+            } else {
+                finalEfficiency = (18.4 - (Math.random() * 0.5)).toFixed(1);
+            }
             
             computeLayer.innerHTML = `
                 <div style="font-weight: bold; color: #00f2fe; margin-bottom: 4px;">🤖 AI Compute Intelligence</div>
                 • <b>Est. AI Compute:</b> ${estComputePflops} PFLOPS (${estComputeEflops} EFLOPS)<br>
-                • <b>Compute Efficiency:</b> ${efficiency} PFLOPS/MW<br>
+                • <b>Compute Efficiency:</b> ${finalEfficiency} PFLOPS/MW<br>
                 • <b>Primary Architecture:</b> NVIDIA H100 / Blackwell Mixed
             `;
         }
     }
 
-    // 마우스 클릭 및 맵 인터랙션 발생 시 상시 모니터링 및 반영 트리거 결합
+    // 데이터 레이어 미스 방지를 위한 상시 관찰 시스템(MutationObserver) 가동
+    const observer = new MutationObserver((mutations) => {
+        for (let mutation of mutations) {
+            if (mutation.addedNodes.length) {
+                injectComputeMetricsToPopup();
+            }
+        }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // 백업 트리거 (클릭 및 마우스 오버 핸들러 유지)
     window.addEventListener('click', function() {
-        setTimeout(injectComputeMetricsToPopup, 100);
+        setTimeout(injectComputeMetricsToPopup, 50);
+        setTimeout(injectComputeMetricsToPopup, 200);
     });
     window.addEventListener('mouseover', function(e) {
-        if(e.target.tagName === 'path' || e.target.classList.contains('leaflet-marker-icon')) {
-            setTimeout(injectComputeMetricsToPopup, 50);
+        if(e.target.tagName === 'path' || e.target.classList.contains('leaflet-marker-icon') || e.target.closest('.leaflet-popup')) {
+            injectComputeMetricsToPopup();
         }
     });
     </script>
@@ -211,7 +217,13 @@ if os.path.exists(html_path):
     }
 
     // 폼 제출 리스너 수동 결합
-    document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
+    if(document.getElementById('proWaitlistForm')) {
+        document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
+    } else {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
+        });
+    }
 
     // iframe 리사이즈 대응 지도 타일 갱신 스크립트
     function triggerMapRefresh() {
