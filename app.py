@@ -12,16 +12,22 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 🚨 [1단계] 자바스크립트 postMessage를 수신해서 부모 창 주소를 갱신하는 리스너
+# 🚨 [수정 및 안착] 스트림릿 고유의 기본 쿼리 찌꺼기 필터링 시스템
+# 자바스크립트가 명확하게 이메일 전송 패킷을 쏘아 올렸을 때만 주소창 변조가 발동하도록 통제합니다.
 message_listener = """
 <script>
 window.addEventListener("message", function(event) {
     if (event.data && event.data.type === "SUBMIT_LEAD") {
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set("submit_lead", "true");
-        currentUrl.searchParams.set("email", event.data.email);
-        currentUrl.searchParams.set("target", event.data.target);
-        window.location.href = currentUrl.toString();
+        // 스트림릿 기본 주소의 쿼리 찌꺼기를 완전히 청소하고 베이스 주소만 추출
+        const cleanUrl = new URL(window.location.origin + window.location.pathname);
+        
+        // 오직 폼 제출용 핵심 파라미터만 엄격하게 주입
+        cleanUrl.searchParams.set("submit_lead", "true");
+        cleanUrl.searchParams.set("email", event.data.email);
+        cleanUrl.searchParams.set("target", event.data.target);
+        
+        // 부모 창 강제 리로딩 및 전송 실행
+        window.location.href = cleanUrl.toString();
     }
 });
 </script>
@@ -63,38 +69,31 @@ def create_github_issue(email, dc_name="미지정"):
         st.error(f"❌ GitHub 통신 중 예외 에러 발생: {str(e)}")
         return False
 
-# 🚨 [2단계] 주소창 쿼리 리스너 수신부 & 레이아웃 전면 분리 트릭
-# 리드가 제출되어 새로고침되었을 때는 하단 메인 HTML 지도를 렌더링하지 않고 완료 페이지를 독립적으로 띄웁니다.
+# 🚨 [3. 분기점 통제] 오직 명시적 파라미터가 성립될 때만 2페이지 활성화
 query_params = st.query_params
 
-if query_params.get("submit_lead") == "true":
+# 스트림릿 자체 세션 매개변수와 구분하기 위해 대조식으로 엄격히 필터링
+if query_params.get("submit_lead") == "true" and query_params.get("email"):
     lead_email = query_params.get("email")
     lead_target = query_params.get("target", "일반 메인 대기")
     
-    if lead_email:
-        # 상단 여백 확보 및 중앙 정렬 서식
-        st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
+    with st.spinner("🚀 GitHub Issues 인프라로 리드를 즉시 송출 중..."):
+        success = create_github_issue(lead_email, lead_target)
         
-        with st.spinner("🚀 GitHub Issues 인프라로 리드를 즉시 송출 중..."):
-            success = create_github_issue(lead_email, lead_target)
+        if success:
+            st.balloons()
+            st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
+            st.info(f"📋 **접수 세부 정보**\n- **신청 계정:** {lead_email}\n- **우선 관제 타깃:** {lead_target}")
             
-            if success:
-                st.balloons()
-                
-                # 멋지게 커스텀된 대기 명단 접수 완료 대시보드 박스 출력
-                st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
-                
-                st.info(f"📋 **접수 세부 정보**\n- **신청 계정:** {lead_email}\n- **우선 관제 타깃:** {lead_target}")
-                
-                # 원상복귀 버튼 배치 (클릭 시 주소창을 완전히 비우고 깔끔하게 처음 1페이지 지도로 컴백)
-                def reset_to_main():
-                    st.query_params.clear()
-                    st.rerun()
-                
-                st.button("🌐 글로벌 인프라 관제탑 화면으로 돌아가기", on_click=reset_to_main, type="primary")
-                st.stop()  # 코드 진행을 여기서 완전히 멈춰서 아래 HTML 지도가 어설프게 로드되는 것을 원천 차단합니다.
+            def reset_to_main():
+                st.query_params.clear()
+                st.rerun()
+            
+            st.button("🌐 글로벌 인프라 관제탑 화면으로 돌아가기", on_click=reset_to_main, type="primary")
+            st.stop() # 2페이지 활성화 시 지도가 하단에 이중으로 덧그려지는 것 완전 차단
 
-# 3. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
+# 4. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -106,14 +105,14 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 4. HTML 파일 로드 및 고안정성 주입 스크립트 빌드
+# 5. HTML 파일 로드 및 고안정성 주입 스크립트 빌드
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # Form 제출 리스너 등록 및 Leaflet 지도 타일 깨우기 파이프라인 주입
+    # 폼 내부 이벤트 핸들러 및 타일 깨우기 연속 파이프라인 주입
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
@@ -130,10 +129,10 @@ if os.path.exists(html_path):
         }, "*");
     }
 
-    // 폼 제출 이벤트 바인딩
+    // 폼 제출 리스너 수동 결합
     document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
 
-    // iframe 로딩 지연으로 인한 지도 뭉개짐/흰 화면 현상 강제 리프레시
+    // iframe 리사이즈 대응 지도 타일 갱신 스크립트
     function triggerMapRefresh() {
         if (typeof map !== 'undefined' && map !== null) {
             map.invalidateSize({ animate: true });
@@ -148,7 +147,7 @@ if os.path.exists(html_path):
     """
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
-    # 5. 컴포넌트 실행 (일반 상태일 때는 시원하게 전체화면 지도가 나옴)
+    # 6. 컴포넌트 실행 (첫 진입 시 무조건 시원한 1페이지 전체 지도가 표출됨)
     components.html(html_code, height=950, scrolling=True)
 
 else:
