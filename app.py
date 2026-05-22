@@ -176,7 +176,7 @@ if os.path.exists(html_path):
                 <div style="font-weight: bold; color: #00f2fe; margin-bottom: 4px;">🤖 AI Compute Intelligence</div>
                 • <b>Est. AI Compute:</b> ${estComputePflops} PFLOPS (${estComputeEflops} EFLOPS)<br>
                 • <b>Compute Efficiency:</b> ${efficiency} PFLOPS/MW<br>
-                • <b>Architecture Class:</b> NVIDIA H100 / Blackwell Parallel Tier
+                • <b>Primary Architecture:</b> NVIDIA H100 / Blackwell Mixed
             `;
         }
     }
