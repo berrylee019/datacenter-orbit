@@ -4,6 +4,11 @@ import os
 import requests
 import json
 
+col1, col2, col3 = st.columns(3)
+col1.metric(label="⚡ Total Global Power", value="14.2 GW", delta="+.8 GW (MoM)")
+col2.metric(label="🤖 Est. Global AI Compute", value="245.8 EFLOPS", delta="+12.4% (QoQ)")
+col3.metric(label="💡 Avg. Compute Efficiency", value="18.4 PFLOPS/MW", delta="Optimal", delta_color="normal")
+
 # 1. Streamlit 페이지 기본 설정
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
