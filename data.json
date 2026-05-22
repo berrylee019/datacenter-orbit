@@ -9,7 +9,8 @@
     "source": "TVA(테네시강유역개발청) 그리드 화석연료 유입",
     "status": "saturated",
     "carbon": "high",
-    "desc": "앤트로픽이 클로드(Claude) 추론 및 기업용 운영을 위해 출력 300MW 전체를 월 1.9조 원에 장기 임대 완료."
+    "desc": "앤트로픽이 클로드(Claude) 추론 및 기업용 운영을 위해 출력 300MW 전체를 장기 임대 완료.",
+    "architecture": "NVIDIA Liquid-cooled H100 (100K) & Blackwell B200 Mixed"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "source": "한국전력 중부 그리드 변전소 연계",
     "status": "active",
     "carbon": "mid",
-    "desc": "대한민국 최대 규모의 AI 인프라 안착. 가동률 폭증에 따른 세종시 인근 그리드 포화율 모니터링 중."
+    "desc": "대한민국 최대 규모의 AI 인프라 안착. 가동률 폭증에 따른 세종시 인근 그리드 포화율 모니터링 중.",
+    "architecture": "NVIDIA H100 / Intel Gaudi 3 & NAVER-Samsung LP-DDR AI chip"
   },
   {
     "id": 4,
@@ -33,7 +35,8 @@
     "source": "도미니언 에너지 인프라 과부하",
     "status": "saturated",
     "carbon": "high",
-    "desc": "세계 데이터센터의 수도인 버지니아 애슈번 지역. 전력 그리드 병목 현상 극심 구역."
+    "desc": "세계 데이터센터의 수도인 버지니아 애슈번 지역. 전력 그리드 병목 현상 극심 구역.",
+    "architecture": "NVIDIA Blackwell NVL72 / Custom Azure Maia 100"
   },
   {
     "id": 3,
@@ -45,6 +48,20 @@
     "source": "홀텍 파이오니어 1·2호기 (건설 준비)",
     "status": "smr",
     "carbon": "zero",
-    "desc": "미국 연방 보조금 4억 달러 수령. 이르면 연내 상용 착공 예정이며 한국 현대건설이 핵심 시공 파트너로 참여."
+    "desc": "미국 연방 보조금 4억 달러 수령. 이르면 연내 상용 착공 예정이며 한국 현대건설이 핵심 시공 파트너로 참여.",
+    "architecture": "Next-Gen AI Clusters (Blackwell Ultra / Rubin Ready)"
+  },
+  {
+    "id": 5,
+    "name": "하남 데이터센터",
+    "lat": 37.5502,
+    "lng": 127.2031,
+    "type": "AIDC",
+    "load": "80 MW",
+    "source": "한국전력 동서울변전소 계통 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "수도권 핵심 추론(Inference) 및 금융·커머스 특화 인프라 거점. 한강 유역 인근 고밀도 냉각 시스템 가동.",
+    "architecture": "NVIDIA A100 / H100 Mixed (Domestic Cloud & Inference)"
   }
 ]
