@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 🚨 자바스크립트 postMessage를 수신해서 부모 창 주소를 갱신하는 리스너
+# 🚨 [1단계] 자바스크립트 postMessage를 수신해서 부모 창 주소를 갱신하는 리스너
 message_listener = """
 <script>
 window.addEventListener("message", function(event) {
@@ -63,23 +63,38 @@ def create_github_issue(email, dc_name="미지정"):
         st.error(f"❌ GitHub 통신 중 예외 에러 발생: {str(e)}")
         return False
 
-# 3. 주소창 쿼리 리스너 수신부
+# 🚨 [2단계] 주소창 쿼리 리스너 수신부 & 레이아웃 전면 분리 트릭
+# 리드가 제출되어 새로고침되었을 때는 하단 메인 HTML 지도를 렌더링하지 않고 완료 페이지를 독립적으로 띄웁니다.
 query_params = st.query_params
+
 if query_params.get("submit_lead") == "true":
     lead_email = query_params.get("email")
     lead_target = query_params.get("target", "일반 메인 대기")
     
     if lead_email:
+        # 상단 여백 확보 및 중앙 정렬 서식
+        st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
+        
         with st.spinner("🚀 GitHub Issues 인프라로 리드를 즉시 송출 중..."):
             success = create_github_issue(lead_email, lead_target)
+            
             if success:
-                st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
                 st.balloons()
-                st.query_params.clear()
-                st.button("관제탑 화면으로 돌아가기", on_click=st.rerun)
-                st.stop()
+                
+                # 멋지게 커스텀된 대기 명단 접수 완료 대시보드 박스 출력
+                st.success(f"🎉 성공: {lead_email} 명단 등록 및 GitHub Issues 연동 완료!")
+                
+                st.info(f"📋 **접수 세부 정보**\n- **신청 계정:** {lead_email}\n- **우선 관제 타깃:** {lead_target}")
+                
+                # 원상복귀 버튼 배치 (클릭 시 주소창을 완전히 비우고 깔끔하게 처음 1페이지 지도로 컴백)
+                def reset_to_main():
+                    st.query_params.clear()
+                    st.rerun()
+                
+                st.button("🌐 글로벌 인프라 관제탑 화면으로 돌아가기", on_click=reset_to_main, type="primary")
+                st.stop()  # 코드 진행을 여기서 완전히 멈춰서 아래 HTML 지도가 어설프게 로드되는 것을 원천 차단합니다.
 
-# 4. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
+# 3. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -91,16 +106,14 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 5. HTML 파일 로드 및 고안정성 주입 스크립트 빌드
+# 4. HTML 파일 로드 및 고안정성 주입 스크립트 빌드
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 🛠️ [흰 화면 버그 원천 차단] 
-    # Form 제출 리스너 등록 뿐만 아니라, 지도가 깨지거나 하얗게 멈추는 현상을 방지하기 위해
-    # 로드 직후 / 300ms 뒤 / 1초 뒤 연속으로 map.invalidateSize()를 강제 수행하여 타일을 무조건 깨웁니다.
+    # Form 제출 리스너 등록 및 Leaflet 지도 타일 깨우기 파이프라인 주입
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
@@ -117,17 +130,16 @@ if os.path.exists(html_path):
         }, "*");
     }
 
-    // 폼 제출 이벤트 결합
+    // 폼 제출 이벤트 바인딩
     document.getElementById('proWaitlistForm').addEventListener('submit', handleFakeDoorSubmit);
 
-    // ⚡ [핵심 패치] iframe 로딩 지연으로 인한 지도 뭉개짐/흰 화면 현상 강제 해결 파이프라인
+    // iframe 로딩 지연으로 인한 지도 뭉개짐/흰 화면 현상 강제 리프레시
     function triggerMapRefresh() {
         if (typeof map !== 'undefined' && map !== null) {
             map.invalidateSize({ animate: true });
         }
     }
 
-    // 브라우저가 화면을 그리는 마이크로 타이밍마다 연속으로 리프레시 신호를 보내어 하얀 스크린을 강제로 부숩니다.
     window.addEventListener('load', triggerMapRefresh);
     setTimeout(triggerMapRefresh, 300);
     setTimeout(triggerMapRefresh, 1000);
@@ -136,7 +148,7 @@ if os.path.exists(html_path):
     """
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
-    # 6. 컴포넌트 실행 (height는 화면 풀사이즈에 맞춰 950~100vh 수준 유지)
+    # 5. 컴포넌트 실행 (일반 상태일 때는 시원하게 전체화면 지도가 나옴)
     components.html(html_code, height=950, scrolling=True)
 
 else:
