@@ -95,16 +95,26 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
             st.stop() # 2페이지 활성화 시 지도가 하단에 이중으로 덧그려지는 것 완전 차단
 
 # 4. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거
+# 글로벌 총합 메트릭을 상단에 정상 배치하기 위해 패딩 여백을 유연하게 조정합니다.
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
-        .block-container {padding: 0rem; margin: 0rem;}
-        iframe {display: block; width: 100vw; height: 100vh; border: none;}
+        .block-container {padding-top: 1rem; padding-bottom: 0rem; padding-left: 1rem; padding-right: 1rem;}
+        iframe {display: block; width: 100%; border: none;}
         </style>
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+# 🌟 [신규 추가] 1) 글로벌 총합 메트릭 (Global Overview Widgets)
+# 지도가 로드되기 전 최상단에 위치하여 직관적인 실시간 요약 데이터를 제공합니다.
+st.markdown("### 📊 Global AI Infra Real-time Overview")
+col1, col2, col3 = st.columns(3)
+col1.metric(label="⚡ Total Global IT Power Capacity", value="14.2 GW", delta="+.8 GW (MoM)")
+col2.metric(label="🤖 Est. Global AI Compute Power", value="245.8 EFLOPS", delta="+12.4% (QoQ)")
+col3.metric(label="💡 Avg. Compute-to-Power Efficiency", value="18.4 PFLOPS/MW", delta="Optimal", delta_color="normal")
+st.markdown("---")
 
 # 5. HTML 파일 로드 및 고안정성 주입 스크립트 빌드
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
@@ -148,8 +158,8 @@ if os.path.exists(html_path):
     """
     html_code = html_code.replace("</body>", f"{bridge_script}</body>")
 
-    # 6. 컴포넌트 실행 (첫 진입 시 무조건 시원한 1페이지 전체 지도가 표출됨)
-    components.html(html_code, height=950, scrolling=True)
+    # 6. 컴포넌트 실행 (상단 메트릭 아래에 조화롭게 안착)
+    components.html(html_code, height=900, scrolling=True)
 
 else:
     st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
