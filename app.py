@@ -3,11 +3,11 @@ import streamlit.components.v1 as components
 import os
 from datetime import datetime
 
-# 🚨 구글 시트 연동을 위한 라이브러리 (gspread가 없다면 requirements.txt에 추가 필요)
+# 🚨 스트림릿 공식 구글 시트 커넥션 라이브러리 탑재
 try:
-    import gspread
+    from streamlit_gsheets import GSheetsConnection
 except ImportError:
-    st.error("❌ 'gspread' 라이브러리가 누락되었습니다. requirements.txt에 gspread를 추가해 주세요, 형님.")
+    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다. requirements.txt에 추가해 주세요, 형님.")
 
 # 1. Streamlit 페이지 기본 설정
 st.set_page_config(
@@ -34,36 +34,43 @@ window.addEventListener("message", function(event) {
 components.html(message_listener, height=0, width=0)
 
 
-# 2. 📊 구글 시트(거북목 AI 시트1 공유)에 리드를 추가하는 함수
-def append_to_google_sheet(email, dc_name="미지정"):
-    # 거북목 AI에서 쓰던 세팅값(gspread_credentials 혹은 secrets 구조)이 있는지 검증
-    if "gspread_credentials" not in st.secrets:
-        st.error("❌ Streamlit Secrets에 구글 시트 인증 정보('gspread_credentials')가 설정되지 않았습니다.")
+# 2. 📊 st.connection 기반 구글 시트 데이터 적재 함수
+def append_to_gsheets_connection(email, dc_name="미지정"):
+    # 형님이 복사 붙여넣기 하실 [connections.gsheets] 섹션이 잘 들어왔는지 검증
+    if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
+        st.error("❌ Streamlit Secrets에 [connections.gsheets] 설정 블록이 누락되었습니다, 형님.")
         return False
         
     try:
-        # 거북목 AI에서 인증하던 방식 그대로 서비스 계정 활성화
-        credentials = st.secrets["gspread_credentials"]
-        gc = gspread.service_account_from_dict(credentials)
+        # 💡 거북목 AI 설정 정보 연동 및 시트 커넥션 생성
+        conn = st.connection("gsheets", type=GSheetsConnection)
         
-        # 💡 [필수 수정 구역] 거북목 AI에서 사용 중인 '구글 시트 파일 이름'을 정확히 적어주세요.
-        # 예: "거북목_AI_리드_수집_시트"
-        sheet_name = "시트1" 
+        # 💡 [필수 확인] 거북목 AI가 사용 중인 구글 시트의 전체 데이터를 판다스로 먼저 읽어옵니다.
+        # 시트 내용이 비어있거나 읽을 때 에러 방지를 위해 기본 시트1(worksheet=0)을 타깃팅합니다.
+        existing_data = conn.read(worksheet=0, ttl=0)
         
-        sh = gc.open(sheet_name)
-        worksheet = sh.sheet1  # '시트1' 지정
-        
-        # 현재 시간 기록 (한국 시간 기준 포맷팅)
+        # 현재 시간 기록 (한국 시간 기준)
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        # 📝 기존 데이터 아랫줄에 추가할 레코드 배열 구성 
-        # [시간, 이메일, 서비스명, 관심인프라] 형태로 들어가며, 기존 컬럼 수에 맞춰 유연하게 쌓입니다.
-        row_data = [current_time, email, "InfraPulse", dc_name]
-        worksheet.append_row(row_data)
+        # 📝 새롭게 추가할 인프라펄스 리드 데이터 덩어리 구성
+        # 거북목 AI 시트 컬럼 순서가 [시간, 이메일, ...] 형태라면 그대로 일치시켜 줍니다.
+        new_row = {
+            existing_data.columns[0]: current_time,
+            existing_data.columns[1]: email,
+            # 만약 거북목 AI 시트에 '서비스명'이나 '관심타깃' 컬럼이 아직 없다면 판다스가 자동으로 우측에 열을 확장해서 넣어줍니다.
+            "서비스명": "InfraPulse",
+            "관심 인프라 타깃": dc_name
+        }
         
+        # 기존 데이터프레임 하단에 새 행 추가
+        updated_data = existing_data.append(new_row, ignore_index=True)
+        
+        # 🚀 수정된 전체 데이터셋을 구글 시트1에 덮어쓰기식으로 전송 (가장 확실한 네이티브 적재 방식)
+        conn.update(worksheet=0, data=updated_data)
         return True
+        
     except Exception as e:
-        st.error(f"❌ 구글 시트 데이터 전송 중 예외 에러 발생: {str(e)}")
+        st.error(f"❌ 구글 커넥션 데이터 전송 중 예외 에러 발생: {str(e)}")
         return False
 
 
@@ -76,7 +83,7 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
     
     st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
     with st.spinner("🚀 거북목 AI 공유 시트로 리드를 안전하게 이관 중..."):
-        success = append_to_google_sheet(lead_email, lead_target)
+        success = append_to_gsheets_connection(lead_email, lead_target)
         
         if success:
             st.balloons()
