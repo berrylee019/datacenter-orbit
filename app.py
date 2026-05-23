@@ -6,7 +6,7 @@ import json
 import pandas as pd
 from datetime import datetime
 
-# 1. Streamlit 페이지 기본 설정 (최상단 고정 및 여백 최소화 셋업)
+# 1. Streamlit 페이지 기본 설정 (최상단 고정 및 화면 여백 최소화)
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
     page_icon="🌐",
@@ -18,7 +18,7 @@ st.set_page_config(
 try:
     from streamlit_gsheets import GSheetsConnection
 except ImportError:
-    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다.")
+    st.error("❌ 'st-gsheets-connection' 라이브러리가 아직 설치되지 않았습니다. requirements.txt 변경 후 푸시해 주세요.")
     st.stop()
 
 # 2. GitHub Issue 생성 시스템
@@ -43,15 +43,14 @@ def create_github_issue(email, dc_name="미지정"):
     except:
         return "EXCEPTION"
 
-# 📊 [거북목 AI 100% 호환 및 탭 이름 자동 매핑 엔진]
+# 📊 [거북목 AI 100% 호환 및 첫 번째 탭 자동 적재 엔진]
 def append_to_gsheets_connection(email, dc_name="미지정"):
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         return "GSHEETS_SECRETS_ERROR"
     try:
         conn = st.connection("gsheets", type=GSheetsConnection)
         
-        # 💡 [대격변 조치] worksheet 이름을 명시하지 않고 호출하여 
-        # 구글 스프레드시트의 '첫 번째 탭'이 시트1이든 Sheet1이든 상관없이 강제로 긁어옵니다.
+        # 💡 시트 이름에 구애받지 않도록 첫 번째 탭 자동 로드
         existing_data = conn.read(ttl=0)
         
         new_data = pd.DataFrame({
@@ -62,14 +61,12 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
         })
         
         updated_df = pd.concat([existing_data, new_data], ignore_index=True)
-        
-        # 💡 저장할 때도 첫 번째 탭에 다이렉트로 업데이트를 밀어 넣습니다.
         conn.update(data=updated_df)
         return "SUCCESS"
     except Exception as e:
         return f"GSHEETS_EXCEPTION_{str(e)}"
 
-# 3. 주소창 URL 파라미터 가로채기 파이프라인
+# 3. URL 파라미터 후킹 처리 (지도에서 날아온 데이터 분기점)
 query_params = st.query_params
 if query_params.get("submit_lead") == "true" and query_params.get("email"):
     lead_email = query_params.get("email")
@@ -83,7 +80,7 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
         
         if sheet_status == "SUCCESS":
             st.balloons()
-            st.success(f"🎉 성공: {lead_email} 명단이 구글 시트에 합산 완료되었습니다!")
+            st.success(f"🎉 성공: {lead_email} 명단이 구글 시트에 정상 합산 완료되었습니다!")
             
             def reset_to_main():
                 st.query_params.clear()
@@ -105,8 +102,7 @@ col1.metric(label="⚡ Power Capacity", value="14.2 GW", delta="+.8 GW")
 col2.metric(label="🤖 AI Compute", value="245.8 EFLOPS", delta="+12.4%")
 col3.metric(label="💡 Efficiency", value="18.4 PFLOPS/MW", delta="Optimal")
 
-# 5. 🚨 [지도가 1페이지 안에 딱 들어오게 만드는 마법의 CSS 주입]
-# 상단 여백, 테두리 패딩을 소수점 단위까지 압축하여 스크롤바 자체를 지워버립니다.
+# 5. 지도가 아래로 안 밀리도록 스크롤바와 패딩을 원천 차단하는 마법의 CSS
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -128,14 +124,14 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 6. HTML 파일 로드 및 자바스크립트 주입
+# 6. HTML 파일 로드 및 주입
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 아키텍처 명세 코드
+    # 아키텍처 명세 코드 오버레이 스크립트
     tooltip_extension_script = """
     <script>
     const architectureMap = {
@@ -183,8 +179,7 @@ if os.path.exists(html_path):
     </script>
     """
 
-    # 🌟 [최상위 강제 이동 스크립트] 
-    # 모바일이나 작은 노트북 화면에서도 절대 튕기지 않고 브라우저 URL 전체를 변경해 버립니다.
+    # 최상위 리다이렉션 브릿지 엔진
     bridge_script = """
     <script>
     function interceptAllFormSubmissions(e) {
@@ -225,7 +220,7 @@ if os.path.exists(html_path):
     combined_scripts = f"{tooltip_extension_script}{bridge_script}</body>"
     html_code = html_code.replace("</body>", combined_scripts)
     
-    # 💡 [크기 최적화] 메트릭 밑 공간에 딱 달라붙도록 높이를 660px로 축소하여 1페이지 내에 완전 박제합니다.
+    # 💡 [화면 맞춤 정밀 보정] 상단 메트릭 아래에 스크롤 없이 딱 들어차도록 최적 높이 660px 지정
     components.html(html_code, height=660, scrolling=False)
 else:
     st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
