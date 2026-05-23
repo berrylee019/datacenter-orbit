@@ -6,7 +6,7 @@ import json
 import pandas as pd
 from datetime import datetime
 
-# 1. Streamlit 페이지 기본 설정 (최상단 고정 규칙 준수)
+# 1. Streamlit 페이지 기본 설정 (최상단 고정)
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
     page_icon="🌐",
@@ -18,10 +18,10 @@ st.set_page_config(
 try:
     from streamlit_gsheets import GSheetsConnection
 except ImportError:
-    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다. requirements.txt를 확인해 주세요, 형님.")
+    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다.")
     st.stop()
 
-# 🚨 [보안 강화] 주소창 쿼리 스트링 가로채기 파이프라인 (거북목 AI 스타일로 인코딩 제거 순문화)
+# 🚨 [보안 강화] 주소창 쿼리 스트링 가로채기 파이프라인
 message_listener = """
 <script>
 window.addEventListener("message", function(event) {
@@ -41,7 +41,6 @@ components.html(message_listener, height=0, width=0)
 def create_github_issue(email, dc_name="미지정"):
     if "GITHUB_TOKEN" not in st.secrets or "GITHUB_REPO" not in st.secrets:
         return "SECRETS_ERROR"
-        
     token = st.secrets["GITHUB_TOKEN"]
     repo = st.secrets["GITHUB_REPO"]
     url = f"https://api.github.com/repos/{repo}/issues"
@@ -53,42 +52,35 @@ def create_github_issue(email, dc_name="미지정"):
         "title": f"🚨 [New Lead] {email} 구독 신청",
         "body": f"### 📬 새로운 프로 버전 대기 신청 리드\n\n"
                 f"- **신청 이메일:** `{email}`\n"
-                f"- **우선 관제 타깃:** {dc_name}\n\n"
-                f"--- \n*본 이슈는 InfraPulse 고안정성 주소창 리스너에 의해 자동 생성되었습니다.*",
+                f"- **우선 관제 타깃:** {dc_name}\n\n",
         "labels": ["lead", "pro-waitlist"]
     }
     try:
         response = requests.post(url, json=data, headers=headers)
-        if response.status_code == 201:
-            return "SUCCESS"
-        else:
-            return f"API_ERROR_{response.status_code}_{response.text}"
-    except Exception as e:
-        return f"EXCEPTION_{str(e)}"
+        return "SUCCESS" if response.status_code == 201 else "ERROR"
+    except:
+        return "EXCEPTION"
 
-# 📊 [거북목 AI 1:1 동기화형 구글 시트 저장부]
+# 📊 [거북목 AI 100% 호환 구조 개조 저장부]
 def append_to_gsheets_connection(email, dc_name="미지정"):
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         return "GSHEETS_SECRETS_ERROR"
     try:
         conn = st.connection("gsheets", type=GSheetsConnection)
-        existing_data = conn.read(worksheet="시트1", ttl=0)
         
-        # 💡 안정성 조치: 거북목 AI 시트의 실제 컬럼명을 그대로 가져와 매핑합니다.
-        # 시트의 헤더가 [Email, Date, Name, Note] 순서라고 가정하고 인덱스로 접근합니다.
-        col_email = existing_data.columns[0] if len(existing_data.columns) > 0 else "Email"
-        col_date = existing_data.columns[1] if len(existing_data.columns) > 1 else "Date"
-        col_name = existing_data.columns[2] if len(existing_data.columns) > 2 else "Name"
-        col_note = existing_data.columns[3] if len(existing_data.columns) > 3 else "Note"
-        
+        # 💡 [핵심 변경] 기존 컬럼명을 분석하지 않고, 거북목 AI 시트 규격에 맞춰 강제 매핑합니다.
         new_data = pd.DataFrame({
-            col_email: [email],
-            col_date: [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
-            col_name: ["InfraPulse_Lead"],
-            col_note: [f"관제타깃: {dc_name}"]
+            "Email": [email],
+            "Date": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
+            "Name": ["InfraPulse_User"],
+            "Note": [f"인프라관제: {dc_name}"]
         })
         
+        # 시트1의 기존 데이터를 읽어와 하단에 그대로 병합
+        existing_data = conn.read(worksheet="시트1", ttl=0)
         updated_df = pd.concat([existing_data, new_data], ignore_index=True)
+        
+        # 구글 시트 반영
         conn.update(worksheet="시트1", data=updated_df)
         return "SUCCESS"
     except Exception as e:
@@ -102,9 +94,8 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
     
     st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
     
-    with st.spinner("🚀 거북목 AI 공유 시트로 리드를 연동 중..."):
+    with st.spinner("🚀 거북목 AI 공유 시트로 리드를 즉시 연동 중..."):
         sheet_status = append_to_gsheets_connection(lead_email, lead_target)
-        # 백업용 깃허브 가동
         create_github_issue(lead_email, lead_target)
         
         if sheet_status == "SUCCESS":
@@ -118,7 +109,7 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
             st.button("🌐 글로벌 인프라 관제탑 화면으로 돌아가기", on_click=reset_to_main, type="primary")
             st.stop()
         else:
-            st.error(f"❌ 구글 시트 저장 실패. 에러 내용: {sheet_status}")
+            st.error(f"❌ 구글 시트 저장 오류 발생. (코드: {sheet_status})")
             if st.button("메인화면 복귀"):
                 st.query_params.clear()
                 st.rerun()
@@ -201,40 +192,51 @@ if os.path.exists(html_path):
     </script>
     """
 
-    # 🌟 [순문화 완성] iframe 내부 폼 제출 가로채기 핸들러
+    # 🌟 [초강력 하이재킹 엔진 개조] 
+    # 특정 ID 양식에 구애받지 않고, 화면에 이메일 폼이 감지되면 무조건 가로채서 대기열 패킷을 던집니다.
     bridge_script = """
     <script>
-    function handleFakeDoorSubmit(e) {
+    function handleUniversalSubmit(e) {
+        // 어떤 형태의 이메일 제출 폼이든 원천 가로채기 수행
+        const emailInputObj = e.target.querySelector('input[type="email"]');
+        if (!emailInputObj) return;
+        
         e.preventDefault();
+        e.stopPropagation();
+        
         try {
-            const emailInput = e.target.querySelector('input[type="email"]').value;
+            const emailValue = emailInputObj.value;
             const dcName = (typeof selectedNode !== 'undefined' && selectedNode) ? selectedNode.name : "일반 메인 대기";
             
             alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
             
-            // postMessage 전송 시 인코딩 처리를 거북목 AI처럼 순수 스트링으로 송출
             window.parent.postMessage({ 
                 type: "SUBMIT_LEAD", 
-                email: emailInput, 
+                email: emailValue, 
                 target: dcName 
             }, "*");
         } catch(err) {
-            alert("제출 처리 중 오류 발생: " + err.message);
+            console.error("Submit intercept error: ", err);
         }
     }
     
-    function bindFormSubmit() {
-        const form = document.getElementById('proWaitlistForm');
-        if (form) {
+    function forceBindAllForms() {
+        // index.html 내의 모든 form 태그에 이벤트 강제 주입
+        const allForms = document.querySelectorAll('form');
+        allForms.forEach(form => {
             form.removeAttribute('onsubmit');
-            form.removeEventListener('submit', handleFakeDoorSubmit);
-            form.addEventListener('submit', handleFakeDoorSubmit);
-        }
+            form.removeEventListener('submit', handleUniversalSubmit);
+            form.addEventListener('submit', handleUniversalSubmit);
+        });
     }
     
-    window.addEventListener('click', function() { setTimeout(bindFormSubmit, 150); });
-    const formObserver = new MutationObserver(() => { bindFormSubmit(); });
-    formObserver.observe(document.body, { childList: true, subtree: true });
+    // 유저 클릭 및 노드 변경 감지 시 실시간 무한 동기화 바인딩
+    window.addEventListener('click', function() { setTimeout(forceBindAllForms, 100); });
+    const globalFormObserver = new MutationObserver(() => { forceBindAllForms(); });
+    globalFormObserver.observe(document.body, { childList: true, subtree: true });
+    
+    // 최초 실행 확보
+    setTimeout(forceBindAllForms, 500);
     </script>
     """
     
