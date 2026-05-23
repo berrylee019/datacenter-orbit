@@ -14,23 +14,22 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 🚨 [구글 시트 라이브러리 연동] 거북목 AI와 동일하게 설계 및 requirements 꼬임 방어
+# 🚨 [구글 시트 라이브러리 연동]
 try:
     from streamlit_gsheets import GSheetsConnection
 except ImportError:
-    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다. requirements.txt에 추가 후 Reboot 해주십시오, 형님.")
+    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다. requirements.txt를 확인해 주세요, 형님.")
     st.stop()
 
-# 🚨 [보안 강화] 주소창 쿼리 스트링 가로채기 파이프라인
+# 🚨 [보안 강화] 주소창 쿼리 스트링 가로채기 파이프라인 (거북목 AI 스타일로 인코딩 제거 순문화)
 message_listener = """
 <script>
 window.addEventListener("message", function(event) {
-    // 보안 통과를 위해 모든 PostMessage 소스를 허용하되 SUBMIT_LEAD 타입 신호 정밀 트래킹
     if (event.data && event.data.type === "SUBMIT_LEAD") {
         const cleanUrl = new URL(window.parent.location.href);
         cleanUrl.searchParams.set("submit_lead", "true");
-        cleanUrl.searchParams.set("email", encodeURIComponent(event.data.email));
-        cleanUrl.searchParams.set("target", encodeURIComponent(event.data.target));
+        cleanUrl.searchParams.set("email", event.data.email);
+        cleanUrl.searchParams.set("target", event.data.target);
         window.parent.location.href = cleanUrl.toString();
     }
 });
@@ -67,29 +66,29 @@ def create_github_issue(email, dc_name="미지정"):
     except Exception as e:
         return f"EXCEPTION_{str(e)}"
 
-# 📊 [거북목 AI 튜닝 적용형 구글 시트 저장부]
+# 📊 [거북목 AI 1:1 동기화형 구글 시트 저장부]
 def append_to_gsheets_connection(email, dc_name="미지정"):
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         return "GSHEETS_SECRETS_ERROR"
     try:
-        # 거북목 AI 구글 시트 커넥션 로드
         conn = st.connection("gsheets", type=GSheetsConnection)
-        
-        # 💡 중요: 거북목 AI 규칙과 완벽 호환되도록 "시트1" 스트링 지정 명시
         existing_data = conn.read(worksheet="시트1", ttl=0)
         
-        # 새 데이터 프레임 구조화 (거북목 시트 헤더 컬럼 순서 및 인프라펄스 데이터 커스텀 셋업)
+        # 💡 안정성 조치: 거북목 AI 시트의 실제 컬럼명을 그대로 가져와 매핑합니다.
+        # 시트의 헤더가 [Email, Date, Name, Note] 순서라고 가정하고 인덱스로 접근합니다.
+        col_email = existing_data.columns[0] if len(existing_data.columns) > 0 else "Email"
+        col_date = existing_data.columns[1] if len(existing_data.columns) > 1 else "Date"
+        col_name = existing_data.columns[2] if len(existing_data.columns) > 2 else "Name"
+        col_note = existing_data.columns[3] if len(existing_data.columns) > 3 else "Note"
+        
         new_data = pd.DataFrame({
-            "Email": [email],
-            "Date": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
-            "Name": ["InfraPulse_Lead"],
-            "Note": [f"관제타깃: {dc_name}"]
+            col_email: [email],
+            col_date: [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
+            col_name: ["InfraPulse_Lead"],
+            col_note: [f"관제타깃: {dc_name}"]
         })
         
-        # 거북목 AI 코드에서 검증된 pd.concat 방식으로 테이블 하단에 머지
         updated_df = pd.concat([existing_data, new_data], ignore_index=True)
-        
-        # 💡 중요: 다시 "시트1" 타깃으로 안전 업데이트 밀어넣기
         conn.update(worksheet="시트1", data=updated_df)
         return "SUCCESS"
     except Exception as e:
@@ -98,24 +97,19 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
 # 3. 분기점 통제 (리드 제출 가로채기 엔진)
 query_params = st.query_params
 if query_params.get("submit_lead") == "true" and query_params.get("email"):
-    from urllib.parse import unquote
-    lead_email = unquote(query_params.get("email"))
-    lead_target = unquote(query_params.get("target", "일반 메인 대기"))
+    lead_email = query_params.get("email")
+    lead_target = query_params.get("target", "일반 메인 대기")
     
     st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
     
-    with st.spinner("🚀 거북목 AI 공유 시트 및 GitHub 인프라로 리드를 연동 중..."):
-        # 1순위 구글 시트 이관 파이프라인 작동
+    with st.spinner("🚀 거북목 AI 공유 시트로 리드를 연동 중..."):
         sheet_status = append_to_gsheets_connection(lead_email, lead_target)
-        # 2순위 깃허브 백업 이슈 생성 가동
-        github_status = create_github_issue(lead_email, lead_target)
+        # 백업용 깃허브 가동
+        create_github_issue(lead_email, lead_target)
         
         if sheet_status == "SUCCESS":
             st.balloons()
-            st.success(f"🎉 성공: {lead_email} 명단이 거북목 AI 공유 구글 시트1에 안전하게 합산 보관되었습니다!")
-            if github_status != "SUCCESS":
-                st.warning(f"⚠️ 참고: 구글 시트는 저장 완료되었으나, GitHub 연동은 비활성 상태입니다. (코드: {github_status})")
-                
+            st.success(f"🎉 성공: {lead_email} 명단이 구글 시트1에 안전하게 합산 보관되었습니다!")
             st.info(f"📋 **접수 세부 정보**\n- **신청 계정:** {lead_email}\n- **우선 관제 타깃:** {lead_target}")
             
             def reset_to_main():
@@ -123,12 +117,8 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
                 st.rerun()
             st.button("🌐 글로벌 인프라 관제탑 화면으로 돌아가기", on_click=reset_to_main, type="primary")
             st.stop()
-            
-        elif sheet_status == "GSHEETS_SECRETS_ERROR":
-            st.error("❌ 전송 실패: Streamlit Secrets에 [connections.gsheets] 설정 블록이 누락되었습니다. 거북목Secrets를 그대로 복사해 오십시오.")
-            st.stop()
         else:
-            st.error(f"❌ 구글 시트 통합 통신 오류 발생. (상세 코드: {sheet_status})")
+            st.error(f"❌ 구글 시트 저장 실패. 에러 내용: {sheet_status}")
             if st.button("메인화면 복귀"):
                 st.query_params.clear()
                 st.rerun()
@@ -161,7 +151,6 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 아키텍처 실시간 매핑 딕셔너리
     tooltip_extension_script = """
     <script>
     const architectureMap = {
@@ -212,7 +201,7 @@ if os.path.exists(html_path):
     </script>
     """
 
-    # 🌟 입력한 폼 데이터를 최상위 부모 윈도우(Streamlit)로 강력 송출하는 스크립트
+    # 🌟 [순문화 완성] iframe 내부 폼 제출 가로채기 핸들러
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
@@ -223,7 +212,7 @@ if os.path.exists(html_path):
             
             alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
             
-            // iframe 보안 장벽을 뚫기 위해 postMessage의 대상을 명확히 부모(parent)로 지정
+            // postMessage 전송 시 인코딩 처리를 거북목 AI처럼 순수 스트링으로 송출
             window.parent.postMessage({ 
                 type: "SUBMIT_LEAD", 
                 email: emailInput, 
@@ -237,13 +226,12 @@ if os.path.exists(html_path):
     function bindFormSubmit() {
         const form = document.getElementById('proWaitlistForm');
         if (form) {
-            form.removeAttribute('onsubmit'); // 기존 인라인 이벤트 핸들러 제거
+            form.removeAttribute('onsubmit');
             form.removeEventListener('submit', handleFakeDoorSubmit);
             form.addEventListener('submit', handleFakeDoorSubmit);
         }
     }
     
-    // 클릭 및 마커 로드 이벤트와 지속 동기화
     window.addEventListener('click', function() { setTimeout(bindFormSubmit, 150); });
     const formObserver = new MutationObserver(() => { bindFormSubmit(); });
     formObserver.observe(document.body, { childList: true, subtree: true });
