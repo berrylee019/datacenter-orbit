@@ -110,7 +110,7 @@
     </main>
 
     <div id="fake-door-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
-        <div class="bg-gray-900 border border-gray-800 max-w-md w-full rounded-2xl p-5 shadow-2xl relative">
+        <div class="bg-gray-900 border border-gray-800 max-w-xl w-full rounded-2xl p-5 shadow-2xl relative">
             <button onclick="closeFakeDoorModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-300 cursor-pointer"><i data-lucide="x"></i></button>
             <div class="text-center">
                 <div class="bg-amber-500/10 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 border border-amber-500/20">
@@ -120,10 +120,21 @@
                 <p class="text-[11px] text-gray-400 mb-4 leading-relaxed">
                     Pro 버전에서는 **전 세계 전력선 공급 한계도 지표**, **SMR 미공개 부지 정보**, 그리고 **AI 에이전트 실시간 기업 공시 분석 알림**을 독점 제공합니다. 얼리버드 대기자 명단에 등록하세요.
                 </p>
-                <form id="emailForm" class="space-y-2">
-                    <input type="email" id="emailInput" required placeholder="이메일 주소를 입력해 주세요" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-3 py-2.5 text-xs focus:outline-none focus:border-emerald-500 text-gray-100 font-mono">
-                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-950 font-bold py-2.5 rounded-lg text-xs hover:from-emerald-600 hover:to-cyan-600 transition-all cursor-pointer">
-                        얼리버드 혜택 받고 대기 명단 등록
+                
+                <form id="emailForm" class="flex flex-col sm:flex-row items-stretch gap-2 w-full">
+                    <input type="email" id="emailInput" required placeholder="이메일 주소를 입력해 주세요" 
+                           class="flex-1 bg-gray-950 border border-gray-800 rounded-lg px-3 h-11 text-xs focus:outline-none focus:border-emerald-500 text-gray-100 font-mono min-w-[180px]">
+                    
+                    <select id="targetSelect" 
+                            class="bg-gray-950 border border-gray-800 rounded-lg px-3 h-11 text-xs focus:outline-none focus:border-emerald-500 text-gray-300 min-w-[140px] cursor-pointer">
+                        <option value="글로벌 전체 관제" selected>글로벌 전체 관제</option>
+                        <option value="SMR 시뮬레이터">SMR 시뮬레이터</option>
+                        <option value="AI 연산 인텔리전스">AI 연산 인텔리전스</option>
+                    </select>
+
+                    <button type="submit" 
+                            class="bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-950 font-bold px-4 h-11 rounded-lg text-xs hover:from-emerald-600 hover:to-cyan-600 transition-all cursor-pointer flex items-center justify-center gap-1 shrink-0">
+                        <span>얼리버드 사전 예약 🚀</span>
                     </button>
                 </form>
             </div>
@@ -249,18 +260,21 @@
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#1f2937' } } } }
         });
         
+        // 🛠️ 추가 및 보완된 자바스크립트 비동기 데이터 백엔드 파이프라인
         window.addEventListener('DOMContentLoaded', () => {
             const emailForm = document.getElementById('emailForm');
             const emailInput = document.getElementById('emailInput');
+            const targetSelect = document.getElementById('targetSelect'); // 새로 설계된 동적 셀렉터 엘리먼트 수집
 
             if (!emailForm) return;
 
             emailForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                if (!emailInput) return;
-                const emailValue = emailInput.value.trim();
+                if (!emailInput || !targetSelect) return;
                 
-                const dcName = (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.name) ? selectedNode.name : "글로벌 메인 대기";
+                const emailValue = emailInput.value.trim();
+                const selectedTarget = targetSelect.value; // 사용자가 변경 선택한 인프라 관제 스코프 파싱
+                
                 if (!emailValue || !emailValue.includes('@')) {
                     alert("올바른 이메일 주소를 입력해 주세요, 형님.");
                     return;
@@ -271,21 +285,22 @@
                 const submitBtn = emailForm.querySelector('button');
                 if (submitBtn) {
                     submitBtn.disabled = true;
-                    submitBtn.innerText = "예약 중... 🚀";
+                    submitBtn.innerHTML = "예약 중... 🚀";
                 }
 
+                // 구글 웹 앱스로 전송하는 Payload에 선택한 드롭다운 관제 대상을 동적으로 결합
                 fetch(googleWebAppUrl, {
                     method: "POST",
                     mode: "no-cors",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email: emailValue, target: dcName })
+                    body: JSON.stringify({ email: emailValue, target: selectedTarget })
                 })
                 .then(() => {
-                    alert(`🎉 등록 완료!\n\n 얼리버드 명단이 정상 적재되었습니다.`);
+                    alert(`🎉 등록 완료!\n\n얼리버드 명단에 [${selectedTarget}] 수신 신청이 정상 적재되었습니다.`);
                     emailInput.value = "";
                     if (submitBtn) {
                         submitBtn.disabled = false;
-                        submitBtn.innerText = "얼리버드 혜택 받고 대기 명단 등록";
+                        submitBtn.innerHTML = "얼리버드 사전 예약 🚀";
                     }
                     closeFakeDoorModal();
                     window.location.reload();
@@ -294,7 +309,7 @@
                     alert("구글 시트 연동 전송 중 통신 장애가 발생했습니다.");
                     if (submitBtn) {
                         submitBtn.disabled = false;
-                        submitBtn.innerText = "얼리버드 혜택 받고 대기 명단 등록";
+                        submitBtn.innerHTML = "얼리버드 사전 예약 🚀";
                     }
                     console.error(err);
                 });
