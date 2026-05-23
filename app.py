@@ -6,7 +6,7 @@ import json
 import pandas as pd
 from datetime import datetime
 
-# 1. Streamlit 페이지 기본 설정 (최상단 고정 및 화면 여백 최소화)
+# 1. Streamlit 페이지 기본 설정 (최상단 고정 및 여백 최소화)
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
     page_icon="🌐",
@@ -18,7 +18,7 @@ st.set_page_config(
 try:
     from streamlit_gsheets import GSheetsConnection
 except ImportError:
-    st.error("❌ 'st-gsheets-connection' 라이브러리가 아직 설치되지 않았습니다. requirements.txt 변경 후 푸시해 주세요.")
+    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다.")
     st.stop()
 
 # 2. GitHub Issue 생성 시스템
@@ -43,14 +43,12 @@ def create_github_issue(email, dc_name="미지정"):
     except:
         return "EXCEPTION"
 
-# 📊 [거북목 AI 100% 호환 및 첫 번째 탭 자동 적재 엔진]
+# 📊 [구글 시트 첫 번째 탭 자동 적재 엔진]
 def append_to_gsheets_connection(email, dc_name="미지정"):
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         return "GSHEETS_SECRETS_ERROR"
     try:
         conn = st.connection("gsheets", type=GSheetsConnection)
-        
-        # 💡 시트 이름에 구애받지 않도록 첫 번째 탭 자동 로드
         existing_data = conn.read(ttl=0)
         
         new_data = pd.DataFrame({
@@ -66,14 +64,14 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
     except Exception as e:
         return f"GSHEETS_EXCEPTION_{str(e)}"
 
-# 3. URL 파라미터 후킹 처리 (지도에서 날아온 데이터 분기점)
+# 3. URL 파라미터 / 순정 폼 제출 통합 처리 분기점
 query_params = st.query_params
-if query_params.get("submit_lead") == "true" and query_params.get("email"):
-    lead_email = query_params.get("email")
-    lead_target = query_params.get("target", "일반 메인 대기")
-    
+lead_email = query_params.get("email")
+lead_target = query_params.get("target", "글로벌 메인 대기")
+
+# 파이썬 순정 버튼 혹은 자바스크립트 리다이렉트로 신호가 인입되었을 때
+if query_params.get("submit_lead") == "true" and lead_email:
     st.markdown("<div style='padding-top: 2rem;'></div>", unsafe_allow_html=True)
-    
     with st.spinner("🚀 거북목 AI 공유 시트로 리드를 즉시 동기화 중..."):
         sheet_status = append_to_gsheets_connection(lead_email, lead_target)
         create_github_issue(lead_email, lead_target)
@@ -94,22 +92,50 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
                 st.rerun()
             st.stop()
 
-# 4. 1페이지 스크롤 제로화를 위한 상단 메트릭 가로 압축 배치
-st.markdown("<h3 style='margin:0; padding:0;'>🌐 InfraPulse 관제탑</h3>", unsafe_allow_html=True)
+# 4. 상단 타이틀 레이아웃
+st.markdown("<h3 style='margin:0; padding:0;'>🌐 InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑</h3>", unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
-col1.metric(label="⚡ Power Capacity", value="14.2 GW", delta="+.8 GW")
-col2.metric(label="🤖 AI Compute", value="245.8 EFLOPS", delta="+12.4%")
-col3.metric(label="💡 Efficiency", value="18.4 PFLOPS/MW", delta="Optimal")
+# 💡 [대격변] 숨겨진 녹색 버튼을 상단에 '순정 가로 바(Bar)' 형태로 전면 전진 배치!
+# 이제 지도가 잘리거나 작아도 이메일 제출 버튼은 100% 무조건 보이고 무조건 작동합니다.
+st.markdown("<div style='background-color:#1e293b; padding:10px; border-radius:8px; margin-bottom:10px;'>", unsafe_allow_html=True)
+form_col1, form_col2, form_col3 = st.columns([2, 2, 1])
 
-# 5. 지도가 아래로 안 밀리도록 스크롤바와 패딩을 원천 차단하는 마법의 CSS
+with form_col1:
+    input_email = st.text_input("📧 Pro 버전 얼리버드 대기열 등록 (월 49,000원 ➡️ 24,000원 할인)", placeholder="이메일 주소를 입력하세요", label_visibility="collapsed")
+with form_col2:
+    input_target = st.selectbox("우선 관제 희망 타깃", [
+        "글로벌 전체 관제", "xAI 멤피스 콜로서스 1", "네이버 하이퍼스케일 각 세종", 
+        "MS-블랙록 버지니아 허브", "미시간 팰리세이드 SMR", "하남 데이터센터"
+    ], label_visibility="collapsed")
+with form_col3:
+    # 거북목 AI와 완벽하게 동일한 메커니즘을 가진 순정 "녹색" 제출 버튼
+    btn_style = st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+            background-color: #22c55e !important;
+            color: white !important;
+            border: none !important;
+            width: 100%;
+        }
+        </style>""", unsafe_allow_html=True)
+    submit_clicked = st.button("얼리버드 사전 예약 🚀")
+
+if submit_clicked:
+    if input_email and "@" in input_email:
+        st.query_params.update(submit_lead="true", email=input_email, target=input_target)
+        st.rerun()
+    else:
+        st.error("올바른 이메일 형식을 기재해 주십시오.")
+st.markdown("</div>", unsafe_allow_html=True)
+
+# 5. 지도가 스크롤바 없이 꽉 차게 들어오도록 만드는 CSS 압축 패키지
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
         .block-container {
-            padding-top: 0rem !important; 
+            padding-top: 0.5rem !important; 
             padding-bottom: 0rem !important; 
             padding-left: 0.5rem !important; 
             padding-right: 0.5rem !important;
@@ -131,7 +157,7 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 아키텍처 명세 코드 오버레이 스크립트
+    # 아키텍처 툴팁 기능 명세 스크립트
     tooltip_extension_script = """
     <script>
     const architectureMap = {
@@ -177,50 +203,11 @@ if os.path.exists(html_path):
         setTimeout(injectArchitectureSpec, 200);
     });
     </script>
+    </body>
     """
-
-    # 최상위 리다이렉션 브릿지 엔진
-    bridge_script = """
-    <script>
-    function interceptAllFormSubmissions(e) {
-        const emailInput = e.target.querySelector('input[type="email"]') || e.target.querySelector('input[placeholder*="이메일"]');
-        if (!emailInput) return;
-        
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const emailValue = emailInput.value;
-        const dcName = (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.name) ? selectedNode.name : "일반 메인 대기";
-        
-        alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
-        
-        try {
-            const parentUrl = new URL(window.parent.location.href);
-            parentUrl.searchParams.set("submit_lead", "true");
-            parentUrl.searchParams.set("email", emailValue);
-            parentUrl.searchParams.set("target", dcName);
-            window.parent.location.href = parentUrl.toString();
-        } catch(err) {
-            window.top.location.href = window.location.origin + `?submit_lead=true&email=${encodeURIComponent(emailValue)}&target=${encodeURIComponent(dcName)}`;
-        }
-    }
+    html_code = html_code.replace("</body>", tooltip_extension_script)
     
-    function attachGlobalInterceptor() {
-        document.removeEventListener('submit', interceptAllFormSubmissions, true);
-        document.addEventListener('submit', interceptAllFormSubmissions, true);
-    }
-    
-    attachGlobalInterceptor();
-    window.addEventListener('click', function() { setTimeout(attachGlobalInterceptor, 50); });
-    const documentObserver = new MutationObserver(() => { attachGlobalInterceptor(); });
-    documentObserver.observe(document.body, { childList: true, subtree: true });
-    </script>
-    """
-    
-    combined_scripts = f"{tooltip_extension_script}{bridge_script}</body>"
-    html_code = html_code.replace("</body>", combined_scripts)
-    
-    # 💡 [화면 맞춤 정밀 보정] 상단 메트릭 아래에 스크롤 없이 딱 들어차도록 최적 높이 660px 지정
-    components.html(html_code, height=660, scrolling=False)
+    # 💡 폼이 상단으로 완전히 대피했으므로, 지도는 스크롤바 없이 아래 빈 공간을 꽉 채우도록 높이를 750px로 시원하게 늘려줍니다.
+    components.html(html_code, height=750, scrolling=False)
 else:
     st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
