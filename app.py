@@ -72,7 +72,7 @@ lead_target = query_params.get("target", "글로벌 메인 대기")
 # 파이썬 순정 버튼 혹은 자바스크립트 리다이렉트로 신호가 인입되었을 때
 if query_params.get("submit_lead") == "true" and lead_email:
     st.markdown("<div style='padding-top: 2rem;'></div>", unsafe_allow_html=True)
-    with st.spinner("🚀 거북목 AI 공유 시트로 리드를 즉시 동기화 중..."):
+    with st.spinner("리드를 즉시 동기화 중..."):
         sheet_status = append_to_gsheets_connection(lead_email, lead_target)
         create_github_issue(lead_email, lead_target)
         
