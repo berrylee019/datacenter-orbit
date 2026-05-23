@@ -75,7 +75,7 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
         conn = st.connection("gsheets", type=GSheetsConnection)
         
         # 기본 시트1(첫 번째 워크시트) 데이터 로드 (캐시 제거)
-        existing_data = conn.read(worksheet=0, ttl=0)
+        existing_data = conn.read(worksheet=시트1, ttl=0)
         
         # 현재 시간 기록
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -94,7 +94,7 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
         updated_data = pd.concat([existing_data, new_row_df], ignore_index=True)
         
         # 구글 시트1 업데이트 밀어넣기
-        conn.update(worksheet=0, data=updated_data)
+        conn.update(worksheet=시트1, data=updated_data)
         return "SUCCESS"
     except Exception as e:
         return f"GSHEETS_EXCEPTION_{str(e)}"
