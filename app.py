@@ -96,7 +96,6 @@ if query_params.get("submit_lead") == "true" and lead_email:
 st.markdown("<h3 style='margin:0; padding:0;'>🌐 InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑</h3>", unsafe_allow_html=True)
 
 # 💡 [대격변] 숨겨진 녹색 버튼을 상단에 '순정 가로 바(Bar)' 형태로 전면 전진 배치!
-# 이제 지도가 잘리거나 작아도 이메일 제출 버튼은 100% 무조건 보이고 무조건 작동합니다.
 st.markdown("<div style='background-color:#1e293b; padding:10px; border-radius:8px; margin-bottom:10px;'>", unsafe_allow_html=True)
 form_col1, form_col2, form_col3 = st.columns([2, 2, 1])
 
@@ -120,15 +119,16 @@ with form_col3:
         </style>""", unsafe_allow_html=True)
     submit_clicked = st.button("얼리버드 사전 예약 🚀")
 
+# 5. 🛠️ 버튼 클릭 처리 부분 보정 (st.rerun 경고 해결 구역)
 if submit_clicked:
     if input_email and "@" in input_email:
+        # st.rerun()을 호출하지 않고 쿼리 파라미터만 업데이트하여 샌드박스 경고를 우회합니다.
         st.query_params.update(submit_lead="true", email=input_email, target=input_target)
-        st.rerun()
     else:
         st.error("올바른 이메일 형식을 기재해 주십시오.")
 st.markdown("</div>", unsafe_allow_html=True)
 
-# 5. 지도가 스크롤바 없이 꽉 차게 들어오도록 만드는 CSS 압축 패키지
+# 지도가 스크롤바 없이 꽉 차게 들어오도록 만드는 CSS 압축 패키지
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
