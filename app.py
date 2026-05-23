@@ -3,9 +3,10 @@ import streamlit.components.v1 as components
 import os
 import requests
 import json
+import pandas as pd
 from datetime import datetime
 
-# 1. Streamlit 페이지 기본 설정 (최상단 규칙 준수)
+# 1. Streamlit 페이지 기본 설정 (최상단 고정 규칙 준수)
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
     page_icon="🌐",
@@ -13,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 🚨 [구글 시트 라이브러리 안전 탑재]
+# 🚨 [구글 시트 라이브러리 연동] 거북목 AI와 동일하게 설계 및 requirements 꼬임 방어
 try:
     from streamlit_gsheets import GSheetsConnection
 except ImportError:
@@ -66,35 +67,30 @@ def create_github_issue(email, dc_name="미지정"):
     except Exception as e:
         return f"EXCEPTION_{str(e)}"
 
-# 📊 [추가된 엔지니어링: st.connection 기반 구글 시트 저장부]
+# 📊 [거북목 AI 튜닝 적용형 구글 시트 저장부]
 def append_to_gsheets_connection(email, dc_name="미지정"):
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         return "GSHEETS_SECRETS_ERROR"
     try:
-        # 거북목 AI에서 쓰던 세팅 그대로 커넥션 생성
+        # 거북목 AI 구글 시트 커넥션 로드
         conn = st.connection("gsheets", type=GSheetsConnection)
         
-        # 기본 시트1(첫 번째 워크시트) 데이터 로드 (캐시 제거)
-        existing_data = conn.read(worksheet=시트1, ttl=0)
+        # 💡 중요: 거북목 AI 규칙과 완벽 호환되도록 "시트1" 스트링 지정 명시
+        existing_data = conn.read(worksheet="시트1", ttl=0)
         
-        # 현재 시간 기록
-        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # 새 데이터 프레임 구조화 (거북목 시트 헤더 컬럼 순서 및 인프라펄스 데이터 커스텀 셋업)
+        new_data = pd.DataFrame({
+            "Email": [email],
+            "Date": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
+            "Name": ["InfraPulse_Lead"],
+            "Note": [f"관제타깃: {dc_name}"]
+        })
         
-        # 새 데이터 행 매핑 구조 빌드
-        new_row = {
-            existing_data.columns[0]: current_time,
-            existing_data.columns[1]: email,
-            "서비스명": "InfraPulse",
-            "관심 인프라 타깃": dc_name
-        }
+        # 거북목 AI 코드에서 검증된 pd.concat 방식으로 테이블 하단에 머지
+        updated_df = pd.concat([existing_data, new_data], ignore_index=True)
         
-        # 판다스 concat 결합 처리로 안정성 확보
-        import pandas as pd
-        new_row_df = pd.DataFrame([new_row])
-        updated_data = pd.concat([existing_data, new_row_df], ignore_index=True)
-        
-        # 구글 시트1 업데이트 밀어넣기
-        conn.update(worksheet=시트1, data=updated_data)
+        # 💡 중요: 다시 "시트1" 타깃으로 안전 업데이트 밀어넣기
+        conn.update(worksheet="시트1", data=updated_df)
         return "SUCCESS"
     except Exception as e:
         return f"GSHEETS_EXCEPTION_{str(e)}"
@@ -108,15 +104,15 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
     
     st.markdown("<div style='padding-top: 3rem;'></div>", unsafe_allow_html=True)
     
-    # 2중 파이프라인 가동 (구글 시트 연동 우선 배치 및 깃허브 동시 시도)
     with st.spinner("🚀 거북목 AI 공유 시트 및 GitHub 인프라로 리드를 연동 중..."):
+        # 1순위 구글 시트 이관 파이프라인 작동
         sheet_status = append_to_gsheets_connection(lead_email, lead_target)
+        # 2순위 깃허브 백업 이슈 생성 가동
         github_status = create_github_issue(lead_email, lead_target)
         
-        # 구글 시트나 깃허브 둘 중 하나라도 성공하면 유저에게 성공 마크 부여
         if sheet_status == "SUCCESS":
             st.balloons()
-            st.success(f"🎉 성공: {lead_email} 명단이 거북목 AI 공유 구글 시트에 안전하게 통합되었습니다!")
+            st.success(f"🎉 성공: {lead_email} 명단이 거북목 AI 공유 구글 시트1에 안전하게 합산 보관되었습니다!")
             if github_status != "SUCCESS":
                 st.warning(f"⚠️ 참고: 구글 시트는 저장 완료되었으나, GitHub 연동은 비활성 상태입니다. (코드: {github_status})")
                 
@@ -129,10 +125,10 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
             st.stop()
             
         elif sheet_status == "GSHEETS_SECRETS_ERROR":
-            st.error("❌ 전송 실패: Streamlit Secrets에 [connections.gsheets] 설정 블록이 누락되었습니다.")
+            st.error("❌ 전송 실패: Streamlit Secrets에 [connections.gsheets] 설정 블록이 누락되었습니다. 거북목Secrets를 그대로 복사해 오십시오.")
             st.stop()
         else:
-            st.error(f"❌ 구글 시트 통신 오류 발생. (상세 코드: {sheet_status})")
+            st.error(f"❌ 구글 시트 통합 통신 오류 발생. (상세 코드: {sheet_status})")
             if st.button("메인화면 복귀"):
                 st.query_params.clear()
                 st.rerun()
@@ -216,7 +212,7 @@ if os.path.exists(html_path):
     </script>
     """
 
-    # 🌟 [개조] 입력한 폼 데이터를 최상위 부모 윈도우(Streamlit)로 강력 송출하는 스크립트
+    # 🌟 입력한 폼 데이터를 최상위 부모 윈도우(Streamlit)로 강력 송출하는 스크립트
     bridge_script = """
     <script>
     function handleFakeDoorSubmit(e) {
