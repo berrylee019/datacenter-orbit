@@ -21,22 +21,6 @@ except ImportError:
     st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다.")
     st.stop()
 
-# 🚨 [보안 강화] 주소창 쿼리 스트링 가로채기 파이프라인
-message_listener = """
-<script>
-window.addEventListener("message", function(event) {
-    if (event.data && event.data.type === "SUBMIT_LEAD") {
-        const cleanUrl = new URL(window.parent.location.href);
-        cleanUrl.searchParams.set("submit_lead", "true");
-        cleanUrl.searchParams.set("email", event.data.email);
-        cleanUrl.searchParams.set("target", event.data.target);
-        window.parent.location.href = cleanUrl.toString();
-    }
-});
-</script>
-"""
-components.html(message_listener, height=0, width=0)
-
 # 2. GitHub Issue 생성 엔지니어링
 def create_github_issue(email, dc_name="미지정"):
     if "GITHUB_TOKEN" not in st.secrets or "GITHUB_REPO" not in st.secrets:
@@ -50,9 +34,7 @@ def create_github_issue(email, dc_name="미지정"):
     }
     data = {
         "title": f"🚨 [New Lead] {email} 구독 신청",
-        "body": f"### 📬 새로운 프로 버전 대기 신청 리드\n\n"
-                f"- **신청 이메일:** `{email}`\n"
-                f"- **우선 관제 타깃:** {dc_name}\n\n",
+        "body": f"### 📬 새로운 프로 버전 대기 신청 리드\n\n- **신청 이메일:** `{email}`\n- **우선 관제 타깃:** {dc_name}\n\n",
         "labels": ["lead", "pro-waitlist"]
     }
     try:
@@ -61,14 +43,14 @@ def create_github_issue(email, dc_name="미지정"):
     except:
         return "EXCEPTION"
 
-# 📊 [거북목 AI 100% 호환 구조 개조 저장부]
+# 📊 [거북목 AI 100% 호환 구조 저장부]
 def append_to_gsheets_connection(email, dc_name="미지정"):
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         return "GSHEETS_SECRETS_ERROR"
     try:
         conn = st.connection("gsheets", type=GSheetsConnection)
         
-        # 💡 [핵심 변경] 기존 컬럼명을 분석하지 않고, 거북목 AI 시트 규격에 맞춰 강제 매핑합니다.
+        # 새 리드 데이터 프레임 생성 (거북목 시트 구조 그대로 강제 결합)
         new_data = pd.DataFrame({
             "Email": [email],
             "Date": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
@@ -76,17 +58,17 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
             "Note": [f"인프라관제: {dc_name}"]
         })
         
-        # 시트1의 기존 데이터를 읽어와 하단에 그대로 병합
+        # 시트1의 기존 데이터 읽기
         existing_data = conn.read(worksheet="시트1", ttl=0)
         updated_df = pd.concat([existing_data, new_data], ignore_index=True)
         
-        # 구글 시트 반영
+        # 구글 시트 업데이트 반영
         conn.update(worksheet="시트1", data=updated_df)
         return "SUCCESS"
     except Exception as e:
         return f"GSHEETS_EXCEPTION_{str(e)}"
 
-# 3. 분기점 통제 (리드 제출 가로채기 엔진)
+# 3. 분기점 통제 (자바스크립트가 직접 주소창에 파라미터를 꽂았을 때 작동)
 query_params = st.query_params
 if query_params.get("submit_lead") == "true" and query_params.get("email"):
     lead_email = query_params.get("email")
@@ -192,51 +174,47 @@ if os.path.exists(html_path):
     </script>
     """
 
-    # 🌟 [초강력 하이재킹 엔진 개조] 
-    # 특정 ID 양식에 구애받지 않고, 화면에 이메일 폼이 감지되면 무조건 가로채서 대기열 패킷을 던집니다.
+    # 🌟 [초강력 하이재킹 브릿지 V2] 
+    # iframe postMessage 통신 장벽을 우회하고 최상위 부모 스트림릿 주소창에 파라미터를 강제 다이렉트로 내리꽂습니다.
     bridge_script = """
     <script>
-    function handleUniversalSubmit(e) {
-        // 어떤 형태의 이메일 제출 폼이든 원천 가로채기 수행
-        const emailInputObj = e.target.querySelector('input[type="email"]');
-        if (!emailInputObj) return;
+    function interceptAllFormSubmissions(e) {
+        // 화면 안의 어떤 폼이든 이메일 타입 입력값이 들어있으면 강제 후킹
+        const emailInput = e.target.querySelector('input[type="email"]') || e.target.querySelector('input[placeholder*="이메일"]');
+        if (!emailInput) return;
         
         e.preventDefault();
         e.stopPropagation();
         
+        const emailValue = emailInput.value;
+        const dcName = (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.name) ? selectedNode.name : "일반 메인 대기";
+        
+        alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
+        
+        // 💡 최상위 부모창(Streamlit 주소창)의 쿼리 매개변수를 직접 변경하여 파이썬 트리거를 직접 깨웁니다.
         try {
-            const emailValue = emailInputObj.value;
-            const dcName = (typeof selectedNode !== 'undefined' && selectedNode) ? selectedNode.name : "일반 메인 대기";
-            
-            alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\\n\\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
-            
-            window.parent.postMessage({ 
-                type: "SUBMIT_LEAD", 
-                email: emailValue, 
-                target: dcName 
-            }, "*");
+            const parentUrl = new URL(window.parent.location.href);
+            parentUrl.searchParams.set("submit_lead", "true");
+            parentUrl.searchParams.set("email", emailValue);
+            parentUrl.searchParams.set("target", dcName);
+            window.parent.location.href = parentUrl.toString();
         } catch(err) {
-            console.error("Submit intercept error: ", err);
+            // 차선책으로 현재 iframe 기준 부모 윈도우 강제 리다이렉트 시도
+            window.top.location.href = window.location.origin + `?submit_lead=true&email=${encodeURIComponent(emailValue)}&target=${encodeURIComponent(dcName)}`;
         }
     }
     
-    function forceBindAllForms() {
-        // index.html 내의 모든 form 태그에 이벤트 강제 주입
-        const allForms = document.querySelectorAll('form');
-        allForms.forEach(form => {
-            form.removeAttribute('onsubmit');
-            form.removeEventListener('submit', handleUniversalSubmit);
-            form.addEventListener('submit', handleUniversalSubmit);
-        });
+    function attachGlobalInterceptor() {
+        // 버블링 스테이지에서 모든 submit 이벤트를 원천 포획
+        document.removeEventListener('submit', interceptAllFormSubmissions, true);
+        document.addEventListener('submit', interceptAllFormSubmissions, true);
     }
     
-    // 유저 클릭 및 노드 변경 감지 시 실시간 무한 동기화 바인딩
-    window.addEventListener('click', function() { setTimeout(forceBindAllForms, 100); });
-    const globalFormObserver = new MutationObserver(() => { forceBindAllForms(); });
-    globalFormObserver.observe(document.body, { childList: true, subtree: true });
-    
-    // 최초 실행 확보
-    setTimeout(forceBindAllForms, 500);
+    // 문서 로드 및 클릭 시 실시간 리스너 락킹
+    attachGlobalInterceptor();
+    window.addEventListener('click', function() { setTimeout(attachGlobalInterceptor, 50); });
+    const documentObserver = new MutationObserver(() => { attachGlobalInterceptor(); });
+    documentObserver.observe(document.body, { childList: true, subtree: true });
     </script>
     """
     
