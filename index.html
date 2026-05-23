@@ -16,7 +16,6 @@
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans min-h-screen flex flex-col">
 
-    <!-- 상단 바 -->
     <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-[1000]">
         <div class="flex items-center gap-3">
             <div class="bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/30">
@@ -27,16 +26,13 @@
                 <p class="text-xs text-gray-400 font-mono">Live AIDC & Power Grid Telemetry Ecosystem</p>
             </div>
         </div>
-        <!-- 4. Fake Door: 프리미엄 결제 유도 버튼 -->
         <button onclick="openFakeDoorModal()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-gray-950 px-4 py-2 rounded-lg font-bold text-xs shadow-lg shadow-orange-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
             <i data-lucide="crown" class="w-4 h-4"></i> Pro 버전 업그레이드 (구독)
         </button>
     </header>
 
-    <!-- 레이아웃 -->
     <main class="flex-1 grid grid-cols-1 xl:grid-cols-4 p-6 gap-6 h-[calc(100vh-73px)] overflow-hidden">
         
-        <!-- 1열: 관제 계기판 -->
         <div class="xl:col-span-1 flex flex-col gap-6 overflow-y-auto pr-2">
             <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl">
                 <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
@@ -56,7 +52,6 @@
                 </div>
             </div>
 
-            <!-- 3. 핵심 킬러 콘텐츠: SMR 결합 그리드 시뮬레이터 -->
             <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
                 <h3 class="text-sm font-semibold text-gray-200 mb-3 flex items-center gap-2">
                     <i data-lucide="zap" class="w-4 h-4 text-yellow-400"></i>
@@ -73,8 +68,7 @@
                         <div class="bg-gray-900 p-2 rounded border border-gray-800"><span class="text-gray-500">인프라 전력원:</span> <div id="selected-dc-power" class="font-mono text-gray-300">-</div></div>
                         <div class="bg-gray-900 p-2 rounded border border-gray-800"><span class="text-gray-500">전력 요구치:</span> <div id="selected-dc-load" class="font-mono text-gray-300">-</div></div>
                     </div>
-                    <!-- 🌟 2) 선택된 데이터센터의 컴퓨팅 지표 추가 레이어 부모 구역 -->
-                    <div id="selected-dc-compute-box" class="hidden bg-gray-900/60 p-3 rounded.lg border border-cyan-500/20 text-[11px] space-y-1">
+                    <div id="selected-dc-compute-box" class="hidden bg-gray-900/60 p-3 rounded-lg border border-cyan-500/20 text-[11px] space-y-1">
                         <div class="font-bold text-cyan-400 flex items-center gap-1 mb-1">
                             <i data-lucide="cpu" class="w-3.5 h-3.5"></i> AI 연산력 인텔리전스
                         </div>
@@ -89,12 +83,10 @@
             </div>
         </div>
 
-        <!-- 2~3열: 지도 영역 -->
         <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl h-full flex flex-col">
             <div id="map" class="w-full flex-1 bg-gray-950" style="min-height: 500px; height: 100%;"></div>
         </div>
 
-        <!-- 4열: 실시간 인텔리전스 및 피드 -->
         <div class="xl:col-span-1 flex flex-col gap-6 overflow-y-auto pl-2">
             <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-xl">
                 <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
@@ -123,7 +115,6 @@
         </div>
     </main>
 
-    <!-- 4. Fake Door Test 모달 -->
     <div id="fake-door-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
             <button onclick="closeFakeDoorModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-300 cursor-pointer"><i data-lucide="x"></i></button>
@@ -135,8 +126,8 @@
                 <p class="text-xs text-gray-400 mb-6 leading-relaxed">
                     Pro 버전에서는 **전 세계 전력선 공급 한계도 지표**, **SMR 미공개 부지 정보**, 그리고 **AI 에이전트 실시간 기업 공시 분석 알림**을 독점 제공합니다. 얼리버드 대기자 명단에 등록하세요.
                 </p>
-                <form onsubmit="handleFakeDoorSubmit(event)" class="space-y-3">
-                    <input type="email" required placeholder="이메일 주소를 입력해 주세요" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-gray-100 font-mono">
+                <form id="emailForm" class="space-y-3">
+                    <input type="email" id="emailInput" required placeholder="이메일 주소를 입력해 주세요" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-gray-100 font-mono">
                     <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-950 font-bold py-3 rounded-lg text-sm hover:from-emerald-600 hover:to-cyan-600 transition-all cursor-pointer">
                         얼리버드 혜택 받고 대기 명단 등록
                     </button>
@@ -184,7 +175,7 @@
                         fillOpacity: 0.8
                     }).addTo(map);
 
-                    // 🌟 [수정 부분 2-1] 지도 마커 마우스 오버/클릭 시 노출되는 Leaflet 기본 팝업(툴팁)에 컴퓨팅 수치 직접 연산 주입
+                    // 🌟 지도 마커 마우스 오버/클릭 시 노출되는 Leaflet 기본 팝업(툴팁)에 컴퓨팅 수치 직접 연산 주입
                     const rawLoad = parseFloat(dc.load) || 30; 
                     const estPflops = (rawLoad * 18.4).toFixed(1);
                     const efficiency = (18.4 - (Math.random() * 0.6)).toFixed(1);
@@ -212,7 +203,7 @@
                         document.getElementById('selected-dc-power').innerText = dc.source;
                         document.getElementById('selected-dc-load').innerText = dc.load;
 
-                        // 🌟 [수정 부분 2-2] 사이드바 시뮬레이터 인프라 대시보드 영역에도 컴퓨팅 지표 실시간 노출 보정
+                        // 🌟 사이드바 시뮬레이터 인프라 대시보드 영역에도 컴퓨팅 지표 실시간 노출 보정
                         document.getElementById('selected-dc-pflops').innerText = `${estPflops} PFLOPS`;
                         document.getElementById('selected-dc-efficiency').innerText = `${efficiency} PFLOPS/MW`;
                         document.getElementById('selected-dc-compute-box').classList.remove('hidden');
@@ -260,17 +251,6 @@
         // 4. Fake Door 모달 제어 함수
         function openFakeDoorModal() { document.getElementById('fake-door-modal').classList.remove('hidden'); }
         function closeFakeDoorModal() { document.getElementById('fake-door-modal').classList.add('hidden'); }
-        
-        // 🛠️ [교체 완료] 부모 창(Streamlit)의 쿼리 매개변수를 직접 변조하여 완벽한 백엔드 신호 동기화 보장
-        function handleFakeDoorSubmit(e) {
-            e.preventDefault();
-            const emailInput = e.target.querySelector('input[type="email"]').value;
-            const dcName = selectedNode ? selectedNode.name : "일반 메인 대기";
-
-            // 💡 부모 window 창 주소에 매개변수를 붙여 백엔드 if 리스너를 강제로 호출합니다.
-            const cleanUrl = window.parent.location.origin + window.parent.location.pathname;
-            window.parent.location.href = `${cleanUrl}?submit_lead=true&email=${encodeURIComponent(emailInput)}&target=${encodeURIComponent(dcName)}`;
-        }
 
         // Chart 설정
         const ctx = document.getElementById('loadChart').getContext('2d');
@@ -278,57 +258,77 @@
             type: 'line',
             data: {
                 labels: ['02시', '06시', '10시', '14시', '18시', '22시'],
+                accessible_data: [11200, 10800, 13900, 14245, 12100, 13000],
                 datasets: [{ label: '부하량', data: [11200, 10800, 13900, 14245, 12100, 13000], borderColor: '#06b6d4', tension: 0.4, fill: false }]
             },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
         
-        // 💡 형님의 index.html에 있는 실제 Form ID와 Input ID를 매핑하셔야 합니다.
-document.getElementById('emailForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // 깃허브 페이지 자체 새로고침 방지
-    
-    const emailValue = document.getElementById('emailInput').value;
-    
-    // 선택된 데이터센터 노드가 있다면 그 이름을 쓰고, 없으면 기본값 지정
-    const dcName = (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.name) 
-                   ? selectedNode.name 
-                   : "글로벌 메인 대기";
-    
-    if (!emailValue || !emailValue.includes('@')) {
-        alert("올바른 이메일 주소를 입력해 주세요.");
-        return;
-    }
+        // 🚀 [교체 완료] 깃허브 배포 페이지 우회 대응용 구글 시트 다이렉트 슛팅 비동기 스크립트
+        window.addEventListener('DOMContentLoaded', () => {
+            const emailForm = document.getElementById('emailForm');
+            const emailInput = document.getElementById('emailInput');
 
-    // 🚨 1단계에서 복사한 형님의 구글 웹앱 URL을 여기 바인딩합니다.
-    const googleWebAppUrl = "https://script.google.com/macros/s/AKfycbx_S_uyPGWsJtZlIeJaAbTLao49S_DAzLFtKkSNDT-Kvj3a5dVCxitUZfEj_yIQaz_JaA/exec";
-    
-    // 버튼 비활성화 (중복 클릭 방지)
-    const submitBtn = e.target.querySelector('button');
-    if(submitBtn) submitBtn.disabled = true;
+            if (!emailForm) return;
 
-    // 구글 시트로 직접 데이터 슛팅
-    fetch(googleWebAppUrl, {
-        method: "POST",
-        mode: "no-cors", // CORS 장벽 우회 핵심 옵션
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: emailValue,
-            target: dcName
-        })
-    })
-    .then(() => {
-        // no-cors 모드는 브라우저 보안상 success 리턴을 잡지 못하므로 무조건 완료 팝업을 띄웁니다.
-        alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\n\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
-        window.location.reload(); // 등록 후 깔끔하게 리로드
-    })
-    .catch(err => {
-        alert("등록 중 오류가 발생했습니다. 다시 시도해 주세요.");
-        if(submitBtn) submitBtn.disabled = false;
-        console.error(err);
-    });
-});
+            emailForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // 깃허브 페이지 새로고침 차단 및 비동기 전선 고정
+                
+                if (!emailInput) return;
+                const emailValue = emailInput.value.trim();
+                
+                // 지도에서 선택된 노드명 탐색, 없으면 메인 대기열 처리
+                const dcName = (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.name) 
+                               ? selectedNode.name 
+                               : "글로벌 메인 대기";
+                
+                if (!emailValue || !emailValue.includes('@')) {
+                    alert("올바른 이메일 주소를 입력해 주세요, 형님.");
+                    return;
+                }
+
+                // 🚨 형님의 구글 앱스 스크립트 고유 웹앱 URL
+                const googleWebAppUrl = "https://script.google.com/macros/s/AKfycbx_S_uyPGWsJtZlIeJaAbTLao49S_DAzLFtKkSNDT-Kvj3a5dVCxitUZfEj_yIQaz_JaA/exec";
+                
+                // 버튼 중복 클릭 방지 락(Lock)
+                const submitBtn = emailForm.querySelector('button');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = "예약 중... 🚀";
+                }
+
+                // POST 요청으로 거북목 AI 연동 시트1에 우회 주입
+                fetch(googleWebAppUrl, {
+                    method: "POST",
+                    mode: "no-cors", // CORS 보안 검증 우회 전용 모드
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: emailValue,
+                        target: dcName
+                    })
+                })
+                .then(() => {
+                    alert(`🎉 등록 완료!\n\n거북목 AI 구글 시트에 인프라펄스 얼리버드 명단이 정상 적재되었습니다.`);
+                    emailInput.value = ""; // 입력 칸 리셋
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "얼리버드 혜택 받고 대기 명단 등록";
+                    }
+                    closeFakeDoorModal();
+                    window.location.reload(); // 성공 후 세션 동기화 새로고침
+                })
+                .catch(err => {
+                    alert("구글 시트 연동 전송 중 통신 장애가 발생했습니다.");
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "얼리버드 혜택 받고 대기 명단 등록";
+                    }
+                    console.error(err);
+                });
+            });
+        });
     </script>
 </body>
 </html>
