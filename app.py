@@ -3,19 +3,20 @@ import streamlit.components.v1 as components
 import os
 from datetime import datetime
 
-# 🚨 스트림릿 공식 구글 시트 커넥션 라이브러리 탑재
-try:
-    from streamlit_gsheets import GSheetsConnection
-except ImportError:
-    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다. requirements.txt에 추가해 주세요, 형님.")
-
-# 1. Streamlit 페이지 기본 설정
+# 🚨 [규칙 준수 1순위] st.set_page_config는 다른 모든 스트림릿 명령보다 무조건 최상단에 와야 합니다.
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
     page_icon="🌐",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
+
+# 2. 필수 라이브러리 체크 (st.set_page_config 아래로 안전하게 이동)
+try:
+    from streamlit_gsheets import GSheetsConnection
+except ImportError:
+    st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다. requirements.txt에 추가해 주세요, 형님.")
+    st.stop()
 
 # 🚨 [보안 장벽 우회 리스너] iframe 내부 자바스크립트 패킷 수신부
 message_listener = """
@@ -34,38 +35,36 @@ window.addEventListener("message", function(event) {
 components.html(message_listener, height=0, width=0)
 
 
-# 2. 📊 st.connection 기반 구글 시트 데이터 적재 함수
+# 3. 📊 st.connection 기반 구글 시트 데이터 적재 함수
 def append_to_gsheets_connection(email, dc_name="미지정"):
-    # 형님이 복사 붙여넣기 하실 [connections.gsheets] 섹션이 잘 들어왔는지 검증
     if "connections" not in st.secrets or "gsheets" not in st.secrets["connections"]:
         st.error("❌ Streamlit Secrets에 [connections.gsheets] 설정 블록이 누락되었습니다, 형님.")
         return False
         
     try:
-        # 💡 거북목 AI 설정 정보 연동 및 시트 커넥션 생성
+        # 구글 시트 커넥션 생성
         conn = st.connection("gsheets", type=GSheetsConnection)
         
-        # 💡 [필수 확인] 거북목 AI가 사용 중인 구글 시트의 전체 데이터를 판다스로 먼저 읽어옵니다.
-        # 시트 내용이 비어있거나 읽을 때 에러 방지를 위해 기본 시트1(worksheet=0)을 타깃팅합니다.
+        # 거북목 AI 시트 데이터프레임 로드 (캐시 비활성화 ttl=0)
         existing_data = conn.read(worksheet=0, ttl=0)
         
         # 현재 시간 기록 (한국 시간 기준)
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        # 📝 새롭게 추가할 인프라펄스 리드 데이터 덩어리 구성
-        # 거북목 AI 시트 컬럼 순서가 [시간, 이메일, ...] 형태라면 그대로 일치시켜 줍니다.
+        # 📝 새롭게 추가할 인프라펄스 데이터 행 구성
         new_row = {
             existing_data.columns[0]: current_time,
             existing_data.columns[1]: email,
-            # 만약 거북목 AI 시트에 '서비스명'이나 '관심타깃' 컬럼이 아직 없다면 판다스가 자동으로 우측에 열을 확장해서 넣어줍니다.
             "서비스명": "InfraPulse",
             "관심 인프라 타깃": dc_name
         }
         
-        # 기존 데이터프레임 하단에 새 행 추가
-        updated_data = existing_data.append(new_row, ignore_index=True)
+        # 💡 최신 판다스 환경에서 .append() 제거로 인한 경고 및 에러 원천 차단 (concat 사용)
+        import pandas as pd
+        new_row_df = pd.DataFrame([new_row])
+        updated_data = pd.concat([existing_data, new_row_df], ignore_index=True)
         
-        # 🚀 수정된 전체 데이터셋을 구글 시트1에 덮어쓰기식으로 전송 (가장 확실한 네이티브 적재 방식)
+        # 🚀 수정된 데이터를 구글 시트1에 업데이트
         conn.update(worksheet=0, data=updated_data)
         return True
         
@@ -74,7 +73,7 @@ def append_to_gsheets_connection(email, dc_name="미지정"):
         return False
 
 
-# 3. 🛡️ [고안정성 네이티브 분기점 통제부]
+# 4. 🛡️ [고안정성 네이티브 분기점 통제부]
 query_params = st.query_params
 
 if query_params.get("submit_lead") == "true" and query_params.get("email"):
@@ -98,7 +97,7 @@ if query_params.get("submit_lead") == "true" and query_params.get("email"):
             st.stop()
 
 
-# 4. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거 CSS
+# 5. Streamlit 상단 메뉴 및 불필요한 백그라운드 여백 제거 CSS
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -111,7 +110,7 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-# 5. HTML 파일 로드 및 자바스크립트 브릿지 스크립트 강제 주입
+# 6. HTML 파일 로드 및 자바스크립트 브릿지 스크립트 강제 주입
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
