@@ -282,6 +282,53 @@
             },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
+        
+        // 💡 형님의 index.html에 있는 실제 Form ID와 Input ID를 매핑하셔야 합니다.
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // 깃허브 페이지 자체 새로고침 방지
+    
+    const emailValue = document.getElementById('emailInput').value;
+    
+    // 선택된 데이터센터 노드가 있다면 그 이름을 쓰고, 없으면 기본값 지정
+    const dcName = (typeof selectedNode !== 'undefined' && selectedNode && selectedNode.name) 
+                   ? selectedNode.name 
+                   : "글로벌 메인 대기";
+    
+    if (!emailValue || !emailValue.includes('@')) {
+        alert("올바른 이메일 주소를 입력해 주세요.");
+        return;
+    }
+
+    // 🚨 1단계에서 복사한 형님의 구글 웹앱 URL을 여기 바인딩합니다.
+    const googleWebAppUrl = "https://script.google.com/macros/s/AKfycbx_S_uyPGWsJtZlIeJaAbTLao49S_DAzLFtKkSNDT-Kvj3a5dVCxitUZfEj_yIQaz_JaA/exec";
+    
+    // 버튼 비활성화 (중복 클릭 방지)
+    const submitBtn = e.target.querySelector('button');
+    if(submitBtn) submitBtn.disabled = true;
+
+    // 구글 시트로 직접 데이터 슛팅
+    fetch(googleWebAppUrl, {
+        method: "POST",
+        mode: "no-cors", // CORS 장벽 우회 핵심 옵션
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: emailValue,
+            target: dcName
+        })
+    })
+    .then(() => {
+        // no-cors 모드는 브라우저 보안상 success 리턴을 잡지 못하므로 무조건 완료 팝업을 띄웁니다.
+        alert(`감사합니다! 얼리버드 대기 명단 등록이 완료되었습니다.\n\n출시 즉시 안내서와 50% 할인 혜택을 발송해 드리겠습니다.`);
+        window.location.reload(); // 등록 후 깔끔하게 리로드
+    })
+    .catch(err => {
+        alert("등록 중 오류가 발생했습니다. 다시 시도해 주세요.");
+        if(submitBtn) submitBtn.disabled = false;
+        console.error(err);
+    });
+});
     </script>
 </body>
 </html>
