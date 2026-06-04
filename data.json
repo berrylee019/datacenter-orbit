@@ -141,5 +141,18 @@
     "carbon": "zero",
     "desc": "석탄화력발전소 부지를 전환하여 건설 중인 4세대 SFR 원전. 인근 메가 AIDC의 피크 전력을 커버하는 핵폭발급 전력 허브.",
     "architecture": "Liquid Sodium Cooled SFR / Molten Salt Energy Storage Integration"
+  },
+  {
+    "id": 12,
+    "name": "네이버 하이퍼스케일 각 춘천",
+    "lat": 37.8751,
+    "lng": 127.7562,
+    "type": "AIDC",
+    "load": "50 MW",
+    "source": "한국전력 강원 그리드 변전소 연계",
+    "status": "active",
+    "carbon": "low",
+    "desc": "대한민국 인터넷 역사를 지탱해 온 네이버의 첫 번째 자체 데이터센터. 구봉산 고랭지 자연 바람을 이용한 혁신적인 외기 냉각 시스템 가동 중.",
+    "architecture": "Custom Server Racks / Intel-AMD Custom Cloud Clusters & AI Inference Support"
   }
 ]
