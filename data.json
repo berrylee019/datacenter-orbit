@@ -26,19 +26,6 @@
     "architecture": "NVIDIA H100 / Intel Gaudi 3 & NAVER-Samsung LP-DDR AI chip"
   },
   {
-    "id": 4,
-    "name": "MS-블랙록 버지니아 글로벌 허브",
-    "lat": 39.0438,
-    "lng": -77.4874,
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "도미니언 에너지 인프라 과부하",
-    "status": "saturated",
-    "carbon": "high",
-    "desc": "세계 데이터센터의 수도인 버지니아 애슈번 지역. 전력 그리드 병목 현상 극심 구역.",
-    "architecture": "NVIDIA Blackwell NVL72 / Custom Azure Maia 100"
-  },
-  {
     "id": 3,
     "name": "미시간 팰리세이드 SMR 착공지",
     "lat": 42.3221,
@@ -52,6 +39,19 @@
     "architecture": "Next-Gen AI Clusters (Blackwell Ultra / Rubin Ready)"
   },
   {
+    "id": 4,
+    "name": "MS-블랙록 버지니아 글로벌 허브",
+    "lat": 39.0438,
+    "lng": -77.4874,
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "도미니언 에너지 인프라 과부하",
+    "status": "saturated",
+    "carbon": "high",
+    "desc": "세계 데이터센터의 수도인 버지니아 애슈번 지역. 전력 그리드 병목 현상 극심 구역.",
+    "architecture": "NVIDIA Blackwell NVL72 / Custom Azure Maia 100"
+  },
+  {
     "id": 5,
     "name": "하남 데이터센터",
     "lat": 37.5502,
@@ -63,5 +63,83 @@
     "carbon": "mid",
     "desc": "수도권 핵심 추론(Inference) 및 금융·커머스 특화 인프라 거점. 한강 유역 인근 고밀도 냉각 시스템 가동.",
     "architecture": "NVIDIA A100 / H100 Mixed (Domestic Cloud & Inference)"
+  },
+  {
+    "id": 6,
+    "name": "구글 세인트 토마스 AIDC",
+    "lat": 44.9416,
+    "lng": -93.1939,
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "미네소타 지역 그리드 연계 및 재생에너지 PPA",
+    "status": "active",
+    "carbon": "low",
+    "desc": "구글이 전력 공급이 원활한 미네소타에 구축 중인 차세대 Gemini 전용 고밀도 AI 데이터센터.",
+    "architecture": "Custom Google TPU v5p/v6 & Advanced Liquid Cooling"
+  },
+  {
+    "id": 7,
+    "name": "메타 인디애나 AI 클러스터",
+    "lat": 38.2776,
+    "lng": -85.7372,
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "인디애나 지역 그리드 독립 계통 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "차세대 오픈소스 Llama 시리즈 고도화를 위해 대규모 가속기를 수용하는 메타의 핵심 요새.",
+    "architecture": "NVIDIA Blackwell B200 / Ultra-dense Rack System"
+  },
+  {
+    "id": 8,
+    "name": "MS-오픈AI 스타게이트 (비밀기지 예정지)",
+    "lat": 41.5000,
+    "lng": -100.0000,
+    "type": "AIDC",
+    "load": "1000 MW",
+    "source": "전용 원자력 전력망 (Dedicated SMR 연계 추진)",
+    "status": "saturated",
+    "carbon": "zero",
+    "desc": "1,000억 달러 규모의 초거대 프로젝트. 기가와트(GW)급 전력 수급을 위해 SMR 독점 연계 추진 중.",
+    "architecture": "Next-Gen OpenAI Custom Triton Architecture & Blackwell Ultra"
+  },
+  {
+    "id": 9,
+    "name": "해남 솔라시도 데이터센터 파크",
+    "lat": 34.6934,
+    "lng": 126.5413,
+    "type": "AIDC",
+    "load": "40 MW",
+    "source": "호남 대규모 태양광·풍력 단지 다이렉트 연계 (RE100)",
+    "status": "active",
+    "carbon": "zero",
+    "desc": "분산에너지 특구 수혜지. 재생에너지를 현장 직공급받아 수도권 전력 포화를 우회하는 전략 거점.",
+    "architecture": "Domestic GPU Cloud & Eco-Friendly Hybrid Cooling System"
+  },
+  {
+    "id": 10,
+    "name": "카카오 데이터센터 안산 (AIDC 고도화 라인)",
+    "lat": 37.2965,
+    "lng": 126.8341,
+    "type": "AIDC",
+    "load": "40 MW",
+    "source": "한국전력 안산 산업용 그리드 라인",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "카카오 자체 AI 서비스를 위한 인프라. 고효율 프리쿨링 냉동기 및 AI 기반 관제 시스템 가동 중.",
+    "architecture": "NVIDIA H100 Mixed / Custom Intel-AMD AI Infrastructure"
+  },
+  {
+    "id": 11,
+    "name": "테라파워 와이오밍 케머러 SMR 기지",
+    "lat": 41.7941,
+    "lng": -110.5361,
+    "type": "SMR",
+    "load": "345 MW",
+    "source": "빌 게이츠 테라파워 4세대 나트륨(Natrium) SFR 원전",
+    "status": "smr",
+    "carbon": "zero",
+    "desc": "석탄화력발전소 부지를 전환하여 건설 중인 4세대 SFR 원전. 인근 메가 AIDC의 피크 전력을 커버하는 핵폭발급 전력 허브.",
+    "architecture": "Liquid Sodium Cooled SFR / Molten Salt Energy Storage Integration"
   }
 ]
