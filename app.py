@@ -78,7 +78,7 @@ if query_params.get("submit_lead") == "true" and lead_email:
         
         if sheet_status == "SUCCESS":
             st.balloons()
-            st.success(f"🎉 성공: {lead_email} 명단이 구글 시트에 정상 합산 완료되었습니다!")
+            st.success(f"🎉 성공: {lead_email} 등록 완료되었습니다!")
             
             def reset_to_main():
                 st.query_params.clear()
