@@ -30,7 +30,6 @@ jobs:
           echo "⚠️ data.json initialized as empty array to prevent parse errors."
         fi
 
-    <div style="page-break-after: always;"></div>
 
     - name: Install dependencies
       run: |
