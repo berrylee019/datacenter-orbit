@@ -239,6 +239,39 @@ hide_menu_style = """
             border: none !important;
             margin-bottom: 0px !important;
         }
+        
+// index.html의 자바스크립트 구역에 추가할 실시간 영문 치환 엔진
+const englishTranslationMap = {
+    "xAI 멤피스 콜로서스 1 (앤트로픽 임대)": {
+        name: "xAI Memphis Colossus 1 (Leased by Anthropic)",
+        desc: "Anthropic has fully leased the entire 300MW output for Claude model inference and enterprise operations.",
+        source: "TVA Grid (Fossil Fuel Influx)"
+    },
+    "네이버 하이퍼스케일 각 세종": {
+        name: "NAVER Hyperscale GAK Sejong",
+        desc: "The largest AI infrastructure hub in South Korea. Currently monitoring regional grid saturation due to surging compute demand.",
+        source: "KEPCO Central Grid Connection"
+    },
+    "MS-블랙록 버지니아 글로벌 허브": {
+        name: "MS-BlackRock Virginia Global Hub",
+        desc: "Located in Ashburn, Virginia—the data center capital of the world. Experiencing extreme grid bottleneck issues.",
+        source: "Dominion Energy Grid Overload"
+    },
+    "미시간 팰리세이드 SMR 착공지": {
+        name: "Michigan Palisades SMR Site",
+        desc: "Received $400M in US federal subsidies. Commercial construction is slated to begin within this year with Hyundai E&C as a primary partner.",
+        source: "Holtec International Pioneer Unit 1 & 2"
+    },
+    "하남 데이터센터": {
+        name: "Hanam Data Center",
+        desc: "Core inference and finance/commerce specialized infrastructure node in the Seoul Metropolitan Area. Utilizing advanced high-density river-water cooling.",
+        source: "KEPCO East Seoul Substation Integration"
+    }
+};
+
+// Leaflet 마커나 팝업을 생성하는 루프 내부에서 이 맵을 태워줍니다.
+// 예시: 
+// let displayName = englishTranslationMap[data.name] ? englishTranslationMap[data.name].name : data.name;
         </style>
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
