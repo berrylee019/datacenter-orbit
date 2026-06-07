@@ -1,0 +1,52 @@
+name: 🌐 Automated Global Infra Agent Pipeline
+
+on:
+  schedule:
+    # ⏱️ 크론탭 설정 (매일 자정 12시 정각(UTC) = 한국 시간 오전 9시에 자동 실행)
+    # 분 시 일 월 요일 (필요시 '0 */3 * * *' 처럼 3시간마다 등으로 수정 가능)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # 🚀 이 옵션을 넣으면 깃허브 웹페이지에서 원할 때 수동으로 즉시 실행 버튼을 누를 수 있습니다!
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. 깃허브 리포지토리의 코드를 가상 서버로 체크아웃
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    # 2. 파이썬 환경 구축 (가볍고 빠른 3.10 버전 선택)
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 3. 필요한 라이브러리 자동 설치
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install openai geopy
+
+    # 4. 에이전트 가동 (보안 저장소의 API Key 주입)
+    - name: Run Global Infra Agent
+      env:
+        OPENAI_API_KEY: ${{ secrets::OPENAI_API_KEY }}
+      run: |
+        python agent.py
+
+    # 5. 변경된 data.json이 있다면 깃허브에 자동 커밋 및 푸시
+    - name: Commit and Push if data.json changed
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # 변경 사항이 있는지 안전하게 체크 후 커밋
+        git add data.json
+        if git diff --staged --quiet; then
+          echo "No changes in data.json. Skipping push."
+        else
+          git commit -m "chore: automated telemetry infrastructure update [skip ci]"
+          git push origin main
+        fi
