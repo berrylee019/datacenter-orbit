@@ -32,7 +32,7 @@ jobs:
     # 4. 에이전트 가동 (보안 저장소의 API Key 주입)
     - name: Run Global Infra Agent
       env:
-        OPENAI_API_KEY: ${{ secrets::OPENAI_API_KEY }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         python agent.py
 
