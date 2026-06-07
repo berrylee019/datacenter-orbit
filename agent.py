@@ -49,25 +49,29 @@ def run_infra_agent_pipeline():
         client = OpenAI(api_key=api_key)
         geolocator = Nominatim(user_agent="infrapulse_agent_2026")
         
+        # 💡 프롬프트를 더 유연하고 적극적으로 수집하도록 수정합니다.
         prompt = f"""
-        당신은 글로벌 AI 데이터센터 및 SMR 인프라 전문 분석 에이전트입니다.
-        아래 뉴스 기사를 읽고, 제공된 기존 서비스의 스키마 구조형식에 맞게 오직 새로운 인프라 데이터 1개만 JSON 객체로 추출하세요.
-        텍스트 설명이나 마크다운 블록 없이 오직 순수한 JSON만 반환해야 합니다.
+        당신은 글로벌 AI 데이터센터(AIDC) 및 SMR 인프라 전문 분석 에이전트입니다.
+        아래 제공된 최신 뉴스 헤드라인들을 읽고, 새로 건설되거나 확장, 또는 전력 계약을 체결한 인프라 프로젝트를 '최대 3개'까지 찾아서 리스트 형식의 JSON 배열로 추출하세요.
+        기사에 구체적인 수치(MW 등)가 명시되어 있지 않다면, 기사 내용을 기반으로 합리적인 예측치나 "Unknown"으로 채워 넣으세요.
+        텍스트 설명이나 마크다운 블록 없이 오직 순수한 JSON 배열만 반환해야 합니다.
 
         [뉴스 기사]
         {sample_news}
 
-        [필수 스키마 형식]
-        {{
-            "id": {next_id},
-            "name": "인프라 이름 (예: 아마존 더블린 AWS AIDC)",
-            "type": "AIDC" 또는 "SMR",
-            "load": "250 MW",
-            "source": "전력 공급원 설명",
-            "status": "active",
-            "desc": "기사 내용을 요약한 한글 한 문장 설명.",
-            "location_string": "Dublin, Ireland"
-        }}
+        [필수 반환 포맷 (JSON Array)]
+        [
+            {{
+                "id": {next_id},
+                "name": "인프라 이름 (예: Microsoft Ohio AIDC)",
+                "type": "AIDC" 또는 "SMR",
+                "load": "공급 용량 (예: 100 MW 또는 Unknown)",
+                "source": "전력 공급원 (예: Nuclear, Grid, Solar)",
+                "status": "active",
+                "desc": "뉴스 내용을 요약한 한글 한 문장 설명.",
+                "location_string": "도시 이름, 국가 이름 (예: Ohio, USA)"
+            }}
+        ]
         """
         
         response = client.chat.completions.create(
