@@ -1,9 +1,31 @@
 import os
 import json
+import urllib.request
+import xml.etree.ElementTree as ET
 from openai import OpenAI
 from geopy.geocoders import Nominatim
 
 DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
+
+def fetch_realtime_tech_news():
+    """Google News RSS 피드에서 글로벌 인프라(AIDC, SMR) 최신 뉴스 타이틀 10개를 긁어옵니다."""
+    url = "https://news.google.com/rss/search?q=data+center+power+OR+data+center+construction+OR+SMR+nuclear&hl=en-US&gl=US&ceid=US:en"
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req) as response:
+            xml_data = response.read()
+        
+        root = ET.fromstring(xml_data)
+        news_titles = []
+        for item in root.findall('.//item')[:10]:  # 최신 속보 10개 추출
+            title = item.find('title').text
+            news_titles.append(title)
+            
+        return "\n".join(news_titles)
+    except Exception as e:
+        print(f"⚠️ 실시간 뉴스 피드 로드 실패(기본값 대체): {e}")
+        # 네트워크 차단 등 비상시 가동될 백업 가짜 뉴스 스크립트
+        return "Amazon AWS Dublin data center construction 250MW operational grid connection success"
 
 def run_infra_agent_pipeline():
     # GitHub Actions 환경변수(Secrets)에서 API 키를 가져옵니다.
@@ -20,11 +42,9 @@ def run_infra_agent_pipeline():
                 
         next_id = max([item['id'] for item in existing_data]) + 1 if existing_data else 1
         
-        # 💡 테스트용 인프라 속보 샘플 (원하는 크롤링/인입 로직으로 대체 가능)
-        sample_news = """
-        [인프라 속보] 아마존 AWS, 아일랜드 더블린에 500억 달러 투입해 250MW 규모의 차세대 AI 데이터센터 추가 착공 발표. 
-        엔비디아 블랙웰 인프라 탑재 및 아일랜드 국동 전력 그리드 직접 연계 체결 성공하며 가동률 최고조 예상.
-        """
+        # 💡 [동적 변경 완료] 기존 하드코딩 텍스트를 걷어내고 실시간 뉴스 헤드라인들을 주입합니다.
+        sample_news = fetch_realtime_tech_news()
+        print(f"📡 수집된 실시간 뉴스 헤드라인 분석 시작:\n{sample_news}\n")
         
         client = OpenAI(api_key=api_key)
         geolocator = Nominatim(user_agent="infrapulse_agent_2026")
