@@ -167,5 +167,18 @@
     "carbon": "mid",
     "desc": "축구장 21배 규모의 초거대 AI 요새. 준공 전 이미 1동 완판을 기록했으며, One LG 시너지를 통한 차세대 첨단 액체 냉각 및 모듈형 공법이 총집약된 곳.",
     "architecture": "NVIDIA Blackwell / Next-Gen Dense GPU Clusters Ready & Liquid Cooling"
+  },
+  {
+    "id": 14,
+    "name": "소프트뱅크 프랑스 파리 메가 AIDC",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "type": "AIDC",
+    "load": "400 MW",
+    "source": "EDF(프랑스전력공사) 원자력 기저부하 그리드 다이렉트 연계",
+    "status": "active",
+    "carbon": "zero",
+    "desc": "손정의 회장과 마크롱 대통령의 합의로 구축되는 유럽 최대 규모의 AI 요새. 프랑스의 풍부한 원전 인프라를 활용해 탄소 배출 없이 24시간 초고부하 연산을 수행하며, 유럽 Sovereign AI의 핵심 허브 역할을 수행 예정.",
+    "architecture": "ARM-based Next-Gen AI Accelerators & Advanced Liquid Cooling Grid"
   }
 ]
