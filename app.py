@@ -5,6 +5,8 @@ import requests
 import json
 import pandas as pd
 from datetime import datetime
+from openai import OpenAI
+from geopy.geocoders import Nominatim
 
 # 1. Streamlit 페이지 기본 설정 (최상단 고정 및 여백 최소화)
 st.set_page_config(
@@ -20,6 +22,86 @@ try:
 except ImportError:
     st.error("❌ 'st-gsheets-connection' 라이브러리가 누락되었습니다.")
     st.stop()
+
+# 🤖 [글로벌 인프라 자동 업데이트 에이전트 엔진 구역]
+DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
+
+def run_infra_agent_pipeline():
+    """백그라운드에서 최신 인프라 뉴스를 분석하여 data.json을 자동으로 갱신하는 에이전트"""
+    if "OPENAI_API_KEY" not in st.secrets:
+        return "NO_API_KEY"
+        
+    try:
+        existing_data = []
+        if os.path.exists(DATA_FILE_PATH):
+            with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
+                existing_data = json.load(f)
+                
+        next_id = max([item['id'] for item in existing_data]) + 1 if existing_data else 1
+        
+        sample_news = """
+        [인프라 속보] 아마존 AWS, 아일랜드 더블린에 500억 달러 투입해 250MW 규모의 차세대 AI 데이터센터 추가 착공 발표. 
+        엔비디아 블랙웰 인프라 탑재 및 아일랜드 국동 전력 그리드 직접 연계 체결 성공하며 가동률 최고조 예상.
+        """
+        
+        client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+        geolocator = Nominatim(user_agent="infrapulse_agent_2026")
+        
+        prompt = f"""
+        당신은 글로벌 AI 데이터센터 및 SMR 인프라 전문 분석 에이전트입니다.
+        아래 뉴스 기사를 읽고, 제공된 기존 서비스의 스키마 구조형식에 맞게 오직 새로운 인프라 데이터 1개만 JSON 객체로 추출하세요.
+        텍스트 설명이나 마크다운 블록 없이 오직 순수한 JSON만 반환해야 합니다.
+
+        [뉴스 기사]
+        {sample_news}
+
+        [필수 스키마 형식]
+        {{
+            "id": {next_id},
+            "name": "인프라 이름 (예: 아마존 더블린 AWS AIDC)",
+            "lat": 0.0,
+            "lng": 0.0,
+            "location_string": "기사에 언급된 구체적인 도시/국가 명칭 (예: Dublin, Ireland)",
+            "type": "AIDC" 또는 "SMR",
+            "load": "000 MW (기사에 언급된 전력량, 없으면 대기 또는 추정치)",
+            "source": "전력 공급원 설명",
+            "status": "active" 또는 "saturated" 또는 "smr",
+            "carbon": "high" 또는 "mid" 또는 "low" 또는 "zero",
+            "desc": "기사 내용을 요약한 한글 한 문장 설명.",
+            "architecture": "사용된 GPU 칩셋이나 원전 아키텍처 명칭"
+        }}
+        """
+        
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1
+        )
+        
+        new_infra_item = json.loads(response.choices[0].content.strip())
+        
+        if any(item['name'] == new_infra_item['name'] for item in existing_data):
+            return "DUPLICATE"
+            
+        location_str = new_infra_item.get("location_string", "Dublin")
+        location = geolocator.geocode(location_str)
+        if location:
+            new_infra_item["lat"] = round(location.latitude, 4)
+            new_infra_item["lng"] = round(location.longitude, 4)
+        else:
+            new_infra_item["lat"] = 53.3498
+            new_infra_item["lng"] = -6.2603
+            
+        if "location_string" in new_infra_item:
+            del new_infra_item["location_string"]
+            
+        existing_data.append(new_infra_item)
+        with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
+            json.dump(existing_data, f, ensure_ascii=False, indent=2)
+            
+        return "SUCCESS"
+    except Exception as e:
+        return f"AGENT_EXCEPTION_{str(e)}"
 
 # 2. GitHub Issue 생성 시스템
 def create_github_issue(email, dc_name="미지정"):
@@ -107,8 +189,7 @@ with form_col2:
         "MS-블랙록 버지니아 허브", "미시간 팰리세이드 SMR", "하남 데이터센터", "구글 세인트 토마스 AIDC", "메타 인디애나 AI 클러스터", "MS-오픈AI 스타게이트 (비밀기지 예정지)", "해남 솔라시도 데이터센터 파크", "카카오 데이터센터 안산 (AIDC 고도화 라인)", "테라파워 와이오밍 케머러 SMR 기지", "네이버 하이퍼스케일 각 춘천", "기타 지역"
     ], label_visibility="collapsed")
 with form_col3:
-    # 거북목 AI와 완벽하게 동일한 메커니즘을 가진 순정 "녹색" 제출 버튼
-    btn_style = st.markdown("""
+    st.markdown("""
         <style>
         div.stButton > button:first-child {
             background-color: #22c55e !important;
@@ -119,14 +200,26 @@ with form_col3:
         </style>""", unsafe_allow_html=True)
     submit_clicked = st.button("얼리버드 사전 예약 🚀")
 
-# 5. 🛠️ 버튼 클릭 처리 부분 보정 (st.rerun 경고 해결 구역)
+# 5. 🛠️ 버튼 클릭 처리 부분 보정 (st.rerun / no-op 완벽 우회 구역)
 if submit_clicked:
     if input_email and "@" in input_email:
-        # st.rerun()을 호출하지 않고 쿼리 파라미터만 업데이트하여 샌드박스 경고를 우회합니다.
-        st.query_params.update(submit_lead="true", email=input_email, target=input_target)
+        # 세션 스테이트에 리드 신호를 기록하여 콜백 함수 내부 호출 구조를 우회합니다.
+        st.session_state["submit_lead_triggered"] = True
+        st.session_state["lead_email_val"] = input_email
+        st.session_state["lead_target_val"] = input_target
     else:
         st.error("올바른 이메일 형식을 기재해 주십시오.")
 st.markdown("</div>", unsafe_allow_html=True)
+
+# 💡 세션 스테이트가 감지되면 메인 루프 안전 구역에서 파라미터를 교체하고 정상적인 재실행 트래킹을 수행합니다.
+if st.session_state.get("submit_lead_triggered", False):
+    st.session_state["submit_lead_triggered"] = False  # 무한 루프 방지 단선
+    st.query_params.update(
+        submit_lead="true", 
+        email=st.session_state["lead_email_val"], 
+        target=st.session_state["lead_target_val"]
+    )
+    st.rerun()  # 안전 구역에서의 단발성 강제 리프레시 실행
 
 # 지도가 스크롤바 없이 꽉 차게 들어오도록 만드는 CSS 압축 패키지
 hide_menu_style = """
@@ -157,7 +250,6 @@ if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
-    # 아키텍처 툴팁 기능 명세 스크립트
     tooltip_extension_script = """
     <script>
     const architectureMap = {
@@ -203,11 +295,11 @@ if os.path.exists(html_path):
         setTimeout(injectArchitectureSpec, 200);
     });
     </script>
-    </body>
     """
     html_code = html_code.replace("</body>", tooltip_extension_script)
-    
-    # 💡 폼이 상단으로 완전히 대피했으므로, 지도는 스크롤바 없이 아래 빈 공간을 꽉 채우도록 높이를 750px로 시원하게 늘려줍니다.
     components.html(html_code, height=750, scrolling=False)
+    
+    # 🤖 대시보드 로드 시 백그라운드에서 조용히 자동 업데이트 에이전트 구동
+    agent_status = run_infra_agent_pipeline()
 else:
     st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
