@@ -29,14 +29,15 @@ def fetch_realtime_tech_news():
         return "Microsoft signs massive 500MW nuclear SMR power deal for Ohio AI data center infrastructure"
 
 def call_gemini_api(api_key, prompt):
-    """💡 구글 v1 규격에서 404를 타파하기 위해 gemini-1.5-flash-latest 정밀 식별자 지정"""
+    """💡 구글 공식 REST 가이드의 표준 v1beta 및 gemini-1.5-flash 정석 조합으로 최종 갱신"""
     host = "generativelanguage.googleapis.com"
-    # 🔑 [최종 솔루션] 뒤에 -latest 접미사를 명확히 명시하여 구글 라우터가 404 에러를 못 내게 차단합니다.
-    endpoint = f"/v1/models/gemini-1.5-flash-latest:generateContent?key={api_key}"
+    # 🔑 [최종 정밀 타격] 404를 원천 봉쇄하는 구글 공식 문서 지정 v1beta 표준 엔드포인트 주소입니다.
+    endpoint = f"/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
+        # 400 문법 오류를 냈던 generationConfig 옵션은 완벽하게 제거된 상태를 유지합니다.
         "safetySettings": [
             {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
             {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
