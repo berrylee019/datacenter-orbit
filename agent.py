@@ -29,7 +29,7 @@ def fetch_realtime_tech_news():
         return "Microsoft signs massive 500MW nuclear SMR power deal for Ohio AI data center infrastructure"
 
 def call_gemini_api(api_key, prompt):
-    """💡 별도의 무거운 라이브러리 설치 없이 HTTP 표준 통신으로 Gemini 1.5 Flash 무료 모델 호출"""
+    """💡 구글의 엄격한 보안 검열(Safety Settings)을 완전히 해제하여 답변 거부를 원천 차단"""
     host = "generativelanguage.googleapis.com"
     endpoint = f"/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
     
@@ -37,9 +37,16 @@ def call_gemini_api(api_key, prompt):
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
-            "responseMimeType": "application/json",  # 무조건 JSON 배열로만 뱉도록 강제 원천 차단
+            "responseMimeType": "application/json",
             "temperature": 0.7
-        }
+        },
+        # 🔑 [핵심 차단막] 모든 카테고리의 검열 강도를 'BLOCK_NONE(정지 안 함)'으로 강제 주입
+        "safetySettings": [
+            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
+        ]
     }
     
     conn = http.client.HTTPSConnection(host)
@@ -48,13 +55,17 @@ def call_gemini_api(api_key, prompt):
     res_data = response.read().decode('utf-8')
     conn.close()
     
-    # Gemini 응답 객체에서 텍스트 데이터 정밀 추출
     res_json = json.loads(res_data)
+    
+    # 예외 상황 및 차단 시 에러 로그 디버깅 출력 추가
+    if 'candidates' not in res_json:
+        print(f"❌ 구글 API 원본 반환 에러 구조: {res_json}")
+        raise KeyError("구글 제미나이가 정상적인 답변 구조를 생성하지 못했습니다. 원본 로그를 확인하세요.")
+        
     text_response = res_json['candidates'][0]['content']['parts'][0]['text']
     return text_response
 
 def run_infra_agent_pipeline():
-    # 깃허브 Secrets에 저장된 키를 그대로 가져옵니다 (값은 Gemini Key)
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         print("❌ 에러: API_KEY 환경변수가 설정되지 않았습니다.")
@@ -80,7 +91,7 @@ def run_infra_agent_pipeline():
         당신은 글로벌 AI 데이터센터(AIDC) 및 SMR 인프라 전문 분석 에이전트입니다.
         아래 제공된 뉴스 헤드라인들을 읽고, 새로 건설되거나 전력 계약을 체결한 인프라 프로젝트를 '최대 3개'까지 찾아서 리스트 형식의 JSON 배열로 추출하세요.
         
-        ⚠️ 중요: 만약 뉴스 내용이 구체적인 프로젝트 정보를 담고 있지 않거나 부실하더라도, 뉴스에 언급된 빅테크 이름(Amazon, Microsoft, Google, Meta 등)과 국가 정보를 조합하여 현실성 있는 가상의 인프라 프로젝트 정보를 창작해서라도 반드시 1개 이상의 JSON 객체를 배열에 담아 반환해야 합니다. 절대 빈 배열을 반환하지 마세요.
+        ⚠️ 중요: 뉴스 내용이 구체적이지 않더라도 뉴스에 언급된 빅테크 이름(Amazon, Microsoft, Google, Meta 등)과 국가 정보를 조합하여 가상의 인프라 프로젝트 정보를 창작해서라도 반드시 1개 이상의 JSON 객체를 배열에 담아 반환해야 합니다. 절대 빈 배열을 반환하지 마세요.
 
         [뉴스 기사]
         {sample_news}
@@ -100,7 +111,6 @@ def run_infra_agent_pipeline():
         ]
         """
         
-        # 구글 제미나이 엔진 가동
         raw_content = call_gemini_api(api_key, prompt).strip()
             
         new_infra_items = json.loads(raw_content)
