@@ -240,7 +240,7 @@ try:
             # 레이아웃 상단 고정형 리얼타임 배너 타이틀 축소
             st.markdown("<p style='font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #94a3b8;'>📡 리얼타임 원격 텔레메트리 에이전트 브리핑</p>", unsafe_allow_html=True)
             with st.container(border=True):
-                st.markdown("<p style='font-size: 12px; margin-bottom: 8px;'>🚨 <b>[최신 자산 발견]</b> 최근 24시간 내에 구글 Gemini 자동화 파이프라인이 동기화한 글로벌 인프라</p>", unsafe_allow_html=True)
+                st.markdown("<p style='font-size: 12px; margin-bottom: 8px;'>🚨 <b>[최신 자산 발견]</b> 새로운 AIDC가 글로벌 인프라에 추가 되었습니다.</p>", unsafe_allow_html=True)
                 
                 # 가로로 3등분하여 정보 배치
                 cols = st.columns(3)
