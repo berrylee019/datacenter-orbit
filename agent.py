@@ -66,7 +66,7 @@ def run_infra_agent_pipeline():
                 "name": "인프라 이름 (예: Microsoft Ohio AIDC)",
                 "type": "AIDC" 또는 "SMR",
                 "load": "공급 용량 (예: 100 MW 또는 Unknown)",
-                "source": "전력 공급원 (예: Nuclear, Grid, Solar)",
+                "source": "전력 공급원 (예: Nuclear, Grid, Solar, Unknown)",
                 "status": "active",
                 "desc": "뉴스 내용을 요약한 한글 한 문장 설명.",
                 "location_string": "도시 이름, 국가 이름 (예: Ohio, USA)"
@@ -77,33 +77,51 @@ def run_infra_agent_pipeline():
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.1
+            temperature=0.3
         )
         
-        new_infra_item = json.loads(response.choices[0].content.strip())
+        # 💡 [구조 개선] 배열 구조를 안전하게 언마샬링하여 반복 연산할 수 있도록 리팩토링
+        new_infra_items = json.loads(response.choices[0].content.strip())
         
-        # 중복 검사
-        if any(item['name'] == new_infra_item['name'] for item in existing_data):
-            print("⚠️ 중복 데이터 발견: 스킵합니다.")
-            return
+        # 단일 객체로 예외 반환되었을 경우 배열로 감싸기
+        if not isinstance(new_infra_items, list):
+            new_infra_items = [new_infra_items]
             
-        location_str = new_infra_item.get("location_string", "Dublin")
-        location = geolocator.geocode(location_str)
-        if location:
-            new_infra_item["lat"] = round(location.latitude, 4)
-            new_infra_item["lng"] = round(location.longitude, 4)
+        has_new_data = False
+        for new_item in new_infra_items:
+            # 중복 검사 (이름 기준)
+            if any(item['name'] == new_item['name'] for item in existing_data):
+                print(f"⚠️ 중복 데이터 발견 스킵: {new_item['name']}")
+                continue
+                
+            # 위치 문자열 정밀 필터링 및 지오코딩 처리
+            location_str = new_item.get("location_string", "Washington, USA")
+            location = geolocator.geocode(location_str)
+            if location:
+                new_item["lat"] = round(location.latitude, 4)
+                new_item["lng"] = round(location.longitude, 4)
+            else:
+                # 좌표 획득 실패 시 기본값 설정
+                new_item["lat"] = 38.9072
+                new_item["lng"] = -77.0369
+                
+            if "location_string" in new_item:
+                del new_item["location_string"]
+                
+            # 신규 데이터 유니크 ID 순차 매핑 후 추가
+            new_item["id"] = next_id
+            next_id += 1
+            existing_data.append(new_item)
+            has_new_data = True
+            
+        # 💡 새로운 인프라 데이터가 적재되었을 때만 파일 쓰기 동기화
+        if has_new_data:
+            with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
+                json.dump(existing_data, f, ensure_ascii=False, indent=2)
+            print("✅ 성공: data.json에 새로운 실시간 인프라 데이터가 추가되었습니다.")
         else:
-            new_infra_item["lat"] = 53.3498
-            new_infra_item["lng"] = -6.2603
+            print("⚠️ 이번 뉴스 피드에는 추가할 만한 완전히 새로운 인프라가 없습니다.")
             
-        if "location_string" in new_infra_item:
-            del new_infra_item["location_string"]
-            
-        existing_data.append(new_infra_item)
-        with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
-            json.dump(existing_data, f, ensure_ascii=False, indent=2)
-            
-        print("✅ 성공: data.json에 새로운 인프라 데이터가 추가되었습니다.")
     except Exception as e:
         print(f"❌ 에러 발생: {str(e)}")
 
