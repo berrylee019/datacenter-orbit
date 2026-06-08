@@ -8,8 +8,8 @@ from geopy.geocoders import Nominatim
 DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
 
 def fetch_realtime_tech_news():
-    """Google News RSS 피드에서 글로벌 인프라(AIDC, SMR) 최신 뉴스 타이틀 10개를 긁어옵니다."""
-    url = "https://news.google.com/rss/search?q=data+center+power+OR+data+center+construction+OR+SMR+nuclear&hl=en-US&gl=US&ceid=US:en"
+    # '아마존, 마이크로소프트, 구글, 메타'가 '공급, 계약, 착공, 발표'한 뉴스만 정밀 타격
+    url = "https://news.google.com/rss/search?q=(Amazon+OR+Microsoft+OR+Google+OR+Meta)+(datacenter+OR+SMR)+(announces+OR+signs+OR+build+OR+contract)&hl=en-US&gl=US&ceid=US:en"
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req) as response:
