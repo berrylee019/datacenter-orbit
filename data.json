@@ -93,8 +93,8 @@
   {
     "id": 8,
     "name": "MS-오픈AI 스타게이트 (비밀기지 예정지)",
-    "lat": 41.5000,
-    "lng": -100.0000,
+    "lat": 41.5,
+    "lng": -100.0,
     "type": "AIDC",
     "load": "1000 MW",
     "source": "전용 원자력 전력망 (Dedicated SMR 연계 추진)",
@@ -180,5 +180,38 @@
     "carbon": "zero",
     "desc": "손정의 회장과 마크롱 대통령의 합의로 구축되는 유럽 최대 규모의 AI 요새. 프랑스의 풍부한 원전 인프라를 활용해 탄소 배출 없이 24시간 초고부하 연산을 수행하며, 유럽 Sovereign AI의 핵심 허브 역할을 수행 예정.",
     "architecture": "ARM-based Next-Gen AI Accelerators & Advanced Liquid Cooling Grid"
+  },
+  {
+    "id": 15,
+    "name": "Meta 6.6 GW 핵에너지 프로젝트",
+    "type": "SMR",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "announced",
+    "desc": "Meta가 AI 혁명을 위한 6.6 GW 규모의 핵에너지 프로젝트 계획을 발표했다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 16,
+    "name": "Microsoft 사우디아라비아 데이터센터 리전",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "planned",
+    "desc": "Microsoft가 2026년 4분기 가동 예정인 사우디아라비아 데이터센터 리전을 확정했다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 17,
+    "name": "Google 가스 발전 AI 데이터센터",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Gas",
+    "status": "planned",
+    "desc": "Google이 기후 목표와는 다른 방향으로 가스 발전소에서 전력을 공급받을 AI 데이터센터를 계획한다.",
+    "lat": 40.4173,
+    "lng": -82.9071
   }
 ]
