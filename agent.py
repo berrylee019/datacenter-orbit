@@ -32,7 +32,7 @@ def call_gemini_api(api_key, prompt):
     """💡 구글 라우터의 404 트집을 원천 차단하는 가장 안전한 범용 엔드포인트 주소 적용"""
     host = "generativelanguage.googleapis.com"
     # 🔑 [최종 해결] 구글 API 서버가 주소 매핑에서 절대 에러를 낼 수 없는 가장 안전하고 고정된 정석 경로입니다.
-    endpoint = f"/v1beta/models/gemini-pro:generateContent?key={api_key}"
+    endpoint = f"/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
