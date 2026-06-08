@@ -29,14 +29,14 @@ def fetch_realtime_tech_news():
         return "Microsoft signs massive 500MW nuclear SMR power deal for Ohio AI data center infrastructure"
 
 def call_gemini_api(api_key, prompt):
-    """💡 말썽을 부리는 generationConfig 설정을 제거하고 원천 통과 시키는 핵심 함수"""
+    """💡 구글 v1 규격에서 404를 타파하기 위해 gemini-1.5-flash-latest 정밀 식별자 지정"""
     host = "generativelanguage.googleapis.com"
-    endpoint = f"/v1/models/gemini-2.5-flash:generateContent?key={api_key}"
+    # 🔑 [최종 솔루션] 뒤에 -latest 접미사를 명확히 명시하여 구글 라우터가 404 에러를 못 내게 차단합니다.
+    endpoint = f"/v1/models/gemini-1.5-flash-latest:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        # 🔑 [최종 해결] API 마다 명칭이 다른 웅덩이(generationConfig)를 비워두어 400 에러를 원천 차단합니다.
         "safetySettings": [
             {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
             {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
@@ -82,13 +82,12 @@ def run_infra_agent_pipeline():
         
         geolocator = Nominatim(user_agent="infrapulse_agent_2026")
         
-        # 🔑 프롬프트 내에 마크다운 기호(```json)를 뱉더라도 안전하게 파싱할 수 있도록 지침 보강
         prompt = f"""
         당신은 글로벌 AI 데이터센터(AIDC) 및 SMR 인프라 전문 분석 에이전트입니다.
         아래 제공된 뉴스 헤드라인들을 읽고, 새로 건설되거나 전력 계약을 체결한 인프라 프로젝트를 '최대 3개'까지 찾아서 리스트 형식의 JSON 배열로 추출하세요.
         
         ⚠️ 중요: 뉴스 내용이 구체적이지 않더라도 뉴스에 언급된 빅테크 이름(Amazon, Microsoft, Google, Meta 등)과 국가 정보를 조합하여 가상의 인프라 프로젝트 정보를 창작해서라도 반드시 1개 이상의 JSON 객체를 배열에 담아 반환해야 합니다. 절대 빈 배열을 반환하지 마세요.
-        텍스트 설명이나 다른 설명은 일절 배제하고 반드시 오직 아래 포맷의 JSON 배열 데이터만 출력하세요.
+        텍스트 설명이나 다른 마크다운 블록은 일절 배제하고 반드시 오직 아래 포맷의 JSON 배열 데이터만 출력하세요.
 
         [뉴스 기사]
         {sample_news}
@@ -110,7 +109,6 @@ def run_infra_agent_pipeline():
         
         raw_content = call_gemini_api(api_key, prompt).strip()
         
-        # 🔑 [안전장치] 제미나이가 혹시라도 ```json ... ``` 껍데기를 씌워 보냈을 때를 대비한 텍스트 정제 가공
         if "```json" in raw_content:
             raw_content = raw_content.split("```json")[1].split("```")[0].strip()
         elif "```" in raw_content:
