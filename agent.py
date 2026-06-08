@@ -31,7 +31,7 @@ def fetch_realtime_tech_news():
 def call_gemini_api(api_key, prompt):
     """💡 말썽을 부리는 generationConfig 설정을 제거하고 원천 통과 시키는 핵심 함수"""
     host = "generativelanguage.googleapis.com"
-    endpoint = f"/v1/models/gemini-1.5-flash:generateContent?key={api_key}"
+    endpoint = f"/v1/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
