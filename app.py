@@ -224,7 +224,7 @@ if st.session_state.get("submit_lead_triggered", False):
     )
     st.rerun()  # 안전 구역에서의 단발성 강제 리프레시 실행
 
-# ⚡ [🔥 형님 추가 요청 반영 구역: 실시간 신규 데이터 알람 컨테이너 (글씨 크기 축소 최적화)]
+# ⚡ [🔥 형님 추가 요청 반영 구역: 실시간 신규 데이터 알람 컨테이너 (명도 대비 절대 가독성 보정)]
 try:
     if os.path.exists(DATA_FILE_PATH):
         with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
@@ -237,23 +237,28 @@ try:
             # 우측 하단 팝업 알람 브로드캐스팅
             st.toast("📡 에이전트가 새로운 실시간 AIDC 인프라 자산을 식별했습니다!", icon="🚨")
             
-            # 레이아웃 상단 고정형 리얼타임 배너 타이틀 축소
-            st.markdown("<p style='font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #94a3b8;'>📡 리얼타임 원격 텔레메트리 에이전트 브리핑</p>", unsafe_allow_html=True)
+            # 레이아웃 상단 고정형 리얼타임 배너 타이틀
+            st.markdown("<p style='font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #475569;'>📡 리얼타임 원격 텔레메트리 에이전트 브리핑</p>", unsafe_allow_html=True)
             with st.container(border=True):
-                st.markdown("<p style='font-size: 12px; margin-bottom: 8px;'>🚨 <b>[최신 자산 발견]</b> 새로운 AIDC가 글로벌 인프라에 추가 되었습니다.</p>", unsafe_allow_html=True)
+                st.markdown("<p style='font-size: 12px; margin-bottom: 8px; color: #1e293b;'>🚨 <b>[최신 자산 발견]</b> 최근 24시간 내에 구글 Gemini 자동화 파이프라인이 동기화한 글로벌 인프라</p>", unsafe_allow_html=True)
                 
                 # 가로로 3등분하여 정보 배치
                 cols = st.columns(3)
                 for idx, item in enumerate(recent_items):
                     with cols[idx]:
                         emoji = "🏢" if item.get('type') == "AIDC" else "⚛️"
-                        # 제목과 상세 스펙 정보를 명시적인 font-size 태그로 감싸 크기를 줄였습니다.
-                        st.markdown(f"<p style='font-size: 13px; font-weight: bold; margin-bottom: 2px;'>{emoji} {item.get('name')}</p>", unsafe_allow_html=True)
-                        st.markdown(f"<p style='font-size: 11px; color: #94a3b8; margin-bottom: 4px;'>⚡ 공급량: <code style='font-size: 10px;'>{item.get('load')}</code> | 🔋 전력원: <code style='font-size: 10px;'>{item.get('source')}</code></p>", unsafe_allow_html=True)
                         
-                        # st.info의 둔탁함을 빼고 깔끔하게 밀착되는 콤팩트 설명 박스 구성
+                        # 🔑 테마와 상관없이 무조건 진한 회색조 텍스트 강제
+                        st.markdown(f"<p style='font-size: 13px; font-weight: bold; margin-bottom: 2px; color: #0f172a;'>{emoji} {item.get('name')}</p>", unsafe_allow_html=True)
+                        st.markdown(f"<p style='font-size: 11px; color: #475569; margin-bottom: 5px;'>⚡ 공급량: <code style='font-size: 10px; color: #ef4444;'>{item.get('load')}</code> | 🔋 전력원: <code style='font-size: 10px; color: #3b82f6;'>{item.get('source')}</code></p>", unsafe_allow_html=True)
+                        
+                        # 🔑 배경은 다크 인디고(#1e293b), 글씨색은 완벽한 화이트(#ffffff)로 고정 인젝션
                         desc_text = item.get('desc', '신규 인프라 상태 추적 감지 완료.')
-                        st.markdown(f"<div style='background-color: #1e293b; padding: 6px 10px; border-radius: 4px; font-size: 11.5px; line-height: 1.4; border-left: 3px solid #3b82f6;'>{desc_text}</div>", unsafe_allow_html=True)
+                        st.markdown(f"""
+                            <div style='background-color: #1e293b; color: #ffffff !important; padding: 8px 12px; border-radius: 4px; font-size: 11.5px; line-height: 1.4; border-left: 3px solid #22c55e; box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);'>
+                                <span style='color: #ffffff !important; font-weight: 500;'>{desc_text}</span>
+                            </div>
+                        """, unsafe_allow_html=True)
 except Exception as e:
     pass # 지도 로드 체계에 지장을 주지 않도록 예외 처리 우회
 
