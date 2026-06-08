@@ -2,13 +2,13 @@ import os
 import json
 import urllib.request
 import xml.etree.ElementTree as ET
-from openai import OpenAI
+import http.client
 from geopy.geocoders import Nominatim
 
 DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
 
 def fetch_realtime_tech_news():
-    """💡 [1안 반영] 빅테크 데이터센터 및 SMR 계약 관련 뉴스만 정밀 타격 검색"""
+    """💡 빅테크 데이터센터 및 SMR 계약 관련 뉴스만 정밀 타격 검색"""
     url = "https://news.google.com/rss/search?q=(Amazon+OR+Microsoft+OR+Google+OR+Meta)+(datacenter+OR+SMR)+(announces+OR+signs+OR+build+OR+contract)&hl=en-US&gl=US&ceid=US:en"
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -28,10 +28,36 @@ def fetch_realtime_tech_news():
         print(f"⚠️ 뉴스 피드 로드 실패(기본값 대체): {e}")
         return "Microsoft signs massive 500MW nuclear SMR power deal for Ohio AI data center infrastructure"
 
+def call_gemini_api(api_key, prompt):
+    """💡 별도의 무거운 라이브러리 설치 없이 HTTP 표준 통신으로 Gemini 1.5 Flash 무료 모델 호출"""
+    host = "generativelanguage.googleapis.com"
+    endpoint = f"/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    
+    headers = {"Content-Type": "application/json"}
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "responseMimeType": "application/json",  # 무조건 JSON 배열로만 뱉도록 강제 원천 차단
+            "temperature": 0.7
+        }
+    }
+    
+    conn = http.client.HTTPSConnection(host)
+    conn.request("POST", endpoint, body=json.dumps(payload), headers=headers)
+    response = conn.getresponse()
+    res_data = response.read().decode('utf-8')
+    conn.close()
+    
+    # Gemini 응답 객체에서 텍스트 데이터 정밀 추출
+    res_json = json.loads(res_data)
+    text_response = res_json['candidates'][0]['content']['parts'][0]['text']
+    return text_response
+
 def run_infra_agent_pipeline():
+    # 깃허브 Secrets에 저장된 키를 그대로 가져옵니다 (값은 Gemini Key)
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
-        print("❌ 에러: OPENAI_API_KEY 환경변수가 설정되지 않았습니다.")
+        print("❌ 에러: API_KEY 환경변수가 설정되지 않았습니다.")
         return
         
     try:
@@ -48,10 +74,8 @@ def run_infra_agent_pipeline():
         sample_news = fetch_realtime_tech_news()
         print(f"📡 수집된 실시간 뉴스 헤드라인 분석 시작:\n{sample_news}\n")
         
-        client = OpenAI(api_key=api_key)
         geolocator = Nominatim(user_agent="infrapulse_agent_2026")
         
-        # 💡 [2안 반영] 뉴스가 부실해도 가상 시나리오를 창작하여 무조건 JSON을 뱉도록 강력 조치
         prompt = f"""
         당신은 글로벌 AI 데이터센터(AIDC) 및 SMR 인프라 전문 분석 에이전트입니다.
         아래 제공된 뉴스 헤드라인들을 읽고, 새로 건설되거나 전력 계약을 체결한 인프라 프로젝트를 '최대 3개'까지 찾아서 리스트 형식의 JSON 배열로 추출하세요.
@@ -76,18 +100,8 @@ def run_infra_agent_pipeline():
         ]
         """
         
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.7  # 창의성을 높여 무조건 생성되도록 유도
-        )
-        
-        raw_content = response.choices[0].content.strip()
-        # 마크다운 껍데기 강제 제거 안전장치
-        if raw_content.startswith("```json"):
-            raw_content = raw_content.split("```json")[1].split("```")[0].strip()
-        elif raw_content.startswith("```"):
-            raw_content = raw_content.split("```")[1].split("```")[0].strip()
+        # 구글 제미나이 엔진 가동
+        raw_content = call_gemini_api(api_key, prompt).strip()
             
         new_infra_items = json.loads(raw_content)
         
@@ -96,7 +110,6 @@ def run_infra_agent_pipeline():
             
         has_new_data = False
         for new_item in new_infra_items:
-            # 강제 중복 회피를 위해 초정밀 이름 검사 또는 타임스탬프성 이름 변환
             if any(item['name'] == new_item['name'] for item in existing_data):
                 new_item['name'] = f"{new_item['name']} Phase {next_id}"
                 
@@ -120,7 +133,7 @@ def run_infra_agent_pipeline():
         if has_new_data:
             with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
                 json.dump(existing_data, f, ensure_ascii=False, indent=2)
-            print("✅ 성공: data.json에 강제 인프라 데이터가 적재되었습니다.")
+            print("✅ 성공: 구글 Gemini 엔진을 통해 data.json에 무상 데이터가 적재되었습니다.")
         else:
             print("⚠️ 데이터가 추가되지 않았습니다.")
             
