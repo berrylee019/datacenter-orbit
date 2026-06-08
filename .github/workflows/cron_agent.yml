@@ -9,6 +9,10 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
+# 🔑 [최종 열쇠] GitHub Actions 토큰에 리포지토리 쓰기 권한을 강제로 부여합니다.
+permissions:
+  contents: write
+  
 jobs:
   run-agent:
     runs-on: ubuntu-latest
