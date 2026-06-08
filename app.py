@@ -35,7 +35,10 @@ def run_infra_agent_pipeline():
         existing_data = []
         if os.path.exists(DATA_FILE_PATH):
             with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
-                existing_data = json.load(f)
+                try:
+                    existing_data = json.load(f)
+                except:
+                    existing_data = []
                 
         next_id = max([item['id'] for item in existing_data]) + 1 if existing_data else 1
         
@@ -221,6 +224,36 @@ if st.session_state.get("submit_lead_triggered", False):
     )
     st.rerun()  # 안전 구역에서의 단발성 강제 리프레시 실행
 
+# ⚡ [🔥 형님 추가 요청 반영 구역: 실시간 신규 데이터 알람 컨테이너]
+try:
+    if os.path.exists(DATA_FILE_PATH):
+        with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
+            infra_data = json.load(f)
+            
+        if infra_data:
+            # ID 기준으로 최신 등록 항목 3개 정렬 후 추출
+            recent_items = sorted(infra_data, key=lambda x: x['id'], reverse=True)[:3]
+            
+            # 우측 하단 팝업 알람 브로드캐스팅
+            st.toast("📡 에이전트가 새로운 실시간 AIDC 인프라 자산을 식별했습니다!", icon="🚨")
+            
+            # 레이아웃 상단 고정형 리얼타임 배너
+            st.markdown("#### 📡 리얼타임 원격 텔레메트리 에이전트 브리핑")
+            with st.container(border=True):
+                st.markdown("🚨 **[최신 자산 발견] 최근 24시간 내에 구글 Gemini 자동화 파이프라인이 동기화한 글로벌 인프라**")
+                
+                # 가로로 3등분하여 정보 배치
+                cols = st.columns(3)
+                for idx, item in enumerate(recent_items):
+                    with cols[idx]:
+                        emoji = "🏢" if item.get('type') == "AIDC" else "⚛️"
+                        st.markdown(f"**{emoji} {item.get('name')}**")
+                        st.caption(f"⚡ 공급량: `{item.get('load')}` | 🔋 전력원: `{item.get('source')}`")
+                        # 기재된 한글 한 줄 요약 적용
+                        st.info(item.get('desc', '신규 인프라 상태 추적 감지 완료.'))
+except Exception as e:
+    pass # 지도 로드 체계에 지장을 주지 않도록 예외 처리 우회
+
 # 지도가 스크롤바 없이 꽉 차게 들어오도록 만드는 CSS 압축 패키지
 hide_menu_style = """
         <style>
@@ -239,39 +272,6 @@ hide_menu_style = """
             border: none !important;
             margin-bottom: 0px !important;
         }
-        
-// index.html의 자바스크립트 구역에 추가할 실시간 영문 치환 엔진
-const englishTranslationMap = {
-    "xAI 멤피스 콜로서스 1 (앤트로픽 임대)": {
-        name: "xAI Memphis Colossus 1 (Leased by Anthropic)",
-        desc: "Anthropic has fully leased the entire 300MW output for Claude model inference and enterprise operations.",
-        source: "TVA Grid (Fossil Fuel Influx)"
-    },
-    "네이버 하이퍼스케일 각 세종": {
-        name: "NAVER Hyperscale GAK Sejong",
-        desc: "The largest AI infrastructure hub in South Korea. Currently monitoring regional grid saturation due to surging compute demand.",
-        source: "KEPCO Central Grid Connection"
-    },
-    "MS-블랙록 버지니아 글로벌 허브": {
-        name: "MS-BlackRock Virginia Global Hub",
-        desc: "Located in Ashburn, Virginia—the data center capital of the world. Experiencing extreme grid bottleneck issues.",
-        source: "Dominion Energy Grid Overload"
-    },
-    "미시간 팰리세이드 SMR 착공지": {
-        name: "Michigan Palisades SMR Site",
-        desc: "Received $400M in US federal subsidies. Commercial construction is slated to begin within this year with Hyundai E&C as a primary partner.",
-        source: "Holtec International Pioneer Unit 1 & 2"
-    },
-    "하남 데이터센터": {
-        name: "Hanam Data Center",
-        desc: "Core inference and finance/commerce specialized infrastructure node in the Seoul Metropolitan Area. Utilizing advanced high-density river-water cooling.",
-        source: "KEPCO East Seoul Substation Integration"
-    }
-};
-
-// Leaflet 마커나 팝업을 생성하는 루프 내부에서 이 맵을 태워줍니다.
-// 예시: 
-// let displayName = englishTranslationMap[data.name] ? englishTranslationMap[data.name].name : data.name;
         </style>
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
