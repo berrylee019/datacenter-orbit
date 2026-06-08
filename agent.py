@@ -29,9 +29,10 @@ def fetch_realtime_tech_news():
         return "Microsoft signs massive 500MW nuclear SMR power deal for Ohio AI data center infrastructure"
 
 def call_gemini_api(api_key, prompt):
-    """💡 구글의 엄격한 보안 검열(Safety Settings)을 완전히 해제하여 답변 거부를 원천 차단"""
+    """💡 구글 정식 v1 API 주소 및 모델 규격으로 교정하고 검열 해제 정책 유지"""
     host = "generativelanguage.googleapis.com"
-    endpoint = f"/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    # 🔑 [주소 정밀 교정] v1beta 대신 정식 v1 주소와 정식 모델 경로로 변경합니다.
+    endpoint = f"/v1/models/gemini-1.5-flash:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -40,7 +41,6 @@ def call_gemini_api(api_key, prompt):
             "responseMimeType": "application/json",
             "temperature": 0.7
         },
-        # 🔑 [핵심 차단막] 모든 카테고리의 검열 강도를 'BLOCK_NONE(정지 안 함)'으로 강제 주입
         "safetySettings": [
             {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
             {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
@@ -57,7 +57,6 @@ def call_gemini_api(api_key, prompt):
     
     res_json = json.loads(res_data)
     
-    # 예외 상황 및 차단 시 에러 로그 디버깅 출력 추가
     if 'candidates' not in res_json:
         print(f"❌ 구글 API 원본 반환 에러 구조: {res_json}")
         raise KeyError("구글 제미나이가 정상적인 답변 구조를 생성하지 못했습니다. 원본 로그를 확인하세요.")
