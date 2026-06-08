@@ -31,7 +31,7 @@ def fetch_realtime_tech_news():
 def call_gemini_api(api_key, prompt):
     """💡 구글의 엄격한 보안 검열(Safety Settings)을 완전히 해제하여 답변 거부를 원천 차단"""
     host = "generativelanguage.googleapis.com"
-    endpoint = f"/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    endpoint = f"/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
