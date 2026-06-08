@@ -29,17 +29,14 @@ def fetch_realtime_tech_news():
         return "Microsoft signs massive 500MW nuclear SMR power deal for Ohio AI data center infrastructure"
 
 def call_gemini_api(api_key, prompt):
-    """💡 구글 정식 v1 API 규격 및 언더바(_) 스펙 완벽 동기화 완료"""
+    """💡 말썽을 부리는 generationConfig 설정을 제거하고 원천 통과 시키는 핵심 함수"""
     host = "generativelanguage.googleapis.com"
     endpoint = f"/v1/models/gemini-1.5-flash:generateContent?key={api_key}"
     
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "response_mime_type": "application/json",
-            "temperature": 0.7
-        },
+        # 🔑 [최종 해결] API 마다 명칭이 다른 웅덩이(generationConfig)를 비워두어 400 에러를 원천 차단합니다.
         "safetySettings": [
             {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
             {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
@@ -50,7 +47,7 @@ def call_gemini_api(api_key, prompt):
     
     conn = http.client.HTTPSConnection(host)
     conn.request("POST", endpoint, body=json.dumps(payload), headers=headers)
-    response = conn.getresponse()  # 💡 오타 완벽 교정 구역
+    response = conn.getresponse()
     res_data = response.read().decode('utf-8')
     conn.close()
     
@@ -60,11 +57,10 @@ def call_gemini_api(api_key, prompt):
         print(f"❌ 구글 API 원본 반환 에러 구조: {res_json}")
         raise KeyError("구글 제미나이가 정상적인 답변 구조를 생성하지 못했습니다. 원본 로그를 확인하세요.")
         
-    text_response = res_json['candidates'][0]['content']['parts'][0]['text']
+    text_response = res_json['candidates'][0]['content']['parts'][0]['text'].strip()
     return text_response
 
 def run_infra_agent_pipeline():
-    # 💡 변수명 이름표는 그대로 유지하지만 내부 값은 Gemini 키로 연동 완료!
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         print("❌ 에러: API_KEY 환경변수가 설정되지 않았습니다.")
@@ -86,11 +82,13 @@ def run_infra_agent_pipeline():
         
         geolocator = Nominatim(user_agent="infrapulse_agent_2026")
         
+        # 🔑 프롬프트 내에 마크다운 기호(```json)를 뱉더라도 안전하게 파싱할 수 있도록 지침 보강
         prompt = f"""
         당신은 글로벌 AI 데이터센터(AIDC) 및 SMR 인프라 전문 분석 에이전트입니다.
         아래 제공된 뉴스 헤드라인들을 읽고, 새로 건설되거나 전력 계약을 체결한 인프라 프로젝트를 '최대 3개'까지 찾아서 리스트 형식의 JSON 배열로 추출하세요.
         
         ⚠️ 중요: 뉴스 내용이 구체적이지 않더라도 뉴스에 언급된 빅테크 이름(Amazon, Microsoft, Google, Meta 등)과 국가 정보를 조합하여 가상의 인프라 프로젝트 정보를 창작해서라도 반드시 1개 이상의 JSON 객체를 배열에 담아 반환해야 합니다. 절대 빈 배열을 반환하지 마세요.
+        텍스트 설명이나 다른 설명은 일절 배제하고 반드시 오직 아래 포맷의 JSON 배열 데이터만 출력하세요.
 
         [뉴스 기사]
         {sample_news}
@@ -111,6 +109,12 @@ def run_infra_agent_pipeline():
         """
         
         raw_content = call_gemini_api(api_key, prompt).strip()
+        
+        # 🔑 [안전장치] 제미나이가 혹시라도 ```json ... ``` 껍데기를 씌워 보냈을 때를 대비한 텍스트 정제 가공
+        if "```json" in raw_content:
+            raw_content = raw_content.split("```json")[1].split("```")[0].strip()
+        elif "```" in raw_content:
+            raw_content = raw_content.split("```")[1].split("```")[0].strip()
             
         new_infra_items = json.loads(raw_content)
         
