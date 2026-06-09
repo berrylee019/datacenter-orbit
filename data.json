@@ -246,5 +246,38 @@
     "desc": "Meta가 전 세계 데이터센터에 전력을 공급하기 위해 3개 원자력 회사와 6GW 이상의 대규모 전력 공급 계약을 체결했습니다.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 21,
+    "name": "Amazon Texas Nuclear AIDC Campus",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 텍사스 핵발전소 옆에 대규모 데이터센터 캠퍼스 건설을 추진 중.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 22,
+    "name": "Meta Global AI Nuclear Power Initiative",
+    "type": "AIDC",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 AI 혁명을 위한 6.6 GW 규모의 원자력 에너지 프로젝트 계약을 체결함.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 23,
+    "name": "Microsoft Saudi Arabia Cloud Region",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 4분기부터 사용 가능한 사우디아라비아 데이터센터 리전을 발표.",
+    "lat": 25.6243,
+    "lng": 42.3528
   }
 ]
