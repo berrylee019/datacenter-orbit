@@ -284,7 +284,7 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 6. HTML 파일 로드 및 주입 (최신 st.iframe 호환성 패치 구역)
+# 6. HTML 파일 로드 및 주입 (TypeError 완벽 수정 및 st.html 정식 적용 구역)
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
@@ -341,9 +341,9 @@ if os.path.exists(html_path):
     """
     html_code = html_code.replace("</body>", tooltip_extension_script)
     
-    # 🔑 [대변혁] st.components.v1.html 대신 에러 로그 권고대로 st.iframe 사용
-    # src_doc 파라미터에 가공한 html_code를 통째로 주입하여 샌드박스 보안 충돌을 우회합니다.
-    st.iframe(src_doc=html_code, height=750, scrolling=False)
+    # 🔑 [최종 해결책] st.iframe의 파라미터 에러를 우회하고, 문자열 HTML을 온전히 렌더링하는 정식 st.html 함수 사용
+    # 단, st.html은 지도가 깨지지 않도록 부모 컨테이너 크기를 채워주는 스타일 래퍼(div)와 함께 주입하는 것이 안전합니다.
+    st.html(f"<div style='width:100%; height:750px;'>{html_code}</div>")
     
     # 🤖 대시보드 로드 시 백그라운드에서 조용히 자동 업데이트 에이전트 구동
     agent_status = run_infra_agent_pipeline()
