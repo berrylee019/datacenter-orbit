@@ -284,13 +284,14 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 6. HTML 파일 로드 및 주입
+# 6. HTML 파일 로드 및 주입 (최신 st.iframe 호환성 패치 구역)
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
     with open(html_path, "r", encoding="utf-8") as f:
         html_code = f.read()
     
+    # 아키텍처 스펙 주입 자바스크립트 확장 팩
     tooltip_extension_script = """
     <script>
     const architectureMap = {
@@ -298,7 +299,8 @@ if os.path.exists(html_path):
         "네이버 하이퍼스케일 각 세종": "NVIDIA H100 / Intel Gaudi 3 & NAVER-Samsung LP-DDR AI chip",
         "MS-블랙록 버지니아 글로벌 허브": "NVIDIA Blackwell NVL72 / Custom Azure Maia 100",
         "미시간 팰리세이드 SMR 착공지": "Next-Gen AI Clusters (Blackwell Ultra / Rubin Ready)",
-        "하남 데이터센터": "NVIDIA A100 / H100 Mixed (Domestic Cloud & Inference)"
+        "하남 데이터센터": "NVIDIA A100 / H100 Mixed (Domestic Cloud & Inference)",
+        "오픈AI 오하이오 10GW 메가 AIDC": "NVIDIA Next-Gen GPU 클러스터 (엔비디아 지급보증 검토)"
     };
 
     function injectArchitectureSpec() {
@@ -338,7 +340,10 @@ if os.path.exists(html_path):
     </script>
     """
     html_code = html_code.replace("</body>", tooltip_extension_script)
-    components.html(html_code, height=750, scrolling=False)
+    
+    # 🔑 [대변혁] st.components.v1.html 대신 에러 로그 권고대로 st.iframe 사용
+    # src_doc 파라미터에 가공한 html_code를 통째로 주입하여 샌드박스 보안 충돌을 우회합니다.
+    st.iframe(src_doc=html_code, height=750, scrolling=False)
     
     # 🤖 대시보드 로드 시 백그라운드에서 조용히 자동 업데이트 에이전트 구동
     agent_status = run_infra_agent_pipeline()
