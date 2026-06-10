@@ -260,17 +260,6 @@
   },
   {
     "id": 22,
-    "name": "Meta Global AI Nuclear Power Initiative",
-    "type": "AIDC",
-    "load": "6.6 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta가 AI 혁명을 위한 6.6 GW 규모의 원자력 에너지 프로젝트 계약을 체결함.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 23,
     "name": "Microsoft Saudi Arabia Cloud Region",
     "type": "AIDC",
     "load": "250 MW",
@@ -281,7 +270,7 @@
     "lng": 42.3528
   },
   {
-    "id": 24,
+    "id": 23,
     "name": "Microsoft Denmark AIDC",
     "type": "AIDC",
     "load": "300 MW",
@@ -292,7 +281,7 @@
     "lng": 10.3333
   },
   {
-    "id": 25,
+    "id": 24,
     "name": "Meta AI Nuclear Power Infrastructure",
     "type": "SMR",
     "load": "6.6 GW",
@@ -303,7 +292,7 @@
     "lng": -82.9071
   },
   {
-    "id": 26,
+    "id": 25,
     "name": "Google Arkansas AIDC",
     "type": "AIDC",
     "load": "250 MW",
@@ -314,7 +303,7 @@
     "lng": -92.4479
   },
   {
-    "id": 27,
+    "id": 26,
     "name": "Amazon US SMR Plant",
     "type": "SMR",
     "load": "300 MW",
@@ -325,7 +314,7 @@
     "lng": -82.9071
   },
   {
-    "id": 28,
+    "id": 27,
     "name": "Meta Next-Gen Nuclear AIDC",
     "type": "AIDC",
     "load": "2000 MW",
@@ -336,7 +325,7 @@
     "lng": -82.9071
   },
   {
-    "id": 29,
+    "id": 28,
     "name": "Google Arkansas AIDC Phase 29",
     "type": "AIDC",
     "load": "400 MW",
