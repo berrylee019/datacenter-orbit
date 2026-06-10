@@ -279,5 +279,38 @@
     "desc": "Microsoft가 2026년 4분기부터 사용 가능한 사우디아라비아 데이터센터 리전을 발표.",
     "lat": 25.6243,
     "lng": 42.3528
+  },
+  {
+    "id": 24,
+    "name": "Microsoft Denmark AIDC",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 덴마크에 새로운 데이터센터 리전을 개설하여 디지털 회복력과 경제 성장을 강화합니다.",
+    "lat": 55.6702,
+    "lng": 10.3333
+  },
+  {
+    "id": 25,
+    "name": "Meta AI Nuclear Power Infrastructure",
+    "type": "SMR",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타는 AI 혁명을 위한 전력 공급을 위해 6.6 GW 규모의 핵에너지 프로젝트를 발표하고 3개 핵 기업과 계약을 체결했습니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 26,
+    "name": "Google Arkansas AIDC",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "구글은 아칸소주에 새로운 데이터센터 건설 및 에너지 효율 프로그램에 투자하고 있습니다.",
+    "lat": 35.2049,
+    "lng": -92.4479
   }
 ]
