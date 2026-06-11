@@ -210,8 +210,8 @@
   {
     "id": 17,
     "name": "Google 가스 발전 AI 데이터센터",
-    "lat": 40.3800,
-    "lng": -82.9500,
+    "lat": 40.38,
+    "lng": -82.95,
     "type": "AIDC",
     "load": "150 MW",
     "source": "독립 가스 화력 발전 발전소 연계",
@@ -236,7 +236,7 @@
   {
     "id": 19,
     "name": "TVA-Kairos SMR Power (Google)",
-    "lat": 34.8220,
+    "lat": 34.822,
     "lng": -86.9624,
     "type": "SMR",
     "load": "50 MW",
@@ -288,8 +288,8 @@
   {
     "id": 23,
     "name": "Amazon 미국 SMR 발전소 링크",
-    "lat": 40.4400,
-    "lng": -82.8800,
+    "lat": 40.44,
+    "lng": -82.88,
     "type": "SMR",
     "load": "300 MW",
     "source": "아마존 전용 차세대 모듈형 원자로(SMR) 인프라",
@@ -301,8 +301,8 @@
   {
     "id": 24,
     "name": "오픈AI 오하이오 10GW 메가 AIDC",
-    "lat": 40.4700,
-    "lng": -82.8200,
+    "lat": 40.47,
+    "lng": -82.82,
     "type": "AIDC",
     "load": "10,000 MW",
     "source": "미 에너지부 그리드 & SB에너지",
@@ -310,5 +310,38 @@
     "carbon": "mid",
     "desc": "오픈AI가 독자 인프라 통제권을 위해 엔비디아·소프트뱅크와 손잡고 추진하는 760조 원 규모의 역대 최대 데이터센터 단지.",
     "architecture": "NVIDIA Next-Gen GPU 클러스터 (엔비디아 지급보증 검토)"
+  },
+  {
+    "id": 25,
+    "name": "Meta AI 혁명 원자력 발전 인프라",
+    "type": "SMR",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "planned",
+    "desc": "메타가 AI 혁명 전력 공급을 위해 6.6 GW 규모의 원자력 에너지 프로젝트 계약을 체결했습니다.",
+    "lat": 55.7022,
+    "lng": 12.5592
+  },
+  {
+    "id": 26,
+    "name": "Amazon 미국 모듈형 원자로 시설",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "under construction",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설에 참여하며 SMR 프로젝트를 진행 중입니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 27,
+    "name": "Google 아칸소 데이터센터",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "planned",
+    "desc": "구글이 아칸소 주에 새로운 데이터센터 건설에 투자하며 에너지 효율 프로그램을 함께 추진합니다.",
+    "lat": 35.2049,
+    "lng": -92.4479
   }
 ]
