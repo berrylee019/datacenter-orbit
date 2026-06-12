@@ -343,5 +343,38 @@
     "desc": "구글이 아칸소 주에 새로운 데이터센터 건설에 투자하며 에너지 효율 프로그램을 함께 추진합니다.",
     "lat": 35.2049,
     "lng": -92.4479
+  },
+  {
+    "id": 28,
+    "name": "Google Arkansas AI Data Center",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "under construction",
+    "desc": "구글이 아칸소주에 새로운 데이터센터를 건설하여 지역 경제에 투자하고 있습니다.",
+    "lat": 35.2049,
+    "lng": -92.4479
+  },
+  {
+    "id": 29,
+    "name": "Meta Louisiana Hyperscale AIDC",
+    "type": "AIDC",
+    "load": "700 MW",
+    "source": "Grid",
+    "status": "planned",
+    "desc": "메타가 루이지애나에 최대 규모의 데이터센터를 확보하여 AI 인프라 확장을 준비 중입니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 30,
+    "name": "Amazon Global SMR Pilot Plant",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "in development",
+    "desc": "아마존이 소형 모듈형 원자로(SMR) 개발을 진행하며 제안된 플랜트 이미지를 공개했습니다.",
+    "lat": 55.7022,
+    "lng": 12.5592
   }
 ]
