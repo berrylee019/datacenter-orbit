@@ -376,5 +376,38 @@
     "desc": "아마존이 소형 모듈형 원자로(SMR) 개발을 진행하며 제안된 플랜트 이미지를 공개했습니다.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 31,
+    "name": "Meta Global AI Nuclear Power Initiative",
+    "type": "AIDC",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 AI 혁명을 위한 전력 공급을 위해 6.6 GW 규모의 핵에너지 계약을 체결했습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 32,
+    "name": "Amazon Modular Nuclear Reactor Facility",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설을 지원하며 진전을 보이고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 33,
+    "name": "Microsoft Denmark AI Datacenter Region",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 덴마크에 새로운 데이터센터 지역을 개설하여 디지털 역량과 경제 성장을 강화합니다.",
+    "lat": 55.6702,
+    "lng": 10.3333
   }
 ]
