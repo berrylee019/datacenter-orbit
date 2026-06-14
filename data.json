@@ -409,5 +409,38 @@
     "desc": "마이크로소프트가 덴마크에 새로운 데이터센터 지역을 개설하여 디지털 역량과 경제 성장을 강화합니다.",
     "lat": 55.6702,
     "lng": 10.3333
+  },
+  {
+    "id": 34,
+    "name": "Microsoft Denmark AIDC",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft는 덴마크에 새로운 데이터센터 리전을 개설했으며, 서덴마크에 두 번째 데이터센터 리전을 건설할 예정입니다.",
+    "lat": 55.6702,
+    "lng": 10.3333
+  },
+  {
+    "id": 35,
+    "name": "Meta Louisiana AIDC",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta는 루이지애나에 자사의 최대 규모 데이터센터를 확보했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 36,
+    "name": "Amazon US SMR Facility",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "building",
+    "desc": "Amazon은 미국에서 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있으며, 제안된 플랜트에 대한 진행 상황을 업데이트했습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
