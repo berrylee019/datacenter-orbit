@@ -442,5 +442,38 @@
     "desc": "Amazon은 미국에서 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있으며, 제안된 플랜트에 대한 진행 상황을 업데이트했습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 37,
+    "name": "Microsoft Denmark AIDC Region 1",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 덴마크에 새로운 데이터센터 리전을 오픈하여 디지털 회복탄력성 및 혁신을 강화함.",
+    "lat": 55.6702,
+    "lng": 10.3333
+  },
+  {
+    "id": 38,
+    "name": "Amazon US SMR Facility Phase 38",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초 모듈형 원자로 시설 건설을 지원하고 있음.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 39,
+    "name": "Meta Global Nuclear Power for AIDC",
+    "type": "AIDC",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타가 AI 혁명에 전력을 공급하기 위해 3개 핵 기업과 총 6.6 GW 규모의 원자력 에너지 프로젝트 계약을 체결함.",
+    "lat": 55.7022,
+    "lng": 12.5592
   }
 ]
