@@ -475,5 +475,38 @@
     "desc": "메타가 AI 혁명에 전력을 공급하기 위해 3개 핵 기업과 총 6.6 GW 규모의 원자력 에너지 프로젝트 계약을 체결함.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 40,
+    "name": "Meta AI Nuclear Power Projects",
+    "type": "SMR",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 AI 구동을 위해 6.6GW 규모의 핵에너지 프로젝트 계약을 체결함.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 41,
+    "name": "Nebius Global AIDC Expansion",
+    "type": "AIDC",
+    "load": "310 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Nebius가 100억 달러 규모의 310MW 데이터센터 건설 계획을 발표함.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 42,
+    "name": "Microsoft West Denmark AIDC",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 덴마크 서부에 두 번째 데이터센터 리전을 건설할 예정임.",
+    "lat": 43.9925,
+    "lng": -70.8705
   }
 ]
