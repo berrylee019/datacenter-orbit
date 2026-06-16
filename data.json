@@ -508,5 +508,38 @@
     "desc": "Microsoft가 덴마크 서부에 두 번째 데이터센터 리전을 건설할 예정임.",
     "lat": 43.9925,
     "lng": -70.8705
+  },
+  {
+    "id": 43,
+    "name": "Microsoft West Denmark AIDC Region",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 덴마크 서부에 두 번째 데이터센터 리전 건설을 발표하며 인프라 확장을 진행 중입니다.",
+    "lat": 43.9925,
+    "lng": -70.8705
+  },
+  {
+    "id": 44,
+    "name": "Meta Global Nuclear Power Initiative",
+    "type": "AIDC",
+    "load": "6.6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타가 AI 인프라 전력 공급을 위해 총 6.6 GW 규모의 원자력 에너지 프로젝트 계약을 체결했다고 발표했습니다.",
+    "lat": 55.7022,
+    "lng": 12.5592
+  },
+  {
+    "id": 45,
+    "name": "Amazon US SMR Plant",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설을 지원하며 해당 프로젝트의 진행 상황을 공개했습니다.",
+    "lat": 37.1337,
+    "lng": -113.0907
   }
 ]
