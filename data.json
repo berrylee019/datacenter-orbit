@@ -541,5 +541,38 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설을 지원하며 해당 프로젝트의 진행 상황을 공개했습니다.",
     "lat": 37.1337,
     "lng": -113.0907
+  },
+  {
+    "id": 46,
+    "name": "Meta Louisiana AIDC Phase 46",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 건설한 가장 큰 규모의 데이터센터.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 47,
+    "name": "Meta 글로벌 원자력 AIDC 전력망",
+    "type": "AIDC",
+    "load": "6 GW+",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 6 GW 이상의 전력 공급을 위해 3개 핵 기업과 계약을 체결하여 AI 데이터센터 전력원을 확보함.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 48,
+    "name": "Google AI 데이터센터 (가스 발전)",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Gas Plant",
+    "status": "active",
+    "desc": "Google이 기후 목표와는 상반되게 가스 발전소에서 전력을 공급받는 AI 데이터센터를 건설함.",
+    "lat": 37.1337,
+    "lng": -113.0907
   }
 ]
