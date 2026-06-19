@@ -607,5 +607,38 @@
     "desc": "메타가 데이터센터 전력 공급을 위해 6GW 이상의 대규모 원자력 발전 계약을 체결했습니다.",
     "lat": 37.1337,
     "lng": -113.0907
+  },
+  {
+    "id": 52,
+    "name": "Microsoft Denmark AIDC Phase 52",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 덴마크에 새로운 데이터센터 리전을 개설하여 디지털 인프라를 강화했습니다.",
+    "lat": 55.6702,
+    "lng": 10.3333
+  },
+  {
+    "id": 53,
+    "name": "Meta US Nuclear Power Supply for AIDC",
+    "type": "AIDC",
+    "load": "6+ GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타는 미국에서 세 개의 원자력 회사와 6기가와트 이상의 전력 공급 계약을 체결했습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 54,
+    "name": "Google Arkansas AIDC",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "구글은 아칸소주에 새로운 데이터센터 건설 투자를 진행하고 있습니다.",
+    "lat": 35.2049,
+    "lng": -92.4479
   }
 ]
