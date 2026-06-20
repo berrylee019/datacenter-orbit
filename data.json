@@ -408,5 +408,18 @@
     "desc": "Microsoft가 덴마크 코펜하겐에 새로운 데이터센터 리전을 개설하여 디지털 회복탄력성과 성장을 강화합니다.",
     "lat": 55.6867,
     "lng": 12.5701
+  },
+  {
+    "id": 60,
+    "name": "SK AI 데이터센터 울산 (SKT-AWS 공동 거점)",
+    "lat": 35.5015,
+    "lng": 129.3725,
+    "type": "AIDC",
+    "load": "103 MW",
+    "source": "SK멀티유틸리티 LNG·LPG 열병합발전소(300MW급) 구역전기 및 KET 직연계",
+    "status": "under construction",
+    "carbon": "mid",
+    "desc": "SK그룹과 아마존웹서비스(AWS)가 합작하는 총 7조 원 규모의 국내 최대 비수도권 AI 전용 하이퍼스케일 거점. 미국식 '발전소 옆 데이터센터' 전략을 차용해 SKMU 배후 전력을 다이렉트 인입하며 2027~2028년 단계적 완공 예정.",
+    "architecture": "AWS Custom Trainium/Inferentia & NVIDIA Blackwell GPU Mixed (60K Scalable)"
   }
 ]
