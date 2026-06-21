@@ -421,5 +421,38 @@
     "carbon": "mid",
     "desc": "SK그룹과 아마존웹서비스(AWS)가 합작하는 총 7조 원 규모의 국내 최대 비수도권 AI 전용 하이퍼스케일 거점. 미국식 '발전소 옆 데이터센터' 전략을 차용해 SKMU 배후 전력을 다이렉트 인입하며 2027~2028년 단계적 완공 예정.",
     "architecture": "AWS Custom Trainium/Inferentia & NVIDIA Blackwell GPU Mixed (60K Scalable)"
+  },
+  {
+    "id": 61,
+    "name": "Microsoft Denmark AIDC Region",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 디지털 복원력 강화를 위해 덴마크에 새로운 데이터센터 리전을 개설했습니다.",
+    "lat": 55.6867,
+    "lng": 12.5701
+  },
+  {
+    "id": 62,
+    "name": "Meta Global Nuclear Power Partnership",
+    "type": "AIDC",
+    "load": "6000 MW",
+    "source": "Nuclear",
+    "status": "contracted",
+    "desc": "메타가 6GW 이상의 전력 공급을 위해 3개 핵발전 기업과 계약을 체결했습니다.",
+    "lat": 37.1232,
+    "lng": -78.4928
+  },
+  {
+    "id": 63,
+    "name": "Amazon US SMR Pilot Plant",
+    "type": "SMR",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "under construction",
+    "desc": "아마존이 미국 내 최초의 모듈형 소형모듈원자로 시설 건설을 지원하며 진척 상황을 공개했습니다.",
+    "lat": 43.6448,
+    "lng": -114.0154
   }
 ]
