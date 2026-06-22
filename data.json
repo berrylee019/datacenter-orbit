@@ -454,5 +454,38 @@
     "desc": "아마존이 미국 내 최초의 모듈형 소형모듈원자로 시설 건설을 지원하며 진척 상황을 공개했습니다.",
     "lat": 43.6448,
     "lng": -114.0154
+  },
+  {
+    "id": 64,
+    "name": "Microsoft Copenhagen AIDC",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 덴마크에 새로운 데이터센터 리전을 개설하여 디지털 역량 강화와 경제 성장을 지원합니다.",
+    "lat": 55.6867,
+    "lng": 12.5701
+  },
+  {
+    "id": 65,
+    "name": "Meta Baton Rouge AIDC",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 최대 규모의 데이터센터를 확보하여 AI 인프라 확장을 가속화합니다.",
+    "lat": 30.4494,
+    "lng": -91.187
+  },
+  {
+    "id": 66,
+    "name": "Amazon SMR Idaho Facility",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하며 SMR 발전을 주도합니다.",
+    "lat": 43.6448,
+    "lng": -114.0154
   }
 ]
