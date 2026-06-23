@@ -487,5 +487,38 @@
     "desc": "Amazon이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하며 SMR 발전을 주도합니다.",
     "lat": 43.6448,
     "lng": -114.0154
+  },
+  {
+    "id": 67,
+    "name": "Microsoft Pecos AI Datacenter",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스 페코스에 새로운 AI 데이터센터를 건설하고 셰브론과 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 68,
+    "name": "Meta Louisiana Largest Datacenter",
+    "type": "AIDC",
+    "load": "400 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타는 루이지애나에 자사 최대 규모의 데이터센터를 확보했으며, 현지 상원의원의 도움을 받았습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 69,
+    "name": "Microsoft Denmark AI Datacenter Region",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 덴마크에 새로운 데이터센터 리전을 개설하고 서부 덴마크에 두 번째 리전을 건설할 계획입니다.",
+    "lat": 55.6702,
+    "lng": 10.3333
   }
 ]
