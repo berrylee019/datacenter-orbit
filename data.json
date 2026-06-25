@@ -553,5 +553,38 @@
     "desc": "메타가 전 세계 AI 데이터센터 전력 공급을 위해 6GW 이상의 원자력 발전 계약을 3개 회사와 체결했습니다.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 73,
+    "name": "Microsoft Pecos Texas AIDC",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스 페코스에 새로운 AI 데이터센터를 건설하며 셰브론과 대규모 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 74,
+    "name": "Meta Louisiana AIDC",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타는 루이지애나에 자사 최대 규모의 데이터센터를 확보했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 75,
+    "name": "Microsoft West Denmark AIDC",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 덴마크 서부에 두 번째 데이터센터 지역을 건설할 예정입니다.",
+    "lat": 43.9925,
+    "lng": -70.8705
   }
 ]
