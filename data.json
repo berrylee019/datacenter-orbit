@@ -586,5 +586,38 @@
     "desc": "마이크로소프트는 덴마크 서부에 두 번째 데이터센터 지역을 건설할 예정입니다.",
     "lat": 43.9925,
     "lng": -70.8705
+  },
+  {
+    "id": 76,
+    "name": "Microsoft Pecos Texas AIDC Phase 76",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "under construction",
+    "desc": "Microsoft가 Pecos, 텍사스에 대규모 AI 데이터센터를 건설하고 Chevron과 전력 공급 계약을 체결.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 77,
+    "name": "Meta Louisiana AIDC Phase 77",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Grid",
+    "status": "under construction",
+    "desc": "Meta가 루이지애나에 자사 최대 규모의 데이터센터를 확보하고 건설 중.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 78,
+    "name": "Microsoft Denmark AIDC",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Renewable",
+    "status": "active",
+    "desc": "Microsoft가 덴마크에 새로운 데이터센터 리전을 개설하여 운영을 시작.",
+    "lat": 55.6702,
+    "lng": 10.3333
   }
 ]
