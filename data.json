@@ -619,5 +619,38 @@
     "desc": "Microsoft가 덴마크에 새로운 데이터센터 리전을 개설하여 운영을 시작.",
     "lat": 55.6702,
     "lng": 10.3333
+  },
+  {
+    "id": 79,
+    "name": "Microsoft Pecos AIDC Phase 79",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 새로운 AI 데이터센터를 건설하고 쉐브론과 대규모 전력 공급 계약을 체결함.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 80,
+    "name": "Meta Louisiana AIDC Phase 80",
+    "type": "AIDC",
+    "load": "1000 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타가 루이지애나에 최대 규모의 데이터센터를 확보했으며, 6GW 이상의 전력 공급을 위해 3개 핵 기업과 계약을 체결함.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 81,
+    "name": "Amazon SMR Facility",
+    "type": "SMR",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초 모듈형 원자로 시설 건설을 지원하며 차세대 전력 인프라 개발에 참여함.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
