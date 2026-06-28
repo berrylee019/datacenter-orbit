@@ -652,5 +652,38 @@
     "desc": "아마존이 미국 내 최초 모듈형 원자로 시설 건설을 지원하며 차세대 전력 인프라 개발에 참여함.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 82,
+    "name": "Microsoft Pecos AIDC Phase 82",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid, Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하며 셰브론과 전력 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 83,
+    "name": "Microsoft Mount Pleasant AIDC Expansion",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 위스콘신 마운트 플레전트에 첫 데이터센터 건설을 완료했으며, 추가로 15개의 데이터센터를 더 건설할 예정입니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 84,
+    "name": "Amazon US SMR Facility Phase 84",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
+    "lat": 37.1337,
+    "lng": -113.0907
   }
 ]
