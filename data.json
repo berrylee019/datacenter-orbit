@@ -718,5 +718,38 @@
     "desc": "아마존은 미국 와이오밍에 최초의 모듈형 원자력 발전 시설 중 하나를 구축하는 데 기여하고 있습니다.",
     "lat": 43.17,
     "lng": -107.5685
+  },
+  {
+    "id": 88,
+    "name": "Amazon US SMR Facility Phase 88",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국 내 첫 모듈형 원자로 시설 건설을 돕고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 89,
+    "name": "Meta Global AIDC Nuclear Power Contract",
+    "type": "AIDC",
+    "load": "6000 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 세 개의 핵 에너지 회사와 6GW 이상의 전력 공급 계약을 체결했습니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 90,
+    "name": "Microsoft Mount Pleasant AIDC Expansion Phase 90",
+    "type": "AIDC",
+    "load": "3000 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 위스콘신 Mount Pleasant에 15개 추가 데이터센터 건설을 계획하고 있습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
   }
 ]
