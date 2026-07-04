@@ -784,5 +784,38 @@
     "desc": "Meta가 루이지애나에 최대 규모의 데이터센터를 확보하고 6GW 이상의 전력 공급을 위해 3개 핵 기업과 계약을 체결했습니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 94,
+    "name": "Microsoft Mount Pleasant AIDC",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft는 위스콘신 Mount Pleasant에 첫 데이터센터 시설 건설을 성공적으로 완료하여 운영을 시작했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 95,
+    "name": "Meta Louisiana Hyperscale AIDC Phase 95",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta는 루이지애나에 자사 최대 규모의 하이퍼스케일 AI 데이터센터를 건설하기 위한 부지를 확보하고 프로젝트를 추진 중입니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 96,
+    "name": "Microsoft West Denmark AIDC Region",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Wind",
+    "status": "active",
+    "desc": "Microsoft는 덴마크 서부에 두 번째 데이터센터 리전을 건설할 계획이며, 이는 AI 인프라 확장의 일환입니다.",
+    "lat": 43.9925,
+    "lng": -70.8705
   }
 ]
