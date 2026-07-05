@@ -817,5 +817,38 @@
     "desc": "Microsoft는 덴마크 서부에 두 번째 데이터센터 리전을 건설할 계획이며, 이는 AI 인프라 확장의 일환입니다.",
     "lat": 43.9925,
     "lng": -70.8705
+  },
+  {
+    "id": 97,
+    "name": "Microsoft Mount Pleasant AIDC Phase 97",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 위스콘신주 Mount Pleasant에 첫 번째 데이터센터 시설 건설을 완료함.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 98,
+    "name": "Meta Louisiana AIDC Phase 98",
+    "type": "AIDC",
+    "load": "600 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타의 가장 큰 데이터센터가 루이지애나에 유치되어 건설 중임.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 99,
+    "name": "Meta Global Nuclear AIDC Power Deal",
+    "type": "AIDC",
+    "load": "6000 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타가 글로벌 AI 데이터센터 전력 공급을 위해 6GW 이상의 핵 발전 계약을 3개 기업과 체결함.",
+    "lat": 55.7022,
+    "lng": 12.5592
   }
 ]
