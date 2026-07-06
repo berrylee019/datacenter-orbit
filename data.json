@@ -850,5 +850,38 @@
     "desc": "메타가 글로벌 AI 데이터센터 전력 공급을 위해 6GW 이상의 핵 발전 계약을 3개 기업과 체결함.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 100,
+    "name": "Microsoft Pecos AIDC Phase 100",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 AI를 위한 신규 데이터센터를 텍사스 페코스에 건설하며 용량을 확장합니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 101,
+    "name": "Microsoft Mount Pleasant AIDC Phase 101",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 위스콘신 마운트플레전트에서 첫 번째 데이터센터 시설 건설을 완료했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 102,
+    "name": "Amazon Modular Nuclear Reactor Facility",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "building",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
