@@ -883,5 +883,38 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 103,
+    "name": "Meta 미국 AI 데이터센터 전력 확장",
+    "type": "AIDC",
+    "load": "6 GW+",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 3개 핵발전 기업과 6GW 이상의 전력 공급 계약을 체결하여 AI 데이터센터 확장을 추진합니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 104,
+    "name": "Amazon US 모듈형 원자로 시설",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로(SMR) 시설 건설을 지원하며 친환경 인프라 확장에 기여하고 있습니다.",
+    "lat": 38.8951,
+    "lng": -77.0364
+  },
+  {
+    "id": 105,
+    "name": "Microsoft Pecos AI 데이터센터",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설 중이며, 20년간 가스 터빈으로 전력을 공급받을 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
   }
 ]
