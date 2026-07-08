@@ -916,5 +916,38 @@
     "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설 중이며, 20년간 가스 터빈으로 전력을 공급받을 예정입니다.",
     "lat": 30.7857,
     "lng": -102.8065
+  },
+  {
+    "id": 106,
+    "name": "Microsoft Pecos AIDC Phase 106",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "Microsoft가 텍사스 Pecos에 대규모 AI 데이터센터를 건설 중이며, 가스 터빈으로 전력을 공급받습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 107,
+    "name": "Meta Louisiana AIDC Phase 107",
+    "type": "AIDC",
+    "load": "1.5 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 자사 최대 규모의 데이터센터를 확보했으며, 원자력 발전으로 전력을 공급받을 것으로 예상됩니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 108,
+    "name": "Amazon US SMR Facility Phase 108",
+    "type": "SMR",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국에서 최초의 모듈형 원자로 시설 건설을 지원하고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
