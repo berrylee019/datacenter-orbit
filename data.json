@@ -982,5 +982,38 @@
     "desc": "아마존은 미국에서 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 112,
+    "name": "Microsoft Pecos AIDC Phase 112",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 대규모 데이터센터를 건설하며 가스터빈 발전을 통해 전력을 공급받을 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 113,
+    "name": "Microsoft Mount Pleasant AIDC Phase 113",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 위스콘신 마운트 플레전트에서 첫 번째 데이터센터 시설 건설을 완료했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 114,
+    "name": "Meta Louisiana AIDC Phase 114",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터 건설을 확정했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
