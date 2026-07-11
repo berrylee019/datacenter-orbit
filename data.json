@@ -1015,5 +1015,38 @@
     "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터 건설을 확정했습니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 115,
+    "name": "Microsoft Pecos AI Datacenter Phase 115",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터 건설을 위해 셰브론과 전력 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 116,
+    "name": "Microsoft Mount Pleasant Datacenter",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 위스콘신 마운트플레전트에 첫 번째 데이터센터 시설 건설을 완료했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 117,
+    "name": "Meta Louisiana AIDC Phase 117",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터를 확보했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
