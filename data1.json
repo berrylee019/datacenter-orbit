@@ -1081,5 +1081,29 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설을 지원하고 있습니다.",
     "lat": 39.7837,
     "lng": -100.4459
-  }
+  },
+  {
+    "id": 121,
+    "name": "메타 사우디 타이라 차세대 메가 AIDC",
+    "lat": 24.4686,
+    "lng": 39.6142,
+    "type": "AIDC",
+    "load": "400 MW",
+    "source": "Gas (두산 가스터빈 장비 연계 타이바 복합화력발전 그리드)",
+    "status": "planned",
+    "carbon": "high",
+    "desc": "메타가 중동 지역 Llama 인프라 확장을 위해 사우디 타이바 기저부하 가스터빈 전력망을 독점 연계하여 기획 중인 대규모 AI 클러스터.",
+    "architecture": "NVIDIA Blackwell NVL72 Ultra-dense Rack System & Gas-Turbine Power Grid"
+  },
+  {
+  "id": 122,
+  "name": "Meta Canada Data Center",
+  "type": "Data Center",
+  "load": "1 GW",
+  "source": "Grid / Renewable",
+  "status": "planned",
+  "desc": "메타가 캐나다 앨버타주 스터전카운티에 건설하는 1GW급 대규모 AI 데이터센터입니다.",
+  "lat": 53.8322,
+  "lng": -113.3033
+}
 ]
