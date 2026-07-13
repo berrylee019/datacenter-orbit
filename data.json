@@ -523,5 +523,38 @@
     "source": "Grid / Renewable",
     "status": "planned",
     "desc": "메타가 캐나다 앨버타주 스터전카운티에 건설하는 1GW급 대규모 AI 데이터센터입니다."
+  },
+  {
+    "id": 43,
+    "name": "Microsoft Pecos AI Data Center",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "Microsoft는 텍사스 Pecos에 대규모 AI 데이터센터를 건설 중이며, Chevron과의 파트너십을 통해 가스 터빈 전력을 공급받을 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 44,
+    "name": "Microsoft Mount Pleasant Data Center",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft는 위스콘신 Mount Pleasant에 첫 데이터센터 시설 건설을 완료하고 운영을 시작했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 45,
+    "name": "Meta Louisiana AI Data Center",
+    "type": "AIDC",
+    "load": "1.2 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta는 루이지애나에 자사의 최대 규모 데이터센터를 확보했으며, 이를 위해 원자력 발전 계약을 체결했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
