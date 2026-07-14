@@ -556,5 +556,38 @@
     "desc": "Meta는 루이지애나에 자사의 최대 규모 데이터센터를 확보했으며, 이를 위해 원자력 발전 계약을 체결했습니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 46,
+    "name": "Microsoft Pecos AIDC",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 47,
+    "name": "Meta Louisiana AIDC",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Grid / Nuclear",
+    "status": "active",
+    "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터를 확보했으며, 이를 위해 6GW 이상의 전력 계약을 추진 중입니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 48,
+    "name": "Amazon US SMR Facility",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "building",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
+    "lat": 43.17,
+    "lng": -107.5685
   }
 ]
