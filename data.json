@@ -622,5 +622,38 @@
     "desc": "Meta가 Louisiana에 대규모 데이터센터를 위한 1.6 GW 규모의 전력 용량 계약을 Crusoe와 체결함.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 52,
+    "name": "Microsoft Pecos AI Data Center Phase 52",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "Microsoft가 Chevron과 협력하여 텍사스 Pecos에 대규모 AI 데이터센터를 건설하고 가스 터빈으로 전력을 공급할 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 53,
+    "name": "Meta Louisiana AI Data Center Phase 53",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta는 루이지애나에 자사의 가장 큰 데이터센터를 확보하여 건설 중입니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 54,
+    "name": "Amazon SMR Nuclear Facility",
+    "type": "SMR",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon은 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
