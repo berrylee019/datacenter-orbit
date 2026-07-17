@@ -655,5 +655,18 @@
     "desc": "Amazon은 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+    {
+    "id": 55,
+    "name": "이지스 고양 삼송 데이터센터",
+    "lat": 37.6534,
+    "lng": 126.8955,
+    "type": "AIDC",
+    "load": "80 MW",
+    "source": "한국전력 경기 북부 그리드 변전소 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "이지스자산운용이 하남에 이어 두 번째로 개발에 성공한 수도권 서북부 최대 규모의 하이퍼스케일급 데이터센터. LG CNS가 설계 및 운영 전반을 총괄함.",
+    "architecture": "LG CNS Dense Cloud Platform & High-efficiency Liquid Cooling Integration"
   }
 ]
