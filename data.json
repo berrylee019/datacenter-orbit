@@ -656,7 +656,7 @@
     "lat": 39.7837,
     "lng": -100.4459
   },
-    {
+  {
     "id": 55,
     "name": "이지스 고양 삼송 데이터센터",
     "lat": 37.6534,
@@ -668,5 +668,38 @@
     "carbon": "mid",
     "desc": "이지스자산운용이 하남에 이어 두 번째로 개발에 성공한 수도권 서북부 최대 규모의 하이퍼스케일급 데이터센터. LG CNS가 설계 및 운영 전반을 총괄함.",
     "architecture": "LG CNS Dense Cloud Platform & High-efficiency Liquid Cooling Integration"
+  },
+  {
+    "id": 56,
+    "name": "Microsoft Pecos AIDC Phase 56",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Gas Turbines",
+    "status": "active",
+    "desc": "Microsoft는 텍사스 Pecos에 대규모 AI 데이터센터를 확장하며 Chevron과의 파트너십을 통해 가스 터빈 전력을 공급받습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 57,
+    "name": "Meta Ohio Nuclear AIDC Infrastructure",
+    "type": "AIDC",
+    "load": "6.5 GW",
+    "source": "Nuclear",
+    "status": "planning",
+    "desc": "Meta는 세 곳의 원자력 회사와 총 6.5 GW 이상의 전력 공급 계약을 체결하며 오하이오 등 대규모 AI 데이터센터 인프라를 위한 핵에너지를 확보했습니다.",
+    "lat": 40.2254,
+    "lng": -82.6881
+  },
+  {
+    "id": 58,
+    "name": "Amazon SMR Facility, Washington",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "planning",
+    "desc": "Amazon은 미국 내 최초의 모듈형 원자로(SMR) 시설 중 하나를 워싱턴 주에 구축하는 데 협력하고 있습니다.",
+    "lat": 38.8951,
+    "lng": -77.0364
   }
 ]
