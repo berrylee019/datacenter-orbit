@@ -701,5 +701,38 @@
     "desc": "Amazon은 미국 내 최초의 모듈형 원자로(SMR) 시설 중 하나를 워싱턴 주에 구축하는 데 협력하고 있습니다.",
     "lat": 38.8951,
     "lng": -77.0364
+  },
+  {
+    "id": 59,
+    "name": "Microsoft Pecos AIDC Phase 59",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설 중이며, 셰브론과의 파트너십을 통해 천연가스 전력을 공급받을 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 60,
+    "name": "Meta Louisiana AIDC Phase 60",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타는 루이지애나에 자사 최대 규모의 데이터센터를 확보했으며, 이를 위해 6GW가 넘는 원자력 발전 용량 확보 계약을 활용할 것으로 보입니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
+  },
+  {
+    "id": 61,
+    "name": "Amazon SMR Facility",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존은 미국에서 최초의 모듈형 원자로 시설 중 하나를 구축하는 데 기여하며, 자체 데이터센터에 안정적인 전력을 공급할 계획입니다.",
+    "lat": 38.8951,
+    "lng": -77.0364
   }
 ]
