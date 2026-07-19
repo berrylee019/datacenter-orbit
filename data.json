@@ -734,5 +734,38 @@
     "desc": "아마존은 미국에서 최초의 모듈형 원자로 시설 중 하나를 구축하는 데 기여하며, 자체 데이터센터에 안정적인 전력을 공급할 계획입니다.",
     "lat": 38.8951,
     "lng": -77.0364
+  },
+  {
+    "id": 62,
+    "name": "Microsoft Pecos AIDC Phase 62",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft가 텍사스 Pecos에 대규모 AI 데이터센터를 건설하며 Chevron과 천연가스 기반 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 63,
+    "name": "Meta US Nuclear-Powered AIDC Initiative",
+    "type": "AIDC",
+    "load": "6 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 미국 내 데이터센터 전력 공급을 위해 6GW 이상의 전력을 공급할 세 곳의 원자력 회사와 계약을 체결했습니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 64,
+    "name": "Amazon US SMR Facility (Wyoming)",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국 와이오밍에 최초의 모듈형 원자로 시설 건설을 지원하며 데이터센터 전력 자립을 추진하고 있습니다.",
+    "lat": 43.17,
+    "lng": -107.5685
   }
 ]
