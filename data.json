@@ -866,5 +866,38 @@
     "desc": "마이크로소프트가 텍사스 페코스에 새로운 데이터센터를 건설하여 용량을 확장합니다.",
     "lat": 30.7857,
     "lng": -102.8065
+  },
+  {
+    "id": 74,
+    "name": "Microsoft Texas AI Datacenter",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 쉐브론과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터 전력 계약을 체결했습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 75,
+    "name": "Meta US Nuclear Power AIDC Initiative",
+    "type": "AIDC",
+    "load": "6+ GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타가 세 곳의 원자력 회사와 총 6기가와트 이상의 전력 공급 계약을 체결하여 차세대 데이터센터 전력을 확보했습니다.",
+    "lat": 32.3294,
+    "lng": -83.1137
+  },
+  {
+    "id": 76,
+    "name": "Amazon Modular SMR Facility",
+    "type": "SMR",
+    "load": "200 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국에 첫 번째 모듈형 원자로 시설 구축을 지원하고 있습니다.",
+    "lat": 38.8951,
+    "lng": -77.0364
   }
 ]
