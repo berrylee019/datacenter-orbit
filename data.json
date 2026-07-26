@@ -998,5 +998,18 @@
     "desc": "Amazon이 미국 내 첫 모듈형 원자로(SMR) 시설 건설을 지원하고 있음.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 86,
+    "name": "셀레브라스 산타클라라 본사 AIDC",
+    "lat": 37.3541,
+    "lng": -121.9552,
+    "type": "AIDC",
+    "load": "100 MW",
+    "source": "실리콘밸리 산타클라라 전력청(SVP) 그리드 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "웨이퍼를 잘라내지 않고 30cm 통째로 사용한 'Wafer-Scale' AI 칩 전용 데이터센터. 초고속 실시간 AI 추론(Inference) 특화 거점으로 고밀도 액체 냉각(Liquid Cooling) 기반 가동 중.",
+    "architecture": "Cerebras CS-3 System (Wafer-Scale Engine 3, 900K Cores per Chip) & Liquid Cooling Piping"
   }
 ]
