@@ -965,5 +965,38 @@
     "desc": "아마존이 미국에 최초의 모듈형 원자로 시설 건설을 돕고 있습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 83,
+    "name": "Meta Nuclear AIDC Network",
+    "type": "AIDC",
+    "load": "6000+ MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 6GW 이상의 전력 공급을 위해 3개 핵 기업과 계약을 체결하여 AI 데이터센터 네트워크를 구축함.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 84,
+    "name": "Microsoft Chevron Texas AI Datacenter",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 텍사스에 대규모 AI 데이터센터를 위해 Chevron과 전력 계약을 체결함.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 85,
+    "name": "Amazon US SMR Facility Phase 85",
+    "type": "SMR",
+    "load": "100 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국 내 첫 모듈형 원자로(SMR) 시설 건설을 지원하고 있음.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
