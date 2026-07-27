@@ -1076,5 +1076,38 @@
     "carbon": "low",
     "desc": "중국 국책 사업 '동수서산'의 핵심 8대 국가 컴퓨팅 허브 중 하나. 건조하고 서늘한 기후를 활용해 냉각 효율(PUE)을 극대화한 서부 컴퓨팅 기지.",
     "architecture": "Domestic Ascend & Cambricon AI Accelerator Racks"
+  },
+  {
+    "id": 92,
+    "name": "Meta Global AI Datacenter Nuclear Power Portfolio",
+    "type": "AIDC",
+    "load": "6000+ MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Meta가 AI 데이터센터 전력 공급을 위해 3개 핵발전 기업과 6GW 이상의 전력 계약을 체결했습니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 93,
+    "name": "Microsoft Texas Massive AI Datacenter",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 Chevron과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터 전력을 공급합니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 94,
+    "name": "Amazon Modular Nuclear Reactor Facility",
+    "type": "SMR",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국 내 첫 모듈형 원자로 시설 구축을 지원하고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
