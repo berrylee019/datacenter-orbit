@@ -1109,5 +1109,38 @@
     "desc": "Amazon이 미국 내 첫 모듈형 원자로 시설 구축을 지원하고 있습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 95,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 95",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 와이오밍주 샤이엔에서 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정임.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 96,
+    "name": "Microsoft Pecos Texas AIDC (Chevron Partnership)",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas (Turbines)",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스주 페코스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결했고, 가스 터빈을 사용할 예정임.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 97,
+    "name": "Google Global AIDC Expansion",
+    "type": "AIDC",
+    "load": "1000 MW",
+    "source": "Grid (Renewable Focus)",
+    "status": "planned",
+    "desc": "구글의 모회사 알파벳이 AI 인프라 구축을 위해 800억 달러를 조달하며 전 세계적인 AI 데이터센터 확장 계획을 추진 중임.",
+    "lat": 55.7022,
+    "lng": 12.5592
   }
 ]
