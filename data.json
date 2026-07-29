@@ -1175,5 +1175,18 @@
     "desc": "Meta는 Crusoe와 1.6GW 규모의 전력 용량 계약을 체결하여 텍사스 소재 대규모 AI 데이터센터에 전력을 공급할 예정입니다.",
     "lat": 31.8457,
     "lng": -102.3677
+  },
+  {
+    "id": 101,
+    "name": "메타-블랙록 텍사스 엘패소 메가 AIDC",
+    "lat": 31.7619,
+    "lng": -106.485,
+    "type": "AIDC",
+    "load": "1000 MW",
+    "source": "텍사스 전력계통운영이사회(ERCOT) 광역 그리드 연계",
+    "status": "under construction",
+    "carbon": "mid",
+    "desc": "메타와 블랙록이 JV(블랙록 80%, 메타 20%)를 설립해 추진하는 140억 달러(약 20조 원) 규모의 1GW급 메가 AIDC. 메타가 장기 임차하는 자산 경량화(Asset-light) 모델로 2028년 가동 예정.",
+    "architecture": "NVIDIA Blackwell Ultra / Next-Gen Dense GPU Clusters Ready & Liquid Cooling Infrastructure"
   }
 ]
