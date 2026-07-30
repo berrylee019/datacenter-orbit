@@ -1188,5 +1188,38 @@
     "carbon": "mid",
     "desc": "메타와 블랙록이 JV(블랙록 80%, 메타 20%)를 설립해 추진하는 140억 달러(약 20조 원) 규모의 1GW급 메가 AIDC. 메타가 장기 임차하는 자산 경량화(Asset-light) 모델로 2028년 가동 예정.",
     "architecture": "NVIDIA Blackwell Ultra / Next-Gen Dense GPU Clusters Ready & Liquid Cooling Infrastructure"
+  },
+  {
+    "id": 102,
+    "name": "Microsoft Pecos AI Datacenter Phase 102",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid (Chevron Partnered)",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결함.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 103,
+    "name": "Amazon US SMR Facility Phase 103",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 소형 원자로 시설 건설을 지원하고 있음.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 104,
+    "name": "Meta Baton Rouge AI Datacenter",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타가 루이지애나 바톤 루지에 최대 규모의 AI 데이터센터를 건설하며 6GW 이상의 원자력 발전 계약을 통해 전력을 공급받을 예정임.",
+    "lat": 30.4494,
+    "lng": -91.187
   }
 ]
