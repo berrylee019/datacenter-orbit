@@ -8,8 +8,6 @@ from datetime import datetime
 from openai import OpenAI
 from geopy.geocoders import Nominatim
 
-import streamlit as st
-import json
 
 # 1. URL 쿼리 파라미터 확인 (예: ?api=true&target=meta)
 query_params = st.query_params
