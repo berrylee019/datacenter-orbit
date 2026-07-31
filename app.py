@@ -20,7 +20,6 @@ st.set_page_config(
 query_params = st.query_params
 if "api" in query_params and query_params["api"] == "true":
     target = query_params.get("target", "meta")
-    # 간단한 API 응답 예시
     response_data = {
         "status": "success",
         "service": "datacenter-orbit",
@@ -41,7 +40,6 @@ except ImportError:
 DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
 
 def run_infra_agent_pipeline():
-    """백그라운드에서 최신 인프라 뉴스를 분석하여 data.json을 자동으로 갱신하는 에이전트"""
     if "OPENAI_API_KEY" not in st.secrets:
         return "NO_API_KEY"
         
@@ -168,7 +166,6 @@ query_params = st.query_params
 lead_email = query_params.get("email")
 lead_target = query_params.get("target", "글로벌 메인 대기")
 
-# 파이썬 순정 버튼 혹은 자바스크립트 리다이렉트로 신호가 인입되었을 때
 if query_params.get("submit_lead") == "true" and lead_email:
     st.markdown("<div style='padding-top: 2rem;'></div>", unsafe_allow_html=True)
     with st.spinner("리드를 즉시 동기화 중..."):
@@ -217,7 +214,8 @@ with form_col3:
         </style>""", unsafe_allow_html=True)
     submit_clicked = st.button("얼리버드 사전 예약 🚀")
 
-# 5. 🛠️ 버튼 클릭 처리 부분 보정
+st.markdown("</div>", unsafe_allow_html=True)
+
 if submit_clicked:
     if input_email and "@" in input_email:
         st.session_state["submit_lead_triggered"] = True
@@ -225,7 +223,6 @@ if submit_clicked:
         st.session_state["lead_target_val"] = input_target
     else:
         st.error("올바른 이메일 형식을 기재해 주십시오.")
-st.markdown("</div>", unsafe_allow_html=True)
 
 if st.session_state.get("submit_lead_triggered", False):
     st.session_state["submit_lead_triggered"] = False
@@ -237,7 +234,7 @@ if st.session_state.get("submit_lead_triggered", False):
     st.rerun()
 
 # ==========================================
-# 🌟 [신규 추가] 107개 데이터 기반 메트릭 카드 & 사이드바 필터 시스템 통합 구역
+# 🌟 [개선] 107개 데이터 기반 메트릭 카드 & 메인 화면 인터랙티브 필터 익스팬더
 # ==========================================
 df_analytics = pd.DataFrame()
 if os.path.exists(DATA_FILE_PATH):
@@ -267,30 +264,30 @@ if not df_analytics.empty:
         st.metric(label="🏢 AIDC 클러스터", value=f"{aidc_count} 개소")
     with m_col4:
         st.metric(label="⚛️ SMR 연계 기지", value=f"{smr_count} 개소")
-    
-    # 사이드바 인터랙티브 필터 확장 구역
-    st.sidebar.header("🔍 인프라 필터 & 검색")
-    search_keyword = st.sidebar.text_input("명칭/국가/키워드 검색", placeholder="예: Dublin, Meta, SMR 등")
-    
-    types = ["전체"] + list(df_analytics['type'].unique()) if 'type' in df_analytics.columns else ["전체"]
-    selected_type = st.sidebar.selectbox("자산 유형 선택", types)
-    
-    statuses = ["전체"] + list(df_analytics['status'].unique()) if 'status' in df_analytics.columns else ["전체"]
-    selected_status = st.sidebar.selectbox("가동 상태 선택", statuses)
-    
-    # 필터링 적용 로직
-    filtered_df = df_analytics.copy()
-    if search_keyword:
-        mask = filtered_df.astype(str).apply(lambda x: x.str.contains(search_keyword, case=False)).any(axis=1)
-        filtered_df = filtered_df[mask]
-    if selected_type != "전체":
-        filtered_df = filtered_df[filtered_df['type'] == selected_type]
-    if selected_status != "전체":
-        filtered_df = filtered_df[filtered_df['status'] == selected_status]
-    
-    # 사이드바 하단에 검색 결과 요약 표시
-    st.sidebar.markdown(f"---")
-    st.sidebar.markdown(f"📋 **필터링된 자산:** `{len(filtered_df)}개` / 총 {total_assets}개")
+
+    # 💡 [신규] 메인 화면에 눈에 띄는 필터 제어 패널 (익스팬더로 항상 열어두거나 접어둘 수 있음)
+    with st.expander("🔍 [인프라 관제 필터 및 검색 열기] 107개 데이터 즉시 조회하기", expanded=True):
+        f_col1, f_col2, f_col3 = st.columns(3)
+        with f_col1:
+            search_keyword = st.text_input("명칭/국가/키워드 검색", placeholder="예: Dublin, Meta, SMR 등")
+        with f_col2:
+            types = ["전체"] + list(df_analytics['type'].unique()) if 'type' in df_analytics.columns else ["전체"]
+            selected_type = st.selectbox("자산 유형 선택", types)
+        with f_col3:
+            statuses = ["전체"] + list(df_analytics['status'].unique()) if 'status' in df_analytics.columns else ["전체"]
+            selected_status = st.selectbox("가동 상태 선택", statuses)
+        
+        # 필터링 적용 로직
+        filtered_df = df_analytics.copy()
+        if search_keyword:
+            mask = filtered_df.astype(str).apply(lambda x: x.str.contains(search_keyword, case=False)).any(axis=1)
+            filtered_df = filtered_df[mask]
+        if selected_type != "전체":
+            filtered_df = filtered_df[filtered_df['type'] == selected_type]
+        if selected_status != "전체":
+            filtered_df = filtered_df[filtered_df['status'] == selected_status]
+        
+        st.markdown(f"📋 **검색 결과 매칭된 관제 자산:** `{len(filtered_df)}개` / 총 {total_assets}개")
 
 # ⚡ [기존] 실시간 신규 데이터 알람 컨테이너
 try:
@@ -398,7 +395,6 @@ if os.path.exists(html_path):
     html_code = html_code.replace("</body>", tooltip_extension_script)
     components.html(html_code, height=750, scrolling=False)
     
-    # 🤖 대시보드 로드 시 백그라운드에서 조용히 자동 업데이트 에이전트 구동
     agent_status = run_infra_agent_pipeline()
 else:
     st.error("저장소 루트 디렉터리에서 index.html 파일을 찾을 수 없습니다, 형님.")
