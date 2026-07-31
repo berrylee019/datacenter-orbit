@@ -194,7 +194,7 @@ if query_params.get("submit_lead") == "true" and lead_email:
 # 4. 상단 타이틀 레이아웃
 st.markdown("<h3 style='margin:0; padding:0;'>🌐 InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑</h3>", unsafe_allow_html=True)
 
-# 💡 [대격변] 숨겨진 녹색 버튼을 상단에 '순정 가로 바(Bar)' 형태로 전면 전진 배치!
+# 💡 숨겨진 녹색 버튼을 상단에 '순정 가로 바(Bar)' 형태로 전면 전진 배치!
 st.markdown("<div style='background-color:#1e293b; padding:10px; border-radius:8px; margin-bottom:10px;'>", unsafe_allow_html=True)
 form_col1, form_col2, form_col3 = st.columns([2, 2, 1])
 
@@ -217,10 +217,9 @@ with form_col3:
         </style>""", unsafe_allow_html=True)
     submit_clicked = st.button("얼리버드 사전 예약 🚀")
 
-# 5. 🛠️ 버튼 클릭 처리 부분 보정 (st.rerun / no-op 완벽 우회 구역)
+# 5. 🛠️ 버튼 클릭 처리 부분 보정
 if submit_clicked:
     if input_email and "@" in input_email:
-        # 세션 스테이트에 리드 신호를 기록하여 콜백 함수 내부 호출 구조를 우회합니다.
         st.session_state["submit_lead_triggered"] = True
         st.session_state["lead_email_val"] = input_email
         st.session_state["lead_target_val"] = input_target
@@ -228,53 +227,98 @@ if submit_clicked:
         st.error("올바른 이메일 형식을 기재해 주십시오.")
 st.markdown("</div>", unsafe_allow_html=True)
 
-# 💡 세션 스테이트가 감지되면 메인 루프 안전 구역에서 파라미터를 교체하고 정상적인 재실행 트래킹을 수행합니다.
 if st.session_state.get("submit_lead_triggered", False):
-    st.session_state["submit_lead_triggered"] = False  # 무한 루프 방지 단선
+    st.session_state["submit_lead_triggered"] = False
     st.query_params.update(
         submit_lead="true", 
         email=st.session_state["lead_email_val"], 
         target=st.session_state["lead_target_val"]
     )
-    st.rerun()  # 안전 구역에서의 단발성 강제 리프레시 실행
+    st.rerun()
 
-# ⚡ [🔥 형님 추가 요청 반영 구역: 실시간 신규 데이터 알람 컨테이너 (명도 대비 절대 가독성 보정)]
-try:
-    if os.path.exists(DATA_FILE_PATH):
+# ==========================================
+# 🌟 [신규 추가] 107개 데이터 기반 메트릭 카드 & 사이드바 필터 시스템 통합 구역
+# ==========================================
+df_analytics = pd.DataFrame()
+if os.path.exists(DATA_FILE_PATH):
+    try:
         with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
-            infra_data = json.load(f)
+            raw_data = json.load(f)
+            if raw_data:
+                df_analytics = pd.DataFrame(raw_data)
+    except:
+        pass
+
+if not df_analytics.empty:
+    st.markdown("<p style='font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #475569;'>📊 글로벌 인프라 관제 실시간 요약 메트릭</p>", unsafe_allow_html=True)
+    
+    # 상단 핵심 Metric 카드 4개 배치
+    m_col1, m_col2, m_col3, m_col4 = st.columns(4)
+    total_assets = len(df_analytics)
+    active_count = len(df_analytics[df_analytics.get('status', '') == 'active']) if 'status' in df_analytics.columns else 0
+    smr_count = len(df_analytics[df_analytics.get('type', '') == 'SMR']) if 'type' in df_analytics.columns else 0
+    aidc_count = len(df_analytics[df_analytics.get('type', '') == 'AIDC']) if 'type' in df_analytics.columns else total_assets
+
+    with m_col1:
+        st.metric(label="🌐 총 관제 자산", value=f"{total_assets} 개소")
+    with m_col2:
+        st.metric(label="⚡ 가동 중 시설 (Active)", value=f"{active_count} 개소")
+    with m_col3:
+        st.metric(label="🏢 AIDC 클러스터", value=f"{aidc_count} 개소")
+    with m_col4:
+        st.metric(label="⚛️ SMR 연계 기지", value=f"{smr_count} 개소")
+    
+    # 사이드바 인터랙티브 필터 확장 구역
+    st.sidebar.header("🔍 인프라 필터 & 검색")
+    search_keyword = st.sidebar.text_input("명칭/국가/키워드 검색", placeholder="예: Dublin, Meta, SMR 등")
+    
+    types = ["전체"] + list(df_analytics['type'].unique()) if 'type' in df_analytics.columns else ["전체"]
+    selected_type = st.sidebar.selectbox("자산 유형 선택", types)
+    
+    statuses = ["전체"] + list(df_analytics['status'].unique()) if 'status' in df_analytics.columns else ["전체"]
+    selected_status = st.sidebar.selectbox("가동 상태 선택", statuses)
+    
+    # 필터링 적용 로직
+    filtered_df = df_analytics.copy()
+    if search_keyword:
+        mask = filtered_df.astype(str).apply(lambda x: x.str.contains(search_keyword, case=False)).any(axis=1)
+        filtered_df = filtered_df[mask]
+    if selected_type != "전체":
+        filtered_df = filtered_df[filtered_df['type'] == selected_type]
+    if selected_status != "전체":
+        filtered_df = filtered_df[filtered_df['status'] == selected_status]
+    
+    # 사이드바 하단에 검색 결과 요약 표시
+    st.sidebar.markdown(f"---")
+    st.sidebar.markdown(f"📋 **필터링된 자산:** `{len(filtered_df)}개` / 총 {total_assets}개")
+
+# ⚡ [기존] 실시간 신규 데이터 알람 컨테이너
+try:
+    if not df_analytics.empty:
+        recent_items = sorted(df_analytics.to_dict('records'), key=lambda x: x['id'], reverse=True)[:3]
+        
+        st.toast("📡 에이전트가 새로운 실시간 AIDC 인프라 자산을 식별했습니다!", icon="🚨")
+        
+        st.markdown("<p style='font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #475569;'>📡 리얼타임 원격 텔레메트리 에이전트 브리핑</p>", unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown("<p style='font-size: 12px; margin-bottom: 8px; color: #1e293b;'>🚨 <b>[최신 자산 발견]</b> 새로운 AIDC가 글로벌 인프라에 추가 되었습니다.</p>", unsafe_allow_html=True)
             
-        if infra_data:
-            # ID 기준으로 최신 등록 항목 3개 정렬 후 추출
-            recent_items = sorted(infra_data, key=lambda x: x['id'], reverse=True)[:3]
-            
-            # 우측 하단 팝업 알람 브로드캐스팅
-            st.toast("📡 에이전트가 새로운 실시간 AIDC 인프라 자산을 식별했습니다!", icon="🚨")
-            
-            # 레이아웃 상단 고정형 리얼타임 배너 타이틀
-            st.markdown("<p style='font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #475569;'>📡 리얼타임 원격 텔레메트리 에이전트 브리핑</p>", unsafe_allow_html=True)
-            with st.container(border=True):
-                st.markdown("<p style='font-size: 12px; margin-bottom: 8px; color: #1e293b;'>🚨 <b>[최신 자산 발견]</b> 새로운 AIDC가 글로벌 인프라에 추가 되었습니다.</p>", unsafe_allow_html=True)
-                
-                # 가로로 3등분하여 정보 배치
-                cols = st.columns(3)
-                for idx, item in enumerate(recent_items):
-                    with cols[idx]:
-                        emoji = "🏢" if item.get('type') == "AIDC" else "⚛️"
-                        
-                        # 🔑 테마와 상관없이 무조건 진한 회색조 텍스트 강제
-                        st.markdown(f"<p style='font-size: 13px; font-weight: bold; margin-bottom: 2px; color: #0f172a;'>{emoji} {item.get('name')}</p>", unsafe_allow_html=True)
-                        st.markdown(f"<p style='font-size: 11px; color: #475569; margin-bottom: 5px;'>⚡ 공급량: <code style='font-size: 10px; color: #ef4444;'>{item.get('load')}</code> | 🔋 전력원: <code style='font-size: 10px; color: #3b82f6;'>{item.get('source')}</code></p>", unsafe_allow_html=True)
-                        
-                        # 🔑 배경은 다크 인디고(#1e293b), 글씨색은 완벽한 화이트(#ffffff)로 고정 인젝션
-                        desc_text = item.get('desc', '신규 인프라 상태 추적 감지 완료.')
-                        st.markdown(f"""
-                            <div style='background-color: #1e293b; color: #ffffff !important; padding: 8px 12px; border-radius: 4px; font-size: 11.5px; line-height: 1.4; border-left: 3px solid #22c55e; box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);'>
-                                <span style='color: #ffffff !important; font-weight: 500;'>{desc_text}</span>
-                            </div>
-                        """, unsafe_allow_html=True)
+            cols = st.columns(3)
+            for idx, item in enumerate(recent_items):
+                with cols[idx]:
+                    emoji = "🏢" if item.get('type') == "AIDC" else "⚛️"
+                    
+                    st.markdown(f"<p style='font-size: 13px; font-weight: bold; margin-bottom: 2px; color: #0f172a;'>{emoji} {item.get('name')}</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p style='font-size: 11px; color: #475569; margin-bottom: 5px;'>⚡ 공급량: <code style='font-size: 10px; color: #ef4444;'>{item.get('load')}</code> | 🔋 전력원: <code style='font-size: 10px; color: #3b82f6;'>{item.get('source')}</code></p>", unsafe_allow_html=True)
+                    
+                    desc_text = item.get('desc', '신규 인프라 상태 추적 감지 완료.')
+                    st.markdown(f"""
+                        <div style='background-color: #1e293b; color: #ffffff !important; padding: 8px 12px; border-radius: 4px; font-size: 11.5px; line-height: 1.4; border-left: 3px solid #22c55e; box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);'>
+                            <span style='color: #ffffff !important; font-weight: 500;'>{desc_text}</span>
+                        </div>
+                    """, unsafe_allow_html=True)
 except Exception as e:
-    pass # 지도 로드 체계에 지장을 주지 않도록 예외 처리 우회
+    pass
 
 # 지도가 스크롤바 없이 꽉 차게 들어오도록 만드는 CSS 압축 패키지
 hide_menu_style = """
@@ -298,7 +342,7 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# 6. HTML 파일 로드 및 주입
+# 6. HTML 파일 로드 및 주입 (기존 Leaflet 지도 로직 100% 유지)
 html_path = os.path.join(os.path.dirname(__file__), "index.html")
 
 if os.path.exists(html_path):
