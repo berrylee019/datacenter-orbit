@@ -8,6 +8,32 @@ from datetime import datetime
 from openai import OpenAI
 from geopy.geocoders import Nominatim
 
+import streamlit as st
+import json
+
+# 1. URL 쿼리 파라미터 확인 (예: ?api=true&target=meta)
+query_params = st.query_params
+if "api" in query_params and query_params["api"] == "true":
+    target = query_params.get("target", "default")
+    
+    # AI에게 제공할 JSON 데이터 구성
+    response_data = {
+        "status": "success",
+        "service": "datacenter-orbit",
+        "target": target,
+        "data": {
+            "name": "Meta Canada Data Center",
+            "location": "Sturgeon County, Alberta, Canada",
+            "capacity": "1 GW",
+            "status": "Under Construction / Planned"
+        }
+    }
+    
+    # 화면 출력을 모두 지우고 순수 JSON만 출력
+    st.json(response_data)
+    st.stop()  # 이후의 일반 Streamlit UI 렌더링 중지
+
+
 # 1. Streamlit 페이지 기본 설정 (최상단 고정 및 여백 최소화)
 st.set_page_config(
     page_title="InfraPulse - 글로벌 데이터센터 & 전력 인프라 관제탑",
