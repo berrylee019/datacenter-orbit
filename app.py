@@ -9,27 +9,31 @@ from openai import OpenAI
 from geopy.geocoders import Nominatim
 
 
-# 1. URL 쿼리 파라미터 확인 (예: ?api=true&target=meta)
 query_params = st.query_params
 if "api" in query_params and query_params["api"] == "true":
-    target = query_params.get("target", "default")
+    target = query_params.get("target", "meta")
     
-    # AI에게 제공할 JSON 데이터 구성
     response_data = {
         "status": "success",
         "service": "datacenter-orbit",
-        "target": target,
-        "data": {
-            "name": "Meta Canada Data Center",
-            "location": "Sturgeon County, Alberta, Canada",
+        "query_target": target,
+        "datacenter_specs": {
+            "name": "Meta Sturgeon County AI Data Center",
+            "location": "Alberta, Canada",
             "capacity": "1 GW",
+            "investment": "13 Billion CAD",
             "status": "Under Construction / Planned"
         }
     }
     
-    # 화면 출력을 모두 지우고 순수 JSON만 출력
-    st.json(response_data)
-    st.stop()  # 이후의 일반 Streamlit UI 렌더링 중지
+    json_str = json.dumps(response_data, indent=4, ensure_ascii=False)
+    
+    st.title("Datacenter Orbit API Output")
+    st.write("아래 우측 상단의 **복사 버튼**을 눌러서 Claude에게 전달해 주세요!")
+    
+    # 원클릭 복사가 가능한 코드 블록 출력
+    st.code(json_str, language="json")
+    st.stop()
 
 
 # 1. Streamlit 페이지 기본 설정 (최상단 고정 및 여백 최소화)
