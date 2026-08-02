@@ -1287,5 +1287,38 @@
     "desc": "마이크로소프트가 텍사스에 쉐브론과 전력 계약을 체결한 대규모 AI 데이터센터.",
     "lat": 31.2639,
     "lng": -98.5456
+  },
+  {
+    "id": 111,
+    "name": "Microsoft Pecos AIDC Phase 111",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "Microsoft가 텍사스 Pecos에 새로운 데이터센터를 건설하며 AI 용량을 확장하고 있으며, 가스 터빈으로 전력을 공급받습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 112,
+    "name": "Microsoft Pure DC Finland AIDC",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 핀란드 Pure DC 데이터센터의 용량 계약을 체결하여 AI 인프라를 확장합니다.",
+    "lat": 63.2468,
+    "lng": 25.9209
+  },
+  {
+    "id": 113,
+    "name": "Meta Louisiana AIDC Phase 113",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 자사 최대 규모의 AI 데이터센터를 확보했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
