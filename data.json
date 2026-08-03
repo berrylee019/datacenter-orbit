@@ -1320,5 +1320,38 @@
     "desc": "Meta가 루이지애나에 자사 최대 규모의 AI 데이터센터를 확보했습니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 114,
+    "name": "Microsoft Texas AI Datacenter Phase 114",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "마이크로소프트가 셰브론과 전력 계약을 체결하여 텍사스에 대규모 AI 데이터센터를 건설하며 20년간 가스터빈 기반 전력을 공급받을 예정이다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 115,
+    "name": "Microsoft Pecos AIDC Phase 115",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 미국 피코스 지역에 새로운 데이터센터를 건설하며 AI 용량 확장을 진행하고 있다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 116,
+    "name": "Meta Louisiana AIDC Phase 116",
+    "type": "AIDC",
+    "load": "600 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타가 루이지애나 주에 자사의 최대 규모 데이터센터를 건설하며 주 상원의원의 지원을 받아 부지를 확보했다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
