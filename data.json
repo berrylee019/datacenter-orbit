@@ -1386,5 +1386,38 @@
     "desc": "Microsoft가 텍사스에서 Chevron과 파트너십을 맺고 대규모 AI 데이터센터 전력 계약을 체결했습니다.",
     "lat": 31.2639,
     "lng": -98.5456
+  },
+  {
+    "id": 120,
+    "name": "Microsoft Pecos AIDC Phase 120",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft가 Pecos에 새로운 AI 데이터센터를 건설하며 용량 확장을 발표했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 121,
+    "name": "Microsoft Texas Chevron Partner AIDC",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft가 텍사스의 대규모 AI 데이터센터를 위해 Chevron과 20년간 천연가스 터빈 기반의 전력 계약을 체결했습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 122,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 122",
+    "type": "AIDC",
+    "load": "180 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정입니다.",
+    "lat": 41.14,
+    "lng": -104.8202
   }
 ]
