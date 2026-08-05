@@ -1419,5 +1419,18 @@
     "desc": "Microsoft가 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정입니다.",
     "lat": 41.14,
     "lng": -104.8202
+  },
+  {
+  "id": 2,
+  "name": "볼타 노르웨이 AIDC (앤트로픽 임대)",
+  "lat": 60.5878,
+  "lng": 5.8124,
+  "type": "AIDC",
+  "load": "133 MW",
+  "source": "노르웨이 국영 수력발전 그리드 (비트디어 개발 지원)",
+  "status": "planned",
+  "carbon": "low",
+  "desc": "앤트로픽이 클로드(Claude) 학습 및 운영을 위해 볼타와 100억 달러 규모로 6년간 장기 임대한 133MW 데이터센터.",
+  "architecture": "NVIDIA Vera Rubin System"
   }
 ]
