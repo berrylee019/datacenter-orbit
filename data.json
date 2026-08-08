@@ -1421,16 +1421,49 @@
     "lng": -104.8202
   },
   {
-  "id": 123,
-  "name": "볼타 노르웨이 AIDC (앤트로픽 임대)",
-  "lat": 60.5878,
-  "lng": 5.8124,
-  "type": "AIDC",
-  "load": "133 MW",
-  "source": "노르웨이 국영 수력발전 그리드 (비트디어 개발 지원)",
-  "status": "planned",
-  "carbon": "low",
-  "desc": "앤트로픽이 클로드(Claude) 학습 및 운영을 위해 볼타와 100억 달러 규모로 6년간 장기 임대한 133MW 데이터센터.",
-  "architecture": "NVIDIA Vera Rubin System"
+    "id": 123,
+    "name": "볼타 노르웨이 AIDC (앤트로픽 임대)",
+    "lat": 60.5878,
+    "lng": 5.8124,
+    "type": "AIDC",
+    "load": "133 MW",
+    "source": "노르웨이 국영 수력발전 그리드 (비트디어 개발 지원)",
+    "status": "planned",
+    "carbon": "low",
+    "desc": "앤트로픽이 클로드(Claude) 학습 및 운영을 위해 볼타와 100억 달러 규모로 6년간 장기 임대한 133MW 데이터센터.",
+    "architecture": "NVIDIA Vera Rubin System"
+  },
+  {
+    "id": 124,
+    "name": "Meta 글로벌 핵 발전 AIDC 이니셔티브",
+    "type": "AIDC",
+    "load": "6 GW+",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "메타는 AI 데이터센터 운영을 위해 6GW 이상의 전력을 공급받는 다수의 핵 발전 계약을 체결했습니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 125,
+    "name": "Microsoft 텍사스 AI 데이터센터",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid (Chevron)",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 쉐브론과 파트너십을 맺었습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 126,
+    "name": "Amazon 미국 SMR 시설 개발",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존은 미국 내 최초의 모듈형 원자로(SMR) 시설 중 하나를 구축하는 데 기여하고 있습니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
