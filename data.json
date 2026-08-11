@@ -1531,5 +1531,38 @@
     "desc": "Microsoft가 Chevron과 텍사스에 건설될 대규모 AI 데이터센터를 위한 전력 계약을 체결함.",
     "lat": 31.2639,
     "lng": -98.5456
+  },
+  {
+    "id": 133,
+    "name": "Microsoft Pecos AI Datacenter Phase 133",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스 페코스에 대규모 AI 데이터센터를 건설하고 쉐브론과 전력 공급 계약을 통해 가스터빈 발전 전력을 사용할 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 134,
+    "name": "Microsoft Cheyenne Datacenter Expansion",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 와이오밍 샤이엔에서 데이터센터 운영 확장을 통해 AI 역량을 강화하고 지역 경제 발전에 기여할 계획입니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 135,
+    "name": "Meta Virginia AI Datacenter",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타는 새로운 AI 칩 개발 역량에 맞춰 버지니아에 최신 AI 데이터센터 인프라를 구축할 계획입니다.",
+    "lat": 37.1232,
+    "lng": -78.4928
   }
 ]
