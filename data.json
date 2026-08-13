@@ -1597,5 +1597,38 @@
     "desc": "Amazon이 미국 와이오밍 주에서 최초의 모듈형 원자로 시설 건설을 지원하며 SMR 인프라 구축에 참여하고 있습니다.",
     "lat": 43.17,
     "lng": -107.5685
+  },
+  {
+    "id": 139,
+    "name": "Microsoft Pecos AIDC Phase 139",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft가 텍사스 Pecos에 새로운 대규모 AI 데이터센터를 건설하여 용량을 확장 중입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 140,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 140",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 와이오밍 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신 및 경제 성장을 가속화할 예정입니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 141,
+    "name": "Microsoft AIDC (SpaceX Power Initiative)",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Advanced Grid / SpaceX",
+    "status": "active",
+    "desc": "Microsoft가 SpaceX의 10GW 전력 공급에 주요 계약자로 참여하여 미래 대규모 AI 데이터센터 전력을 확보하는 전략적 프로젝트입니다.",
+    "lat": 37.1337,
+    "lng": -113.0907
   }
 ]
