@@ -1630,5 +1630,38 @@
     "desc": "Microsoft가 SpaceX의 10GW 전력 공급에 주요 계약자로 참여하여 미래 대규모 AI 데이터센터 전력을 확보하는 전략적 프로젝트입니다.",
     "lat": 37.1337,
     "lng": -113.0907
+  },
+  {
+    "id": 142,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 142",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 와이오밍주 샤이엔에서 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화할 예정입니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 143,
+    "name": "Microsoft Pecos AI Datacenter Phase 143",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하고 셰브론과 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 144,
+    "name": "Amazon US SMR Facility Phase 144",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로(SMR) 시설 건설을 지원하며 지속 가능한 에너지 솔루션을 모색합니다.",
+    "lat": 36.0104,
+    "lng": -84.2696
   }
 ]
