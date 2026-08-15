@@ -1710,7 +1710,6 @@
     "desc": "메타가 AI 인프라의 신속한 조기 가동을 위해 도입한 방수·방풍 텐트형 '신속 배치 구조물(RDS)' 기반 AIDC. 콘크리트 건물 준공 전 텐트 모듈을 활용해 GPU 서버를 즉시 수용 및 운용함.",
     "architecture": "Rapid Deployment Structure (RDS) Modular Tent Architecture & Dense GPU Rack RDT Systems"
   },
-  [
   {
     "id": 149,
     "name": "디지털 리얼리티 디지털 댈러스 캠퍼스 (통합)",
