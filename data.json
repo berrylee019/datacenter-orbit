@@ -1663,5 +1663,38 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자로(SMR) 시설 건설을 지원하며 지속 가능한 에너지 솔루션을 모색합니다.",
     "lat": 36.0104,
     "lng": -84.2696
+  },
+  {
+    "id": 145,
+    "name": "Amazon SMR Facility Phase 145",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Amazon이 미국 내 모듈형 원자로 시설 건설을 지원하는 프로젝트.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 146,
+    "name": "Microsoft Texas AI Datacenter Phase 146",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft가 Chevron과 파트너십을 맺고 텍사스에 건설하는 대규모 AI 데이터센터.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 147,
+    "name": "Meta Louisiana AIDC Phase 147",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 건설 중인 회사의 최대 규모 데이터센터 프로젝트.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
