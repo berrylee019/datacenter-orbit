@@ -1696,5 +1696,97 @@
     "desc": "Meta가 루이지애나에 건설 중인 회사의 최대 규모 데이터센터 프로젝트.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 148,
+    "name": "메타 오하이오 뉴올버니 신속배치(RDS) AIDC",
+    "lat": 40.0822,
+    "lng": -82.8088,
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "오하이오 AEP Energy 그리드 및 친환경 PPA 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "메타가 AI 인프라의 신속한 조기 가동을 위해 도입한 방수·방풍 텐트형 '신속 배치 구조물(RDS)' 기반 AIDC. 콘크리트 건물 준공 전 텐트 모듈을 활용해 GPU 서버를 즉시 수용 및 운용함.",
+    "architecture": "Rapid Deployment Structure (RDS) Modular Tent Architecture & Dense GPU Rack RDT Systems"
+  },
+  [
+  {
+    "id": 149,
+    "name": "디지털 리얼리티 디지털 댈러스 캠퍼스 (통합)",
+    "lat": 32.9567,
+    "lng": -96.7169,
+    "type": "Data Center Campus",
+    "load": "100 MW",
+    "source": "단지 내 100MW 전용 변전소(Substation) 독립 수전",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "텍사스 리처드슨 IQ 한복판에 위치한 68에이커 규모의 디지털 리얼리티 핵심 캠퍼스. 7개 이상의 독립 데이터센터 동과 60개 이상 주요 통신 회선이 집적된 북텍사스 인프라의 핵심 허브.",
+    "architecture": "Campus-wide Dedicated Substation & Ultra-high Carrier Density Network Hub"
+  },
+  {
+    "id": 150,
+    "name": "디지털 댈러스 DFW18",
+    "lat": 32.9592,
+    "lng": -96.7144,
+    "type": "Data Center",
+    "load": "60 MW",
+    "source": "디지털 댈러스 캠퍼스 전용 변전소 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "1210 Integrity Drive에 위치한 연면적 45.8만 sq ft 규모의 초대형 시설. 대규모 AI 학습 및 고집적 클라우드 인프라 수용에 최적화된 메인 데이터센터.",
+    "architecture": "High-Density AI & Enterprise Hyperscale Ready Infrastructure"
+  },
+  {
+    "id": 151,
+    "name": "디지털 댈러스 DFW29",
+    "lat": 32.9548,
+    "lng": -96.7188,
+    "type": "Data Center",
+    "load": "15 MW",
+    "source": "디지털 댈러스 캠퍼스 전용 변전소 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "950 E Collins Blvd에 위치한 연면적 12.1만 sq ft 단독 건물. 2N UPS 이중화 체계와 60개 이상의 네트워크 연결성을 갖춰 엣지 컴퓨팅 및 트래픽 처리에 특화.",
+    "architecture": "2N UPS Redundancy & Carrier-Neutral Interconnection Edge Node"
+  },
+  {
+    "id": 152,
+    "name": "디지털 댈러스 DFW28",
+    "lat": 32.9548,
+    "lng": -96.7202,
+    "type": "Data Center",
+    "load": "15 MW",
+    "source": "디지털 댈러스 캠퍼스 전용 변전소 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "850 E Collins Blvd에 위치한 연면적 12.1만 sq ft 규모 독립 시설. ISO 27001 등 보안 요건을 충족하여 금융 및 엔터프라이즈급 미션 크리티컬 워크로드를 담당.",
+    "architecture": "Enterprise Mission-Critical Security & High-Reliability Dual Power Feed"
+  },
+  {
+    "id": 153,
+    "name": "디지털 댈러스 DFW17",
+    "lat": 32.9581,
+    "lng": -96.7161,
+    "type": "Data Center",
+    "load": "10 MW",
+    "source": "디지털 댈러스 캠퍼스 전용 변전소 연계",
+    "status": "active",
+    "carbon": "low",
+    "desc": "900 Quality Way에 위치한 고효율 친환경 데이터센터. LEED Silver 인증을 획득하였으며 최적화된 공조(Cooling) 환경 제공.",
+    "architecture": "LEED Silver Certified Green Cooling Architecture"
+  },
+  {
+    "id": 154,
+    "name": "디지털 댈러스 DFW35",
+    "lat": 32.9575,
+    "lng": -96.7175,
+    "type": "Data Center",
+    "load": "15 MW",
+    "source": "디지털 댈러스 캠퍼스 전용 변전소 연계",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "907 Security Row에 위치한 약 13.9만 sq ft 규모의 코로케이션 시설. 고밀도 서버 랙 배치가 가능하도록 설계된 최신 기술 중심 하이퍼스케일 거점.",
+    "architecture": "High-Density Server Rack Design & Hyperscale Colocation Space"
   }
 ]
