@@ -1787,5 +1787,38 @@
     "carbon": "mid",
     "desc": "907 Security Row에 위치한 약 13.9만 sq ft 규모의 코로케이션 시설. 고밀도 서버 랙 배치가 가능하도록 설계된 최신 기술 중심 하이퍼스케일 거점.",
     "architecture": "High-Density Server Rack Design & Hyperscale Colocation Space"
+  },
+  {
+    "id": 155,
+    "name": "Microsoft Pecos AIDC Phase 155",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid (Gas Turbine)",
+    "status": "active",
+    "desc": "마이크로소프트가 AI 데이터센터 확장을 위해 텍사스 페코스에 대규모 데이터센터를 건설 중이며, 셰브론과 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 156,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 156",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 AI 혁신 가속화 및 경제 성장을 위해 와이오밍 샤이엔 지역의 데이터센터 운영을 확장할 계획을 발표했습니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 157,
+    "name": "Google Global AI Infrastructure Expansion",
+    "type": "AIDC",
+    "load": "1000 MW",
+    "source": "Grid (Mixed Renewables)",
+    "status": "active",
+    "desc": "구글의 모회사 알파벳이 인공지능 인프라 구축을 위해 800억 달러를 투자하며 전 세계적인 데이터센터 확장을 추진하고 있습니다.",
+    "lat": 55.7022,
+    "lng": 12.5592
   }
 ]
