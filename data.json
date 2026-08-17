@@ -1820,5 +1820,38 @@
     "desc": "구글의 모회사 알파벳이 인공지능 인프라 구축을 위해 800억 달러를 투자하며 전 세계적인 데이터센터 확장을 추진하고 있습니다.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 158,
+    "name": "Microsoft Pecos AIDC Phase 158",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Gas Turbines (Chevron partnership)",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하며 쉐브론과 가스터빈 기반의 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 159,
+    "name": "Microsoft Cheyenne AIDC",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 와이오밍 샤이엔 지역의 데이터센터 운영 확장을 발표하며 AI 혁신을 위한 인프라 증설을 추진하고 있습니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 160,
+    "name": "SpaceX-Microsoft 10GW AI Power Infrastructure",
+    "type": "AIDC",
+    "load": "10 GW",
+    "source": "Strategic Partnership Grid/Renewable",
+    "status": "planned",
+    "desc": "스페이스X가 마이크로소프트를 최대 전력 구매자로 하여 2027년까지 10GW 규모의 AI 인프라 전력 공급을 목표로 하는 전략적 파트너십을 추진 중입니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
