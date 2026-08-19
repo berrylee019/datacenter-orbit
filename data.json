@@ -1886,5 +1886,38 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자로(SMR) 시설 중 하나를 건설하는 데 기여하고 있다.",
     "lat": 47.2868,
     "lng": -120.2126
+  },
+  {
+    "id": 164,
+    "name": "Microsoft Pecos AIDC Phase 164",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 페코스에 새로운 데이터센터를 건설하며 AI 용량 확장을 발표했다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 165,
+    "name": "Amazon US SMR Facility Phase 165",
+    "type": "SMR",
+    "load": "300 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국에 최초의 모듈형 원자로 시설 건설을 돕고 있다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 166,
+    "name": "Meta Louisiana AIDC Phase 166",
+    "type": "AIDC",
+    "load": "700 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "루이지애나 주 상원의원이 메타의 가장 큰 데이터센터 부지를 확보하는 데 도움을 주었다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
