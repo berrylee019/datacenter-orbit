@@ -1919,5 +1919,38 @@
     "desc": "루이지애나 주 상원의원이 메타의 가장 큰 데이터센터 부지를 확보하는 데 도움을 주었다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 167,
+    "name": "Microsoft Pecos AIDC Phase 167",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스주 Pecos에 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 168,
+    "name": "Microsoft Pure DC Finland AIDC Phase 168",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 핀란드 Pure DC 데이터센터의 용량을 확보하는 계약을 체결했습니다.",
+    "lat": 63.2468,
+    "lng": 25.9209
+  },
+  {
+    "id": 169,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 169",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 와이오밍주 샤이엔에 데이터센터 운영 확장을 발표했습니다.",
+    "lat": 41.14,
+    "lng": -104.8202
   }
 ]
