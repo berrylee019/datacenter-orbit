@@ -1985,5 +1985,38 @@
     "desc": "스페이스X가 2027년까지 10GW 규모의 AI 전력 인프라를 구축하며 마이크로소프트가 최대 구매자가 될 것으로 예상됩니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 173,
+    "name": "Microsoft Pecos AIDC Phase 173",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Gas Turbine",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 174,
+    "name": "Microsoft Cheyenne AIDC Phase 174",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 와이오밍 샤이엔에서 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화합니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 175,
+    "name": "Meta Louisiana AIDC Phase 175",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터를 건설할 예정입니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
