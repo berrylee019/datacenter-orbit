@@ -2018,5 +2018,38 @@
     "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터를 건설할 예정입니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 176,
+    "name": "Microsoft Texas AI Datacenter Phase 176",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Chevron Power Deal",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 셰브론과 파트너십을 체결함.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 177,
+    "name": "Amazon US Modular Nuclear Reactor Facility Phase 177",
+    "type": "SMR",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설을 지원하고 있음.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 178,
+    "name": "Microsoft Denmark Datacenter Region",
+    "type": "AIDC",
+    "load": "400 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 덴마크에 새로운 데이터센터 리전을 개설하며 디지털 탄력성과 혁신을 강화함.",
+    "lat": 55.6702,
+    "lng": 10.3333
   }
 ]
