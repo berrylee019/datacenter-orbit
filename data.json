@@ -2084,5 +2084,31 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자력 발전 시설 건설을 지원하고 있습니다.",
     "lat": 38.8951,
     "lng": -77.0364
+  },
+  {
+    "id": 182,
+    "name": "튀르키예 한·미·튀 삼각동맹 SMR 국가 허브 (안카라)",
+    "lat": 39.9334,
+    "lng": 32.8597,
+    "type": "SMR",
+    "load": "5000 MW",
+    "source": "한·미·튀 3자 원전 협력 및 혁신형 SMR(i-SMR) 기술 연계망",
+    "status": "planned",
+    "carbon": "zero",
+    "desc": "2050년까지 5GW 구축을 목표로 하는 튀르키예 국가 SMR 로드맵 본부. 미국 설계·인허가, 한국(i-SMR·KEPCO) 시공 및 공급망, 튀르키예 부지·현지화의 삼각 동맹 체제로 추진.",
+    "architecture": "Trilateral SMR Deployment Framework (Korea i-SMR & US Design R&D Platform)"
+  },
+  {
+    "id": 183,
+    "name": "튀르키예 시놉(Sinop) ARC-100 4세대 SMR 메가 단지",
+    "lat": 42.0231,
+    "lng": 35.1531,
+    "type": "SMR",
+    "load": "1000 MW",
+    "source": "4세대 나트륨 냉각 고속로(SFR) ARC-100 10기 단지",
+    "status": "planned",
+    "carbon": "zero",
+    "desc": "튀르키예 IC홀딩과 미국 아크(ARC Clean Tech)가 건설하는 1GW 규모(100MW급 10기) SMR 기지. AI 데이터센터, 석유화학 단지 및 해수 담수화 전용 기저 전력 공급망.",
+    "architecture": "4th Gen Sodium-Cooled Fast Reactor (ARC-100) Multi-Module Array"
   }
 ]
