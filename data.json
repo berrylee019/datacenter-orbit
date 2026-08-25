@@ -2110,5 +2110,38 @@
     "carbon": "zero",
     "desc": "튀르키예 IC홀딩과 미국 아크(ARC Clean Tech)가 건설하는 1GW 규모(100MW급 10기) SMR 기지. AI 데이터센터, 석유화학 단지 및 해수 담수화 전용 기저 전력 공급망.",
     "architecture": "4th Gen Sodium-Cooled Fast Reactor (ARC-100) Multi-Module Array"
+  },
+  {
+    "id": 184,
+    "name": "Microsoft Pecos AIDC Phase 184",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Chevron Partnered Power",
+    "status": "active",
+    "desc": "Microsoft는 텍사스 Pecos에 새로운 대규모 AI 데이터센터를 건설하며 Chevron과 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 185,
+    "name": "Microsoft Cheyenne AIDC Expansion Phase 185",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft는 와이오밍 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신 및 경제 성장을 가속화할 예정입니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 186,
+    "name": "Google Global AI Infrastructure",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Google의 모회사 Alphabet은 AI 인프라 구축을 위해 800억 달러를 조달할 계획을 밝히며, 전 세계적인 AI 데이터센터 확장을 시사합니다.",
+    "lat": 55.7022,
+    "lng": 12.5592
   }
 ]
