@@ -2143,5 +2143,38 @@
     "desc": "Google의 모회사 Alphabet은 AI 인프라 구축을 위해 800억 달러를 조달할 계획을 밝히며, 전 세계적인 AI 데이터센터 확장을 시사합니다.",
     "lat": 55.7022,
     "lng": 12.5592
+  },
+  {
+    "id": 187,
+    "name": "Microsoft Pecos AI Datacenter Phase 187",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 188,
+    "name": "Microsoft Cheyenne Datacenter Expansion Phase 188",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 와이오밍 샤이엔 지역의 데이터센터 운영 확장을 발표하여 AI 혁신을 지원합니다.",
+    "lat": 41.14,
+    "lng": -104.8202
+  },
+  {
+    "id": 189,
+    "name": "SpaceX-xAI Hyperscale AI AIDC for Google",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "구글이 스페이스X-xAI의 AI 데이터센터 용량을 월 9억 2천만 달러에 계약하여 대규모 AI 인프라를 활용합니다.",
+    "lat": 36.7015,
+    "lng": -118.756
   }
 ]
