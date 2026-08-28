@@ -2176,5 +2176,38 @@
     "desc": "구글이 스페이스X-xAI의 AI 데이터센터 용량을 월 9억 2천만 달러에 계약하여 대규모 AI 인프라를 활용합니다.",
     "lat": 36.7015,
     "lng": -118.756
+  },
+  {
+    "id": 190,
+    "name": "Microsoft Pecos AI Datacenter Phase 190",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid (via Chevron Power Deal)",
+    "status": "under construction",
+    "desc": "Microsoft는 텍사스 페코스에 새로운 AI 데이터센터를 건설하며 Chevron과 전력 공급 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 191,
+    "name": "SpaceX-xAI Global 10GW Power Infrastructure",
+    "type": "SMR",
+    "load": "10 GW",
+    "source": "Advanced Nuclear / SMR",
+    "status": "planned",
+    "desc": "SpaceX-xAI는 2027년까지 10GW 규모의 대규모 전력 인프라를 구축하여 Microsoft 및 Google AI 데이터센터에 전력을 공급할 계획입니다.",
+    "lat": 55.7022,
+    "lng": 12.5592
+  },
+  {
+    "id": 192,
+    "name": "Microsoft Cheyenne AI Datacenter Expansion",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "planned",
+    "desc": "Microsoft는 와이오밍주 샤이엔에서 AI 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화할 예정입니다.",
+    "lat": 41.14,
+    "lng": -104.8202
   }
 ]
