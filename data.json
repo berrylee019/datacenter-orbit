@@ -2209,5 +2209,38 @@
     "desc": "Microsoft는 와이오밍주 샤이엔에서 AI 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화할 예정입니다.",
     "lat": 41.14,
     "lng": -104.8202
+  },
+  {
+    "id": 193,
+    "name": "Microsoft Pecos AIDC Phase 193",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 AI 확장을 위해 텍사스 페코스에 새로운 데이터센터를 건설하며 용량을 확장하고 있습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 194,
+    "name": "SpaceX 10GW AI Power Infrastructure Phase 194",
+    "type": "SMR",
+    "load": "10 GW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "스페이스X가 2027년까지 10GW 규모의 대규모 AI 전력 인프라를 구축할 계획이며, 마이크로소프트가 주요 전력 구매자가 될 것입니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
+  },
+  {
+    "id": 195,
+    "name": "Microsoft Texas AI Datacenter (Chevron Partnered)",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid (Chevron Partnership)",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 셰브론과 파트너십을 체결했습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
   }
 ]
