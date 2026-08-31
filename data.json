@@ -2275,5 +2275,38 @@
     "desc": "구글이 스페이스X-xAI로부터 AI 데이터센터 용량 확보를 위해 월 9억 2천만 달러 규모의 전력 공급 계약을 체결했습니다.",
     "lat": 37.1337,
     "lng": -113.0907
+  },
+  {
+    "id": 199,
+    "name": "Microsoft Pecos AIDC Phase 199",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid, Renewables",
+    "status": "active",
+    "desc": "마이크로소프트가 Pecos에 새로운 AI 데이터센터를 건설하여 용량을 확장 중입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 200,
+    "name": "Microsoft Texas AI Datacenter Phase 200",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Natural Gas, Renewables",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스에 위치한 대규모 AI 데이터센터를 위해 셰브론과 전력 공급 계약을 체결했습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 201,
+    "name": "Google AI Datacenter Capacity (SpaceX-xAI)",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "SpaceX-xAI Infrastructure",
+    "status": "active",
+    "desc": "구글이 AI 데이터센터 용량 확보를 위해 스페이스X-xAI에 월 9억 2천만 달러를 지불할 예정입니다.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
