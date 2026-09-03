@@ -2308,5 +2308,38 @@
     "desc": "구글이 AI 데이터센터 용량 확보를 위해 스페이스X-xAI에 월 9억 2천만 달러를 지불할 예정입니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 202,
+    "name": "Microsoft Saudi Arabia East AIDC",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 사우디아라비아 동부 지역에 2026년 11월 가동 예정인 새로운 AI 데이터센터를 발표했습니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 203,
+    "name": "Microsoft Pecos Texas AIDC",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스 페코스에 셰브론과 파트너십을 맺고 천연가스 터빈으로 전력을 공급하는 대규모 AI 데이터센터를 건설 중입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 204,
+    "name": "Google Oklahoma AI Datacenter",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Gas",
+    "status": "active",
+    "desc": "구글이 기후 목표에서 벗어나 새로운 AI 데이터센터를 위해 가스 발전소를 활용할 예정입니다.",
+    "lat": 34.9551,
+    "lng": -97.2684
   }
 ]
