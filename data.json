@@ -2407,5 +2407,38 @@
     "desc": "Meta는 루이지애나에 자사의 최대 규모 AI 데이터센터를 건설할 예정입니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 211,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 211",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 데이터센터 지역을 가동할 예정이라고 발표.",
+    "lat": 24.6389,
+    "lng": 46.716
+  },
+  {
+    "id": 212,
+    "name": "Meta Louisiana AIDC Phase 212",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "메타의 최대 규모 데이터센터가 루이지애나에 건설될 예정.",
+    "lat": 30.4494,
+    "lng": -91.187
+  },
+  {
+    "id": 213,
+    "name": "SpaceX 10GW Advanced Power Infrastructure",
+    "type": "SMR",
+    "load": "10 GW",
+    "source": "Advanced Energy",
+    "status": "active",
+    "desc": "스페이스X가 2027년까지 10GW의 대규모 전력을 생산할 계획이며, 마이크로소프트 등 AI 데이터센터에 공급될 예정.",
+    "lat": 39.7837,
+    "lng": -100.4459
   }
 ]
