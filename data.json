@@ -2440,5 +2440,38 @@
     "desc": "스페이스X가 2027년까지 10GW의 대규모 전력을 생산할 계획이며, 마이크로소프트 등 AI 데이터센터에 공급될 예정.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 214,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 214",
+    "type": "AIDC",
+    "load": "200 MW",
+    "source": "Grid",
+    "status": "planned",
+    "desc": "마이크로소프트가 사우디아라비아 동부 지역에 새로운 AI 데이터센터를 2026년 11월 가동 예정이라고 발표함.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 215,
+    "name": "Microsoft Texas AI Datacenter Phase 215",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid, Natural Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 텍사스의 대규모 AI 데이터센터 전력 공급을 위해 쉐브론과 계약을 체결함.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 216,
+    "name": "SpaceX-xAI 10GW AI Datacenter Infrastructure",
+    "type": "AIDC",
+    "load": "10 GW",
+    "source": "Grid, Renewables",
+    "status": "under construction",
+    "desc": "구글이 스페이스X-xAI의 AI 데이터센터 용량을 대규모로 계약하며, 2027년까지 10GW 규모의 인프라 구축이 진행될 예정.",
+    "lat": 37.1337,
+    "lng": -113.0907
   }
 ]
