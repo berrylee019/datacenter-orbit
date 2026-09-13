@@ -2506,5 +2506,38 @@
     "desc": "구글이 기후 목표와는 다른 방향으로 가스 발전소의 전력을 AI 데이터센터에 활용할 예정이다.",
     "lat": 40.4173,
     "lng": -82.9071
+  },
+  {
+    "id": 220,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 220",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 리전을 발표했다.",
+    "lat": 26.4368,
+    "lng": 50.104
+  },
+  {
+    "id": 221,
+    "name": "Microsoft Texas AI Datacenter Phase 221",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "마이크로소프트가 셰브론과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터 전력 계약을 체결했다.",
+    "lat": 32.7763,
+    "lng": -96.7969
+  },
+  {
+    "id": 222,
+    "name": "Microsoft Pecos Datacenter Phase 222",
+    "type": "AIDC",
+    "load": "250 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 새로운 AI 데이터센터를 텍사스 페코스에 건설하여 AI 역량을 확장하고 있다.",
+    "lat": 30.7857,
+    "lng": -102.8065
   }
 ]
