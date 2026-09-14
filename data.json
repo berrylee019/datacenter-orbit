@@ -2539,5 +2539,38 @@
     "desc": "마이크로소프트가 새로운 AI 데이터센터를 텍사스 페코스에 건설하여 AI 역량을 확장하고 있다.",
     "lat": 30.7857,
     "lng": -102.8065
+  },
+  {
+    "id": 223,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 223",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 11월 가동될 사우디아라비아 동부 데이터센터 지역을 발표했습니다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 224,
+    "name": "Microsoft Texas AI Datacenter Phase 224",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft와 Chevron이 텍사스의 대규모 AI 데이터센터에 대한 전력 계약을 체결했습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 225,
+    "name": "Google Gas Plant-Powered AIDC",
+    "type": "AIDC",
+    "load": "400 MW",
+    "source": "Natural Gas Plant",
+    "status": "active",
+    "desc": "Google이 기후 목표와는 다르게 천연가스 발전소를 활용하여 AI 데이터센터를 구축할 예정입니다.",
+    "lat": 34.9551,
+    "lng": -97.2684
   }
 ]
