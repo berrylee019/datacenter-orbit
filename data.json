@@ -2671,5 +2671,18 @@
     "desc": "Meta가 루이지애나에 자사의 최대 규모 AI 데이터센터 건설을 확정했습니다.",
     "lat": 30.8704,
     "lng": -92.0071
+  },
+  {
+    "id": 235,
+    "name": "GS 동해 북평 메가 AI 데이터센터 캠퍼스",
+    "lat": 37.4902,
+    "lng": 129.1125,
+    "type": "AIDC",
+    "load": "2400 MW",
+    "source": "GS파워·GS E&R 전력 공급망 및 강원 지역 계통 연계",
+    "status": "planned",
+    "carbon": "mid",
+    "desc": "GS그룹(GS AI인프라)이 강원도 동해시 북평 제2일반산업단지에 구축하는 총 2.4GW(1단계 1.2GW, 15조 원) 규모의 초대형 AI 데이터센터. GS건설(시공), GS파워·GS E&R(전력), GS칼텍스(액침냉각) 등 그룹 밸류체인 총집결.",
+    "architecture": "GS Caltex Immersion Cooling Infrastructure & High-Density GPU Hyperscale Pods"
   }
 ]
