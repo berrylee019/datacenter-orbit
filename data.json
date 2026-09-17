@@ -2638,5 +2638,38 @@
     "desc": "메타는 AI 데이터센터 전력 공급을 위해 세 곳의 원자력 회사와 6GW 이상의 전력 계약을 체결했습니다.",
     "lat": 39.7837,
     "lng": -100.4459
+  },
+  {
+    "id": 232,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 232",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 11월 가동을 목표로 사우디아라비아 동부 지역에 새로운 AI 데이터센터를 건설 중입니다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 233,
+    "name": "Microsoft Pecos Texas AIDC Phase 233",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid, Gas",
+    "status": "active",
+    "desc": "Microsoft가 Chevron과 파트너십을 맺고 텍사스 Pecos에 대규모 AI 데이터센터를 위한 전력 계약을 체결했습니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
+  },
+  {
+    "id": 234,
+    "name": "Meta Louisiana AIDC Phase 234",
+    "type": "AIDC",
+    "load": "700 MW",
+    "source": "Grid, Solar",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 자사의 최대 규모 AI 데이터센터 건설을 확정했습니다.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
