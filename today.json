@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Test AIDC - Sejong AI Hub",
+    "lat": 36.4801,
+    "lng": 127.289,
+    "load": "120MW",
+    "source": "KEPCO",
+    "desc": "Test entry for mobile workflow - will be auto-merged",
+    "type": "AIDC",
+    "status": "active"
+  }
+]
