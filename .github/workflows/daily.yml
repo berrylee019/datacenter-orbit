@@ -1,0 +1,39 @@
+name: daily-aidc-update
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 09:00 KST
+  workflow_dispatch:
+  push:
+    paths:
+      - 'today.json'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Merge today.json into data.json
+        run: |
+          if [ -f today.json ]; then
+            echo "today.json found, merging..."
+            python agent/main.py --file today.json
+            rm today.json
+          else
+            echo "today.json not found, running --auto (checks env)"
+            python agent/main.py --auto
+          fi
+      - name: Commit and push
+        run: |
+          git config user.name "infrapulse-bot"
+          git config user.email "bot@infrapulse.com"
+          git add data.json
+          if [ -f today.json ]; then git rm today.json || true; fi
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "feat: auto add daily 3 AIDC - $(date +'%Y-%m-%d')"
+          git push
