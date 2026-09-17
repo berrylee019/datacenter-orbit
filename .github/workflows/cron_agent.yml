@@ -1,0 +1,26 @@
+name: Global Infra Agent
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 UTC 0시 = 한국 9시
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install requests feedparser
+      - name: Run Agent
+        run: python agent/main.py
+      - name: Commit if changed
+        run: |
+          if [[ -n $(git status --porcelain data.json) ]]; then
+            git config user.name "InfraPulse Bot"
+            git config user.email "bot@infrapulse.ai"
+            git commit -m "auto: update data.json $(date +%Y-%m-%d)"
+            git push
+          fi
