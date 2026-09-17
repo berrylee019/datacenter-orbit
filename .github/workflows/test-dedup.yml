@@ -1,0 +1,18 @@
+name: Test Dedup Logic
+on:
+  workflow_dispatch: # 네가 버튼 눌러서 실행
+  push:
+    paths:
+      - 'utils/dedup.py'
+      - 'test_dedup.py'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run dedup test
+        run: python test_dedup.py
