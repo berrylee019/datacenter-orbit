@@ -1,0 +1,26 @@
+name: Daily Data Update
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 한국시간 09:00
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python agent/main.py
+      - name: Commit
+        run: |
+          if [[ -n $(git status --porcelain data.json) ]]; then
+            git config user.name "InfraPulse Bot"
+            git config user.email "bot@infrapulse.ai"
+            git add data.json
+            git commit -m "auto: update data.json"
+            git push
+          fi
