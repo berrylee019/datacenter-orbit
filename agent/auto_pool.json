@@ -1,0 +1,122 @@
+[
+  {
+    "name": "G42 xAI 5GW AI Campus - Abu Dhabi",
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "load": "5000MW",
+    "source": "EWEC Nuclear + Solar",
+    "desc": "G42 and xAI mega AI campus in Abu Dhabi, 5GW phased plan, largest outside US",
+    "type": "AIDC",
+    "status": "smr"
+  },
+  {
+    "name": "SoftBank SB Int 1GW AIDC - Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "load": "1000MW",
+    "source": "KEPCO Grid + SMR",
+    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "Blackstone QTS 1.2GW - Atlanta West",
+    "lat": 33.749,
+    "lng": -84.552,
+    "load": "1200MW",
+    "source": "Georgia Power + Gas",
+    "desc": "QTS Atlanta mega expansion, hyperscale AI cluster for US East",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "Equinix xAI Colossus 2 - Memphis",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "load": "800MW",
+    "source": "TVA Grid + Gas Turbines",
+    "desc": "Second phase of xAI Colossus supercluster, Memphis",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "NTT 300MW Sovereign AI - Hokkaido",
+    "lat": 43.0618,
+    "lng": 141.3545,
+    "load": "300MW",
+    "source": "Hokkaido Electric",
+    "desc": "NTT sovereign AI hub for Japanese gov LLM",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "Microsoft Fairwater 2.5GW - Wisconsin",
+    "lat": 44.5,
+    "lng": -89.0,
+    "load": "2500MW",
+    "source": "We Energies + SMR",
+    "desc": "Microsoft AI datacenter corridor, part of $3.3B Wisconsin investment",
+    "type": "AIDC",
+    "status": "smr"
+  },
+  {
+    "name": "AdaniConneX 1GW AIDC - Hyderabad",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "load": "1000MW",
+    "source": "NTPC + Solar",
+    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "NEXTDC 700MW - Sydney West",
+    "lat": -33.8688,
+    "lng": 150.905,
+    "load": "700MW",
+    "source": "Ausgrid + Solar",
+    "desc": "NEXTDC Sydney hyperscale AI campus",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "Iron Mountain 350MW - Phoenix AZ",
+    "lat": 33.4484,
+    "lng": -112.074,
+    "load": "350MW",
+    "source": "APS + Solar",
+    "desc": "Iron Mountain AI data center for US Southwest",
+    "type": "AIDC",
+    "status": "active"
+  }
+]
