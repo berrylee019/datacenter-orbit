@@ -1,0 +1,51 @@
+name: daily-aidc-live-auto
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 09:00 KST = 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install requests
+
+      - name: Live fetch 3 AIDC from RSS + Pool
+        run: |
+          echo "=== BEFORE ==="
+          python -c "import json; d=json.load(open('data.json')); print(f\"현재 {len(d['data']) if isinstance(d,dict) else len(d)}개\")"
+          python agent/main.py --auto --count 3
+          echo "=== AFTER ==="
+          python -c "import json; d=json.load(open('data.json')); print(f\"업데이트 후 {len(d['data']) if isinstance(d,dict) else len(d)}개\")"
+          echo "=== SUMMARY ==="
+          cat last_update_summary.json || echo "summary 없음 (신규 0개)"
+
+      - name: Commit data + summary
+        run: |
+          git config user.name "infrapulse-bot"
+          git config user.email "bot@infrapulse.com"
+          git add data.json last_update_summary.json
+          git diff --staged --quiet && echo "No new data today" && exit 0
+          MSG=$(python -c "import json; s=json.load(open('last_update_summary.json')); print(' | '.join([f\"{i['region']}: {i['name'][:40]}\" for i in s['items']]))" 2>/dev/null || echo "auto update")
+          git commit -m "feat: live auto add - $(date +'%Y-%m-%d') - $MSG"
+          git push
+
+      - name: Create readable summary for UI (optional)
+        run: |
+          python -c "
+          import json
+          try:
+              s=json.load(open('last_update_summary.json'))
+              print('## 오늘 신규 업데이트')
+              for it in s['items']:
+                  print(f\"- {it['region']} / {it['name']} ({it['load']}) - {it['lat']},{it['lng']}\")
+          except Exception as e:
+              print(f'요약 생성 실패: {e}')
+          "
