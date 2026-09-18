@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraPulse - Global Data Center & Power Infrastructure Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .custom-popup .leaflet-popup-content-wrapper { background: #1f2937; color: #f3f4f6; border: 1px solid #374151; border-radius: 0.5rem; }
+        .custom-popup .leaflet-popup-tip { background: #1f2937; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+        .map-legend {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid #374151;
+            padding: 10px;
+            border-radius: 8px;
+            color: #f3f4f6;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+        .map-legend h4 { margin: 0 0 6px 0; font-weight: bold; text-transform: uppercase; color: #9ca3af; font-size: 10px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+        .legend-color { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid #111827; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen flex flex-col">
+    <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur px-4 py-3 flex items-center justify-between sticky top-0 z-[1000]">
+        <div class="flex items-center gap-2">
+            <div class="bg-emerald-500/10 p-1.5 rounded-lg border border-emerald-500/30"><i data-lucide="globe" class="text-emerald-400 w-5 h-5"></i></div>
+            <div><h1 class="text-base font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">InfraPulse</h1></div>
+        </div>
+        <button onclick="openFakeDoorModal()" class="bg-gradient-to-r from-amber-500 to-orange-500 text-gray-950 px-3 py-1.5 rounded-lg font-bold text-[11px] flex items-center gap-1"><i data-lucide="rocket" class="w-3.5 h-3.5"></i> Join Waitlist</button>
+    </header>
+    <section class="bg-gray-900/80 border-b border-gray-800 px-4 py-2.5 grid grid-cols-2 sm:grid-cols-3 gap-3 items-center z-[999]">
+        <div class="hidden sm:flex items-center gap-2 text-gray-400"><i data-lucide="activity" class="w-4 h-4 text-emerald-400 animate-pulse"></i><span class="text-xs font-semibold tracking-wider uppercase">Global Real-time Infra Metrics</span></div>
+        <div class="bg-gray-950/60 border border-gray-800/60 px-3 py-1 rounded-lg flex items-center justify-between"><span class="text-[11px] text-gray-400">Global High-Load AIDC</span><span class="text-sm font-bold font-mono text-gray-100">11,324 units</span></div>
+        <div class="bg-gray-950/60 border border-gray-800/60 px-3 py-1 rounded-lg flex items-center justify-between"><span class="text-[11px] text-gray-400">Total Grid Power Load</span><span class="text-sm font-bold font-mono text-cyan-400" id="total-power">14,245.82 MW</span></div>
+    </section>
+    <main class="flex-1 flex flex-col xl:flex-row p-3 sm:p-4 gap-4 h-[calc(100vh-120px)] overflow-hidden">
+        <div class="order-1 xl:order-2 flex-1 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden relative shadow-xl min-h-[320px] xl:min-h-0 flex flex-col"><div id="map" class="w-full flex-1 bg-gray-950" style="height: 100%;"></div></div>
+        <div class="order-2 xl:order-1 w-full xl:w-80 flex flex-row xl:flex-col gap-4 overflow-x-auto xl:overflow-y-auto xl:overflow-x-hidden pb-2 xl:pb-0 shrink-0 min-h-[150px] xl:min-h-0">
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3.5 shadow-xl min-w-[280px] sm:min-w-[340px] xl:min-w-0 flex-1 xl:flex-none flex flex-col">
+                <h3 class="text-xs font-semibold text-gray-200 mb-2 flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-yellow-400"></i>SMR-Grid Mapping Simulator</h3>
+                <div class="bg-gray-950 border border-gray-800 rounded-lg p-2.5 mb-2 flex-1 flex flex-col justify-center text-[11px]">
+                    <div id="selected-dc-name" class="font-bold text-emerald-400 mb-1">Please select a node on the map</div>
+                    <p id="selected-dc-desc" class="text-gray-400 text-[10px] mb-2">-</p>
+                    <div class="grid grid-cols-2 gap-1.5 mb-2">
+                        <div class="bg-gray-900 p-1.5 rounded border border-gray-800"><span class="text-gray-500 block">Power Source</span><div id="selected-dc-power" class="font-mono text-gray-300 truncate">-</div></div>
+                        <div class="bg-gray-900 p-1.5 rounded border border-gray-800"><span class="text-gray-500 block">Required Load</span><div id="selected-dc-load" class="font-mono text-gray-300">-</div></div>
+                    </div>
+                    <div id="selected-dc-compute-box" class="hidden bg-gray-900/60 p-2 rounded border border-cyan-500/20"><div class="font-bold text-cyan-400 flex items-center gap-1 text-[10px] mb-0.5"><i data-lucide="cpu" class="w-3 h-3"></i> AI Compute Intelligence</div><div class="flex justify-between"><span class="text-gray-400">Est. Compute:</span><span id="selected-dc-pflops" class="font-mono text-gray-200 font-bold">-</span></div><div class="flex justify-between"><span class="text-gray-400">Efficiency:</span><span id="selected-dc-efficiency" class="font-mono text-gray-200">-</span></div></div>
+                </div>
+                <button id="btn-smr" disabled class="w-full bg-gray-800 text-gray-500 border border-gray-700 py-2 rounded-lg font-medium text-xs">Select a target infrastructure</button>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3.5 shadow-xl min-w-[240px] xl:min-w-0 flex-1 xl:flex-none flex flex-col h-auto xl:h-44"><h3 class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center justify-between">24H Power Load Trend<i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-cyan-400"></i></h3><div class="flex-1 w-full relative"><canvas id="loadChart"></canvas></div></div>
+        </div>
+    </main>
+    <div id="fake-door-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"><div class="bg-gray-900 border border-gray-800 max-w-xl w-full rounded-2xl p-5 shadow-2xl relative"><button onclick="closeFakeDoorModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-300"><i data-lucide="x"></i></button><div class="text-center"><div class="bg-amber-500/10 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 border border-amber-500/20"><i data-lucide="crown" class="text-amber-400 w-5 h-5"></i></div><h3 class="text-base font-bold text-gray-100 mb-1">InfraPulse Pro Membership Coming Soon</h3><p class="text-[11px] text-gray-400 mb-4">Unlock exclusive access to Global Power Grid Bottlenecks and SMR Sites.</p><form id="emailForm" class="flex flex-col sm:flex-row items-stretch gap-2 w-full"><input type="email" id="emailInput" required placeholder="Enter your email" class="flex-1 bg-gray-950 border border-gray-800 rounded-lg px-3 h-11 text-xs text-gray-100"><select id="targetSelect" class="bg-gray-950 border border-gray-800 rounded-lg px-3 h-11 text-xs text-gray-300"><option>Global Full Monitoring</option></select><button type="submit" class="bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-950 font-bold px-4 h-11 rounded-lg text-xs">Join Waitlist 🚀</button></form></div></div></div>
+<script>
+        lucide.createIcons();
+        let currentPower=14245.82;
+        setInterval(()=>{currentPower+=(Math.random()-0.5)*0.3; document.getElementById('total-power').innerText=currentPower.toFixed(2)+" MW";},2000);
+
+        // ✅ FINAL FIX: ESRI World Dark Gray - 100% 무료, API KEY 없음, 워터마크 없음
+        const map = L.map('map', { zoomControl: false }).setView([22.0, 78.0], 4);
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+        
+        // ESRI Dark Gray Base - 완전 무료, 키 필요 없음
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+            maxZoom: 16
+        }).addTo(map);
+        // 참고 레이어 - 라벨
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 16
+        }).addTo(map);
+
+        const legend = L.control({ position: 'bottomleft' });
+        legend.onAdd = function() {
+            const div = L.DomUtil.create('div', 'map-legend');
+            div.innerHTML = `<h4>Infrastructure Status</h4><div class="legend-item"><span class="legend-color" style="background: #06b6d4;"></span><span>Active Site (AIDC)</span></div><div class="legend-item"><span class="legend-color" style="background: #f97316;"></span><span>Grid Bottleneck</span></div><div class="legend-item"><span class="legend-color" style="background: #34d399;"></span><span>SMR Facility</span></div>`;
+            return div;
+        };
+        legend.addTo(map);
+        setTimeout(()=>{map.invalidateSize();},300);
+        let selectedNode=null;
+        fetch('https://raw.githubusercontent.com/berrylee019/datacenter-orbit/refs/heads/main/data.json')
+            .then(res=>res.json())
+            .then(data=>{
+                const list = Array.isArray(data) ? data : data.data || [];
+                list.forEach(dc=>{
+                    let color="#06b6d4"; if(dc.status==='saturated') color="#f97316"; if(dc.status==='smr') color="#34d399";
+                    const marker=L.circleMarker([dc.lat, dc.lng], {radius: dc.status==='saturated'?9:7, fillColor:color, color:"#111827", weight:1.5, fillOpacity:0.9}).addTo(map);
+                    const rawLoad=parseFloat(dc.load)||30; const estPflops=(rawLoad*18.4).toFixed(1); const efficiency=(18.4-(Math.random()*0.6)).toFixed(1);
+                    const popupContent=`<div class="custom-popup-content p-0.5"><strong class="text-emerald-400 text-xs block mb-0.5">${dc.name}</strong><div class="text-[10px] text-gray-300"><div>• Load: <span class="font-mono text-cyan-400 font-bold">${dc.load}</span></div><div class="text-[10px] text-amber-400 font-bold mt-1">🤖 Est. AI Compute</div><div>• ${estPflops} PFLOPS</div></div></div>`;
+                    marker.bindPopup(popupContent, {className:'custom-popup'});
+                    marker.on('click', ()=>{
+                        selectedNode=dc;
+                        document.getElementById('selected-dc-name').innerText=dc.name;
+                        document.getElementById('selected-dc-desc').innerText=dc.desc||'-';
+                        document.getElementById('selected-dc-power').innerText=dc.source||'-';
+                        document.getElementById('selected-dc-load').innerText=dc.load||'-';
+                        document.getElementById('selected-dc-pflops').innerText=`${estPflops} PFLOPS`;
+                        document.getElementById('selected-dc-efficiency').innerText=`${efficiency} PFLOPS/MW`;
+                        document.getElementById('selected-dc-compute-box').classList.remove('hidden');
+                        const btn=document.getElementById('btn-smr');
+                        if(dc.type==='AIDC'){btn.disabled=false; btn.className="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 py-2 rounded-lg font-bold text-xs"; btn.innerHTML=`<i data-lucide="zap" class="w-3.5 h-3.5"></i> Simulate SMR Grid Coupling`;} 
+                        else {btn.disabled=true; btn.className="w-full bg-gray-800 text-gray-500 border border-gray-700 py-2 rounded-lg text-xs"; btn.innerHTML=`Next-Gen Zero Emission Infra`;}
+                        lucide.createIcons();
+                    });
+                });
+            });
+        document.getElementById('btn-smr').addEventListener('click', ()=>{if(!selectedNode) return; alert(`[Grid Simulation]\n\nSMR coupling simulation for [${selectedNode.name}]`);});
+        function openFakeDoorModal(){document.getElementById('fake-door-modal').classList.remove('hidden');}
+        function closeFakeDoorModal(){document.getElementById('fake-door-modal').classList.add('hidden');}
+        const ctx=document.getElementById('loadChart').getContext('2d');
+        new Chart(ctx, {type:'line', data:{labels:['02:00','06:00','10:00','14:00','18:00','22:00'], datasets:[{data:[11200,10800,13900,14245,12100,13000], borderColor:'#06b6d4', tension:0.4, borderWidth:1.5, pointRadius:1}]}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{x:{grid:{display:false}}, y:{grid:{color:'#1f2937'}}}}});
+    </script>
+</body>
+</html>
