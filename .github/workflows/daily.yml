@@ -1,0 +1,31 @@
+name: daily-aidc-fully-auto
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 09:00 KST = 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Auto add 3 from pool
+        run: |
+          echo "=== BEFORE ==="
+          python -c "import json; d=json.load(open('data.json')); print(len(d['data']) if isinstance(d,dict) else len(d))"
+          python agent/main.py --auto --count 3
+          echo "=== AFTER ==="
+          python -c "import json; d=json.load(open('data.json')); print(len(d['data']) if isinstance(d,dict) else len(d))"
+      - name: Commit and push
+        run: |
+          git config user.name "infrapulse-bot"
+          git config user.email "bot@infrapulse.com"
+          git add data.json
+          git diff --staged --quiet && echo "No new data - pool exhausted" && exit 0
+          git commit -m "feat: fully-auto add 3 AIDC - $(date +'%Y-%m-%d')"
+          git push
