@@ -2733,7 +2733,7 @@
     "desc": "100-acre hyperscale AI campus in Johor, Malaysia. Phase 1 100MW by end 2026, full 500MW plan. Co-location/wholesale for hyperscalers.",
     "type": "AIDC",
     "status": "active",
-    "id": 240
+    "id": 239
   },
   {
     "name": "AIP Monarch Compute Campus - 2GW Power",
@@ -2744,7 +2744,7 @@
     "desc": "Flagship multi-phase power + infra platform by American Intelligence & Power with Caterpillar & Boyd CAT alliance. Power delivery begins 2026, 2GW online 2027.",
     "type": "AIDC",
     "status": "smr",
-    "id": 241
+    "id": 240
   },
   {
     "name": "Hyperscale Data Michigan AI Campus - Alliance Cloud",
@@ -2755,6 +2755,6 @@
     "desc": "Michigan AI data center campus, $70M+ invested as of Sep 15 2026 into Alliance Cloud Services for California neocloud provider under MSA.",
     "type": "AIDC",
     "status": "active",
-    "id": 242
+    "id": 241
   }
 ]
