@@ -2725,17 +2725,6 @@
     "id": 238
   },
   {
-    "name": "Test AIDC - Sejong AI Hub",
-    "lat": 36.4801,
-    "lng": 127.289,
-    "load": "120MW",
-    "source": "KEPCO",
-    "desc": "Test entry for mobile workflow - will be auto-merged",
-    "type": "AIDC",
-    "status": "active",
-    "id": 239
-  },
-  {
     "name": "CURRENC 500MW Hyperscale AIDC - Johor",
     "lat": 1.6421,
     "lng": 103.6515,
