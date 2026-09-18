@@ -2723,5 +2723,16 @@
     "desc": "호주 Firmus가 말레이시아에 구축하는 2개 AI Factory 사이트에 OpenAI가 앵커 고객으로 컴퓨팅 용량을 확보. Firmus 전체 계약 용량 900MW 이상 돌파. Nvidia, Blackstone 등 투자.",
     "architecture": "Firmus AI Factory with Dedicated AI Compute for Frontier Models",
     "id": 238
+  },
+  {
+    "name": "Test AIDC - Sejong AI Hub",
+    "lat": 36.4801,
+    "lng": 127.289,
+    "load": "120MW",
+    "source": "KEPCO",
+    "desc": "Test entry for mobile workflow - will be auto-merged",
+    "type": "AIDC",
+    "status": "active",
+    "id": 239
   }
 ]
