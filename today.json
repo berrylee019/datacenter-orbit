@@ -1,11 +1,31 @@
 [
   {
-    "name": "Test AIDC - Sejong AI Hub",
-    "lat": 36.4801,
-    "lng": 127.289,
-    "load": "120MW",
-    "source": "KEPCO",
-    "desc": "Test entry for mobile workflow - will be auto-merged",
+    "name": "CURRENC 500MW Hyperscale AIDC - Johor",
+    "lat": 1.6421,
+    "lng": 103.6515,
+    "load": "500MW",
+    "source": "TNB Grid + Solar",
+    "desc": "100-acre hyperscale AI campus in Johor, Malaysia. Phase 1 100MW by end 2026, full 500MW plan. Co-location/wholesale for hyperscalers.",
+    "type": "AIDC",
+    "status": "active"
+  },
+  {
+    "name": "AIP Monarch Compute Campus - 2GW Power",
+    "lat": 32.7767,
+    "lng": -96.797,
+    "load": "2000MW",
+    "source": "Caterpillar 2GW Dedicated",
+    "desc": "Flagship multi-phase power + infra platform by American Intelligence & Power with Caterpillar & Boyd CAT alliance. Power delivery begins 2026, 2GW online 2027.",
+    "type": "AIDC",
+    "status": "smr"
+  },
+  {
+    "name": "Hyperscale Data Michigan AI Campus - Alliance Cloud",
+    "lat": 42.3314,
+    "lng": -83.0458,
+    "load": "70MW+",
+    "source": "DTE Energy Grid",
+    "desc": "Michigan AI data center campus, $70M+ invested as of Sep 15 2026 into Alliance Cloud Services for California neocloud provider under MSA.",
     "type": "AIDC",
     "status": "active"
   }
