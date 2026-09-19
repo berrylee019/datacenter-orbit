@@ -2888,5 +2888,31 @@
     "desc": "Google은 기후 목표와는 상반되게 AI 데이터센터를 위해 가스 발전소의 전력을 활용할 예정입니다.",
     "lat": 35.473,
     "lng": -97.5171
+  },
+  {
+    "id": 254,
+    "name": "Equinix SV10 Silicon Valley Data Center (San Jose)",
+    "lat": 37.3875,
+    "lng": -121.9635,
+    "type": "AIDC",
+    "load": "50 MW",
+    "source": "PG&E Silicon Valley Utility Grid Connection",
+    "status": "active",
+    "carbon": "mid",
+    "desc": "실리콘밸리 산호세에 위치한 에퀴닉스의 공랭식 메가 데이터센터. 빅테크 및 클라우드 기업 데이터 상호 연결 중심지로 5단계 고성능 보안 관문 시스템(People Trap) 구축.",
+    "architecture": "Equinix High-Density Air Cooling & Optical Interconnect Fabric"
+  },
+  {
+    "id": 255,
+    "name": "Equinix SV11 Direct-to-Chip Liquid Cooling AIDC (San Jose)",
+    "lat": 37.3892,
+    "lng": -121.9618,
+    "type": "AIDC",
+    "load": "135 kW/Rack (Up to 200kW+)",
+    "source": "PG&E High-Voltage Substation Direct Grid Integration",
+    "status": "active",
+    "carbon": "low",
+    "desc": "렉당 최대 135kW~200kW 전력 밀도를 지원하는 에퀴닉스의 차세대 AI 데이터센터. 초고성능 GPU 발열을 제어하기 위한 다이렉트 칩(Direct-to-Chip) 수랭식 냉각 배관 탑재.",
+    "architecture": "Equinix Direct-to-Chip (D2C) Liquid Cooling Architecture"
   }
 ]
