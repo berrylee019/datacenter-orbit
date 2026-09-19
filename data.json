@@ -2822,5 +2822,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 247
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active",
+    "id": 248
+  },
+  {
+    "name": "Equinix xAI Colossus 2 - Memphis",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "load": "800MW",
+    "source": "TVA Grid + Gas Turbines",
+    "desc": "Second phase of xAI Colossus supercluster, Memphis",
+    "type": "AIDC",
+    "status": "active",
+    "id": 249
+  },
+  {
+    "name": "Microsoft Fairwater 2.5GW - Wisconsin",
+    "lat": 44.5,
+    "lng": -89.0,
+    "load": "2500MW",
+    "source": "We Energies + SMR",
+    "desc": "Microsoft AI datacenter corridor, part of $3.3B Wisconsin investment",
+    "type": "AIDC",
+    "status": "smr",
+    "id": 250
   }
 ]
