@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-19 01:13 KST",
+  "count": 3,
+  "items": [
+    {
+      "name": "Iron Mountain 350MW - Phoenix AZ",
+      "region": "🇺🇸 미국",
+      "load": "350MW",
+      "lat": 33.4484,
+      "lng": -112.074,
+      "desc": "Iron Mountain AI data center for US Southwest"
+    },
+    {
+      "name": "G42 xAI 5GW AI Campus - Abu Dhabi",
+      "region": "🇦🇪 중동 (UAE/사우디)",
+      "load": "5000MW",
+      "lat": 24.4539,
+      "lng": 54.3773,
+      "desc": "G42 and xAI mega AI campus in Abu Dhabi, 5GW phased plan, largest outside US"
+    },
+    {
+      "name": "Blackstone QTS 1.2GW - Atlanta West",
+      "region": "🇺🇸 미국",
+      "load": "1200MW",
+      "lat": 33.749,
+      "lng": -84.552,
+      "desc": "QTS Atlanta mega expansion, hyperscale AI cluster for US East"
+    }
+  ]
+}

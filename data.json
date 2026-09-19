@@ -2756,5 +2756,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 241
+  },
+  {
+    "name": "Iron Mountain 350MW - Phoenix AZ",
+    "lat": 33.4484,
+    "lng": -112.074,
+    "load": "350MW",
+    "source": "APS + Solar",
+    "desc": "Iron Mountain AI data center for US Southwest",
+    "type": "AIDC",
+    "status": "active",
+    "id": 242
+  },
+  {
+    "name": "G42 xAI 5GW AI Campus - Abu Dhabi",
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "load": "5000MW",
+    "source": "EWEC Nuclear + Solar",
+    "desc": "G42 and xAI mega AI campus in Abu Dhabi, 5GW phased plan, largest outside US",
+    "type": "AIDC",
+    "status": "smr",
+    "id": 243
+  },
+  {
+    "name": "Blackstone QTS 1.2GW - Atlanta West",
+    "lat": 33.749,
+    "lng": -84.552,
+    "load": "1200MW",
+    "source": "Georgia Power + Gas",
+    "desc": "QTS Atlanta mega expansion, hyperscale AI cluster for US East",
+    "type": "AIDC",
+    "status": "active",
+    "id": 244
   }
 ]
