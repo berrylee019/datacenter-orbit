@@ -2789,5 +2789,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 244
+  },
+  {
+    "name": "SoftBank SB Int 1GW AIDC - Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "load": "1000MW",
+    "source": "KEPCO Grid + SMR",
+    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+    "type": "AIDC",
+    "status": "active",
+    "id": 245
+  },
+  {
+    "name": "NTT 300MW Sovereign AI - Hokkaido",
+    "lat": 43.0618,
+    "lng": 141.3545,
+    "load": "300MW",
+    "source": "Hokkaido Electric",
+    "desc": "NTT sovereign AI hub for Japanese gov LLM",
+    "type": "AIDC",
+    "status": "active",
+    "id": 246
+  },
+  {
+    "name": "NEXTDC 700MW - Sydney West",
+    "lat": -33.8688,
+    "lng": 150.905,
+    "load": "700MW",
+    "source": "Ausgrid + Solar",
+    "desc": "NEXTDC Sydney hyperscale AI campus",
+    "type": "AIDC",
+    "status": "active",
+    "id": 247
   }
 ]

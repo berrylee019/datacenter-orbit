@@ -1,30 +1,30 @@
 {
-  "date": "2026-09-19 01:13 KST",
+  "date": "2026-09-19 02:26 KST",
   "count": 3,
   "items": [
     {
-      "name": "Iron Mountain 350MW - Phoenix AZ",
-      "region": "🇺🇸 미국",
-      "load": "350MW",
-      "lat": 33.4484,
-      "lng": -112.074,
-      "desc": "Iron Mountain AI data center for US Southwest"
+      "name": "SoftBank SB Int 1GW AIDC - Osaka",
+      "region": "🇯🇵 일본",
+      "load": "1000MW",
+      "lat": 34.6937,
+      "lng": 135.5023,
+      "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI"
     },
     {
-      "name": "G42 xAI 5GW AI Campus - Abu Dhabi",
-      "region": "🇦🇪 중동 (UAE/사우디)",
-      "load": "5000MW",
-      "lat": 24.4539,
-      "lng": 54.3773,
-      "desc": "G42 and xAI mega AI campus in Abu Dhabi, 5GW phased plan, largest outside US"
+      "name": "NTT 300MW Sovereign AI - Hokkaido",
+      "region": "🇯🇵 일본",
+      "load": "300MW",
+      "lat": 43.0618,
+      "lng": 141.3545,
+      "desc": "NTT sovereign AI hub for Japanese gov LLM"
     },
     {
-      "name": "Blackstone QTS 1.2GW - Atlanta West",
-      "region": "🇺🇸 미국",
-      "load": "1200MW",
-      "lat": 33.749,
-      "lng": -84.552,
-      "desc": "QTS Atlanta mega expansion, hyperscale AI cluster for US East"
+      "name": "NEXTDC 700MW - Sydney West",
+      "region": "Unknown",
+      "load": "700MW",
+      "lat": -33.8688,
+      "lng": 150.905,
+      "desc": "NEXTDC Sydney hyperscale AI campus"
     }
   ]
 }
