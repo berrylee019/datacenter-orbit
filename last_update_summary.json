@@ -1,30 +1,30 @@
 {
-  "date": "2026-09-19 02:26 KST",
+  "date": "2026-09-20 02:36 KST",
   "count": 3,
   "items": [
     {
-      "name": "SoftBank SB Int 1GW AIDC - Osaka",
-      "region": "🇯🇵 일본",
+      "name": "STT GDC 500MW - Johor 2nd Phase",
+      "region": "🇲🇾🇸🇬 말레이시아/싱가포르 (Johor)",
+      "load": "500MW",
+      "lat": 1.485,
+      "lng": 103.761,
+      "desc": "ST Telemedia Global Data Centres Johor expansion"
+    },
+    {
+      "name": "AdaniConneX 1GW AIDC - Hyderabad",
+      "region": "🇮🇳 인도",
       "load": "1000MW",
-      "lat": 34.6937,
-      "lng": 135.5023,
-      "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI"
+      "lat": 17.385,
+      "lng": 78.4867,
+      "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2"
     },
     {
-      "name": "NTT 300MW Sovereign AI - Hokkaido",
-      "region": "🇯🇵 일본",
-      "load": "300MW",
-      "lat": 43.0618,
-      "lng": 141.3545,
-      "desc": "NTT sovereign AI hub for Japanese gov LLM"
-    },
-    {
-      "name": "NEXTDC 700MW - Sydney West",
-      "region": "Unknown",
-      "load": "700MW",
-      "lat": -33.8688,
-      "lng": 150.905,
-      "desc": "NEXTDC Sydney hyperscale AI campus"
+      "name": "Digital Realty 400MW - Frankfurt AI Hub",
+      "region": "🇪🇺 유럽",
+      "load": "400MW",
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt"
     }
   ]
 }

@@ -2914,5 +2914,38 @@
     "carbon": "low",
     "desc": "렉당 최대 135kW~200kW 전력 밀도를 지원하는 에퀴닉스의 차세대 AI 데이터센터. 초고성능 GPU 발열을 제어하기 위한 다이렉트 칩(Direct-to-Chip) 수랭식 냉각 배관 탑재.",
     "architecture": "Equinix Direct-to-Chip (D2C) Liquid Cooling Architecture"
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 256
+  },
+  {
+    "name": "AdaniConneX 1GW AIDC - Hyderabad",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "load": "1000MW",
+    "source": "NTPC + Solar",
+    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+    "type": "AIDC",
+    "status": "active",
+    "id": 257
+  },
+  {
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+    "type": "AIDC",
+    "status": "active",
+    "id": 258
   }
 ]
