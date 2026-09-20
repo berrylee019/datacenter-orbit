@@ -2947,5 +2947,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 258
+  },
+  {
+    "id": 259,
+    "name": "Microsoft Texas AI Datacenter Phase 259",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "Microsoft가 Chevron과 텍사스 AI 데이터센터 전력 계약을 체결했습니다.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 260,
+    "name": "Microsoft Saudi Arabia East Datacenter Region",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 데이터센터 리전의 가용성을 발표했습니다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 261,
+    "name": "Google SpaceX-xAI AI Datacenter Capacity",
+    "type": "AIDC",
+    "load": "1 GW",
+    "source": "Hybrid",
+    "status": "active",
+    "desc": "Google이 AI 데이터센터 용량 확보를 위해 SpaceX-xAI에 월 9억 2천만 달러를 지불하고 있습니다.",
+    "lat": 39.5159,
+    "lng": -116.8537
   }
 ]
