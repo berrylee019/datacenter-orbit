@@ -2980,5 +2980,38 @@
     "desc": "Google이 AI 데이터센터 용량 확보를 위해 SpaceX-xAI에 월 9억 2천만 달러를 지불하고 있습니다.",
     "lat": 39.5159,
     "lng": -116.8537
+  },
+  {
+    "id": 262,
+    "name": "Microsoft Texas AI Datacenter Phase 262",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 Chevron과 텍사스에 대규모 AI 데이터센터 전력 공급 계약을 체결함.",
+    "lat": 31.2639,
+    "lng": -98.5456
+  },
+  {
+    "id": 263,
+    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 263",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 지역을 발표함.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 264,
+    "name": "Meta Louisiana Datacenter",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Meta가 루이지애나에 자사 최대 규모의 데이터센터 부지를 확보함.",
+    "lat": 30.8704,
+    "lng": -92.0071
   }
 ]
