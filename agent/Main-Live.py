@@ -39,35 +39,52 @@ def load_data():
         lst = raw['data'] if isinstance(raw, dict) and 'data' in raw else raw
     return raw, lst
 
-def is_duplicate(new_item, existing_list):
+def find_duplicate_and_update(new_item, existing_list):
+    """
+    형님 요청 코드 위치: 여기입니다 형님
+    # 신규 추가 전 체크
+    # if haversine(lat,lng, 기존_lat, 기존_lng) < 0.5km and 같은키워드:
+    #     기존 항목 업데이트 (load/source만 갱신), 신규 ID 생성 금지
+    """
     lat=new_item.get('lat')
     lng=new_item.get('lng')
     if lat is None or lng is None:
-        return False
-    # 보호 좌표는 중복으로 보지 않음
+        return None
+
+    # 보호 좌표는 중복으로 보지 않음 - 하남(5), 고양삼송(55), DFW 6개, SV 2개는 살림
     for plat,plng in PROTECTED_COORDS:
         if abs(lat-plat)<0.0001 and abs(lng-plng)<0.0001:
-            return False
-    # 핫스팟 완전 동일 좌표는 중복
+            return None
+
+    # 1) 완전 동일 좌표 체크 (핫스팟)
     if (lat,lng) in HOTSPOT_EXACT:
-        # 이미 같은 좌표가 있으면 중복
         for ex in existing_list:
             if ex.get('lat')==lat and ex.get('lng')==lng:
-                return True
-    # 500m 이내 + 이름 키워드 겹치면 중복
+                # 기존 항목 업데이트 (load/source만 갱신) - 형님 요청 로직
+                ex['load'] = new_item.get('load', ex.get('load'))
+                ex['source'] = new_item.get('source', ex.get('source'))
+                ex['desc'] = new_item.get('desc', ex.get('desc'))
+                return ex  # 중복 찾음 + 업데이트 완료
+
+    # 2) 0.5km 이내 + 같은 키워드 체크
     for ex in existing_list:
         elat=ex.get('lat'); elng=ex.get('lng')
         if elat is None or elng is None:
             continue
-        if haversine(lat,lng,elat,elng) < 0.5:
+        if haversine(lat,lng,elat,elng) < 0.5:  # 0.5km 이내
             n1=new_item.get('name','').lower()
             n2=ex.get('name','').lower()
-            # Pecos/Louisiana 등 반복 키워드만 중복 처리
-            keywords=['pecos','louisiana','cheyenne','texas ai datacenter phase','smr facility','ohio nuclear']
+            keywords=['pecos','louisiana','cheyenne','texas ai datacenter phase','smr facility','ohio nuclear','texas','saudi']
             for kw in keywords:
                 if kw in n1 and kw in n2:
-                    return True
-    return False
+                    # 기존 항목 업데이트 (load/source만 갱신) - 형님 요청 로직
+                    ex['load'] = new_item.get('load', ex.get('load'))
+                    ex['source'] = new_item.get('source', ex.get('source'))
+                    return ex  # 중복 찾음 + 업데이트 완료
+    return None  # 중복 아님
+
+def is_duplicate(new_item, existing_list):
+    return find_duplicate_and_update(new_item, existing_list) is not None
 
 # 검증된 풀 (예시 - 형님 풀 12개 중 3개 랜덤)
 VERIFIED_POOL = [
@@ -103,16 +120,21 @@ def main():
             seen_exact[key]=True
             cleaned.append(item)
 
-    # 신규 3개 추가 (중복 체크 후)
+    # 신규 3개 추가 전 체크 - 형님 요청 코드 적용 위치
+    # if haversine(lat,lng, 기존_lat, 기존_lng) < 0.5km and 같은키워드:
+    #     기존 항목 업데이트 (load/source만 갱신), 신규 ID 생성 금지
     to_add = random.sample(VERIFIED_POOL, 3)
     added=[]
     for new in to_add:
-        if not is_duplicate(new, cleaned):
+        existing = find_duplicate_and_update(new, cleaned)  # <- 여기! 이 함수가 위 로직 실행
+        if existing is None:
+            # 중복 아님 -> 신규 ID 생성
             new_id = max([x.get('id',0) for x in cleaned], default=0)+1+len(added)
             new['id']=new_id
             added.append(new)
         else:
-            print(f"Skip duplicate: {new['name']}")
+            # 중복임 -> 기존 항목 load/source만 갱신됨, 신규 ID 생성 금지 (형님 요청대로)
+            print(f"Update existing (no new ID): {existing['name']} -> load={existing.get('load')}")
 
     cleaned.extend(added)
 
