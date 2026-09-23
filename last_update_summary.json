@@ -1,30 +1,40 @@
 {
-  "date": "2026-09-20 02:36 KST",
-  "count": 3,
-  "items": [
-    {
-      "name": "STT GDC 500MW - Johor 2nd Phase",
-      "region": "🇲🇾🇸🇬 말레이시아/싱가포르 (Johor)",
-      "load": "500MW",
-      "lat": 1.485,
-      "lng": 103.761,
-      "desc": "ST Telemedia Global Data Centres Johor expansion"
-    },
-    {
-      "name": "AdaniConneX 1GW AIDC - Hyderabad",
-      "region": "🇮🇳 인도",
-      "load": "1000MW",
-      "lat": 17.385,
-      "lng": 78.4867,
-      "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2"
-    },
+  "last_updated": "2026-09-23T10:16:07.061211+00:00",
+  "total_count": 137,
+  "newly_added": [
     {
       "name": "Digital Realty 400MW - Frankfurt AI Hub",
-      "region": "🇪🇺 유럽",
-      "load": "400MW",
       "lat": 50.1109,
       "lng": 8.6821,
-      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt"
+      "load": "400MW",
+      "source": "Amprion Grid + Wind",
+      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+      "type": "AIDC",
+      "status": "active",
+      "id": 135
+    },
+    {
+      "name": "STT GDC 500MW - Johor 2nd Phase",
+      "lat": 1.485,
+      "lng": 103.761,
+      "load": "500MW",
+      "source": "TNB + Solar",
+      "desc": "ST Telemedia Global Data Centres Johor expansion",
+      "type": "AIDC",
+      "status": "active",
+      "id": 136
+    },
+    {
+      "name": "CyrusOne 600MW - Madrid AI Corridor",
+      "lat": 40.4168,
+      "lng": -3.7038,
+      "load": "600MW",
+      "source": "Red Electrica + Solar",
+      "desc": "CyrusOne Iberian AI hub",
+      "type": "AIDC",
+      "status": "active",
+      "id": 137
     }
-  ]
+  ],
+  "korean_time": "2026-09-23 10:16 KST"
 }

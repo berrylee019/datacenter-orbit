@@ -326,19 +326,6 @@
   },
   {
     "id": 26,
-    "name": "Nebius 글로벌 AIDC 확장 단지",
-    "lat": 40.4173,
-    "lng": -82.9071,
-    "type": "AIDC",
-    "load": "310 MW",
-    "source": "미국 중서부 지역 그리드 연계",
-    "status": "active",
-    "carbon": "mid",
-    "desc": "AI 전용 클라우드 공급업체 Nebius가 오하이오 지역 대규모 고성능 연산 수요 대응을 위해 구축하는 100억 달러 규모 사이트.",
-    "architecture": "NVIDIA H100 / Blackwell GPU Cloud Platform"
-  },
-  {
-    "id": 27,
     "name": "Microsoft 서덴마크 2호기 AIDC 리전",
     "lat": 43.9925,
     "lng": -70.8705,
@@ -351,7 +338,7 @@
     "architecture": "Next-Gen Custom Azure Infrastructure"
   },
   {
-    "id": 28,
+    "id": 27,
     "name": "경북 영덕 원전 부지 (천지 원전 해제지 기반 SMR 검토 구역)",
     "lat": 36.4382,
     "lng": 129.4124,
@@ -364,7 +351,7 @@
     "architecture": "Korea i-SMR (Innovative Small Modular Reactor) Design Ready"
   },
   {
-    "id": 29,
+    "id": 28,
     "name": "부산 기장군 고리 원전 복합 단지 (고리 SMR 연구 거점)",
     "lat": 35.3211,
     "lng": 129.2937,
@@ -377,7 +364,7 @@
     "architecture": "Advanced Light Water SMR / Export-type Nuclear Platform Integration"
   },
   {
-    "id": 30,
+    "id": 29,
     "name": "Amazon 미국 SMR 센터 (네브래스카 인근 추정)",
     "lat": 39.7837,
     "lng": -100.4459,
@@ -389,7 +376,7 @@
     "architecture": "Advanced Small Modular Reactor Grid-Tied System"
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "Microsoft 코펜하겐 AIDC 리전",
     "lat": 55.6867,
     "lng": 12.5701,
@@ -400,7 +387,7 @@
     "desc": "Microsoft가 덴마크 코펜하겐에 새로운 데이터센터 리전을 개설하여 디지털 회복탄력성과 성장을 강화합니다."
   },
   {
-    "id": 32,
+    "id": 31,
     "name": "SK AI 데이터센터 울산 (SKT-AWS 공동 거점)",
     "lat": 35.5015,
     "lng": 129.3725,
@@ -413,7 +400,7 @@
     "architecture": "AWS Custom Trainium/Inferentia & NVIDIA Blackwell GPU Mixed (60K Scalable)"
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "Meta 글로벌 원자력 파트너십 (버지니아 거점)",
     "lat": 37.1232,
     "lng": -78.4928,
@@ -424,7 +411,7 @@
     "desc": "메타가 6GW 이상의 전력 공급을 위해 3개 핵발전 기업과 계약을 체결하여 버지니아 일대 계통 연계를 추진하는 거점."
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "Amazon 아이다호 SMR 파일럿 플랜트",
     "lat": 43.6448,
     "lng": -114.0154,
@@ -435,7 +422,7 @@
     "desc": "아마존이 아이다호 주 최초의 모듈형 소형모듈원자로 시설 건설을 지원하며 진척 상황을 공개한 거점."
   },
   {
-    "id": 35,
+    "id": 34,
     "name": "Meta 배턴루지 AIDC",
     "lat": 30.4494,
     "lng": -91.187,
@@ -446,7 +433,7 @@
     "desc": "Meta가 루이지애나 주 배턴루지에 최대 규모의 데이터센터를 확보하여 AI 인프라 확장을 가속화합니다."
   },
   {
-    "id": 36,
+    "id": 35,
     "name": "Microsoft 페코스 텍사스 AI 데이터센터",
     "lat": 30.7857,
     "lng": -102.8065,
@@ -457,7 +444,7 @@
     "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설하고 셰브론과 전력 공급 계약을 체결함. 향후 가스 터빈 등으로 전력을 공급받을 예정."
   },
   {
-    "id": 37,
+    "id": 36,
     "name": "Amazon 유타 세인트조지 SMR 시설 (Phase 71/84 거점)",
     "lat": 37.1337,
     "lng": -113.0907,
@@ -468,7 +455,7 @@
     "desc": "아마존이 미국 유타 주 세인트조지 인근에서 최초의 모듈형 원자로 시설 중 하나를 구축하는 데 참여하고 있습니다."
   },
   {
-    "id": 38,
+    "id": 37,
     "name": "Microsoft 위스콘신 마운트 플레전트 AIDC 캠퍼스",
     "lat": 42.7192,
     "lng": -87.8543,
@@ -479,7 +466,7 @@
     "desc": "마이크로소프트가 위스콘신 마운트 플레전트에 첫 데이터센터 시설 건설을 완료했으며, 향후 총 15개의 추가 데이터센터 확장을 계획하고 있음."
   },
   {
-    "id": 39,
+    "id": 38,
     "name": "Amazon 와이오밍 SMR 시설",
     "lat": 43.17,
     "lng": -107.5685,
@@ -490,7 +477,7 @@
     "desc": "아마존은 미국 와이오밍에 최초의 모듈형 원자력 발전 시설 중 하나를 구축하는 데 기여하고 있습니다."
   },
   {
-    "id": 40,
+    "id": 39,
     "name": "Amazon 워싱턴 DC 모듈형 원자로 시설",
     "lat": 38.8951,
     "lng": -77.0364,
@@ -501,7 +488,7 @@
     "desc": "아마존이 미국 내 최초의 모듈형 원자로(SMR) 시설 건설을 지원하며 친환경 인프라 확장에 기여하고 있습니다."
   },
   {
-    "id": 41,
+    "id": 40,
     "name": "메타 사우디 타이라 차세대 메가 AIDC",
     "lat": 24.4686,
     "lng": 39.6142,
@@ -514,7 +501,7 @@
     "architecture": "NVIDIA Blackwell NVL72 Ultra-dense Rack System & Gas-Turbine Power Grid"
   },
   {
-    "id": 42,
+    "id": 41,
     "name": "Meta Canada Data Center",
     "lat": 53.8322,
     "lng": -113.3033,
@@ -525,18 +512,7 @@
     "desc": "메타가 캐나다 앨버타주 스터전카운티에 건설하는 1GW급 대규모 AI 데이터센터입니다."
   },
   {
-    "id": 43,
-    "name": "Microsoft Pecos AI Data Center",
-    "type": "AIDC",
-    "load": "750 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "Microsoft는 텍사스 Pecos에 대규모 AI 데이터센터를 건설 중이며, Chevron과의 파트너십을 통해 가스 터빈 전력을 공급받을 예정입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 44,
+    "id": 42,
     "name": "Microsoft Mount Pleasant Data Center",
     "type": "AIDC",
     "load": "300 MW",
@@ -547,40 +523,7 @@
     "lng": -87.8543
   },
   {
-    "id": 45,
-    "name": "Meta Louisiana AI Data Center",
-    "type": "AIDC",
-    "load": "1.2 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta는 루이지애나에 자사의 최대 규모 데이터센터를 확보했으며, 이를 위해 원자력 발전 계약을 체결했습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 46,
-    "name": "Microsoft Pecos AIDC",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 47,
-    "name": "Meta Louisiana AIDC",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Grid / Nuclear",
-    "status": "active",
-    "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터를 확보했으며, 이를 위해 6GW 이상의 전력 계약을 추진 중입니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 48,
+    "id": 43,
     "name": "Amazon US SMR Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -591,18 +534,7 @@
     "lng": -107.5685
   },
   {
-    "id": 49,
-    "name": "Microsoft Pecos AIDC Phase 49",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 Pecos에 대규모 AI 데이터센터를 건설하고 Chevron과 20년 가스 터빈 전력 계약을 체결함.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 50,
+    "id": 44,
     "name": "Microsoft Mount Pleasant AIDC",
     "type": "AIDC",
     "load": "150 MW",
@@ -613,51 +545,7 @@
     "lng": -87.8543
   },
   {
-    "id": 51,
-    "name": "Meta Louisiana AIDC Phase 51",
-    "type": "AIDC",
-    "load": "1600 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Meta가 Louisiana에 대규모 데이터센터를 위한 1.6 GW 규모의 전력 용량 계약을 Crusoe와 체결함.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 52,
-    "name": "Microsoft Pecos AI Data Center Phase 52",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 협력하여 텍사스 Pecos에 대규모 AI 데이터센터를 건설하고 가스 터빈으로 전력을 공급할 예정입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 53,
-    "name": "Meta Louisiana AI Data Center Phase 53",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Meta는 루이지애나에 자사의 가장 큰 데이터센터를 확보하여 건설 중입니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 54,
-    "name": "Amazon SMR Nuclear Facility",
-    "type": "SMR",
-    "load": "150 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Amazon은 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하고 있습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 55,
+    "id": 45,
     "name": "이지스 고양 삼송 데이터센터",
     "lat": 37.6534,
     "lng": 126.8955,
@@ -670,18 +558,7 @@
     "architecture": "LG CNS Dense Cloud Platform & High-efficiency Liquid Cooling Integration"
   },
   {
-    "id": 56,
-    "name": "Microsoft Pecos AIDC Phase 56",
-    "type": "AIDC",
-    "load": "750 MW",
-    "source": "Gas Turbines",
-    "status": "active",
-    "desc": "Microsoft는 텍사스 Pecos에 대규모 AI 데이터센터를 확장하며 Chevron과의 파트너십을 통해 가스 터빈 전력을 공급받습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 57,
+    "id": 46,
     "name": "Meta Ohio Nuclear AIDC Infrastructure",
     "type": "AIDC",
     "load": "6.5 GW",
@@ -692,7 +569,7 @@
     "lng": -82.6881
   },
   {
-    "id": 58,
+    "id": 47,
     "name": "Amazon SMR Facility, Washington",
     "type": "SMR",
     "load": "300 MW",
@@ -703,29 +580,7 @@
     "lng": -77.0364
   },
   {
-    "id": 59,
-    "name": "Microsoft Pecos AIDC Phase 59",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "마이크로소프트는 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설 중이며, 셰브론과의 파트너십을 통해 천연가스 전력을 공급받을 예정입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 60,
-    "name": "Meta Louisiana AIDC Phase 60",
-    "type": "AIDC",
-    "load": "750 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타는 루이지애나에 자사 최대 규모의 데이터센터를 확보했으며, 이를 위해 6GW가 넘는 원자력 발전 용량 확보 계약을 활용할 것으로 보입니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 61,
+    "id": 48,
     "name": "Amazon SMR Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -736,29 +591,7 @@
     "lng": -77.0364
   },
   {
-    "id": 62,
-    "name": "Microsoft Pecos AIDC Phase 62",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 Pecos에 대규모 AI 데이터센터를 건설하며 Chevron과 천연가스 기반 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 63,
-    "name": "Meta US Nuclear-Powered AIDC Initiative",
-    "type": "AIDC",
-    "load": "6 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta가 미국 내 데이터센터 전력 공급을 위해 6GW 이상의 전력을 공급할 세 곳의 원자력 회사와 계약을 체결했습니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 64,
+    "id": 49,
     "name": "Amazon US SMR Facility (Wyoming)",
     "type": "SMR",
     "load": "300 MW",
@@ -769,62 +602,7 @@
     "lng": -107.5685
   },
   {
-    "id": 65,
-    "name": "Microsoft Pecos AI Data Center Phase 65",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 AI 데이터센터를 건설하며 셰브론과 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 66,
-    "name": "Meta Louisiana AI Data Center Phase 66",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타는 루이지애나에 자사 최대 규모의 AI 데이터센터를 건설 중이며, 원자력 전력 공급을 추진하고 있습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 67,
-    "name": "Amazon US Modular Nuclear Reactor Facility",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존은 미국 내 최초의 소형 모듈형 원자로(SMR) 시설 건설을 지원하고 있습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 68,
-    "name": "Microsoft Pecos AIDC Phase 68",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 AI 데이터센터를 건설하고 쉐브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 69,
-    "name": "Meta Louisiana AIDC Phase 69",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타가 루이지애나에 최대 규모의 데이터센터를 확보했으며, 핵 에너지를 전력원으로 고려하고 있습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 70,
+    "id": 50,
     "name": "Amazon Wyoming SMR Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -835,51 +613,7 @@
     "lng": -107.5685
   },
   {
-    "id": 71,
-    "name": "Meta's Nuclear-Powered AIDC Projects",
-    "type": "AIDC",
-    "load": "6+ GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta가 6 GW 이상의 전력 공급을 위해 3개 핵 기업과 계약을 체결했습니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 72,
-    "name": "Amazon's First US Modular Nuclear Reactor Facility",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 최초의 모듈형 원자로 시설 건설을 지원합니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 73,
-    "name": "Microsoft Pecos Datacenter",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 데이터센터를 건설하여 용량을 확장합니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 74,
-    "name": "Microsoft Texas AI Datacenter",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 쉐브론과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터 전력 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 75,
+    "id": 51,
     "name": "Meta US Nuclear Power AIDC Initiative",
     "type": "AIDC",
     "load": "6+ GW",
@@ -890,7 +624,7 @@
     "lng": -83.1137
   },
   {
-    "id": 76,
+    "id": 52,
     "name": "Amazon Modular SMR Facility",
     "type": "SMR",
     "load": "200 MW",
@@ -901,18 +635,7 @@
     "lng": -77.0364
   },
   {
-    "id": 77,
-    "name": "Microsoft Texas AI Datacenter Phase 77",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 셰브론과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터를 위한 전력 공급 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 78,
+    "id": 53,
     "name": "Meta Ohio Nuclear-Powered AIDC",
     "type": "AIDC",
     "load": "1500 MW",
@@ -923,7 +646,7 @@
     "lng": -82.6881
   },
   {
-    "id": 79,
+    "id": 54,
     "name": "Amazon US SMR Facility Phase 79",
     "type": "SMR",
     "load": "300 MW",
@@ -934,7 +657,7 @@
     "lng": -77.0364
   },
   {
-    "id": 80,
+    "id": 55,
     "name": "Microsoft Cheyenne AIDC Expansion",
     "type": "AIDC",
     "load": "200 MW",
@@ -945,62 +668,7 @@
     "lng": -104.8202
   },
   {
-    "id": 81,
-    "name": "Microsoft Pecos AI Datacenter",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Chevron Partner)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스주 페코스에 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 82,
-    "name": "Amazon US SMR Facility Phase 82",
-    "type": "SMR",
-    "load": "150 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국에 최초의 모듈형 원자로 시설 건설을 돕고 있습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 83,
-    "name": "Meta Nuclear AIDC Network",
-    "type": "AIDC",
-    "load": "6000+ MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta가 6GW 이상의 전력 공급을 위해 3개 핵 기업과 계약을 체결하여 AI 데이터센터 네트워크를 구축함.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 84,
-    "name": "Microsoft Chevron Texas AI Datacenter",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 텍사스에 대규모 AI 데이터센터를 위해 Chevron과 전력 계약을 체결함.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 85,
-    "name": "Amazon US SMR Facility Phase 85",
-    "type": "SMR",
-    "load": "100 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Amazon이 미국 내 첫 모듈형 원자로(SMR) 시설 건설을 지원하고 있음.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 86,
+    "id": 56,
     "name": "셀레브라스 산타클라라 본사 AIDC",
     "lat": 37.3541,
     "lng": -121.9552,
@@ -1013,7 +681,7 @@
     "architecture": "Cerebras CS-3 System (Wafer-Scale Engine 3, 900K Cores per Chip) & Liquid Cooling Piping"
   },
   {
-    "id": 87,
+    "id": 57,
     "name": "텐센트 구이저우 치안(Gui'an) 동굴 AIDC",
     "lat": 26.4025,
     "lng": 106.5312,
@@ -1026,7 +694,7 @@
     "architecture": "Tencent AI Cluster & Huawei Ascend 910B/910C Mixed Architecture"
   },
   {
-    "id": 88,
+    "id": 58,
     "name": "알리바바 클라우드 장자커우(Zhangjiakou) AIDC",
     "lat": 40.7682,
     "lng": 114.8863,
@@ -1039,7 +707,7 @@
     "architecture": "AliCloud Hanguang 800 & Custom Liquid Cooling Supercomputer System"
   },
   {
-    "id": 89,
+    "id": 59,
     "name": "화웨이 우울란차부(Ulanqab) 초거대 AI 클러스터",
     "lat": 41.0315,
     "lng": 113.1324,
@@ -1052,7 +720,7 @@
     "architecture": "Huawei Cloud Ascend 910B Cluster & MindSpore Framework Native"
   },
   {
-    "id": 90,
+    "id": 60,
     "name": "바이두 양취안(Yangquan) 스마트 컴퓨팅 센터",
     "lat": 37.8574,
     "lng": 113.5832,
@@ -1065,7 +733,7 @@
     "architecture": "Baidu Kunlunxin AI Chips & PaddlePaddle Ultra-dense Racks"
   },
   {
-    "id": 91,
+    "id": 61,
     "name": "중국텔레콤 닝샤(Ningxia) 중웨이 국가 AI 컴퓨팅 허브",
     "lat": 37.5142,
     "lng": 105.1893,
@@ -1078,62 +746,7 @@
     "architecture": "Domestic Ascend & Cambricon AI Accelerator Racks"
   },
   {
-    "id": 92,
-    "name": "Meta Global AI Datacenter Nuclear Power Portfolio",
-    "type": "AIDC",
-    "load": "6000+ MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta가 AI 데이터센터 전력 공급을 위해 3개 핵발전 기업과 6GW 이상의 전력 계약을 체결했습니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 93,
-    "name": "Microsoft Texas Massive AI Datacenter",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터 전력을 공급합니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 94,
-    "name": "Amazon Modular Nuclear Reactor Facility",
-    "type": "SMR",
-    "load": "150 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Amazon이 미국 내 첫 모듈형 원자로 시설 구축을 지원하고 있습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 95,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 95",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍주 샤이엔에서 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정임.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 96,
-    "name": "Microsoft Pecos Texas AIDC (Chevron Partnership)",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas (Turbines)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스주 페코스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결했고, 가스 터빈을 사용할 예정임.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 97,
+    "id": 62,
     "name": "Google Global AIDC Expansion",
     "type": "AIDC",
     "load": "1000 MW",
@@ -1144,29 +757,7 @@
     "lng": 12.5592
   },
   {
-    "id": 98,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 98",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 와이오밍주 샤이엔에서 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 99,
-    "name": "Microsoft Pecos Massive AI Datacenter",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "Microsoft는 텍사스주 페코스에 대규모 AI 데이터센터를 건설하고 있으며, Chevron과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 100,
+    "id": 63,
     "name": "Meta Texas 1.6GW AI Datacenter Power Deal",
     "type": "AIDC",
     "load": "1600 MW",
@@ -1177,7 +768,7 @@
     "lng": -102.3677
   },
   {
-    "id": 101,
+    "id": 64,
     "name": "메타-블랙록 텍사스 엘패소 메가 AIDC",
     "lat": 31.7619,
     "lng": -106.485,
@@ -1190,29 +781,7 @@
     "architecture": "NVIDIA Blackwell Ultra / Next-Gen Dense GPU Clusters Ready & Liquid Cooling Infrastructure"
   },
   {
-    "id": 102,
-    "name": "Microsoft Pecos AI Datacenter Phase 102",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Chevron Partnered)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결함.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 103,
-    "name": "Amazon US SMR Facility Phase 103",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 내 최초의 모듈형 소형 원자로 시설 건설을 지원하고 있음.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 104,
+    "id": 65,
     "name": "Meta Baton Rouge AI Datacenter",
     "type": "AIDC",
     "load": "750 MW",
@@ -1223,7 +792,7 @@
     "lng": -91.187
   },
   {
-    "id": 105,
+    "id": 66,
     "name": "Meta Ohio Nuclear Powered AIDC",
     "type": "AIDC",
     "load": "6 GW+",
@@ -1234,7 +803,7 @@
     "lng": -82.6881
   },
   {
-    "id": 106,
+    "id": 67,
     "name": "Amazon Idaho SMR Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -1245,18 +814,7 @@
     "lng": -114.0154
   },
   {
-    "id": 107,
-    "name": "Microsoft Texas AI Datacenter Phase 107",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Chevron Partner)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 건설될 대규모 AI 데이터센터 전력 공급을 위해 셰브론과 파트너십을 맺었습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 108,
+    "id": 68,
     "name": "Amazon US SMR Facility Phase 108",
     "type": "SMR",
     "load": "150 MW",
@@ -1267,40 +825,7 @@
     "lng": -107.5685
   },
   {
-    "id": 109,
-    "name": "Meta Louisiana AIDC Phase 109",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "메타가 루이지애나에 건설하는 가장 큰 규모의 데이터센터.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 110,
-    "name": "Microsoft Texas AI AIDC",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 쉐브론과 전력 계약을 체결한 대규모 AI 데이터센터.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 111,
-    "name": "Microsoft Pecos AIDC Phase 111",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 Pecos에 새로운 데이터센터를 건설하며 AI 용량을 확장하고 있으며, 가스 터빈으로 전력을 공급받습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 112,
+    "id": 69,
     "name": "Microsoft Pure DC Finland AIDC",
     "type": "AIDC",
     "load": "150 MW",
@@ -1311,117 +836,7 @@
     "lng": 25.9209
   },
   {
-    "id": 113,
-    "name": "Meta Louisiana AIDC Phase 113",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Meta가 루이지애나에 자사 최대 규모의 AI 데이터센터를 확보했습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 114,
-    "name": "Microsoft Texas AI Datacenter Phase 114",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "마이크로소프트가 셰브론과 전력 계약을 체결하여 텍사스에 대규모 AI 데이터센터를 건설하며 20년간 가스터빈 기반 전력을 공급받을 예정이다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 115,
-    "name": "Microsoft Pecos AIDC Phase 115",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 미국 피코스 지역에 새로운 데이터센터를 건설하며 AI 용량 확장을 진행하고 있다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 116,
-    "name": "Meta Louisiana AIDC Phase 116",
-    "type": "AIDC",
-    "load": "600 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "메타가 루이지애나 주에 자사의 최대 규모 데이터센터를 건설하며 주 상원의원의 지원을 받아 부지를 확보했다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 117,
-    "name": "Microsoft Pecos AIDC Phase 117",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 Pecos에 새로운 AI 데이터센터 용량을 확장하고 있습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 118,
-    "name": "Meta Louisiana AIDC Phase 118",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Meta가 루이지애나에 자사 최대 규모의 데이터센터를 확보했습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 119,
-    "name": "Microsoft Texas Chevron AIDC",
-    "type": "AIDC",
-    "load": "750 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 텍사스에서 Chevron과 파트너십을 맺고 대규모 AI 데이터센터 전력 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 120,
-    "name": "Microsoft Pecos AIDC Phase 120",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 Pecos에 새로운 AI 데이터센터를 건설하며 용량 확장을 발표했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 121,
-    "name": "Microsoft Texas Chevron Partner AIDC",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 텍사스의 대규모 AI 데이터센터를 위해 Chevron과 20년간 천연가스 터빈 기반의 전력 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 122,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 122",
-    "type": "AIDC",
-    "load": "180 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 123,
+    "id": 70,
     "name": "볼타 노르웨이 AIDC (앤트로픽 임대)",
     "lat": 60.5878,
     "lng": 5.8124,
@@ -1434,84 +849,7 @@
     "architecture": "NVIDIA Vera Rubin System"
   },
   {
-    "id": 124,
-    "name": "Meta 글로벌 핵 발전 AIDC 이니셔티브",
-    "type": "AIDC",
-    "load": "6 GW+",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타는 AI 데이터센터 운영을 위해 6GW 이상의 전력을 공급받는 다수의 핵 발전 계약을 체결했습니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 125,
-    "name": "Microsoft 텍사스 AI 데이터센터",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Chevron)",
-    "status": "active",
-    "desc": "마이크로소프트는 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 쉐브론과 파트너십을 맺었습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 126,
-    "name": "Amazon 미국 SMR 시설 개발",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존은 미국 내 최초의 모듈형 원자로(SMR) 시설 중 하나를 구축하는 데 기여하고 있습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 127,
-    "name": "Meta Global AIDC Nuclear Power Contract",
-    "type": "AIDC",
-    "load": "6000 MW+",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타는 6기가와트 이상의 전력 공급을 위해 세 곳의 원자력 회사와 계약을 체결했습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 128,
-    "name": "Amazon US Modular Nuclear Reactor Facility Phase 128",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존은 미국에 최초의 모듈형 원자로 시설 건설을 지원하고 있습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 129,
-    "name": "Microsoft Pecos Texas AI Datacenter",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 텍사스 페코스에 건설될 대규모 AI 데이터센터를 위해 쉐브론과 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 130,
-    "name": "Amazon US SMR Facility Phase 130",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Amazon이 미국 내 최초 모듈형 원자로 시설 건설을 지원하여 데이터센터 전력 공급을 목표함.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 131,
+    "id": 71,
     "name": "Meta Global Nuclear Power Supply",
     "type": "AIDC",
     "load": "6000 MW",
@@ -1522,40 +860,7 @@
     "lng": -87.9148
   },
   {
-    "id": 132,
-    "name": "Microsoft Texas AI Datacenter Phase 132",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 텍사스에 건설될 대규모 AI 데이터센터를 위한 전력 계약을 체결함.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 133,
-    "name": "Microsoft Pecos AI Datacenter Phase 133",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "마이크로소프트는 텍사스 페코스에 대규모 AI 데이터센터를 건설하고 쉐브론과 전력 공급 계약을 통해 가스터빈 발전 전력을 사용할 예정입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 134,
-    "name": "Microsoft Cheyenne Datacenter Expansion",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 와이오밍 샤이엔에서 데이터센터 운영 확장을 통해 AI 역량을 강화하고 지역 경제 발전에 기여할 계획입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 135,
+    "id": 72,
     "name": "Meta Virginia AI Datacenter",
     "type": "AIDC",
     "load": "300 MW",
@@ -1566,29 +871,7 @@
     "lng": -78.4928
   },
   {
-    "id": 136,
-    "name": "Meta Louisiana AIDC Phase 136",
-    "type": "AIDC",
-    "load": "6000 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Meta는 Louisiana에 대규모 데이터센터를 확보하고 3개 핵 기업과 6GW 이상의 전력 공급 계약을 체결했습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 137,
-    "name": "Microsoft Pecos AI Datacenter Phase 137",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft는 Chevron과의 전력 계약을 통해 텍사스 Pecos에 새로운 대규모 AI 데이터센터를 건설하고 있습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 138,
+    "id": 73,
     "name": "Amazon Wyoming SMR Facility Phase 138",
     "type": "SMR",
     "load": "300 MW",
@@ -1599,29 +882,7 @@
     "lng": -107.5685
   },
   {
-    "id": 139,
-    "name": "Microsoft Pecos AIDC Phase 139",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 Pecos에 새로운 대규모 AI 데이터센터를 건설하여 용량을 확장 중입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 140,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 140",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 와이오밍 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신 및 경제 성장을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 141,
+    "id": 74,
     "name": "Microsoft AIDC (SpaceX Power Initiative)",
     "type": "AIDC",
     "load": "1 GW",
@@ -1632,29 +893,7 @@
     "lng": -113.0907
   },
   {
-    "id": 142,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 142",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍주 샤이엔에서 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 143,
-    "name": "Microsoft Pecos AI Datacenter Phase 143",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "마이크로소프트는 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하고 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 144,
+    "id": 75,
     "name": "Amazon US SMR Facility Phase 144",
     "type": "SMR",
     "load": "300 MW",
@@ -1665,40 +904,7 @@
     "lng": -84.2696
   },
   {
-    "id": 145,
-    "name": "Amazon SMR Facility Phase 145",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Amazon이 미국 내 모듈형 원자로 시설 건설을 지원하는 프로젝트.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 146,
-    "name": "Microsoft Texas AI Datacenter Phase 146",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 파트너십을 맺고 텍사스에 건설하는 대규모 AI 데이터센터.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 147,
-    "name": "Meta Louisiana AIDC Phase 147",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Meta가 루이지애나에 건설 중인 회사의 최대 규모 데이터센터 프로젝트.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 148,
+    "id": 76,
     "name": "메타 오하이오 뉴올버니 신속배치(RDS) AIDC",
     "lat": 40.0822,
     "lng": -82.8088,
@@ -1711,7 +917,7 @@
     "architecture": "Rapid Deployment Structure (RDS) Modular Tent Architecture & Dense GPU Rack RDT Systems"
   },
   {
-    "id": 149,
+    "id": 77,
     "name": "디지털 리얼리티 디지털 댈러스 캠퍼스 (통합)",
     "lat": 32.9567,
     "lng": -96.7169,
@@ -1724,7 +930,7 @@
     "architecture": "Campus-wide Dedicated Substation & Ultra-high Carrier Density Network Hub"
   },
   {
-    "id": 150,
+    "id": 78,
     "name": "디지털 댈러스 DFW18",
     "lat": 32.9592,
     "lng": -96.7144,
@@ -1737,7 +943,7 @@
     "architecture": "High-Density AI & Enterprise Hyperscale Ready Infrastructure"
   },
   {
-    "id": 151,
+    "id": 79,
     "name": "디지털 댈러스 DFW29",
     "lat": 32.9548,
     "lng": -96.7188,
@@ -1750,7 +956,7 @@
     "architecture": "2N UPS Redundancy & Carrier-Neutral Interconnection Edge Node"
   },
   {
-    "id": 152,
+    "id": 80,
     "name": "디지털 댈러스 DFW28",
     "lat": 32.9548,
     "lng": -96.7202,
@@ -1763,7 +969,7 @@
     "architecture": "Enterprise Mission-Critical Security & High-Reliability Dual Power Feed"
   },
   {
-    "id": 153,
+    "id": 81,
     "name": "디지털 댈러스 DFW17",
     "lat": 32.9581,
     "lng": -96.7161,
@@ -1776,7 +982,7 @@
     "architecture": "LEED Silver Certified Green Cooling Architecture"
   },
   {
-    "id": 154,
+    "id": 82,
     "name": "디지털 댈러스 DFW35",
     "lat": 32.9575,
     "lng": -96.7175,
@@ -1789,29 +995,7 @@
     "architecture": "High-Density Server Rack Design & Hyperscale Colocation Space"
   },
   {
-    "id": 155,
-    "name": "Microsoft Pecos AIDC Phase 155",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Gas Turbine)",
-    "status": "active",
-    "desc": "마이크로소프트가 AI 데이터센터 확장을 위해 텍사스 페코스에 대규모 데이터센터를 건설 중이며, 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 156,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 156",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 AI 혁신 가속화 및 경제 성장을 위해 와이오밍 샤이엔 지역의 데이터센터 운영을 확장할 계획을 발표했습니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 157,
+    "id": 83,
     "name": "Google Global AI Infrastructure Expansion",
     "type": "AIDC",
     "load": "1000 MW",
@@ -1822,62 +1006,7 @@
     "lng": 12.5592
   },
   {
-    "id": 158,
-    "name": "Microsoft Pecos AIDC Phase 158",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Gas Turbines (Chevron partnership)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하며 쉐브론과 가스터빈 기반의 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 159,
-    "name": "Microsoft Cheyenne AIDC",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍 샤이엔 지역의 데이터센터 운영 확장을 발표하며 AI 혁신을 위한 인프라 증설을 추진하고 있습니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 160,
-    "name": "SpaceX-Microsoft 10GW AI Power Infrastructure",
-    "type": "AIDC",
-    "load": "10 GW",
-    "source": "Strategic Partnership Grid/Renewable",
-    "status": "planned",
-    "desc": "스페이스X가 마이크로소프트를 최대 전력 구매자로 하여 2027년까지 10GW 규모의 AI 인프라 전력 공급을 목표로 하는 전략적 파트너십을 추진 중입니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 161,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 161",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid, Wind",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍 주 샤이엔에서 AI 데이터센터 운영 확장을 발표하며 혁신과 경제 성장을 가속화할 예정이다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 162,
-    "name": "Microsoft Pecos Texas AI AIDC (Chevron Power)",
-    "type": "AIDC",
-    "load": "800 MW",
-    "source": "Natural Gas, Renewables",
-    "status": "active",
-    "desc": "마이크로소프트가 셰브론과 파트너십을 맺고 텍사스 주 페코스에 건설될 대규모 AI 데이터센터의 전력 공급 계약을 체결했다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 163,
+    "id": 84,
     "name": "Amazon SMR Demonstration Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -1888,51 +1017,7 @@
     "lng": -120.2126
   },
   {
-    "id": 164,
-    "name": "Microsoft Pecos AIDC Phase 164",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 페코스에 새로운 데이터센터를 건설하며 AI 용량 확장을 발표했다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 165,
-    "name": "Amazon US SMR Facility Phase 165",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국에 최초의 모듈형 원자로 시설 건설을 돕고 있다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 166,
-    "name": "Meta Louisiana AIDC Phase 166",
-    "type": "AIDC",
-    "load": "700 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "루이지애나 주 상원의원이 메타의 가장 큰 데이터센터 부지를 확보하는 데 도움을 주었다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 167,
-    "name": "Microsoft Pecos AIDC Phase 167",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스주 Pecos에 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 168,
+    "id": 85,
     "name": "Microsoft Pure DC Finland AIDC Phase 168",
     "type": "AIDC",
     "load": "150 MW",
@@ -1943,106 +1028,7 @@
     "lng": 25.9209
   },
   {
-    "id": 169,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 169",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍주 샤이엔에 데이터센터 운영 확장을 발표했습니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 170,
-    "name": "Microsoft Pecos AI Datacenter Phase 170",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid (via Chevron deal)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 171,
-    "name": "Microsoft Cheyenne Datacenter Expansion Phase 171",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍 샤이엔 지역의 데이터센터 운영 확장을 발표하며 AI 혁신을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 172,
-    "name": "SpaceX 10GW AI Power Infrastructure",
-    "type": "SMR",
-    "load": "10 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "스페이스X가 2027년까지 10GW 규모의 AI 전력 인프라를 구축하며 마이크로소프트가 최대 구매자가 될 것으로 예상됩니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 173,
-    "name": "Microsoft Pecos AIDC Phase 173",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Gas Turbine",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 대규모 AI 데이터센터를 건설하고 셰브론과 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 174,
-    "name": "Microsoft Cheyenne AIDC Phase 174",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 와이오밍 샤이엔에서 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화합니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 175,
-    "name": "Meta Louisiana AIDC Phase 175",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "메타가 루이지애나에 자사 최대 규모의 데이터센터를 건설할 예정입니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 176,
-    "name": "Microsoft Texas AI Datacenter Phase 176",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Chevron Power Deal",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 셰브론과 파트너십을 체결함.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 177,
-    "name": "Amazon US Modular Nuclear Reactor Facility Phase 177",
-    "type": "SMR",
-    "load": "150 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 건설을 지원하고 있음.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 178,
+    "id": 86,
     "name": "Microsoft Denmark Datacenter Region",
     "type": "AIDC",
     "load": "400 MW",
@@ -2053,29 +1039,7 @@
     "lng": 10.3333
   },
   {
-    "id": 179,
-    "name": "Microsoft Texas AIDC",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 대규모 AI 데이터센터 건설을 위해 쉐브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 180,
-    "name": "Meta Louisiana Nuclear AIDC",
-    "type": "AIDC",
-    "load": "6000 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타가 세 곳의 원자력 회사와 총 6GW 이상의 전력 공급 계약을 맺고 루이지애나에 대규모 데이터센터를 구축하고 있습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 181,
+    "id": 87,
     "name": "Amazon SMR Facility Phase 181",
     "type": "SMR",
     "load": "300 MW",
@@ -2086,7 +1050,7 @@
     "lng": -77.0364
   },
   {
-    "id": 182,
+    "id": 88,
     "name": "튀르키예 한·미·튀 삼각동맹 SMR 국가 허브 (안카라)",
     "lat": 39.9334,
     "lng": 32.8597,
@@ -2099,7 +1063,7 @@
     "architecture": "Trilateral SMR Deployment Framework (Korea i-SMR & US Design R&D Platform)"
   },
   {
-    "id": 183,
+    "id": 89,
     "name": "튀르키예 시놉(Sinop) ARC-100 4세대 SMR 메가 단지",
     "lat": 42.0231,
     "lng": 35.1531,
@@ -2112,29 +1076,7 @@
     "architecture": "4th Gen Sodium-Cooled Fast Reactor (ARC-100) Multi-Module Array"
   },
   {
-    "id": 184,
-    "name": "Microsoft Pecos AIDC Phase 184",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Chevron Partnered Power",
-    "status": "active",
-    "desc": "Microsoft는 텍사스 Pecos에 새로운 대규모 AI 데이터센터를 건설하며 Chevron과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 185,
-    "name": "Microsoft Cheyenne AIDC Expansion Phase 185",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft는 와이오밍 Cheyenne에서 데이터센터 운영 확장을 발표하며 혁신 및 경제 성장을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 186,
+    "id": 90,
     "name": "Google Global AI Infrastructure",
     "type": "AIDC",
     "load": "500 MW",
@@ -2145,29 +1087,7 @@
     "lng": 12.5592
   },
   {
-    "id": 187,
-    "name": "Microsoft Pecos AI Datacenter Phase 187",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 188,
-    "name": "Microsoft Cheyenne Datacenter Expansion Phase 188",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 와이오밍 샤이엔 지역의 데이터센터 운영 확장을 발표하여 AI 혁신을 지원합니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 189,
+    "id": 91,
     "name": "SpaceX-xAI Hyperscale AI AIDC for Google",
     "type": "AIDC",
     "load": "1 GW",
@@ -2178,18 +1098,7 @@
     "lng": -118.756
   },
   {
-    "id": 190,
-    "name": "Microsoft Pecos AI Datacenter Phase 190",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid (via Chevron Power Deal)",
-    "status": "under construction",
-    "desc": "Microsoft는 텍사스 페코스에 새로운 AI 데이터센터를 건설하며 Chevron과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 191,
+    "id": 92,
     "name": "SpaceX-xAI Global 10GW Power Infrastructure",
     "type": "SMR",
     "load": "10 GW",
@@ -2200,73 +1109,7 @@
     "lng": 12.5592
   },
   {
-    "id": 192,
-    "name": "Microsoft Cheyenne AI Datacenter Expansion",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "planned",
-    "desc": "Microsoft는 와이오밍주 샤이엔에서 AI 데이터센터 운영 확장을 발표하며 지역 경제 성장을 가속화할 예정입니다.",
-    "lat": 41.14,
-    "lng": -104.8202
-  },
-  {
-    "id": 193,
-    "name": "Microsoft Pecos AIDC Phase 193",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 AI 확장을 위해 텍사스 페코스에 새로운 데이터센터를 건설하며 용량을 확장하고 있습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 194,
-    "name": "SpaceX 10GW AI Power Infrastructure Phase 194",
-    "type": "SMR",
-    "load": "10 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "스페이스X가 2027년까지 10GW 규모의 대규모 AI 전력 인프라를 구축할 계획이며, 마이크로소프트가 주요 전력 구매자가 될 것입니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 195,
-    "name": "Microsoft Texas AI Datacenter (Chevron Partnered)",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Chevron Partnership)",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 셰브론과 파트너십을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 196,
-    "name": "Microsoft Pecos AIDC Phase 196",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 새로운 데이터센터를 건설하여 AI 용량을 확장하고 있습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 197,
-    "name": "Microsoft Texas AI Datacenter Phase 197",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid (Chevron Partner)",
-    "status": "contracted",
-    "desc": "마이크로소프트가 텍사스에 대규모 AI 데이터센터를 건설하며 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 198,
+    "id": 93,
     "name": "Google-SpaceX AI Datacenter Capacity",
     "type": "AIDC",
     "load": "1 GW",
@@ -2277,62 +1120,7 @@
     "lng": -113.0907
   },
   {
-    "id": 199,
-    "name": "Microsoft Pecos AIDC Phase 199",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid, Renewables",
-    "status": "active",
-    "desc": "마이크로소프트가 Pecos에 새로운 AI 데이터센터를 건설하여 용량을 확장 중입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 200,
-    "name": "Microsoft Texas AI Datacenter Phase 200",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Natural Gas, Renewables",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 위치한 대규모 AI 데이터센터를 위해 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 201,
-    "name": "Google AI Datacenter Capacity (SpaceX-xAI)",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "SpaceX-xAI Infrastructure",
-    "status": "active",
-    "desc": "구글이 AI 데이터센터 용량 확보를 위해 스페이스X-xAI에 월 9억 2천만 달러를 지불할 예정입니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 202,
-    "name": "Microsoft Saudi Arabia East AIDC",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 사우디아라비아 동부 지역에 2026년 11월 가동 예정인 새로운 AI 데이터센터를 발표했습니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 203,
-    "name": "Microsoft Pecos Texas AIDC",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Gas",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스 페코스에 셰브론과 파트너십을 맺고 천연가스 터빈으로 전력을 공급하는 대규모 AI 데이터센터를 건설 중입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 204,
+    "id": 94,
     "name": "Google Oklahoma AI Datacenter",
     "type": "AIDC",
     "load": "200 MW",
@@ -2343,7 +1131,7 @@
     "lng": -97.2684
   },
   {
-    "id": 205,
+    "id": 95,
     "name": "Microsoft Saudi Arabia East AIDC Phase 205",
     "type": "AIDC",
     "load": "300 MW",
@@ -2354,18 +1142,7 @@
     "lng": 46.716
   },
   {
-    "id": 206,
-    "name": "Microsoft Texas AI AIDC Phase 206",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 대규모 AI 데이터센터 전력 공급을 위해 Chevron과 파트너십을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 207,
+    "id": 96,
     "name": "Microsoft Denmark AIDC",
     "type": "AIDC",
     "load": "180 MW",
@@ -2376,40 +1153,7 @@
     "lng": 12.5701
   },
   {
-    "id": 208,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 208",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid, Solar",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 지역에 새로운 AI 데이터센터를 개설합니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 209,
-    "name": "Microsoft Texas AI Datacenter Phase 209",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid, Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 텍사스에 건설될 대규모 AI 데이터센터의 전력 공급을 위해 Chevron과 파트너십을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 210,
-    "name": "Meta Louisiana AIDC Phase 210",
-    "type": "AIDC",
-    "load": "400 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Meta는 루이지애나에 자사의 최대 규모 AI 데이터센터를 건설할 예정입니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 211,
+    "id": 97,
     "name": "Microsoft Saudi Arabia East AIDC Phase 211",
     "type": "AIDC",
     "load": "300 MW",
@@ -2420,7 +1164,7 @@
     "lng": 46.716
   },
   {
-    "id": 212,
+    "id": 98,
     "name": "Meta Louisiana AIDC Phase 212",
     "type": "AIDC",
     "load": "1 GW",
@@ -2431,40 +1175,7 @@
     "lng": -91.187
   },
   {
-    "id": 213,
-    "name": "SpaceX 10GW Advanced Power Infrastructure",
-    "type": "SMR",
-    "load": "10 GW",
-    "source": "Advanced Energy",
-    "status": "active",
-    "desc": "스페이스X가 2027년까지 10GW의 대규모 전력을 생산할 계획이며, 마이크로소프트 등 AI 데이터센터에 공급될 예정.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 214,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 214",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "planned",
-    "desc": "마이크로소프트가 사우디아라비아 동부 지역에 새로운 AI 데이터센터를 2026년 11월 가동 예정이라고 발표함.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 215,
-    "name": "Microsoft Texas AI Datacenter Phase 215",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid, Natural Gas",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스의 대규모 AI 데이터센터 전력 공급을 위해 쉐브론과 계약을 체결함.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 216,
+    "id": 99,
     "name": "SpaceX-xAI 10GW AI Datacenter Infrastructure",
     "type": "AIDC",
     "load": "10 GW",
@@ -2475,7 +1186,7 @@
     "lng": -113.0907
   },
   {
-    "id": 217,
+    "id": 100,
     "name": "Microsoft Saudi Arabia East AIDC Phase 217",
     "type": "AIDC",
     "load": "250 MW",
@@ -2486,29 +1197,7 @@
     "lng": 42.3528
   },
   {
-    "id": 218,
-    "name": "Microsoft Texas AI Datacenter Phase 218",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Chevron Energy",
-    "status": "active",
-    "desc": "마이크로소프트가 텍사스에 대규모 AI 데이터센터 전력 공급을 위해 셰브론과 파트너십을 체결했다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 219,
-    "name": "Google Gas-Powered AIDC",
-    "type": "AIDC",
-    "load": "400 MW",
-    "source": "Gas Plant",
-    "status": "active",
-    "desc": "구글이 기후 목표와는 다른 방향으로 가스 발전소의 전력을 AI 데이터센터에 활용할 예정이다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 220,
+    "id": 101,
     "name": "Microsoft Saudi Arabia East AIDC Phase 220",
     "type": "AIDC",
     "load": "300 MW",
@@ -2519,7 +1208,7 @@
     "lng": 50.104
   },
   {
-    "id": 221,
+    "id": 102,
     "name": "Microsoft Texas AI Datacenter Phase 221",
     "type": "AIDC",
     "load": "500 MW",
@@ -2530,18 +1219,7 @@
     "lng": -96.7969
   },
   {
-    "id": 222,
-    "name": "Microsoft Pecos Datacenter Phase 222",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 새로운 AI 데이터센터를 텍사스 페코스에 건설하여 AI 역량을 확장하고 있다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 223,
+    "id": 103,
     "name": "Microsoft Saudi Arabia East AIDC Phase 223",
     "type": "AIDC",
     "load": "500 MW",
@@ -2552,18 +1230,7 @@
     "lng": 42.3528
   },
   {
-    "id": 224,
-    "name": "Microsoft Texas AI Datacenter Phase 224",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft와 Chevron이 텍사스의 대규모 AI 데이터센터에 대한 전력 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 225,
+    "id": 104,
     "name": "Google Gas Plant-Powered AIDC",
     "type": "AIDC",
     "load": "400 MW",
@@ -2574,73 +1241,7 @@
     "lng": -97.2684
   },
   {
-    "id": 226,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 226",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 사우디아라비아에 새로운 데이터센터 리전을 구축하여 서비스를 시작할 예정입니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 227,
-    "name": "Microsoft Texas AI Datacenter Phase 227",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 텍사스에 대규모 AI 데이터센터를 위해 Chevron과 전력 공급 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 228,
-    "name": "Microsoft Pecos AIDC Phase 228",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 텍사스 페코스에 새로운 데이터센터를 건설하며 AI를 위한 용량을 확장하고 있습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 229,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 229",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 2026년 11월 사우디아라비아 동부 지역에 새로운 데이터센터를 가동할 예정입니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 230,
-    "name": "Microsoft Texas Massive AIDC",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas (Chevron)",
-    "status": "active",
-    "desc": "마이크로소프트는 텍사스에 건설될 대규모 AI 데이터센터를 위해 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 231,
-    "name": "Meta 6GW Nuclear Power for AIDC",
-    "type": "SMR",
-    "load": "6 GW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "메타는 AI 데이터센터 전력 공급을 위해 세 곳의 원자력 회사와 6GW 이상의 전력 계약을 체결했습니다.",
-    "lat": 39.7837,
-    "lng": -100.4459
-  },
-  {
-    "id": 232,
+    "id": 105,
     "name": "Microsoft Saudi Arabia East AIDC Phase 232",
     "type": "AIDC",
     "load": "300 MW",
@@ -2651,29 +1252,7 @@
     "lng": 42.3528
   },
   {
-    "id": 233,
-    "name": "Microsoft Pecos Texas AIDC Phase 233",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid, Gas",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 파트너십을 맺고 텍사스 Pecos에 대규모 AI 데이터센터를 위한 전력 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
-  },
-  {
-    "id": 234,
-    "name": "Meta Louisiana AIDC Phase 234",
-    "type": "AIDC",
-    "load": "700 MW",
-    "source": "Grid, Solar",
-    "status": "active",
-    "desc": "Meta가 루이지애나에 자사의 최대 규모 AI 데이터센터 건설을 확정했습니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 235,
+    "id": 106,
     "name": "GS 동해 북평 메가 AI 데이터센터 캠퍼스",
     "lat": 37.4902,
     "lng": 129.1125,
@@ -2696,7 +1275,7 @@
     "carbon": "mid",
     "desc": "Bitdeer AI가 말레이시아 조호르바루 캠퍼스에 확보한 65.1MW 규모 AI 클라우드 데이터센터 A202. 기존 21.7MW A201과 같은 캠퍼스. 2027년 Q3 energization 예정. NVIDIA Cloud Partner 시설.",
     "architecture": "High-Density GPU AI Cloud Pod with NVIDIA Accelerated Computing",
-    "id": 236
+    "id": 107
   },
   {
     "name": "HyperVault Hyderabad AI Campus",
@@ -2709,7 +1288,7 @@
     "carbon": "low",
     "desc": "Tata Consultancy Services 자회사 HyperVault가 하이데라바드 남부 264에이커 부지에 조성하는 최대 1GW 규모 AI 데이터센터 캠퍼스. 최대 7000억 루피 투자, 단계별 구축. Amazon hyperscale 부지 인근.",
     "architecture": "Hyperscale AI Campus with High-Density GPU for Training & Inference",
-    "id": 237
+    "id": 108
   },
   {
     "name": "Firmus x OpenAI Malaysia AI Factory",
@@ -2722,7 +1301,7 @@
     "carbon": "mid",
     "desc": "호주 Firmus가 말레이시아에 구축하는 2개 AI Factory 사이트에 OpenAI가 앵커 고객으로 컴퓨팅 용량을 확보. Firmus 전체 계약 용량 900MW 이상 돌파. Nvidia, Blackstone 등 투자.",
     "architecture": "Firmus AI Factory with Dedicated AI Compute for Frontier Models",
-    "id": 238
+    "id": 109
   },
   {
     "name": "CURRENC 500MW Hyperscale AIDC - Johor",
@@ -2733,7 +1312,7 @@
     "desc": "100-acre hyperscale AI campus in Johor, Malaysia. Phase 1 100MW by end 2026, full 500MW plan. Co-location/wholesale for hyperscalers.",
     "type": "AIDC",
     "status": "active",
-    "id": 239
+    "id": 110
   },
   {
     "name": "AIP Monarch Compute Campus - 2GW Power",
@@ -2744,7 +1323,7 @@
     "desc": "Flagship multi-phase power + infra platform by American Intelligence & Power with Caterpillar & Boyd CAT alliance. Power delivery begins 2026, 2GW online 2027.",
     "type": "AIDC",
     "status": "smr",
-    "id": 240
+    "id": 111
   },
   {
     "name": "Hyperscale Data Michigan AI Campus - Alliance Cloud",
@@ -2755,7 +1334,7 @@
     "desc": "Michigan AI data center campus, $70M+ invested as of Sep 15 2026 into Alliance Cloud Services for California neocloud provider under MSA.",
     "type": "AIDC",
     "status": "active",
-    "id": 241
+    "id": 112
   },
   {
     "name": "Iron Mountain 350MW - Phoenix AZ",
@@ -2766,7 +1345,7 @@
     "desc": "Iron Mountain AI data center for US Southwest",
     "type": "AIDC",
     "status": "active",
-    "id": 242
+    "id": 113
   },
   {
     "name": "G42 xAI 5GW AI Campus - Abu Dhabi",
@@ -2777,7 +1356,7 @@
     "desc": "G42 and xAI mega AI campus in Abu Dhabi, 5GW phased plan, largest outside US",
     "type": "AIDC",
     "status": "smr",
-    "id": 243
+    "id": 114
   },
   {
     "name": "Blackstone QTS 1.2GW - Atlanta West",
@@ -2788,7 +1367,7 @@
     "desc": "QTS Atlanta mega expansion, hyperscale AI cluster for US East",
     "type": "AIDC",
     "status": "active",
-    "id": 244
+    "id": 115
   },
   {
     "name": "SoftBank SB Int 1GW AIDC - Osaka",
@@ -2799,7 +1378,7 @@
     "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
     "type": "AIDC",
     "status": "active",
-    "id": 245
+    "id": 116
   },
   {
     "name": "NTT 300MW Sovereign AI - Hokkaido",
@@ -2810,7 +1389,7 @@
     "desc": "NTT sovereign AI hub for Japanese gov LLM",
     "type": "AIDC",
     "status": "active",
-    "id": 246
+    "id": 117
   },
   {
     "name": "NEXTDC 700MW - Sydney West",
@@ -2821,7 +1400,7 @@
     "desc": "NEXTDC Sydney hyperscale AI campus",
     "type": "AIDC",
     "status": "active",
-    "id": 247
+    "id": 118
   },
   {
     "name": "CyrusOne 600MW - Madrid AI Corridor",
@@ -2832,7 +1411,7 @@
     "desc": "CyrusOne Iberian AI hub",
     "type": "AIDC",
     "status": "active",
-    "id": 248
+    "id": 119
   },
   {
     "name": "Equinix xAI Colossus 2 - Memphis",
@@ -2843,7 +1422,7 @@
     "desc": "Second phase of xAI Colossus supercluster, Memphis",
     "type": "AIDC",
     "status": "active",
-    "id": 249
+    "id": 120
   },
   {
     "name": "Microsoft Fairwater 2.5GW - Wisconsin",
@@ -2854,10 +1433,10 @@
     "desc": "Microsoft AI datacenter corridor, part of $3.3B Wisconsin investment",
     "type": "AIDC",
     "status": "smr",
-    "id": 250
+    "id": 121
   },
   {
-    "id": 251,
+    "id": 122,
     "name": "Microsoft Saudi Arabia East AIDC Phase 251",
     "type": "AIDC",
     "load": "500 MW",
@@ -2868,7 +1447,7 @@
     "lng": 46.716
   },
   {
-    "id": 252,
+    "id": 123,
     "name": "Microsoft Texas Chevron AIDC Phase 252",
     "type": "AIDC",
     "load": "1 GW",
@@ -2879,7 +1458,7 @@
     "lng": -96.7969
   },
   {
-    "id": 253,
+    "id": 124,
     "name": "Google Gas Plant AIDC",
     "type": "AIDC",
     "load": "750 MW",
@@ -2890,7 +1469,7 @@
     "lng": -97.5171
   },
   {
-    "id": 254,
+    "id": 125,
     "name": "Equinix SV10 Silicon Valley Data Center (San Jose)",
     "lat": 37.3875,
     "lng": -121.9635,
@@ -2903,7 +1482,7 @@
     "architecture": "Equinix High-Density Air Cooling & Optical Interconnect Fabric"
   },
   {
-    "id": 255,
+    "id": 126,
     "name": "Equinix SV11 Direct-to-Chip Liquid Cooling AIDC (San Jose)",
     "lat": 37.3892,
     "lng": -121.9618,
@@ -2924,7 +1503,7 @@
     "desc": "ST Telemedia Global Data Centres Johor expansion",
     "type": "AIDC",
     "status": "active",
-    "id": 256
+    "id": 127
   },
   {
     "name": "AdaniConneX 1GW AIDC - Hyderabad",
@@ -2935,7 +1514,7 @@
     "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
     "type": "AIDC",
     "status": "active",
-    "id": 257
+    "id": 128
   },
   {
     "name": "Digital Realty 400MW - Frankfurt AI Hub",
@@ -2946,21 +1525,10 @@
     "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
     "type": "AIDC",
     "status": "active",
-    "id": 258
+    "id": 129
   },
   {
-    "id": 259,
-    "name": "Microsoft Texas AI Datacenter Phase 259",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 텍사스 AI 데이터센터 전력 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 260,
+    "id": 130,
     "name": "Microsoft Saudi Arabia East Datacenter Region",
     "type": "AIDC",
     "load": "300 MW",
@@ -2971,7 +1539,7 @@
     "lng": 42.3528
   },
   {
-    "id": 261,
+    "id": 131,
     "name": "Google SpaceX-xAI AI Datacenter Capacity",
     "type": "AIDC",
     "load": "1 GW",
@@ -2982,18 +1550,7 @@
     "lng": -116.8537
   },
   {
-    "id": 262,
-    "name": "Microsoft Texas AI Datacenter Phase 262",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 Chevron과 텍사스에 대규모 AI 데이터센터 전력 공급 계약을 체결함.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 263,
+    "id": 132,
     "name": "Microsoft Saudi Arabia East Datacenter Region Phase 263",
     "type": "AIDC",
     "load": "300 MW",
@@ -3004,18 +1561,7 @@
     "lng": 42.3528
   },
   {
-    "id": 264,
-    "name": "Meta Louisiana Datacenter",
-    "type": "AIDC",
-    "load": "750 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Meta가 루이지애나에 자사 최대 규모의 데이터센터 부지를 확보함.",
-    "lat": 30.8704,
-    "lng": -92.0071
-  },
-  {
-    "id": 265,
+    "id": 133,
     "name": "Google Tennessee SMR",
     "type": "SMR",
     "load": "50 MW",
@@ -3026,18 +1572,7 @@
     "lng": -86.282
   },
   {
-    "id": 266,
-    "name": "Microsoft Texas AI Datacenter Phase 266",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Hybrid",
-    "status": "active",
-    "desc": "마이크로소프트와 셰브론이 텍사스주 대규모 AI 데이터센터를 위한 전력 계약을 체결했습니다.",
-    "lat": 31.2639,
-    "lng": -98.5456
-  },
-  {
-    "id": 267,
+    "id": 134,
     "name": "Microsoft Saudi Arabia East AIDC Phase 267",
     "type": "AIDC",
     "load": "300 MW",
@@ -3046,5 +1581,38 @@
     "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 데이터센터 리전을 가동할 예정입니다.",
     "lat": 25.6243,
     "lng": 42.3528
+  },
+  {
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+    "type": "AIDC",
+    "status": "active",
+    "id": 135
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 136
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active",
+    "id": 137
   }
 ]
