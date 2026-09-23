@@ -2,7 +2,7 @@ name: daily-aidc-live-auto
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 매일 00:00 UTC = 09:00 KST
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,14 +17,27 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run live updater
+      - name: Check file location and run
         run: |
-          python agent/main_live.py
+          echo "=== Current files ==="
+          ls -la
+          echo "=== Check agent folder ==="
+          ls -la agent/ || echo "agent folder not found"
+          echo "=== Running updater ==="
+          if [ -f "agent/main_live.py" ]; then
+            python agent/main_live.py
+          elif [ -f "main_live.py" ]; then
+            python main_live.py
+          else
+            echo "ERROR: main_live.py not found in root or agent/"
+            echo "Please put main_live.py in agent/ folder"
+            exit 2
+          fi
 
       - name: Commit and push if changed
         run: |
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
           git add data.json last_update_summary.json
-          git diff --staged --quiet || git commit -m "auto: daily 3 AIDC update + dedup protect"
+          git diff --staged --quiet || git commit -m "auto: daily 3 AIDC update + dedup protect Hanam/Goyang/DFW"
           git push
