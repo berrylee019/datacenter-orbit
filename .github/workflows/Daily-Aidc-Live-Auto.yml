@@ -1,0 +1,30 @@
+name: daily-aidc-live-auto
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 00:00 UTC = 09:00 KST
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run live updater
+        run: |
+          python agent/main_live.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "auto-bot"
+          git config --global user.email "auto@bot.com"
+          git add data.json last_update_summary.json
+          git diff --staged --quiet || git commit -m "auto: daily 3 AIDC update + dedup protect"
+          git push
