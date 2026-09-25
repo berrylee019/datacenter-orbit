@@ -1,18 +1,7 @@
 {
-  "last_updated": "2026-09-24T04:29:41.496029+00:00",
-  "total_count": 140,
+  "last_updated": "2026-09-25T04:40:55.580962+00:00",
+  "total_count": 143,
   "newly_added": [
-    {
-      "name": "Digital Realty 400MW - Frankfurt AI Hub",
-      "lat": 50.1109,
-      "lng": 8.6821,
-      "load": "400MW",
-      "source": "Amprion Grid + Wind",
-      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-      "type": "AIDC",
-      "status": "active",
-      "id": 138
-    },
     {
       "name": "STT GDC 500MW - Johor 2nd Phase",
       "lat": 1.485,
@@ -22,7 +11,7 @@
       "desc": "ST Telemedia Global Data Centres Johor expansion",
       "type": "AIDC",
       "status": "active",
-      "id": 139
+      "id": 141
     },
     {
       "name": "Equinix xAI Colossus 2 - Memphis",
@@ -33,8 +22,19 @@
       "desc": "Second phase of xAI Colossus supercluster, Memphis",
       "type": "AIDC",
       "status": "active",
-      "id": 140
+      "id": 142
+    },
+    {
+      "name": "Digital Realty 400MW - Frankfurt AI Hub",
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "load": "400MW",
+      "source": "Amprion Grid + Wind",
+      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+      "type": "AIDC",
+      "status": "active",
+      "id": 143
     }
   ],
-  "korean_time": "2026-09-24 04:29 KST"
+  "korean_time": "2026-09-25 04:40 KST"
 }
