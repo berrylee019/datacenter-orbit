@@ -1680,5 +1680,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 143
+  },
+  {
+    "name": "Equinix xAI Colossus 2 - Memphis",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "load": "800MW",
+    "source": "TVA Grid + Gas Turbines",
+    "desc": "Second phase of xAI Colossus supercluster, Memphis",
+    "type": "AIDC",
+    "status": "active",
+    "id": 144
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 145
+  },
+  {
+    "name": "SoftBank SB Int 1GW AIDC - Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "load": "1000MW",
+    "source": "KEPCO Grid + SMR",
+    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+    "type": "AIDC",
+    "status": "active",
+    "id": 146
   }
 ]
