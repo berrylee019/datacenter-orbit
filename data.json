@@ -1713,5 +1713,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 146
+  },
+  {
+    "name": "SoftBank SB Int 1GW AIDC - Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "load": "1000MW",
+    "source": "KEPCO Grid + SMR",
+    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+    "type": "AIDC",
+    "status": "active",
+    "id": 147
+  },
+  {
+    "name": "Equinix xAI Colossus 2 - Memphis",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "load": "800MW",
+    "source": "TVA Grid + Gas Turbines",
+    "desc": "Second phase of xAI Colossus supercluster, Memphis",
+    "type": "AIDC",
+    "status": "active",
+    "id": 148
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active",
+    "id": 149
   }
 ]
