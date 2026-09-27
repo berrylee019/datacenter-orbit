@@ -1746,5 +1746,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 149
+  },
+  {
+    "id": 150,
+    "name": "Google Tennessee SMR Phase 150",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Google은 테네시주에 50MW SMR 건설을 위해 Kairos Power와 삼성물산을 선정했다.",
+    "lat": 35.773,
+    "lng": -86.282
+  },
+  {
+    "id": 151,
+    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 151",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 2026년 11월 사우디아라비아 동부 데이터센터 리전을 가동할 예정이라고 발표했다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 152,
+    "name": "Microsoft Massive Texas AI Datacenter",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Gas",
+    "status": "active",
+    "desc": "마이크로소프트는 셰브론과 파트너십을 맺고 텍사스 페코스에 대규모 AI 데이터센터를 건설하며, 이는 가스터빈으로 20년간 전력을 공급받을 예정이다.",
+    "lat": 30.7857,
+    "lng": -102.8065
   }
 ]
