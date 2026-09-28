@@ -1770,14 +1770,36 @@
     "lng": 42.3528
   },
   {
-    "id": 152,
-    "name": "Microsoft Massive Texas AI Datacenter",
+    "name": "AdaniConneX 1GW AIDC - Hyderabad",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "load": "1000MW",
+    "source": "NTPC + Solar",
+    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
     "type": "AIDC",
-    "load": "500 MW",
-    "source": "Gas",
     "status": "active",
-    "desc": "마이크로소프트는 셰브론과 파트너십을 맺고 텍사스 페코스에 대규모 AI 데이터센터를 건설하며, 이는 가스터빈으로 20년간 전력을 공급받을 예정이다.",
-    "lat": 30.7857,
-    "lng": -102.8065
+    "id": 152
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 153
+  },
+  {
+    "name": "Equinix xAI Colossus 2 - Memphis",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "load": "800MW",
+    "source": "TVA Grid + Gas Turbines",
+    "desc": "Second phase of xAI Colossus supercluster, Memphis",
+    "type": "AIDC",
+    "status": "active",
+    "id": 154
   }
 ]

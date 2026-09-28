@@ -1,17 +1,28 @@
 {
-  "last_updated": "2026-09-27T05:05:32.661185+00:00",
-  "total_count": 149,
+  "last_updated": "2026-09-28T05:07:43.044967+00:00",
+  "total_count": 154,
   "newly_added": [
     {
-      "name": "SoftBank SB Int 1GW AIDC - Osaka",
-      "lat": 34.6937,
-      "lng": 135.5023,
+      "name": "AdaniConneX 1GW AIDC - Hyderabad",
+      "lat": 17.385,
+      "lng": 78.4867,
       "load": "1000MW",
-      "source": "KEPCO Grid + SMR",
-      "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+      "source": "NTPC + Solar",
+      "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
       "type": "AIDC",
       "status": "active",
-      "id": 147
+      "id": 152
+    },
+    {
+      "name": "STT GDC 500MW - Johor 2nd Phase",
+      "lat": 1.485,
+      "lng": 103.761,
+      "load": "500MW",
+      "source": "TNB + Solar",
+      "desc": "ST Telemedia Global Data Centres Johor expansion",
+      "type": "AIDC",
+      "status": "active",
+      "id": 153
     },
     {
       "name": "Equinix xAI Colossus 2 - Memphis",
@@ -22,19 +33,8 @@
       "desc": "Second phase of xAI Colossus supercluster, Memphis",
       "type": "AIDC",
       "status": "active",
-      "id": 148
-    },
-    {
-      "name": "CyrusOne 600MW - Madrid AI Corridor",
-      "lat": 40.4168,
-      "lng": -3.7038,
-      "load": "600MW",
-      "source": "Red Electrica + Solar",
-      "desc": "CyrusOne Iberian AI hub",
-      "type": "AIDC",
-      "status": "active",
-      "id": 149
+      "id": 154
     }
   ],
-  "korean_time": "2026-09-27 05:05 KST"
+  "korean_time": "2026-09-28 05:07 KST"
 }
