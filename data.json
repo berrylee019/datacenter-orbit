@@ -1801,5 +1801,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 154
+  },
+  {
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+    "type": "AIDC",
+    "status": "active",
+    "id": 155
+  },
+  {
+    "name": "Equinix xAI Colossus 2 - Memphis",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "load": "800MW",
+    "source": "TVA Grid + Gas Turbines",
+    "desc": "Second phase of xAI Colossus supercluster, Memphis",
+    "type": "AIDC",
+    "status": "active",
+    "id": 156
+  },
+  {
+    "name": "SoftBank SB Int 1GW AIDC - Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "load": "1000MW",
+    "source": "KEPCO Grid + SMR",
+    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+    "type": "AIDC",
+    "status": "active",
+    "id": 157
   }
 ]

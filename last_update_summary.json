@@ -1,28 +1,17 @@
 {
-  "last_updated": "2026-09-28T05:07:43.044967+00:00",
-  "total_count": 154,
+  "last_updated": "2026-09-29T05:31:13.443913+00:00",
+  "total_count": 157,
   "newly_added": [
     {
-      "name": "AdaniConneX 1GW AIDC - Hyderabad",
-      "lat": 17.385,
-      "lng": 78.4867,
-      "load": "1000MW",
-      "source": "NTPC + Solar",
-      "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+      "name": "Digital Realty 400MW - Frankfurt AI Hub",
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "load": "400MW",
+      "source": "Amprion Grid + Wind",
+      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
       "type": "AIDC",
       "status": "active",
-      "id": 152
-    },
-    {
-      "name": "STT GDC 500MW - Johor 2nd Phase",
-      "lat": 1.485,
-      "lng": 103.761,
-      "load": "500MW",
-      "source": "TNB + Solar",
-      "desc": "ST Telemedia Global Data Centres Johor expansion",
-      "type": "AIDC",
-      "status": "active",
-      "id": 153
+      "id": 155
     },
     {
       "name": "Equinix xAI Colossus 2 - Memphis",
@@ -33,8 +22,19 @@
       "desc": "Second phase of xAI Colossus supercluster, Memphis",
       "type": "AIDC",
       "status": "active",
-      "id": 154
+      "id": 156
+    },
+    {
+      "name": "SoftBank SB Int 1GW AIDC - Osaka",
+      "lat": 34.6937,
+      "lng": 135.5023,
+      "load": "1000MW",
+      "source": "KEPCO Grid + SMR",
+      "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+      "type": "AIDC",
+      "status": "active",
+      "id": 157
     }
   ],
-  "korean_time": "2026-09-28 05:07 KST"
+  "korean_time": "2026-09-29 05:31 KST"
 }
