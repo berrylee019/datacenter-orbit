@@ -1,7 +1,18 @@
 {
-  "last_updated": "2026-09-30T05:19:16.615120+00:00",
-  "total_count": 160,
+  "last_updated": "2026-10-01T05:34:18.600337+00:00",
+  "total_count": 163,
   "newly_added": [
+    {
+      "name": "Equinix xAI Colossus 2 - Memphis",
+      "lat": 35.1495,
+      "lng": -90.049,
+      "load": "800MW",
+      "source": "TVA Grid + Gas Turbines",
+      "desc": "Second phase of xAI Colossus supercluster, Memphis",
+      "type": "AIDC",
+      "status": "active",
+      "id": 161
+    },
     {
       "name": "STT GDC 500MW - Johor 2nd Phase",
       "lat": 1.485,
@@ -11,7 +22,7 @@
       "desc": "ST Telemedia Global Data Centres Johor expansion",
       "type": "AIDC",
       "status": "active",
-      "id": 158
+      "id": 162
     },
     {
       "name": "CyrusOne 600MW - Madrid AI Corridor",
@@ -22,19 +33,8 @@
       "desc": "CyrusOne Iberian AI hub",
       "type": "AIDC",
       "status": "active",
-      "id": 159
-    },
-    {
-      "name": "Equinix xAI Colossus 2 - Memphis",
-      "lat": 35.1495,
-      "lng": -90.049,
-      "load": "800MW",
-      "source": "TVA Grid + Gas Turbines",
-      "desc": "Second phase of xAI Colossus supercluster, Memphis",
-      "type": "AIDC",
-      "status": "active",
-      "id": 160
+      "id": 163
     }
   ],
-  "korean_time": "2026-09-30 05:19 KST"
+  "korean_time": "2026-10-01 05:34 KST"
 }
