@@ -1,18 +1,7 @@
 {
-  "last_updated": "2026-10-01T05:34:18.600337+00:00",
-  "total_count": 163,
+  "last_updated": "2026-10-02T05:21:15.315832+00:00",
+  "total_count": 166,
   "newly_added": [
-    {
-      "name": "Equinix xAI Colossus 2 - Memphis",
-      "lat": 35.1495,
-      "lng": -90.049,
-      "load": "800MW",
-      "source": "TVA Grid + Gas Turbines",
-      "desc": "Second phase of xAI Colossus supercluster, Memphis",
-      "type": "AIDC",
-      "status": "active",
-      "id": 161
-    },
     {
       "name": "STT GDC 500MW - Johor 2nd Phase",
       "lat": 1.485,
@@ -22,19 +11,30 @@
       "desc": "ST Telemedia Global Data Centres Johor expansion",
       "type": "AIDC",
       "status": "active",
-      "id": 162
+      "id": 164
     },
     {
-      "name": "CyrusOne 600MW - Madrid AI Corridor",
-      "lat": 40.4168,
-      "lng": -3.7038,
-      "load": "600MW",
-      "source": "Red Electrica + Solar",
-      "desc": "CyrusOne Iberian AI hub",
+      "name": "Digital Realty 400MW - Frankfurt AI Hub",
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "load": "400MW",
+      "source": "Amprion Grid + Wind",
+      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
       "type": "AIDC",
       "status": "active",
-      "id": 163
+      "id": 165
+    },
+    {
+      "name": "AdaniConneX 1GW AIDC - Hyderabad",
+      "lat": 17.385,
+      "lng": 78.4867,
+      "load": "1000MW",
+      "source": "NTPC + Solar",
+      "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+      "type": "AIDC",
+      "status": "active",
+      "id": 166
     }
   ],
-  "korean_time": "2026-10-01 05:34 KST"
+  "korean_time": "2026-10-02 05:21 KST"
 }
