@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-02T05:21:15.315832+00:00",
-  "total_count": 166,
+  "last_updated": "2026-10-03T05:04:09.444703+00:00",
+  "total_count": 171,
   "newly_added": [
     {
       "name": "STT GDC 500MW - Johor 2nd Phase",
@@ -11,7 +11,7 @@
       "desc": "ST Telemedia Global Data Centres Johor expansion",
       "type": "AIDC",
       "status": "active",
-      "id": 164
+      "id": 169
     },
     {
       "name": "Digital Realty 400MW - Frankfurt AI Hub",
@@ -22,19 +22,19 @@
       "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
       "type": "AIDC",
       "status": "active",
-      "id": 165
+      "id": 170
     },
     {
-      "name": "AdaniConneX 1GW AIDC - Hyderabad",
-      "lat": 17.385,
-      "lng": 78.4867,
+      "name": "SoftBank SB Int 1GW AIDC - Osaka",
+      "lat": 34.6937,
+      "lng": 135.5023,
       "load": "1000MW",
-      "source": "NTPC + Solar",
-      "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+      "source": "KEPCO Grid + SMR",
+      "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
       "type": "AIDC",
       "status": "active",
-      "id": 166
+      "id": 171
     }
   ],
-  "korean_time": "2026-10-02 05:21 KST"
+  "korean_time": "2026-10-03 05:04 KST"
 }
