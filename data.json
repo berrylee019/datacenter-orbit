@@ -2133,25 +2133,36 @@
     "lng": -86.282
   },
   {
-    "id": 185,
-    "name": "Microsoft Pecos AI Datacenter",
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
     "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
     "status": "active",
-    "desc": "Microsoft는 텍사스 Pecos에 신규 AI 데이터센터를 건설하며 Chevron과 전력 공급 계약을 체결했습니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
+    "id": 185
   },
   {
-    "id": 186,
-    "name": "Meta Louisiana AIDC",
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
     "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
     "status": "active",
-    "desc": "Meta가 루이지애나 주 상원의원의 도움으로 자사 최대 규모의 데이터센터를 확보하고 건설 중입니다.",
-    "lat": 30.8704,
-    "lng": -92.0071
+    "id": 186
+  },
+  {
+    "name": "AdaniConneX 1GW AIDC - Hyderabad",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "load": "1000MW",
+    "source": "NTPC + Solar",
+    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+    "type": "AIDC",
+    "status": "active",
+    "id": 187
   }
 ]
