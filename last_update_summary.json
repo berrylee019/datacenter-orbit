@@ -1,17 +1,28 @@
 {
-  "last_updated": "2026-10-12T05:41:24.346282+00:00",
-  "total_count": 199,
+  "last_updated": "2026-10-13T06:37:07.898310+00:00",
+  "total_count": 202,
   "newly_added": [
     {
-      "name": "CyrusOne 600MW - Madrid AI Corridor",
-      "lat": 40.4168,
-      "lng": -3.7038,
-      "load": "600MW",
-      "source": "Red Electrica + Solar",
-      "desc": "CyrusOne Iberian AI hub",
+      "name": "Digital Realty 400MW - Frankfurt AI Hub",
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "load": "400MW",
+      "source": "Amprion Grid + Wind",
+      "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
       "type": "AIDC",
       "status": "active",
-      "id": 197
+      "id": 200
+    },
+    {
+      "name": "STT GDC 500MW - Johor 2nd Phase",
+      "lat": 1.485,
+      "lng": 103.761,
+      "load": "500MW",
+      "source": "TNB + Solar",
+      "desc": "ST Telemedia Global Data Centres Johor expansion",
+      "type": "AIDC",
+      "status": "active",
+      "id": 201
     },
     {
       "name": "AdaniConneX 1GW AIDC - Hyderabad",
@@ -22,19 +33,8 @@
       "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
       "type": "AIDC",
       "status": "active",
-      "id": 198
-    },
-    {
-      "name": "SoftBank SB Int 1GW AIDC - Osaka",
-      "lat": 34.6937,
-      "lng": 135.5023,
-      "load": "1000MW",
-      "source": "KEPCO Grid + SMR",
-      "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-      "type": "AIDC",
-      "status": "active",
-      "id": 199
+      "id": 202
     }
   ],
-  "korean_time": "2026-10-12 05:41 KST"
+  "korean_time": "2026-10-13 06:37 KST"
 }
