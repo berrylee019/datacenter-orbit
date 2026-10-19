@@ -2527,5 +2527,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 220
+  },
+  {
+    "id": 221,
+    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 221",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 데이터센터 지역을 가동할 예정입니다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 222,
+    "name": "Google Tennessee SMR Phase 222",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "카이로스 파워가 삼성물산과 함께 테네시 구글 데이터센터를 위한 50MW SMR을 건설합니다.",
+    "lat": 35.773,
+    "lng": -86.282
+  },
+  {
+    "id": 223,
+    "name": "Microsoft Pecos AI Datacenter",
+    "type": "AIDC",
+    "load": "750 MW",
+    "source": "Natural Gas",
+    "status": "active",
+    "desc": "마이크로소프트는 텍사스 페코스에 대규모 AI 데이터센터를 건설하며 천연가스 터빈으로 전력을 공급받을 예정입니다.",
+    "lat": 30.7857,
+    "lng": -102.8065
   }
 ]
