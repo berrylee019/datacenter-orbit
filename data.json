@@ -2551,14 +2551,36 @@
     "lng": -86.282
   },
   {
-    "id": 223,
-    "name": "Microsoft Pecos AI Datacenter",
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
     "type": "AIDC",
-    "load": "750 MW",
-    "source": "Natural Gas",
     "status": "active",
-    "desc": "마이크로소프트는 텍사스 페코스에 대규모 AI 데이터센터를 건설하며 천연가스 터빈으로 전력을 공급받을 예정입니다.",
-    "lat": 30.7857,
-    "lng": -102.8065
+    "id": 223
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 224
+  },
+  {
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+    "type": "AIDC",
+    "status": "active",
+    "id": 225
   }
 ]
