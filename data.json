@@ -2582,5 +2582,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 225
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active",
+    "id": 226
+  },
+  {
+    "name": "Digital Realty 400MW - Frankfurt AI Hub",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "load": "400MW",
+    "source": "Amprion Grid + Wind",
+    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
+    "type": "AIDC",
+    "status": "active",
+    "id": 227
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 228
   }
 ]
