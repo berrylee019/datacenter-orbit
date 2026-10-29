@@ -2879,5 +2879,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 252
+  },
+  {
+    "id": 253,
+    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 253",
+    "type": "AIDC",
+    "load": "500 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 11월에 사우디아라비아 동부에 새로운 데이터센터 리전을 선보일 예정입니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
+  },
+  {
+    "id": 254,
+    "name": "Amazon Indiana SMR Plant",
+    "type": "SMR",
+    "load": "960 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 인디애나 데이터센터를 위한 960MW SMR 발전소 연구에 자금을 지원합니다.",
+    "lat": 40.327,
+    "lng": -86.1747
+  },
+  {
+    "id": 255,
+    "name": "Google Tennessee SMR Phase 255",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Kairos Power가 구글 테네시 데이터센터를 위한 50MW SMR 건설에 삼성물산을 선정했습니다.",
+    "lat": 35.773,
+    "lng": -86.282
   }
 ]
