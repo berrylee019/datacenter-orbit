@@ -2882,17 +2882,6 @@
   },
   {
     "id": 253,
-    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 253",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월에 사우디아라비아 동부에 새로운 데이터센터 리전을 선보일 예정입니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 254,
     "name": "Amazon Indiana SMR Plant",
     "type": "SMR",
     "load": "960 MW",
@@ -2903,7 +2892,7 @@
     "lng": -86.1747
   },
   {
-    "id": 255,
+    "id": 254,
     "name": "Google Tennessee SMR Phase 255",
     "type": "SMR",
     "load": "50 MW",
@@ -2912,5 +2901,38 @@
     "desc": "Kairos Power가 구글 테네시 데이터센터를 위한 50MW SMR 건설에 삼성물산을 선정했습니다.",
     "lat": 35.773,
     "lng": -86.282
+  },
+  {
+    "name": "STT GDC 500MW - Johor 2nd Phase",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "500MW",
+    "source": "TNB + Solar",
+    "desc": "ST Telemedia Global Data Centres Johor expansion",
+    "type": "AIDC",
+    "status": "active",
+    "id": 255
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active",
+    "id": 256
+  },
+  {
+    "name": "AdaniConneX 1GW AIDC - Hyderabad",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "load": "1000MW",
+    "source": "NTPC + Solar",
+    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+    "type": "AIDC",
+    "status": "active",
+    "id": 257
   }
 ]
