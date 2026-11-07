@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-06T06:17:26.778914+00:00",
-  "total_count": 281,
+  "last_updated": "2026-11-07T05:43:27.469009+00:00",
+  "total_count": 284,
   "newly_added": [
     {
       "name": "SoftBank SB Int 1GW AIDC - Osaka",
@@ -11,7 +11,7 @@
       "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
       "type": "AIDC",
       "status": "active",
-      "id": 279
+      "id": 282
     },
     {
       "name": "Equinix xAI Colossus 2 - Memphis",
@@ -22,7 +22,7 @@
       "desc": "Second phase of xAI Colossus supercluster, Memphis",
       "type": "AIDC",
       "status": "active",
-      "id": 280
+      "id": 283
     },
     {
       "name": "AdaniConneX 1GW AIDC - Hyderabad",
@@ -33,8 +33,8 @@
       "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
       "type": "AIDC",
       "status": "active",
-      "id": 281
+      "id": 284
     }
   ],
-  "korean_time": "2026-11-06 06:17 KST"
+  "korean_time": "2026-11-07 05:43 KST"
 }
