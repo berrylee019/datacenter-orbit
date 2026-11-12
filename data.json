@@ -3396,5 +3396,38 @@
     "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 데이터센터 지역이 가동될 것이라고 발표했습니다.",
     "lat": 25.6243,
     "lng": 42.3528
+  },
+  {
+    "name": "CyrusOne 600MW - Madrid AI Corridor",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "load": "600MW",
+    "source": "Red Electrica + Solar",
+    "desc": "CyrusOne Iberian AI hub",
+    "type": "AIDC",
+    "status": "active",
+    "id": 300
+  },
+  {
+    "name": "AdaniConneX 1GW AIDC - Hyderabad",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "load": "1000MW",
+    "source": "NTPC + Solar",
+    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
+    "type": "AIDC",
+    "status": "active",
+    "id": 301
+  },
+  {
+    "name": "SoftBank SB Int 1GW AIDC - Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "load": "1000MW",
+    "source": "KEPCO Grid + SMR",
+    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
+    "type": "AIDC",
+    "status": "active",
+    "id": 302
   }
 ]
