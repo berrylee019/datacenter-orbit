@@ -3429,5 +3429,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 302
+  },
+  {
+    "id": 303,
+    "name": "Google Tennessee SMR Phase 303",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Google의 테네시 데이터센터 전력 공급을 위해 Kairos Power가 50MW SMR 건설을 삼성물산과 협력하여 진행합니다.",
+    "lat": 35.773,
+    "lng": -86.282
+  },
+  {
+    "id": 304,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 304",
+    "type": "AIDC",
+    "load": "180 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 2026년 11월에 사우디아라비아 동부 데이터센터 리전을 개시할 예정임을 발표했습니다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 305,
+    "name": "Microsoft Mount Pleasant AIDC Phase 305",
+    "type": "AIDC",
+    "load": "100 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 위스콘신 주 마운트 플레전트의 첫 데이터센터 시설 건설을 완료했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
   }
 ]
