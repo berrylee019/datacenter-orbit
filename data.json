@@ -3528,5 +3528,38 @@
     "type": "AIDC",
     "status": "active",
     "id": 311
+  },
+  {
+    "id": 312,
+    "name": "Google Tennessee 50MW SMR",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "Kairos Power가 테네시주에 있는 Google의 데이터센터에 전력을 공급할 50MW SMR 건설을 위해 삼성물산을 선정했습니다.",
+    "lat": 35.773,
+    "lng": -86.282
+  },
+  {
+    "id": 313,
+    "name": "Microsoft Mount Pleasant Datacenter",
+    "type": "AIDC",
+    "load": "",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 위스콘신주 마운트 플레전트에 첫 데이터센터 시설 건설을 완료했습니다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 314,
+    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 314",
+    "type": "AIDC",
+    "load": "",
+    "source": "Grid",
+    "status": "active",
+    "desc": "Microsoft가 사우디아라비아 동부 지역에 새로운 데이터센터를 2026년 11월에 개설할 예정입니다.",
+    "lat": 40.4173,
+    "lng": -82.9071
   }
 ]
