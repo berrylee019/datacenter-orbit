@@ -3693,5 +3693,38 @@
     "desc": "Microsoft가 위스콘신주 마운트 플레전트에서 첫 번째 데이터센터 시설 건설을 완료했습니다.",
     "lat": 42.7192,
     "lng": -87.8543
+  },
+  {
+    "id": 327,
+    "name": "Google Tennessee SMR Plant",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "구글이 테네시주 데이터센터 전력 공급을 위해 50MW 규모의 SMR 건설을 위해 카이로스 파워와 계약했다.",
+    "lat": 35.773,
+    "lng": -86.282
+  },
+  {
+    "id": 328,
+    "name": "Microsoft Saudi Arabia East AIDC Phase 328",
+    "type": "AIDC",
+    "load": "300 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 지역을 발표했다.",
+    "lat": 25.6243,
+    "lng": 42.3528
+  },
+  {
+    "id": 329,
+    "name": "Amazon Ohio SMR AIDC",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "아마존이 데이터센터 전력 공급을 위해 여러 SMR 계약을 체결함에 따라 오하이오에 핵SMR 기반 데이터센터를 추진한다.",
+    "lat": 40.2254,
+    "lng": -82.6881
   }
 ]
