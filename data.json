@@ -3759,5 +3759,38 @@
     "desc": "Microsoft가 위스콘신주 마운트 플레전트의 첫 데이터센터 시설 건설을 완료했다.",
     "lat": 42.7192,
     "lng": -87.8543
+  },
+  {
+    "id": 333,
+    "name": "Google Tennessee SMR Power Project",
+    "type": "SMR",
+    "load": "50 MW",
+    "source": "Nuclear",
+    "status": "active",
+    "desc": "구글은 카이로스 파워 및 삼성물산과 함께 테네시주에 50MW SMR 건설 프로젝트를 진행한다.",
+    "lat": 35.773,
+    "lng": -86.282
+  },
+  {
+    "id": 334,
+    "name": "Microsoft Mount Pleasant AIDC Phase 334",
+    "type": "AIDC",
+    "load": "150 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 위스콘신주 마운트 플레전트에 첫 데이터센터 시설 건설을 완료했다.",
+    "lat": 42.7192,
+    "lng": -87.8543
+  },
+  {
+    "id": 335,
+    "name": "Microsoft West Denmark AIDC Region",
+    "type": "AIDC",
+    "load": "180 MW",
+    "source": "Grid",
+    "status": "active",
+    "desc": "마이크로소프트는 서부 덴마크에 새로운 데이터센터 리전 건설 계획을 발표했다.",
+    "lat": 43.9925,
+    "lng": -70.8705
   }
 ]
