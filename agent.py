@@ -203,7 +203,7 @@ def run_infra_agent_pipeline():
         if not isinstance(new_infra_items, list):
             new_infra_items = [new_infra_items]
             
-        has_new_data = False
+        has_change = False
         for new_item in new_infra_items:
             # 1) 위치를 먼저 확정한다. 지오코딩이 실패하거나 나라·주 단위 centroid,
             #    동명 지명(예: Denmark -> 미국 메인주 Denmark)으로 잡히면 좌표를
@@ -227,19 +227,20 @@ def run_infra_agent_pipeline():
                     if new_item.get(key):
                         dup[key] = new_item[key]
                 print(f"↺ 기존 항목 갱신(신규 행 없음): {dup['name']}")
+                has_change = True
                 continue
 
             new_item["id"] = next_id
             next_id += 1
             existing_data.append(new_item)
-            has_new_data = True
+            has_change = True
             
-        if has_new_data:
+        if has_change:
             with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
                 json.dump(existing_data, f, ensure_ascii=False, indent=2)
-            print("✅ 성공: 구글 Gemini 엔진을 통해 data.json에 무상 데이터가 적재되었습니다.")
+            print("✅ 성공: 구글 Gemini 엔진 결과를 data.json에 반영했습니다.")
         else:
-            print("⚠️ 데이터가 추가되지 않았습니다.")
+            print("⚠️ 새로 추가·변경된 데이터가 없습니다.")
             
     except Exception as e:
         print(f"❌ 에러 발생: {str(e)}")
