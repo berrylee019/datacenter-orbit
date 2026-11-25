@@ -57,6 +57,12 @@ def is_same_facility(new, existing):
         # 한 이름이 다른 이름을 포함하거나, 유사도 높음
         if new_name in exist_name or exist_name in new_name:
             return True
+        # 중간에 수식어가 끼어든 경우(예: 'GS 동해 북평 AI 데이터센터' vs
+        # 'GS 동해 북평 메가 AI 데이터센터 캠퍼스') 짧은 이름의 90% 이상이
+        # 긴 이름에 들어 있으면 같은 시설로 판단
+        short, long_ = sorted([new_name, exist_name], key=len)
+        if len(set(short) & set(long_)) / len(set(short)) >= 0.9:
+            return True
         # 80% 이상 문자 겹침
         # 간단 유사도: 공통 문자 수 / 평균 길이
         common = len(set(new_name) & set(exist_name))
