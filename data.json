@@ -3553,17 +3553,6 @@
   },
   {
     "id": 314,
-    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 314",
-    "type": "AIDC",
-    "load": "",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 사우디아라비아 동부 지역에 새로운 데이터센터를 2026년 11월에 개설할 예정입니다.",
-    "lat": 40.4173,
-    "lng": -82.9071
-  },
-  {
-    "id": 315,
     "name": "Microsoft Saudi Arabia East AIDC Phase 315",
     "type": "AIDC",
     "load": "350 MW",
@@ -3574,7 +3563,7 @@
     "lng": 42.3528
   },
   {
-    "id": 316,
+    "id": 315,
     "name": "Google Tennessee SMR Phase 316",
     "type": "SMR",
     "load": "50 MW",
@@ -3585,7 +3574,7 @@
     "lng": -86.282
   },
   {
-    "id": 317,
+    "id": 316,
     "name": "Microsoft Mount Pleasant AIDC Phase 317",
     "type": "AIDC",
     "load": "200 MW",
@@ -3596,7 +3585,7 @@
     "lng": -87.8543
   },
   {
-    "id": 318,
+    "id": 317,
     "name": "Microsoft Saudi Arabia East AIDC Phase 318",
     "type": "AIDC",
     "load": "300 MW",
@@ -3607,7 +3596,7 @@
     "lng": 42.3528
   },
   {
-    "id": 319,
+    "id": 318,
     "name": "Google Tennessee SMR Phase 319",
     "type": "SMR",
     "load": "50 MW",
@@ -3618,7 +3607,7 @@
     "lng": -86.282
   },
   {
-    "id": 320,
+    "id": 319,
     "name": "Microsoft Mount Pleasant AIDC Phase 320",
     "type": "AIDC",
     "load": "150 MW",
@@ -3629,7 +3618,7 @@
     "lng": -87.8543
   },
   {
-    "id": 321,
+    "id": 320,
     "name": "Google Tennessee SMR Phase 321",
     "type": "SMR",
     "load": "50 MW",
@@ -3640,7 +3629,7 @@
     "lng": -86.282
   },
   {
-    "id": 322,
+    "id": 321,
     "name": "Microsoft Mount Pleasant AIDC Phase 322",
     "type": "AIDC",
     "load": "200 MW",
@@ -3651,7 +3640,7 @@
     "lng": -87.8543
   },
   {
-    "id": 323,
+    "id": 322,
     "name": "Microsoft Saudi Arabia East AIDC Phase 323",
     "type": "AIDC",
     "load": "300 MW",
@@ -3662,7 +3651,7 @@
     "lng": 46.716
   },
   {
-    "id": 324,
+    "id": 323,
     "name": "Microsoft Saudi Arabia East AIDC Phase 324",
     "type": "AIDC",
     "load": "300 MW",
@@ -3673,7 +3662,7 @@
     "lng": 50.1259
   },
   {
-    "id": 325,
+    "id": 324,
     "name": "Google Tennessee SMR Phase 325",
     "type": "SMR",
     "load": "50 MW",
@@ -3684,7 +3673,7 @@
     "lng": -86.282
   },
   {
-    "id": 326,
+    "id": 325,
     "name": "Microsoft Mount Pleasant AIDC Phase 326",
     "type": "AIDC",
     "load": "100 MW",
@@ -3695,7 +3684,7 @@
     "lng": -87.8543
   },
   {
-    "id": 327,
+    "id": 326,
     "name": "Google Tennessee SMR Plant",
     "type": "SMR",
     "load": "50 MW",
@@ -3706,7 +3695,7 @@
     "lng": -86.282
   },
   {
-    "id": 328,
+    "id": 327,
     "name": "Microsoft Saudi Arabia East AIDC Phase 328",
     "type": "AIDC",
     "load": "300 MW",
@@ -3717,7 +3706,7 @@
     "lng": 42.3528
   },
   {
-    "id": 329,
+    "id": 328,
     "name": "Amazon Ohio SMR AIDC",
     "type": "AIDC",
     "load": "150 MW",
@@ -3728,7 +3717,7 @@
     "lng": -82.6881
   },
   {
-    "id": 330,
+    "id": 329,
     "name": "Microsoft Saudi Arabia East AIDC Region",
     "type": "AIDC",
     "load": "300 MW",
@@ -3739,7 +3728,7 @@
     "lng": 42.3528
   },
   {
-    "id": 331,
+    "id": 330,
     "name": "Google Tennessee SMR Phase 331",
     "type": "SMR",
     "load": "50 MW",
@@ -3750,7 +3739,7 @@
     "lng": -86.282
   },
   {
-    "id": 332,
+    "id": 331,
     "name": "Microsoft Mount Pleasant AIDC Phase 332",
     "type": "AIDC",
     "load": "250 MW",
@@ -3761,7 +3750,7 @@
     "lng": -87.8543
   },
   {
-    "id": 333,
+    "id": 332,
     "name": "Google Tennessee SMR Power Project",
     "type": "SMR",
     "load": "50 MW",
@@ -3772,7 +3761,7 @@
     "lng": -86.282
   },
   {
-    "id": 334,
+    "id": 333,
     "name": "Microsoft Mount Pleasant AIDC Phase 334",
     "type": "AIDC",
     "load": "150 MW",
@@ -3783,7 +3772,7 @@
     "lng": -87.8543
   },
   {
-    "id": 335,
+    "id": 334,
     "name": "Microsoft West Denmark AIDC Region",
     "type": "AIDC",
     "load": "180 MW",
@@ -3792,5 +3781,17 @@
     "desc": "마이크로소프트는 서부 덴마크에 새로운 데이터센터 리전 건설 계획을 발표했다.",
     "lat": 43.9925,
     "lng": -70.8705
+  },
+  {
+    "name": "Crusoe - Abilene TX",
+    "lat": 32.4487,
+    "lng": -99.7331,
+    "load": "1200MW",
+    "source": "ERCOT + Gas + Wind",
+    "desc": "Crusoe Abilene 캠퍼스, Stargate / Oracle 임차와 함께 운영. 발전부터 직접 하는 물리 모트",
+    "type": "NEOCLOUD",
+    "status": "active",
+    "operator": "Crusoe",
+    "id": 335
   }
 ]
