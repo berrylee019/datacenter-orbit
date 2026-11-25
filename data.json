@@ -326,15 +326,15 @@
   },
   {
     "id": 26,
-    "name": "Microsoft 서덴마크 2호기 AIDC 리전",
-    "lat": 43.9925,
-    "lng": -70.8705,
+    "name": "Microsoft 웨스트 덴마크 AIDC 리전 (에스비에르·바르데)",
+    "lat": 55.4665,
+    "lng": 8.4521,
     "type": "AIDC",
     "load": "300 MW",
     "source": "북유럽 광역 전력망(Nord Pool) 친환경 그리드",
     "status": "planned",
     "carbon": "low",
-    "desc": "마이크로소프트가 유로존 내 인프라 이중화 및 회복탄력성 확보를 위해 추가 구축 중인 덴마크 서부 리전.",
+    "desc": "마이크로소프트가 덴마크 두 번째 리전으로 추진하는 서부 덴마크(베스덴마르크) 데이터센터 리전. 바르데(Varde) 2곳과 에스비에르(Esbjerg) 1곳, 총 3개 사이트 계획으로 2025년 12월 투자 결정 후 지자체 계획 절차가 진행 중이다.",
     "architecture": "Next-Gen Custom Azure Infrastructure"
   },
   {
@@ -647,17 +647,6 @@
   },
   {
     "id": 54,
-    "name": "Amazon US SMR Facility Phase 79",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 중 하나를 건설하는 데 기여하며 데이터센터 전력원을 확보하고 있습니다.",
-    "lat": 38.8951,
-    "lng": -77.0364
-  },
-  {
-    "id": 55,
     "name": "Microsoft Cheyenne AIDC Expansion",
     "type": "AIDC",
     "load": "200 MW",
@@ -668,7 +657,7 @@
     "lng": -104.8202
   },
   {
-    "id": 56,
+    "id": 55,
     "name": "셀레브라스 산타클라라 본사 AIDC",
     "lat": 37.3541,
     "lng": -121.9552,
@@ -681,7 +670,7 @@
     "architecture": "Cerebras CS-3 System (Wafer-Scale Engine 3, 900K Cores per Chip) & Liquid Cooling Piping"
   },
   {
-    "id": 57,
+    "id": 56,
     "name": "텐센트 구이저우 치안(Gui'an) 동굴 AIDC",
     "lat": 26.4025,
     "lng": 106.5312,
@@ -694,7 +683,7 @@
     "architecture": "Tencent AI Cluster & Huawei Ascend 910B/910C Mixed Architecture"
   },
   {
-    "id": 58,
+    "id": 57,
     "name": "알리바바 클라우드 장자커우(Zhangjiakou) AIDC",
     "lat": 40.7682,
     "lng": 114.8863,
@@ -707,7 +696,7 @@
     "architecture": "AliCloud Hanguang 800 & Custom Liquid Cooling Supercomputer System"
   },
   {
-    "id": 59,
+    "id": 58,
     "name": "화웨이 우울란차부(Ulanqab) 초거대 AI 클러스터",
     "lat": 41.0315,
     "lng": 113.1324,
@@ -720,7 +709,7 @@
     "architecture": "Huawei Cloud Ascend 910B Cluster & MindSpore Framework Native"
   },
   {
-    "id": 60,
+    "id": 59,
     "name": "바이두 양취안(Yangquan) 스마트 컴퓨팅 센터",
     "lat": 37.8574,
     "lng": 113.5832,
@@ -733,7 +722,7 @@
     "architecture": "Baidu Kunlunxin AI Chips & PaddlePaddle Ultra-dense Racks"
   },
   {
-    "id": 61,
+    "id": 60,
     "name": "중국텔레콤 닝샤(Ningxia) 중웨이 국가 AI 컴퓨팅 허브",
     "lat": 37.5142,
     "lng": 105.1893,
@@ -746,7 +735,7 @@
     "architecture": "Domestic Ascend & Cambricon AI Accelerator Racks"
   },
   {
-    "id": 62,
+    "id": 61,
     "name": "Google Global AIDC Expansion",
     "type": "AIDC",
     "load": "1000 MW",
@@ -757,7 +746,7 @@
     "lng": 12.5592
   },
   {
-    "id": 63,
+    "id": 62,
     "name": "Meta Texas 1.6GW AI Datacenter Power Deal",
     "type": "AIDC",
     "load": "1600 MW",
@@ -768,7 +757,7 @@
     "lng": -102.3677
   },
   {
-    "id": 64,
+    "id": 63,
     "name": "메타-블랙록 텍사스 엘패소 메가 AIDC",
     "lat": 31.7619,
     "lng": -106.485,
@@ -781,7 +770,7 @@
     "architecture": "NVIDIA Blackwell Ultra / Next-Gen Dense GPU Clusters Ready & Liquid Cooling Infrastructure"
   },
   {
-    "id": 65,
+    "id": 64,
     "name": "Meta Baton Rouge AI Datacenter",
     "type": "AIDC",
     "load": "750 MW",
@@ -792,7 +781,7 @@
     "lng": -91.187
   },
   {
-    "id": 66,
+    "id": 65,
     "name": "Meta Ohio Nuclear Powered AIDC",
     "type": "AIDC",
     "load": "6 GW+",
@@ -803,7 +792,7 @@
     "lng": -82.6881
   },
   {
-    "id": 67,
+    "id": 66,
     "name": "Amazon Idaho SMR Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -814,18 +803,7 @@
     "lng": -114.0154
   },
   {
-    "id": 68,
-    "name": "Amazon US SMR Facility Phase 108",
-    "type": "SMR",
-    "load": "150 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 내 최초의 모듈형 원자로 시설 구축을 지원하는 프로젝트.",
-    "lat": 43.17,
-    "lng": -107.5685
-  },
-  {
-    "id": 69,
+    "id": 67,
     "name": "Microsoft Pure DC Finland AIDC",
     "type": "AIDC",
     "load": "150 MW",
@@ -836,7 +814,7 @@
     "lng": 25.9209
   },
   {
-    "id": 70,
+    "id": 68,
     "name": "볼타 노르웨이 AIDC (앤트로픽 임대)",
     "lat": 60.5878,
     "lng": 5.8124,
@@ -849,7 +827,7 @@
     "architecture": "NVIDIA Vera Rubin System"
   },
   {
-    "id": 71,
+    "id": 69,
     "name": "Meta Global Nuclear Power Supply",
     "type": "AIDC",
     "load": "6000 MW",
@@ -860,7 +838,7 @@
     "lng": -87.9148
   },
   {
-    "id": 72,
+    "id": 70,
     "name": "Meta Virginia AI Datacenter",
     "type": "AIDC",
     "load": "300 MW",
@@ -871,18 +849,7 @@
     "lng": -78.4928
   },
   {
-    "id": 73,
-    "name": "Amazon Wyoming SMR Facility Phase 138",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Amazon이 미국 와이오밍 주에서 최초의 모듈형 원자로 시설 건설을 지원하며 SMR 인프라 구축에 참여하고 있습니다.",
-    "lat": 43.17,
-    "lng": -107.5685
-  },
-  {
-    "id": 74,
+    "id": 71,
     "name": "Microsoft AIDC (SpaceX Power Initiative)",
     "type": "AIDC",
     "load": "1 GW",
@@ -893,18 +860,7 @@
     "lng": -113.0907
   },
   {
-    "id": 75,
-    "name": "Amazon US SMR Facility Phase 144",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 내 최초의 모듈형 원자로(SMR) 시설 건설을 지원하며 지속 가능한 에너지 솔루션을 모색합니다.",
-    "lat": 36.0104,
-    "lng": -84.2696
-  },
-  {
-    "id": 76,
+    "id": 72,
     "name": "메타 오하이오 뉴올버니 신속배치(RDS) AIDC",
     "lat": 40.0822,
     "lng": -82.8088,
@@ -917,7 +873,7 @@
     "architecture": "Rapid Deployment Structure (RDS) Modular Tent Architecture & Dense GPU Rack RDT Systems"
   },
   {
-    "id": 77,
+    "id": 73,
     "name": "디지털 리얼리티 디지털 댈러스 캠퍼스 (통합)",
     "lat": 32.9567,
     "lng": -96.7169,
@@ -930,7 +886,7 @@
     "architecture": "Campus-wide Dedicated Substation & Ultra-high Carrier Density Network Hub"
   },
   {
-    "id": 78,
+    "id": 74,
     "name": "디지털 댈러스 DFW18",
     "lat": 32.9592,
     "lng": -96.7144,
@@ -943,7 +899,7 @@
     "architecture": "High-Density AI & Enterprise Hyperscale Ready Infrastructure"
   },
   {
-    "id": 79,
+    "id": 75,
     "name": "디지털 댈러스 DFW29",
     "lat": 32.9548,
     "lng": -96.7188,
@@ -956,7 +912,7 @@
     "architecture": "2N UPS Redundancy & Carrier-Neutral Interconnection Edge Node"
   },
   {
-    "id": 80,
+    "id": 76,
     "name": "디지털 댈러스 DFW28",
     "lat": 32.9548,
     "lng": -96.7202,
@@ -969,7 +925,7 @@
     "architecture": "Enterprise Mission-Critical Security & High-Reliability Dual Power Feed"
   },
   {
-    "id": 81,
+    "id": 77,
     "name": "디지털 댈러스 DFW17",
     "lat": 32.9581,
     "lng": -96.7161,
@@ -982,7 +938,7 @@
     "architecture": "LEED Silver Certified Green Cooling Architecture"
   },
   {
-    "id": 82,
+    "id": 78,
     "name": "디지털 댈러스 DFW35",
     "lat": 32.9575,
     "lng": -96.7175,
@@ -995,7 +951,7 @@
     "architecture": "High-Density Server Rack Design & Hyperscale Colocation Space"
   },
   {
-    "id": 83,
+    "id": 79,
     "name": "Google Global AI Infrastructure Expansion",
     "type": "AIDC",
     "load": "1000 MW",
@@ -1006,7 +962,7 @@
     "lng": 12.5592
   },
   {
-    "id": 84,
+    "id": 80,
     "name": "Amazon SMR Demonstration Facility",
     "type": "SMR",
     "load": "300 MW",
@@ -1017,40 +973,7 @@
     "lng": -120.2126
   },
   {
-    "id": 85,
-    "name": "Microsoft Pure DC Finland AIDC Phase 168",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 핀란드 Pure DC 데이터센터의 용량을 확보하는 계약을 체결했습니다.",
-    "lat": 63.2468,
-    "lng": 25.9209
-  },
-  {
-    "id": 86,
-    "name": "Microsoft Denmark Datacenter Region",
-    "type": "AIDC",
-    "load": "400 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 덴마크에 새로운 데이터센터 리전을 개설하며 디지털 탄력성과 혁신을 강화함.",
-    "lat": 55.6702,
-    "lng": 10.3333
-  },
-  {
-    "id": 87,
-    "name": "Amazon SMR Facility Phase 181",
-    "type": "SMR",
-    "load": "300 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 미국 내 최초의 모듈형 원자력 발전 시설 건설을 지원하고 있습니다.",
-    "lat": 38.8951,
-    "lng": -77.0364
-  },
-  {
-    "id": 88,
+    "id": 81,
     "name": "튀르키예 한·미·튀 삼각동맹 SMR 국가 허브 (안카라)",
     "lat": 39.9334,
     "lng": 32.8597,
@@ -1063,7 +986,7 @@
     "architecture": "Trilateral SMR Deployment Framework (Korea i-SMR & US Design R&D Platform)"
   },
   {
-    "id": 89,
+    "id": 82,
     "name": "튀르키예 시놉(Sinop) ARC-100 4세대 SMR 메가 단지",
     "lat": 42.0231,
     "lng": 35.1531,
@@ -1076,7 +999,7 @@
     "architecture": "4th Gen Sodium-Cooled Fast Reactor (ARC-100) Multi-Module Array"
   },
   {
-    "id": 90,
+    "id": 83,
     "name": "Google Global AI Infrastructure",
     "type": "AIDC",
     "load": "500 MW",
@@ -1087,7 +1010,7 @@
     "lng": 12.5592
   },
   {
-    "id": 91,
+    "id": 84,
     "name": "SpaceX-xAI Hyperscale AI AIDC for Google",
     "type": "AIDC",
     "load": "1 GW",
@@ -1098,7 +1021,7 @@
     "lng": -118.756
   },
   {
-    "id": 92,
+    "id": 85,
     "name": "SpaceX-xAI Global 10GW Power Infrastructure",
     "type": "SMR",
     "load": "10 GW",
@@ -1109,7 +1032,7 @@
     "lng": 12.5592
   },
   {
-    "id": 93,
+    "id": 86,
     "name": "Google-SpaceX AI Datacenter Capacity",
     "type": "AIDC",
     "load": "1 GW",
@@ -1120,7 +1043,7 @@
     "lng": -113.0907
   },
   {
-    "id": 94,
+    "id": 87,
     "name": "Google Oklahoma AI Datacenter",
     "type": "AIDC",
     "load": "200 MW",
@@ -1131,51 +1054,7 @@
     "lng": -97.2684
   },
   {
-    "id": 95,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 205",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 지역에 새로운 데이터센터를 개설할 예정입니다.",
-    "lat": 24.6389,
-    "lng": 46.716
-  },
-  {
-    "id": 96,
-    "name": "Microsoft Denmark AIDC",
-    "type": "AIDC",
-    "load": "180 MW",
-    "source": "Wind",
-    "status": "active",
-    "desc": "Microsoft가 덴마크에 새로운 데이터센터 지역을 개설한다고 발표했습니다.",
-    "lat": 55.6867,
-    "lng": 12.5701
-  },
-  {
-    "id": 97,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 211",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 데이터센터 지역을 가동할 예정이라고 발표.",
-    "lat": 24.6389,
-    "lng": 46.716
-  },
-  {
-    "id": 98,
-    "name": "Meta Louisiana AIDC Phase 212",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "메타의 최대 규모 데이터센터가 루이지애나에 건설될 예정.",
-    "lat": 30.4494,
-    "lng": -91.187
-  },
-  {
-    "id": 99,
+    "id": 88,
     "name": "SpaceX-xAI 10GW AI Datacenter Infrastructure",
     "type": "AIDC",
     "load": "10 GW",
@@ -1186,51 +1065,7 @@
     "lng": -113.0907
   },
   {
-    "id": 100,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 217",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 지역에 새로운 데이터센터를 개설할 예정이다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 101,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 220",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 리전을 발표했다.",
-    "lat": 26.4368,
-    "lng": 50.104
-  },
-  {
-    "id": 102,
-    "name": "Microsoft Texas AI Datacenter Phase 221",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Natural Gas",
-    "status": "active",
-    "desc": "마이크로소프트가 셰브론과 파트너십을 맺고 텍사스에 대규모 AI 데이터센터 전력 계약을 체결했다.",
-    "lat": 32.7763,
-    "lng": -96.7969
-  },
-  {
-    "id": 103,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 223",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 가동될 사우디아라비아 동부 데이터센터 지역을 발표했습니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 104,
+    "id": 89,
     "name": "Google Gas Plant-Powered AIDC",
     "type": "AIDC",
     "load": "400 MW",
@@ -1241,18 +1076,7 @@
     "lng": -97.2684
   },
   {
-    "id": 105,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 232",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 가동을 목표로 사우디아라비아 동부 지역에 새로운 AI 데이터센터를 건설 중입니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 106,
+    "id": 90,
     "name": "GS 동해 북평 메가 AI 데이터센터 캠퍼스",
     "lat": 37.4902,
     "lng": 129.1125,
@@ -1275,7 +1099,7 @@
     "carbon": "mid",
     "desc": "Bitdeer AI가 말레이시아 조호르바루 캠퍼스에 확보한 65.1MW 규모 AI 클라우드 데이터센터 A202. 기존 21.7MW A201과 같은 캠퍼스. 2027년 Q3 energization 예정. NVIDIA Cloud Partner 시설.",
     "architecture": "High-Density GPU AI Cloud Pod with NVIDIA Accelerated Computing",
-    "id": 107
+    "id": 91
   },
   {
     "name": "HyperVault Hyderabad AI Campus",
@@ -1288,7 +1112,7 @@
     "carbon": "low",
     "desc": "Tata Consultancy Services 자회사 HyperVault가 하이데라바드 남부 264에이커 부지에 조성하는 최대 1GW 규모 AI 데이터센터 캠퍼스. 최대 7000억 루피 투자, 단계별 구축. Amazon hyperscale 부지 인근.",
     "architecture": "Hyperscale AI Campus with High-Density GPU for Training & Inference",
-    "id": 108
+    "id": 92
   },
   {
     "name": "Firmus x OpenAI Malaysia AI Factory",
@@ -1301,7 +1125,7 @@
     "carbon": "mid",
     "desc": "호주 Firmus가 말레이시아에 구축하는 2개 AI Factory 사이트에 OpenAI가 앵커 고객으로 컴퓨팅 용량을 확보. Firmus 전체 계약 용량 900MW 이상 돌파. Nvidia, Blackstone 등 투자.",
     "architecture": "Firmus AI Factory with Dedicated AI Compute for Frontier Models",
-    "id": 109
+    "id": 93
   },
   {
     "name": "CURRENC 500MW Hyperscale AIDC - Johor",
@@ -1312,7 +1136,7 @@
     "desc": "100-acre hyperscale AI campus in Johor, Malaysia. Phase 1 100MW by end 2026, full 500MW plan. Co-location/wholesale for hyperscalers.",
     "type": "AIDC",
     "status": "active",
-    "id": 110
+    "id": 94
   },
   {
     "name": "AIP Monarch Compute Campus - 2GW Power",
@@ -1323,7 +1147,7 @@
     "desc": "Flagship multi-phase power + infra platform by American Intelligence & Power with Caterpillar & Boyd CAT alliance. Power delivery begins 2026, 2GW online 2027.",
     "type": "AIDC",
     "status": "smr",
-    "id": 111
+    "id": 95
   },
   {
     "name": "Hyperscale Data Michigan AI Campus - Alliance Cloud",
@@ -1334,7 +1158,7 @@
     "desc": "Michigan AI data center campus, $70M+ invested as of Sep 15 2026 into Alliance Cloud Services for California neocloud provider under MSA.",
     "type": "AIDC",
     "status": "active",
-    "id": 112
+    "id": 96
   },
   {
     "name": "Iron Mountain 350MW - Phoenix AZ",
@@ -1345,7 +1169,7 @@
     "desc": "Iron Mountain AI data center for US Southwest",
     "type": "AIDC",
     "status": "active",
-    "id": 113
+    "id": 97
   },
   {
     "name": "G42 xAI 5GW AI Campus - Abu Dhabi",
@@ -1356,7 +1180,7 @@
     "desc": "G42 and xAI mega AI campus in Abu Dhabi, 5GW phased plan, largest outside US",
     "type": "AIDC",
     "status": "smr",
-    "id": 114
+    "id": 98
   },
   {
     "name": "Blackstone QTS 1.2GW - Atlanta West",
@@ -1367,7 +1191,7 @@
     "desc": "QTS Atlanta mega expansion, hyperscale AI cluster for US East",
     "type": "AIDC",
     "status": "active",
-    "id": 115
+    "id": 99
   },
   {
     "name": "SoftBank SB Int 1GW AIDC - Osaka",
@@ -1378,7 +1202,7 @@
     "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
     "type": "AIDC",
     "status": "active",
-    "id": 116
+    "id": 100
   },
   {
     "name": "NTT 300MW Sovereign AI - Hokkaido",
@@ -1389,7 +1213,7 @@
     "desc": "NTT sovereign AI hub for Japanese gov LLM",
     "type": "AIDC",
     "status": "active",
-    "id": 117
+    "id": 101
   },
   {
     "name": "NEXTDC 700MW - Sydney West",
@@ -1400,7 +1224,7 @@
     "desc": "NEXTDC Sydney hyperscale AI campus",
     "type": "AIDC",
     "status": "active",
-    "id": 118
+    "id": 102
   },
   {
     "name": "CyrusOne 600MW - Madrid AI Corridor",
@@ -1411,7 +1235,7 @@
     "desc": "CyrusOne Iberian AI hub",
     "type": "AIDC",
     "status": "active",
-    "id": 119
+    "id": 103
   },
   {
     "name": "Equinix xAI Colossus 2 - Memphis",
@@ -1422,7 +1246,7 @@
     "desc": "Second phase of xAI Colossus supercluster, Memphis",
     "type": "AIDC",
     "status": "active",
-    "id": 120
+    "id": 104
   },
   {
     "name": "Microsoft Fairwater 2.5GW - Wisconsin",
@@ -1433,32 +1257,10 @@
     "desc": "Microsoft AI datacenter corridor, part of $3.3B Wisconsin investment",
     "type": "AIDC",
     "status": "smr",
-    "id": 121
+    "id": 105
   },
   {
-    "id": 122,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 251",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 데이터센터 지역 가동을 발표했습니다.",
-    "lat": 24.6389,
-    "lng": 46.716
-  },
-  {
-    "id": 123,
-    "name": "Microsoft Texas Chevron AIDC Phase 252",
-    "type": "AIDC",
-    "load": "1 GW",
-    "source": "Grid (Natural Gas)",
-    "status": "active",
-    "desc": "Microsoft는 텍사스에 건설될 대규모 AI 데이터센터를 위해 셰브론과 전력 공급 계약을 체결했습니다.",
-    "lat": 32.7763,
-    "lng": -96.7969
-  },
-  {
-    "id": 124,
+    "id": 106,
     "name": "Google Gas Plant AIDC",
     "type": "AIDC",
     "load": "750 MW",
@@ -1469,7 +1271,7 @@
     "lng": -97.5171
   },
   {
-    "id": 125,
+    "id": 107,
     "name": "Equinix SV10 Silicon Valley Data Center (San Jose)",
     "lat": 37.3875,
     "lng": -121.9635,
@@ -1482,7 +1284,7 @@
     "architecture": "Equinix High-Density Air Cooling & Optical Interconnect Fabric"
   },
   {
-    "id": 126,
+    "id": 108,
     "name": "Equinix SV11 Direct-to-Chip Liquid Cooling AIDC (San Jose)",
     "lat": 37.3892,
     "lng": -121.9618,
@@ -1503,7 +1305,7 @@
     "desc": "ST Telemedia Global Data Centres Johor expansion",
     "type": "AIDC",
     "status": "active",
-    "id": 127
+    "id": 109
   },
   {
     "name": "AdaniConneX 1GW AIDC - Hyderabad",
@@ -1514,7 +1316,7 @@
     "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
     "type": "AIDC",
     "status": "active",
-    "id": 128
+    "id": 110
   },
   {
     "name": "Digital Realty 400MW - Frankfurt AI Hub",
@@ -1525,10 +1327,10 @@
     "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
     "type": "AIDC",
     "status": "active",
-    "id": 129
+    "id": 111
   },
   {
-    "id": 130,
+    "id": 112,
     "name": "Microsoft Saudi Arabia East Datacenter Region",
     "type": "AIDC",
     "load": "300 MW",
@@ -1539,7 +1341,7 @@
     "lng": 42.3528
   },
   {
-    "id": 131,
+    "id": 113,
     "name": "Google SpaceX-xAI AI Datacenter Capacity",
     "type": "AIDC",
     "load": "1 GW",
@@ -1550,18 +1352,7 @@
     "lng": -116.8537
   },
   {
-    "id": 132,
-    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 263",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 지역을 발표함.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 133,
+    "id": 114,
     "name": "Google Tennessee SMR",
     "type": "SMR",
     "load": "50 MW",
@@ -1572,51 +1363,7 @@
     "lng": -86.282
   },
   {
-    "id": 134,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 267",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 데이터센터 리전을 가동할 예정입니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 135,
-    "name": "Google Tennessee SMR Phase 150",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Google은 테네시주에 50MW SMR 건설을 위해 Kairos Power와 삼성물산을 선정했다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 136,
-    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 151",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 2026년 11월 사우디아라비아 동부 데이터센터 리전을 가동할 예정이라고 발표했다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 137,
-    "name": "Google Tennessee SMR Phase 167",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Google이 테네시주에 50MW 규모의 SMR 건설을 위해 카이로스 파워 및 삼성물산과 협력.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 138,
+    "id": 115,
     "name": "Microsoft Saudi Arabia East AIDC",
     "type": "AIDC",
     "load": "250 MW",
@@ -1627,40 +1374,7 @@
     "lng": 42.3528
   },
   {
-    "id": 139,
-    "name": "Google Tennessee SMR Phase 184",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Kairos Power가 Samsung C&T와 협력하여 Google을 위해 테네시에 50MW SMR을 건설합니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 140,
-    "name": "Microsoft Saudi Arabia East Datacenter Region Phase 221",
-    "type": "AIDC",
-    "load": "500 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 사우디아라비아 동부 데이터센터 지역을 가동할 예정입니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 141,
-    "name": "Google Tennessee SMR Phase 222",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "카이로스 파워가 삼성물산과 함께 테네시 구글 데이터센터를 위한 50MW SMR을 건설합니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 142,
+    "id": 116,
     "name": "Amazon Indiana SMR Plant",
     "type": "SMR",
     "load": "960 MW",
@@ -1671,18 +1385,7 @@
     "lng": -86.1747
   },
   {
-    "id": 143,
-    "name": "Google Tennessee SMR Phase 255",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Kairos Power가 구글 테네시 데이터센터를 위한 50MW SMR 건설에 삼성물산을 선정했습니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 144,
+    "id": 117,
     "name": "Microsoft Saudi Arabia East Datacenter",
     "type": "AIDC",
     "load": "200 MW",
@@ -1693,95 +1396,7 @@
     "lng": 42.3528
   },
   {
-    "id": 145,
-    "name": "Amazon Indiana SMR Plant Phase 268",
-    "type": "SMR",
-    "load": "960 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "아마존이 인디애나주의 데이터센터를 위한 960MW SMR 발전소 연구에 자금을 지원합니다.",
-    "lat": 40.327,
-    "lng": -86.1747
-  },
-  {
-    "id": 146,
-    "name": "Google Tennessee SMR Phase 269",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "카이로스 파워가 구글 테네시 데이터센터를 위한 50MW SMR 건설을 위해 삼성물산을 선정했습니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 147,
-    "name": "Google Tennessee SMR Phase 297",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Kairos Power가 삼성물산의 도움을 받아 테네시주에 Google을 위한 50MW SMR을 건설할 예정입니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 148,
-    "name": "Microsoft Mount Pleasant AIDC Phase 298",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 위스콘신 Mount Pleasant에 첫 번째 데이터센터 시설 건설을 완료했습니다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 149,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 299",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 데이터센터 지역이 가동될 것이라고 발표했습니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 150,
-    "name": "Google Tennessee SMR Phase 303",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Google의 테네시 데이터센터 전력 공급을 위해 Kairos Power가 50MW SMR 건설을 삼성물산과 협력하여 진행합니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 151,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 304",
-    "type": "AIDC",
-    "load": "180 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월에 사우디아라비아 동부 데이터센터 리전을 개시할 예정임을 발표했습니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 152,
-    "name": "Microsoft Mount Pleasant AIDC Phase 305",
-    "type": "AIDC",
-    "load": "100 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 위스콘신 주 마운트 플레전트의 첫 데이터센터 시설 건설을 완료했습니다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 153,
+    "id": 118,
     "name": "Google Tennessee 50MW SMR",
     "type": "SMR",
     "load": "50 MW",
@@ -1792,7 +1407,7 @@
     "lng": -86.282
   },
   {
-    "id": 154,
+    "id": 119,
     "name": "Microsoft Mount Pleasant Datacenter",
     "type": "AIDC",
     "load": "",
@@ -1803,139 +1418,7 @@
     "lng": -87.8543
   },
   {
-    "id": 155,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 315",
-    "type": "AIDC",
-    "load": "350 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 4분기부터 사우디아라비아 동부 데이터센터 리전을 고객에게 제공할 예정임을 발표함.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 156,
-    "name": "Google Tennessee SMR Phase 316",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Google이 테네시주에 데이터센터 전력 공급을 위한 50MW SMR 건설을 위해 Kairos Power와 삼성물산을 선정함.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 157,
-    "name": "Microsoft Mount Pleasant AIDC Phase 317",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 위스콘신주 마운트 플레전트에 첫 번째 데이터센터 시설 건설을 완료함.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 158,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 318",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 리전에 데이터센터를 가동할 예정입니다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 159,
-    "name": "Google Tennessee SMR Phase 319",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Google이 테네시주에 50MW 규모의 SMR을 건설하기 위해 Kairos Power와 삼성물산을 선정했습니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 160,
-    "name": "Microsoft Mount Pleasant AIDC Phase 320",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 위스콘신주 마운트 플레전트에 첫 데이터센터 시설 건설을 완료했습니다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 161,
-    "name": "Google Tennessee SMR Phase 321",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Kairos Power가 삼성물산과 협력하여 테네시주에 구글 데이터센터를 위한 50MW SMR을 건설합니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 162,
-    "name": "Microsoft Mount Pleasant AIDC Phase 322",
-    "type": "AIDC",
-    "load": "200 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 위스콘신주 마운트플레전트에서 첫 번째 데이터센터 건설을 완료했습니다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 163,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 323",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "planned",
-    "desc": "마이크로소프트는 2026년 11월 사우디아라비아 동부 지역에 새로운 데이터센터를 개시할 예정입니다.",
-    "lat": 24.6389,
-    "lng": 46.716
-  },
-  {
-    "id": 164,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 324",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 사우디아라비아 동부 지역에 새로운 데이터센터를 2026년 11월에 가동할 예정입니다.",
-    "lat": 23.3036,
-    "lng": 50.1259
-  },
-  {
-    "id": 165,
-    "name": "Google Tennessee SMR Phase 325",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Kairos Power가 삼성물산과 협력하여 테네시주에 구글 데이터센터를 위한 50MW SMR을 건설합니다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 166,
-    "name": "Microsoft Mount Pleasant AIDC Phase 326",
-    "type": "AIDC",
-    "load": "100 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 위스콘신주 마운트 플레전트에서 첫 번째 데이터센터 시설 건설을 완료했습니다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 167,
+    "id": 120,
     "name": "Google Tennessee SMR Plant",
     "type": "SMR",
     "load": "50 MW",
@@ -1946,18 +1429,7 @@
     "lng": -86.282
   },
   {
-    "id": 168,
-    "name": "Microsoft Saudi Arabia East AIDC Phase 328",
-    "type": "AIDC",
-    "load": "300 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 지역을 발표했다.",
-    "lat": 25.6243,
-    "lng": 42.3528
-  },
-  {
-    "id": 169,
+    "id": 121,
     "name": "Amazon Ohio SMR AIDC",
     "type": "AIDC",
     "load": "150 MW",
@@ -1968,7 +1440,7 @@
     "lng": -82.6881
   },
   {
-    "id": 170,
+    "id": 122,
     "name": "Microsoft Saudi Arabia East AIDC Region",
     "type": "AIDC",
     "load": "300 MW",
@@ -1979,29 +1451,7 @@
     "lng": 42.3528
   },
   {
-    "id": 171,
-    "name": "Google Tennessee SMR Phase 331",
-    "type": "SMR",
-    "load": "50 MW",
-    "source": "Nuclear",
-    "status": "active",
-    "desc": "Kairos Power가 삼성물산을 선정하여 테네시주에 구글용 50MW SMR을 건설한다.",
-    "lat": 35.773,
-    "lng": -86.282
-  },
-  {
-    "id": 172,
-    "name": "Microsoft Mount Pleasant AIDC Phase 332",
-    "type": "AIDC",
-    "load": "250 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "Microsoft가 위스콘신주 마운트 플레전트의 첫 데이터센터 시설 건설을 완료했다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 173,
+    "id": 123,
     "name": "Google Tennessee SMR Power Project",
     "type": "SMR",
     "load": "50 MW",
@@ -2010,28 +1460,6 @@
     "desc": "구글은 카이로스 파워 및 삼성물산과 함께 테네시주에 50MW SMR 건설 프로젝트를 진행한다.",
     "lat": 35.773,
     "lng": -86.282
-  },
-  {
-    "id": 174,
-    "name": "Microsoft Mount Pleasant AIDC Phase 334",
-    "type": "AIDC",
-    "load": "150 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 위스콘신주 마운트 플레전트에 첫 데이터센터 시설 건설을 완료했다.",
-    "lat": 42.7192,
-    "lng": -87.8543
-  },
-  {
-    "id": 175,
-    "name": "Microsoft West Denmark AIDC Region",
-    "type": "AIDC",
-    "load": "180 MW",
-    "source": "Grid",
-    "status": "active",
-    "desc": "마이크로소프트는 서부 덴마크에 새로운 데이터센터 리전 건설 계획을 발표했다.",
-    "lat": 43.9925,
-    "lng": -70.8705
   },
   {
     "name": "Crusoe - Abilene TX",
@@ -2043,6 +1471,6 @@
     "type": "NEOCLOUD",
     "status": "active",
     "operator": "Crusoe",
-    "id": 176
+    "id": 124
   }
 ]

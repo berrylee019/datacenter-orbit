@@ -5,7 +5,90 @@ import xml.etree.ElementTree as ET
 import http.client
 from geopy.geocoders import Nominatim
 
+from utils.dedup import is_same_facility
+
 DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
+
+# 나라 이름 -> ISO2 (지오코딩 결과가 다른 나라로 튀는지 검사할 때 쓴다)
+COUNTRY_NAME_TO_CODE = {
+    "usa": "us", "us": "us", "u.s.": "us", "u.s.a.": "us",
+    "united states": "us", "united states of america": "us", "america": "us",
+    "denmark": "dk", "finland": "fi", "sweden": "se", "norway": "no",
+    "iceland": "is", "ireland": "ie", "uk": "gb", "united kingdom": "gb",
+    "england": "gb", "germany": "de", "france": "fr", "spain": "es",
+    "portugal": "pt", "netherlands": "nl", "belgium": "be", "poland": "pl",
+    "italy": "it", "switzerland": "ch", "austria": "at", "japan": "jp",
+    "korea": "kr", "south korea": "kr", "republic of korea": "kr",
+    "china": "cn", "india": "in", "singapore": "sg", "malaysia": "my",
+    "indonesia": "id", "australia": "au", "canada": "ca", "mexico": "mx",
+    "brazil": "br", "chile": "cl", "saudi arabia": "sa", "uae": "ae",
+    "united arab emirates": "ae", "qatar": "qa", "turkey": "tr",
+    "türkiye": "tr", "israel": "il", "south africa": "za", "vietnam": "vn",
+    "thailand": "th", "taiwan": "tw", "philippines": "ph", "new zealand": "nz",
+}
+
+# 지역명이 아니라 나라·주 이름만 왔을 때 나오는 centroid (시설 좌표로 쓸 수 없음)
+COUNTRY_LEVEL_TYPES = {"country", "state", "region", "province", "county"}
+
+
+def _expected_country_code(location_str):
+    """'City, Country' 문자열에서 기대 국가 코드를 뽑는다 (뒤쪽 조각 우선)."""
+    parts = [p.strip().lower() for p in str(location_str or "").split(",") if p.strip()]
+    for part in reversed(parts):
+        if part in COUNTRY_NAME_TO_CODE:
+            return COUNTRY_NAME_TO_CODE[part]
+        for name, code in sorted(COUNTRY_NAME_TO_CODE.items(), key=lambda kv: -len(kv[0])):
+            if name in part:
+                return code
+    return None
+
+
+def _geocode_location(geolocator, location_str):
+    """시설 위치를 (lat, lng)로 돌려준다.
+
+    - 나라·주 단위 centroid 나 동명 지명(예: 'Denmark' -> 미국 메인주 Denmark)처럼
+      시설 위치라고 볼 수 없는 결과는 버린다.
+    - 확정하지 못하면 None. 오하이오 같은 임의 좌표로 대체하지 않는다.
+    """
+    location_str = str(location_str or "").strip()
+    if not location_str:
+        return None
+
+    expected_cc = _expected_country_code(location_str)
+    queries = [location_str]
+    if expected_cc and "," not in location_str:
+        queries.append(f"{location_str}, {expected_cc.upper()}")
+
+    for query in queries:
+        try:
+            loc = geolocator.geocode(
+                query,
+                addressdetails=True,
+                exactly_one=True,
+                country_codes=expected_cc,
+                timeout=20,
+            )
+        except Exception as exc:
+            print(f"⚠️ 지오코딩 오류({query}): {exc}")
+            continue
+        if not loc:
+            continue
+
+        raw = getattr(loc, "raw", {}) or {}
+        addr = raw.get("address", {}) or {}
+        got_cc = str(addr.get("country_code", "")).lower()
+        addresstype = str(raw.get("addresstype", "")).lower()
+
+        if expected_cc and got_cc and got_cc != expected_cc:
+            print(f"⚠️ 다른 나라로 해석됨({query} -> {got_cc})")
+            continue
+        if addresstype in COUNTRY_LEVEL_TYPES:
+            print(f"⚠️ 시설 위치가 아닌 {addresstype} 단위로 해석됨({query}) - 버림")
+            continue
+
+        return round(loc.latitude, 4), round(loc.longitude, 4)
+
+    return None
 
 def fetch_realtime_tech_news():
     """💡 빅테크 데이터센터 및 SMR 계약 관련 뉴스만 정밀 타격 검색"""
@@ -75,7 +158,7 @@ def run_infra_agent_pipeline():
                 except:
                     existing_data = []
                 
-        next_id = max([item['id'] for item in existing_data]) + 1 if existing_data else 1
+        next_id = max([item.get('id', 0) for item in existing_data]) + 1 if existing_data else 1
         
         sample_news = fetch_realtime_tech_news()
         print(f"📡 수집된 실시간 뉴스 헤드라인 분석 시작:\n{sample_news}\n")
@@ -87,6 +170,7 @@ def run_infra_agent_pipeline():
         아래 제공된 뉴스 헤드라인들을 읽고, 새로 건설되거나 전력 계약을 체결한 인프라 프로젝트를 '최대 3개'까지 찾아서 리스트 형식의 JSON 배열로 추출하세요.
         
         ⚠️ 중요: 뉴스 내용이 구체적이지 않더라도 뉴스에 언급된 빅테크 이름(Amazon, Microsoft, Google, Meta 등)과 국가 정보를 조합하여 가상의 인프라 프로젝트 정보를 창작해서라도 반드시 1개 이상의 JSON 객체를 배열에 담아 반환해야 합니다. 절대 빈 배열을 반환하지 마세요.
+        단, location_string 은 뉴스 기사에 실제로 나온 도시·지역명만 적으세요. 기사에 지명이 없으면 빈 문자열로 두세요. 나라 이름만으로 위치를 추측하거나 지명을 만들어 넣지 마세요(엉뚱한 나라에 좌표가 찍힙니다).
         텍스트 설명이나 다른 마크다운 블록은 일절 배제하고 반드시 오직 아래 포맷의 JSON 배열 데이터만 출력하세요.
 
         [뉴스 기사]
@@ -102,7 +186,7 @@ def run_infra_agent_pipeline():
                 "source": "전력 공급원 (예: Nuclear, Grid, Solar, Wind)",
                 "status": "active",
                 "desc": "뉴스나 시나리오를 요약한 한글 한 문장 설명.",
-                "location_string": "도시 이름, 국가 이름 (예: Virginia, USA)"
+                "location_string": "뉴스에 나온 실제 도시/지역 이름 (예: Virginia, USA). 뉴스에 지명이 없으면 빈 문자열"
             }}
         ]
         """
@@ -121,21 +205,30 @@ def run_infra_agent_pipeline():
             
         has_new_data = False
         for new_item in new_infra_items:
-            if any(item['name'] == new_item['name'] for item in existing_data):
-                new_item['name'] = f"{new_item['name']} Phase {next_id}"
-                
-            location_str = new_item.get("location_string", "Ohio, USA")
-            location = geolocator.geocode(location_str)
-            if location:
-                new_item["lat"] = round(location.latitude, 4)
-                new_item["lng"] = round(location.longitude, 4)
-            else:
-                new_item["lat"] = 40.4173
-                new_item["lng"] = -82.9071
-                
+            # 1) 위치를 먼저 확정한다. 지오코딩이 실패하거나 나라·주 단위 centroid,
+            #    동명 지명(예: Denmark -> 미국 메인주 Denmark)으로 잡히면 좌표를
+            #    지어내지 않고 이 항목을 건너뛴다.
+            #    (예전에는 실패 시 전부 오하이오 40.4173,-82.9071 로 들어갔다)
+            location_str = new_item.get("location_string") or ""
+            coords = _geocode_location(geolocator, location_str)
+            if coords is None:
+                print(f"⚠️ 위치 확인 실패로 건너뜀: {new_item.get('name')} ({location_str!r})")
+                continue
+            new_item["lat"], new_item["lng"] = coords
+
             if "location_string" in new_item:
                 del new_item["location_string"]
-                
+
+            # 2) 이미 있는 시설이면 이름을 'Phase {id}' 로 바꿔 새 행을 만들지 않고
+            #    기존 행의 변동 정보만 갱신한다. (중복 누적의 원인)
+            dup = next((ex for ex in existing_data if is_same_facility(new_item, ex)), None)
+            if dup is not None:
+                for key in ("load", "source", "desc", "status"):
+                    if new_item.get(key):
+                        dup[key] = new_item[key]
+                print(f"↺ 기존 항목 갱신(신규 행 없음): {dup['name']}")
+                continue
+
             new_item["id"] = next_id
             next_id += 1
             existing_data.append(new_item)
