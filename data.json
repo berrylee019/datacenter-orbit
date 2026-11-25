@@ -1583,172 +1583,7 @@
     "lng": 42.3528
   },
   {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 135
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 136
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 137
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 138
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 139
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 140
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 141
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 142
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 143
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 144
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 145
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 146
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 147
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 148
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 149
-  },
-  {
-    "id": 150,
+    "id": 135,
     "name": "Google Tennessee SMR Phase 150",
     "type": "SMR",
     "load": "50 MW",
@@ -1759,7 +1594,7 @@
     "lng": -86.282
   },
   {
-    "id": 151,
+    "id": 136,
     "name": "Microsoft Saudi Arabia East Datacenter Region Phase 151",
     "type": "AIDC",
     "load": "300 MW",
@@ -1770,172 +1605,7 @@
     "lng": 42.3528
   },
   {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 152
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 153
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 154
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 155
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 156
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 157
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 158
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 159
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 160
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 161
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 162
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 163
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 164
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 165
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 166
-  },
-  {
-    "id": 167,
+    "id": 137,
     "name": "Google Tennessee SMR Phase 167",
     "type": "SMR",
     "load": "50 MW",
@@ -1946,7 +1616,7 @@
     "lng": -86.282
   },
   {
-    "id": 168,
+    "id": 138,
     "name": "Microsoft Saudi Arabia East AIDC",
     "type": "AIDC",
     "load": "250 MW",
@@ -1957,172 +1627,7 @@
     "lng": 42.3528
   },
   {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 169
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 170
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 171
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 172
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 173
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 174
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 175
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 176
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 177
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 178
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 179
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 180
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 181
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 182
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 183
-  },
-  {
-    "id": 184,
+    "id": 139,
     "name": "Google Tennessee SMR Phase 184",
     "type": "SMR",
     "load": "50 MW",
@@ -2133,403 +1638,7 @@
     "lng": -86.282
   },
   {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 185
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 186
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 187
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 188
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 189
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 190
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 191
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 192
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 193
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 194
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 195
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 196
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 197
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 198
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 199
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 200
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 201
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 202
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 203
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 204
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 205
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 206
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 207
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 208
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 209
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 210
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 211
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 212
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 213
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 214
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 215
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 216
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 217
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 218
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 219
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 220
-  },
-  {
-    "id": 221,
+    "id": 140,
     "name": "Microsoft Saudi Arabia East Datacenter Region Phase 221",
     "type": "AIDC",
     "load": "500 MW",
@@ -2540,7 +1649,7 @@
     "lng": 42.3528
   },
   {
-    "id": 222,
+    "id": 141,
     "name": "Google Tennessee SMR Phase 222",
     "type": "SMR",
     "load": "50 MW",
@@ -2551,337 +1660,7 @@
     "lng": -86.282
   },
   {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 223
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 224
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 225
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 226
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 227
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 228
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 229
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 230
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 231
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 232
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 233
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 234
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 235
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 236
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 237
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 238
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 239
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 240
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 241
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 242
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 243
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 244
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 245
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 246
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 247
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 248
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 249
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 250
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 251
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 252
-  },
-  {
-    "id": 253,
+    "id": 142,
     "name": "Amazon Indiana SMR Plant",
     "type": "SMR",
     "load": "960 MW",
@@ -2892,7 +1671,7 @@
     "lng": -86.1747
   },
   {
-    "id": 254,
+    "id": 143,
     "name": "Google Tennessee SMR Phase 255",
     "type": "SMR",
     "load": "50 MW",
@@ -2903,139 +1682,7 @@
     "lng": -86.282
   },
   {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 255
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 256
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 257
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 258
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 259
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 260
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 261
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 262
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 263
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 264
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 265
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 266
-  },
-  {
-    "id": 267,
+    "id": 144,
     "name": "Microsoft Saudi Arabia East Datacenter",
     "type": "AIDC",
     "load": "200 MW",
@@ -3046,7 +1693,7 @@
     "lng": 42.3528
   },
   {
-    "id": 268,
+    "id": 145,
     "name": "Amazon Indiana SMR Plant Phase 268",
     "type": "SMR",
     "load": "960 MW",
@@ -3057,7 +1704,7 @@
     "lng": -86.1747
   },
   {
-    "id": 269,
+    "id": 146,
     "name": "Google Tennessee SMR Phase 269",
     "type": "SMR",
     "load": "50 MW",
@@ -3068,304 +1715,7 @@
     "lng": -86.282
   },
   {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 270
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 271
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 272
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 273
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 274
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 275
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 276
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 277
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 278
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 279
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 280
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 281
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 282
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 283
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 284
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 285
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 286
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 287
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 288
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 289
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 290
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 291
-  },
-  {
-    "name": "STT GDC 500MW - Johor 2nd Phase",
-    "lat": 1.485,
-    "lng": 103.761,
-    "load": "500MW",
-    "source": "TNB + Solar",
-    "desc": "ST Telemedia Global Data Centres Johor expansion",
-    "type": "AIDC",
-    "status": "active",
-    "id": 292
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 293
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 294
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 295
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 296
-  },
-  {
-    "id": 297,
+    "id": 147,
     "name": "Google Tennessee SMR Phase 297",
     "type": "SMR",
     "load": "50 MW",
@@ -3376,7 +1726,7 @@
     "lng": -86.282
   },
   {
-    "id": 298,
+    "id": 148,
     "name": "Microsoft Mount Pleasant AIDC Phase 298",
     "type": "AIDC",
     "load": "300 MW",
@@ -3387,7 +1737,7 @@
     "lng": -87.8543
   },
   {
-    "id": 299,
+    "id": 149,
     "name": "Microsoft Saudi Arabia East AIDC Phase 299",
     "type": "AIDC",
     "load": "250 MW",
@@ -3398,40 +1748,7 @@
     "lng": 42.3528
   },
   {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 300
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 301
-  },
-  {
-    "name": "SoftBank SB Int 1GW AIDC - Osaka",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "load": "1000MW",
-    "source": "KEPCO Grid + SMR",
-    "desc": "SoftBank's 1GW AI datacenter in Kansai, for domestic sovereign AI",
-    "type": "AIDC",
-    "status": "active",
-    "id": 302
-  },
-  {
-    "id": 303,
+    "id": 150,
     "name": "Google Tennessee SMR Phase 303",
     "type": "SMR",
     "load": "50 MW",
@@ -3442,7 +1759,7 @@
     "lng": -86.282
   },
   {
-    "id": 304,
+    "id": 151,
     "name": "Microsoft Saudi Arabia East AIDC Phase 304",
     "type": "AIDC",
     "load": "180 MW",
@@ -3453,7 +1770,7 @@
     "lng": 42.3528
   },
   {
-    "id": 305,
+    "id": 152,
     "name": "Microsoft Mount Pleasant AIDC Phase 305",
     "type": "AIDC",
     "load": "100 MW",
@@ -3464,73 +1781,7 @@
     "lng": -87.8543
   },
   {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 306
-  },
-  {
-    "name": "Equinix xAI Colossus 2 - Memphis",
-    "lat": 35.1495,
-    "lng": -90.049,
-    "load": "800MW",
-    "source": "TVA Grid + Gas Turbines",
-    "desc": "Second phase of xAI Colossus supercluster, Memphis",
-    "type": "AIDC",
-    "status": "active",
-    "id": 307
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 308
-  },
-  {
-    "name": "Digital Realty 400MW - Frankfurt AI Hub",
-    "lat": 50.1109,
-    "lng": 8.6821,
-    "load": "400MW",
-    "source": "Amprion Grid + Wind",
-    "desc": "Digital Realty AI hub for EU sovereign AI, Frankfurt",
-    "type": "AIDC",
-    "status": "active",
-    "id": 309
-  },
-  {
-    "name": "AdaniConneX 1GW AIDC - Hyderabad",
-    "lat": 17.385,
-    "lng": 78.4867,
-    "load": "1000MW",
-    "source": "NTPC + Solar",
-    "desc": "AdaniConneX hyperscale AI campus, Hyderabad phase 2",
-    "type": "AIDC",
-    "status": "active",
-    "id": 310
-  },
-  {
-    "name": "CyrusOne 600MW - Madrid AI Corridor",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "load": "600MW",
-    "source": "Red Electrica + Solar",
-    "desc": "CyrusOne Iberian AI hub",
-    "type": "AIDC",
-    "status": "active",
-    "id": 311
-  },
-  {
-    "id": 312,
+    "id": 153,
     "name": "Google Tennessee 50MW SMR",
     "type": "SMR",
     "load": "50 MW",
@@ -3541,7 +1792,7 @@
     "lng": -86.282
   },
   {
-    "id": 313,
+    "id": 154,
     "name": "Microsoft Mount Pleasant Datacenter",
     "type": "AIDC",
     "load": "",
@@ -3552,7 +1803,7 @@
     "lng": -87.8543
   },
   {
-    "id": 314,
+    "id": 155,
     "name": "Microsoft Saudi Arabia East AIDC Phase 315",
     "type": "AIDC",
     "load": "350 MW",
@@ -3563,7 +1814,7 @@
     "lng": 42.3528
   },
   {
-    "id": 315,
+    "id": 156,
     "name": "Google Tennessee SMR Phase 316",
     "type": "SMR",
     "load": "50 MW",
@@ -3574,7 +1825,7 @@
     "lng": -86.282
   },
   {
-    "id": 316,
+    "id": 157,
     "name": "Microsoft Mount Pleasant AIDC Phase 317",
     "type": "AIDC",
     "load": "200 MW",
@@ -3585,7 +1836,7 @@
     "lng": -87.8543
   },
   {
-    "id": 317,
+    "id": 158,
     "name": "Microsoft Saudi Arabia East AIDC Phase 318",
     "type": "AIDC",
     "load": "300 MW",
@@ -3596,7 +1847,7 @@
     "lng": 42.3528
   },
   {
-    "id": 318,
+    "id": 159,
     "name": "Google Tennessee SMR Phase 319",
     "type": "SMR",
     "load": "50 MW",
@@ -3607,7 +1858,7 @@
     "lng": -86.282
   },
   {
-    "id": 319,
+    "id": 160,
     "name": "Microsoft Mount Pleasant AIDC Phase 320",
     "type": "AIDC",
     "load": "150 MW",
@@ -3618,7 +1869,7 @@
     "lng": -87.8543
   },
   {
-    "id": 320,
+    "id": 161,
     "name": "Google Tennessee SMR Phase 321",
     "type": "SMR",
     "load": "50 MW",
@@ -3629,7 +1880,7 @@
     "lng": -86.282
   },
   {
-    "id": 321,
+    "id": 162,
     "name": "Microsoft Mount Pleasant AIDC Phase 322",
     "type": "AIDC",
     "load": "200 MW",
@@ -3640,7 +1891,7 @@
     "lng": -87.8543
   },
   {
-    "id": 322,
+    "id": 163,
     "name": "Microsoft Saudi Arabia East AIDC Phase 323",
     "type": "AIDC",
     "load": "300 MW",
@@ -3651,7 +1902,7 @@
     "lng": 46.716
   },
   {
-    "id": 323,
+    "id": 164,
     "name": "Microsoft Saudi Arabia East AIDC Phase 324",
     "type": "AIDC",
     "load": "300 MW",
@@ -3662,7 +1913,7 @@
     "lng": 50.1259
   },
   {
-    "id": 324,
+    "id": 165,
     "name": "Google Tennessee SMR Phase 325",
     "type": "SMR",
     "load": "50 MW",
@@ -3673,7 +1924,7 @@
     "lng": -86.282
   },
   {
-    "id": 325,
+    "id": 166,
     "name": "Microsoft Mount Pleasant AIDC Phase 326",
     "type": "AIDC",
     "load": "100 MW",
@@ -3684,7 +1935,7 @@
     "lng": -87.8543
   },
   {
-    "id": 326,
+    "id": 167,
     "name": "Google Tennessee SMR Plant",
     "type": "SMR",
     "load": "50 MW",
@@ -3695,7 +1946,7 @@
     "lng": -86.282
   },
   {
-    "id": 327,
+    "id": 168,
     "name": "Microsoft Saudi Arabia East AIDC Phase 328",
     "type": "AIDC",
     "load": "300 MW",
@@ -3706,7 +1957,7 @@
     "lng": 42.3528
   },
   {
-    "id": 328,
+    "id": 169,
     "name": "Amazon Ohio SMR AIDC",
     "type": "AIDC",
     "load": "150 MW",
@@ -3717,7 +1968,7 @@
     "lng": -82.6881
   },
   {
-    "id": 329,
+    "id": 170,
     "name": "Microsoft Saudi Arabia East AIDC Region",
     "type": "AIDC",
     "load": "300 MW",
@@ -3728,7 +1979,7 @@
     "lng": 42.3528
   },
   {
-    "id": 330,
+    "id": 171,
     "name": "Google Tennessee SMR Phase 331",
     "type": "SMR",
     "load": "50 MW",
@@ -3739,7 +1990,7 @@
     "lng": -86.282
   },
   {
-    "id": 331,
+    "id": 172,
     "name": "Microsoft Mount Pleasant AIDC Phase 332",
     "type": "AIDC",
     "load": "250 MW",
@@ -3750,7 +2001,7 @@
     "lng": -87.8543
   },
   {
-    "id": 332,
+    "id": 173,
     "name": "Google Tennessee SMR Power Project",
     "type": "SMR",
     "load": "50 MW",
@@ -3761,7 +2012,7 @@
     "lng": -86.282
   },
   {
-    "id": 333,
+    "id": 174,
     "name": "Microsoft Mount Pleasant AIDC Phase 334",
     "type": "AIDC",
     "load": "150 MW",
@@ -3772,7 +2023,7 @@
     "lng": -87.8543
   },
   {
-    "id": 334,
+    "id": 175,
     "name": "Microsoft West Denmark AIDC Region",
     "type": "AIDC",
     "load": "180 MW",
@@ -3792,6 +2043,6 @@
     "type": "NEOCLOUD",
     "status": "active",
     "operator": "Crusoe",
-    "id": 335
+    "id": 176
   }
 ]
