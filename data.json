@@ -1472,5 +1472,17 @@
     "status": "active",
     "operator": "Crusoe",
     "id": 124
+  },
+  {
+    "name": "Megaspeed - Johor Cluster (임차, Speedmatrix)",
+    "lat": 1.485,
+    "lng": 103.761,
+    "load": "Unknown",
+    "source": "TNB + Solar (임차)",
+    "desc": "Megaspeed 임차형 클러스터, Johor Iskandar Puteri Speedmatrix 자회사. 싱가포르 본사, 말레이시아+인도네시아 3개 표기, 실제 8개 운영사 시설에 분산. 수출통제 조사 중 - 위치는 대표 클러스터로 표기",
+    "type": "NEOCLOUD",
+    "status": "under investigation",
+    "operator": "Megaspeed",
+    "id": 125
   }
 ]
