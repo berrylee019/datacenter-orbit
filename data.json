@@ -515,10 +515,10 @@
     "id": 42,
     "name": "Microsoft Mount Pleasant Data Center",
     "type": "AIDC",
-    "load": "300 MW",
+    "load": "150 MW",
     "source": "Grid",
     "status": "active",
-    "desc": "Microsoft는 위스콘신 Mount Pleasant에 첫 데이터센터 시설 건설을 완료하고 운영을 시작했습니다.",
+    "desc": "Microsoft가 위스콘신주 마운트 플레전트에 첫 번째 데이터센터 시설 건설을 완료했습니다.",
     "lat": 42.7192,
     "lng": -87.8543
   },
@@ -1369,7 +1369,7 @@
     "load": "250 MW",
     "source": "Grid",
     "status": "active",
-    "desc": "마이크로소프트가 2026년 11월 가동 예정인 사우디아라비아 동부 데이터센터 리전을 발표.",
+    "desc": "Microsoft가 2026년 11월 사우디아라비아 동부 지역에 새로운 데이터센터를 가동할 예정입니다.",
     "lat": 25.6243,
     "lng": 42.3528
   },
