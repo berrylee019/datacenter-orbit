@@ -113,6 +113,12 @@ NEOCLOUD_POOL = [
     {"name":"Fluidstack - Reykjanes Iceland (대표)","lat":63.9850,"lng":-22.6050,"load":"40MW","source":"Landsvirkjun Geothermal + Hydro","desc":"Fluidstack 아이슬란드 대표 거점, 지열+수력 기반","type":"NEOCLOUD","status":"active","operator":"Fluidstack"},
     {"name":"Megaspeed - Johor Cluster (임차, Speedmatrix)","lat":1.4850,"lng":103.7610,"load":"Unknown","source":"TNB + Solar (임차)","desc":"Megaspeed 임차형 클러스터, Johor Iskandar Puteri Speedmatrix 자회사. 싱가포르 본사, 말레이시아+인도네시아 3개 표기, 실제 8개 운영사 시설에 분산. 수출통제 조사 중 - 위치는 대표 클러스터로 표기","type":"NEOCLOUD","status":"under investigation","operator":"Megaspeed"},
 ]
+# === SPACEX_POOL (형님 신규 - 2026-11 발표) ===
+# 승인 전이라 status: planned으로 구분. active로 찍으면 안 됨
+SPACEX_POOL = [
+    {"name":"SpaceX Starbase AI Supercomputing Campus","lat":25.997,"lng":-97.155,"load":"748MW","source":"자체 가스발전 35기 + Brownsville 상하수도","desc":"SpaceX Starbase, TX. 240억달러, 444에이커, 12/9 공청회 예정, status planned","type":"AIDC","status":"planned","operator":"SpaceX"},
+    {"name":"SpaceX Cochise AI Supercomputing Campus","lat":32.15,"lng":-109.80,"load":"6000MW","source":"SSVEC/AEPCO 외부망 + 24GWh 배터리","desc":"SpaceX Cochise County, AZ. 500억달러, 747에이커, 9동, 4단계 1.5GW씩, Willcox Playa 옆, Tombstone Resources LLC 명의, 12/9 공청회 예정","type":"AIDC","status":"planned","operator":"SpaceX"},
+]
 
 # 검증된 풀 (예시 - 형님 풀 12개 중 3개 랜덤)
 VERIFIED_POOL = [
@@ -188,6 +194,15 @@ def main():
     cleaned.extend(neocloud_added)
     added.extend(neocloud_added)
 
+    # === 【entity-SPACEX¦canonical_name=SpaceX】 추가 (형님 신규) ===
+    # 2개 세트라 한 번에 둘 다 추가, 이후에는 name 중복으로 안 들어감
+    for sp in SPACEX_POOL:
+        if not any(ex.get('name') == sp['name'] for ex in cleaned):
+            sp['id'] = max([x.get('id',0) for x in cleaned], default=0)+1
+            cleaned.append(sp)
+            added.append(sp)
+            print(f" [SPACEX] ID {sp['id']} 추가: {sp['name']}")
+            
     # ID 재부여
     for i, it in enumerate(cleaned, start=1):
         it['id']=i
