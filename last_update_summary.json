@@ -1,19 +1,43 @@
 {
-  "last_updated": "2026-11-26T07:58:13.813710+00:00",
-  "total_count": 125,
+  "last_updated": "2026-11-27T08:00:43.585690+00:00",
+  "total_count": 128,
   "newly_added": [
     {
-      "name": "Megaspeed - Johor Cluster (임차, Speedmatrix)",
-      "lat": 1.485,
-      "lng": 103.761,
-      "load": "Unknown",
-      "source": "TNB + Solar (임차)",
-      "desc": "Megaspeed 임차형 클러스터, Johor Iskandar Puteri Speedmatrix 자회사. 싱가포르 본사, 말레이시아+인도네시아 3개 표기, 실제 8개 운영사 시설에 분산. 수출통제 조사 중 - 위치는 대표 클러스터로 표기",
+      "name": "Lambda - Ashburn VA (대표)",
+      "lat": 39.0438,
+      "lng": -77.4875,
+      "load": "50MW",
+      "source": "PJM Grid",
+      "desc": "Lambda 미국 15개 중 대표 거점, Ashburn. GPU 클라우드 원조격",
       "type": "NEOCLOUD",
-      "status": "under investigation",
-      "operator": "Megaspeed",
-      "id": 125
+      "status": "active",
+      "operator": "Lambda",
+      "id": 126
+    },
+    {
+      "name": "SpaceX Starbase AI Supercomputing Campus",
+      "lat": 25.997,
+      "lng": -97.155,
+      "load": "748MW",
+      "source": "자체 가스발전 35기 + Brownsville 상하수도",
+      "desc": "SpaceX Starbase, TX. 240억달러, 444에이커, 12/9 공청회 예정, status planned",
+      "type": "AIDC",
+      "status": "planned",
+      "operator": "SpaceX",
+      "id": 127
+    },
+    {
+      "name": "SpaceX Cochise AI Supercomputing Campus",
+      "lat": 32.15,
+      "lng": -109.8,
+      "load": "6000MW",
+      "source": "SSVEC/AEPCO 외부망 + 24GWh 배터리",
+      "desc": "SpaceX Cochise County, AZ. 500억달러, 747에이커, 9동, 4단계 1.5GW씩, Willcox Playa 옆, Tombstone Resources LLC 명의, 12/9 공청회 예정",
+      "type": "AIDC",
+      "status": "planned",
+      "operator": "SpaceX",
+      "id": 128
     }
   ],
-  "korean_time": "2026-11-26 07:58 KST"
+  "korean_time": "2026-11-27 08:00 KST"
 }
