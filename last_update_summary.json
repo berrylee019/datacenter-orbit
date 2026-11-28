@@ -1,43 +1,19 @@
 {
-  "last_updated": "2026-11-27T08:00:43.585690+00:00",
-  "total_count": 128,
+  "last_updated": "2026-11-28T07:29:34.729866+00:00",
+  "total_count": 129,
   "newly_added": [
     {
-      "name": "Lambda - Ashburn VA (대표)",
-      "lat": 39.0438,
-      "lng": -77.4875,
-      "load": "50MW",
-      "source": "PJM Grid",
-      "desc": "Lambda 미국 15개 중 대표 거점, Ashburn. GPU 클라우드 원조격",
+      "name": "Fluidstack - Reykjanes Iceland (대표)",
+      "lat": 63.985,
+      "lng": -22.605,
+      "load": "40MW",
+      "source": "Landsvirkjun Geothermal + Hydro",
+      "desc": "Fluidstack 아이슬란드 대표 거점, 지열+수력 기반",
       "type": "NEOCLOUD",
       "status": "active",
-      "operator": "Lambda",
-      "id": 126
-    },
-    {
-      "name": "SpaceX Starbase AI Supercomputing Campus",
-      "lat": 25.997,
-      "lng": -97.155,
-      "load": "748MW",
-      "source": "자체 가스발전 35기 + Brownsville 상하수도",
-      "desc": "SpaceX Starbase, TX. 240억달러, 444에이커, 12/9 공청회 예정, status planned",
-      "type": "AIDC",
-      "status": "planned",
-      "operator": "SpaceX",
-      "id": 127
-    },
-    {
-      "name": "SpaceX Cochise AI Supercomputing Campus",
-      "lat": 32.15,
-      "lng": -109.8,
-      "load": "6000MW",
-      "source": "SSVEC/AEPCO 외부망 + 24GWh 배터리",
-      "desc": "SpaceX Cochise County, AZ. 500억달러, 747에이커, 9동, 4단계 1.5GW씩, Willcox Playa 옆, Tombstone Resources LLC 명의, 12/9 공청회 예정",
-      "type": "AIDC",
-      "status": "planned",
-      "operator": "SpaceX",
-      "id": 128
+      "operator": "Fluidstack",
+      "id": 129
     }
   ],
-  "korean_time": "2026-11-27 08:00 KST"
+  "korean_time": "2026-11-28 07:29 KST"
 }

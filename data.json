@@ -1520,5 +1520,17 @@
     "status": "planned",
     "operator": "SpaceX",
     "id": 128
+  },
+  {
+    "name": "Fluidstack - Reykjanes Iceland (대표)",
+    "lat": 63.985,
+    "lng": -22.605,
+    "load": "40MW",
+    "source": "Landsvirkjun Geothermal + Hydro",
+    "desc": "Fluidstack 아이슬란드 대표 거점, 지열+수력 기반",
+    "type": "NEOCLOUD",
+    "status": "active",
+    "operator": "Fluidstack",
+    "id": 129
   }
 ]
